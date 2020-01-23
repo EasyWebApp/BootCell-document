@@ -2,32 +2,39 @@
 layout: docs
 title: BreadCrumb
 description: Indicate the current page's location within a navigational hierarchy that automatically adds separators via CSS.
-group: components
+group: Components
 ---
 
 import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
+import { Example } from '../../../source/component/Example';
 
 ## Example
 
-<BreadCrumb path={[{ title: 'Home' }]} />
+<Example>
+    <BreadCrumb path={[{ title: 'Home' }]} />
+</Example>
 
 ```javascript
 <BreadCrumb path={[{ title: 'Home' }]} />
 ```
 
-<BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
+<Example>
+    <BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
+</Example>
 
 ```javascript
 <BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
 ```
 
-<BreadCrumb
-    path={[
-        { href: '#', title: 'Home' },
-        { href: '#', title: 'Library' },
-        { title: 'Data' }
-    ]}
-/>
+<Example>
+    <BreadCrumb
+        path={[
+            { href: '#', title: 'Home' },
+            { href: '#', title: 'Library' },
+            { title: 'Data' }
+        ]}
+    />
+</Example>
 
 ```javascript
 <BreadCrumb

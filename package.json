@@ -1,17 +1,20 @@
 {
     "name": "bootcell-document",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Re-implemented Official Web-site of BootStrap based on WebCell, BootCell & MarkCell",
     "dependencies": {
         "boot-cell": "^0.23.2",
         "cell-router": "^2.0.0-rc.6",
         "classnames": "^2.2.6",
+        "lodash.groupby": "^4.6.0",
         "mobx": "^5.15.2",
         "mobx-web-cell": "^0.2.5",
         "web-cell": "^2.0.0-rc.15"
     },
     "devDependencies": {
+        "@types/lodash.groupby": "^4.6.6",
         "husky": "^4.2.0",
+        "less": "^3.10.3",
         "lint-staged": "^9.5.0",
         "mark-cell": "^0.2.1",
         "parcel": "^1.12.4",
@@ -23,7 +26,7 @@
         "tabWidth": 4
     },
     "lint-staged": {
-        "*.{html,md,mdx,json,yml,ts,tsx}": [
+        "*.{html,md,mdx,less,json,yml,ts,tsx}": [
             "prettier --write",
             "git add"
         ]
