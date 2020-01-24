@@ -1,6 +1,6 @@
 {
     "name": "bootcell-document",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "Re-implemented Official Web-site of BootStrap based on WebCell, BootCell & MarkCell",
     "dependencies": {
         "boot-cell": "^0.23.2",
@@ -13,10 +13,10 @@
     },
     "devDependencies": {
         "@types/lodash.groupby": "^4.6.6",
-        "husky": "^4.2.0",
+        "husky": "^4.2.1",
         "less": "^3.10.3",
         "lint-staged": "^9.5.0",
-        "mark-cell": "^0.2.1",
+        "mark-cell": "^0.2.3",
         "parcel": "^1.12.4",
         "prettier": "^1.19.1",
         "typescript": "^3.7.5"

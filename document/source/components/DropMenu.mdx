@@ -40,15 +40,18 @@ Any single `.btn` can be turned into a dropdown toggle with some markup changes.
     />
 </Example>
 
-```javascript
-<DropMenu
+```JavaScript
+import { render } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(<DropMenu
     title="Dropdown button"
     list={[
         { href: '#', title: 'Action' },
         { href: '#', title: 'Another action' },
         { href: '#', title: 'Something else here' }
     ]}
-/>
+/>);
 ```
 
 The best part is you can do this with any button variant, too:
@@ -67,8 +70,11 @@ The best part is you can do this with any button variant, too:
     />
 </Example>
 
-```javascript
-<DropMenu
+```JavaScript
+import { render } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(<DropMenu
     buttonKind="danger"
     title="Danger"
     list={[
@@ -78,7 +84,7 @@ The best part is you can do this with any button variant, too:
         {},
         { href: '#', title: 'Separated link' }
     ]}
-/>
+/>);
 ```
 
 ### Split button
@@ -98,8 +104,11 @@ The best part is you can do this with any button variant, too:
     />
 </Example>
 
-```javascript
-<DropMenu
+```JavaScript
+import { render } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(<DropMenu
     buttonKind="danger"
     title="Action"
     href="https://web-cell.dev/BootCell/"
@@ -110,5 +119,5 @@ The best part is you can do this with any button variant, too:
         {},
         { href: '#', title: 'Separated link' }
     ]}
-/>
+/>);
 ```

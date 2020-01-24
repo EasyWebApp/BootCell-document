@@ -14,16 +14,22 @@ import { Example } from '../../../source/component/Example';
     <BreadCrumb path={[{ title: 'Home' }]} />
 </Example>
 
-```javascript
-<BreadCrumb path={[{ title: 'Home' }]} />
+```JavaScript
+import { render } from 'web-cell';
+import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
+
+render(<BreadCrumb path={[{ title: 'Home' }]} />);
 ```
 
 <Example>
     <BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
 </Example>
 
-```javascript
-<BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
+```JavaScript
+import { render } from 'web-cell';
+import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
+
+render(<BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />);
 ```
 
 <Example>
@@ -36,14 +42,17 @@ import { Example } from '../../../source/component/Example';
     />
 </Example>
 
-```javascript
-<BreadCrumb
+```JavaScript
+import { render } from 'web-cell';
+import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
+
+render(<BreadCrumb
     path={[
         { href: '#', title: 'Home' },
         { href: '#', title: 'Library' },
         { title: 'Data' }
     ]}
-/>
+/>);
 ```
 
 ## Changing the separator
@@ -65,9 +74,3 @@ The separator can be removed by setting `$breadcrumb-divider` to `none`:
 ```scss
 $breadcrumb-divider: none;
 ```
-
-## Accessibility
-
-Since breadcrumbs provide a navigation, it's a good idea to add a meaningful label such as `aria-label="breadcrumb"` to describe the type of navigation provided in the `<nav>` element, as well as applying an `aria-current="page"` to the last item of the set to indicate that it represents the current page.
-
-For more information, see the [WAI-ARIA Authoring Practices for the breadcrumb pattern](https://www.w3.org/TR/wai-aria-practices/#breadcrumb).
