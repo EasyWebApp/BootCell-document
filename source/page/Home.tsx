@@ -1,5 +1,5 @@
 import { createCell } from 'web-cell';
-import { Jumbotron } from '../component/Jumbotron';
+import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
 import { Button } from 'boot-cell/source/Form/Button';
 
 import routes from '../../document/dist';

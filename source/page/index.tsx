@@ -5,6 +5,7 @@ import { HTMLRouter } from 'cell-router/source';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 
 import { history } from '../model';
+import { SideNav } from '../component/SideNav';
 import { HomePage } from './Home';
 import routes from '../../document/dist';
 
@@ -28,11 +29,15 @@ export class PageRouter extends HTMLRouter {
                 const Content = await component();
 
                 return () => (
-                    <Fragment>
-                        <h1>{title}</h1>
-                        <p className="lead">{description}</p>
-                        <Content />
-                    </Fragment>
+                    <div className="d-flex">
+                        <SideNav className="p-3" menu={side_menu} />
+
+                        <div className="flex-fill p-3">
+                            <h1>{title}</h1>
+                            <p className="lead">{description}</p>
+                            <Content />
+                        </div>
+                    </div>
                 );
             }
         }))
@@ -47,62 +52,30 @@ export class PageRouter extends HTMLRouter {
         document.execCommand('copy');
     }
 
-    renderSideMenu() {
-        return (
-            <ul className="list-unstyled">
-                {Object.entries(side_menu).map(([group, list]) => (
-                    <li>
-                        <h5>{group}</h5>
-
-                        <ul className="list-unstyled">
-                            {list.map(({ href, title }) => (
-                                <li>
-                                    <a href={href}>{title}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </li>
-                ))}
-            </ul>
-        );
-    }
-
-    renderFooter() {
-        return (
-            <footer className="text-center bg-light py-5">
-                Proudly developed with{' '}
-                <a target="_blank" href="https://web-cell.dev/">
-                    WebCell v2
-                </a>
-                ,{' '}
-                <a target="_blank" href="https://web-cell.dev/BootCell/">
-                    BootCell v1
-                </a>{' '}
-                &amp;{' '}
-                <a
-                    target="_blank"
-                    href="https://github.com/EasyWebApp/MarkCell"
-                >
-                    MarkCell
-                </a>
-            </footer>
-        );
-    }
-
     render() {
-        const documents = history.path.startsWith('component');
-
         return (
             <Fragment>
-                <NavBar title="BootCell" />
+                <NavBar brand="BootCell" />
 
-                <div className="mt-5 d-flex">
-                    {!documents ? null : (
-                        <nav className="p-3">{this.renderSideMenu()}</nav>
-                    )}
-                    <main className="flex-fill p-3">{super.render()}</main>
-                </div>
-                {documents ? null : this.renderFooter()}
+                <main className="mt-5">{super.render()}</main>
+
+                <footer className="text-center bg-light py-5">
+                    Proudly developed with{' '}
+                    <a target="_blank" href="https://web-cell.dev/">
+                        WebCell v2
+                    </a>
+                    ,{' '}
+                    <a target="_blank" href="https://web-cell.dev/BootCell/">
+                        BootCell v1
+                    </a>{' '}
+                    &amp;{' '}
+                    <a
+                        target="_blank"
+                        href="https://github.com/EasyWebApp/MarkCell"
+                    >
+                        MarkCell
+                    </a>
+                </footer>
             </Fragment>
         );
     }
