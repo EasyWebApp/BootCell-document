@@ -1,11 +1,18 @@
 import { createCell } from 'web-cell';
-import { WebCellProps } from 'boot-cell/source/utility/type';
+import { HTMLProps, WebCellProps } from 'boot-cell/source/utility/type';
+import classNames from 'classnames';
 
-import style from './Example.module.css';
-
-export function Example({ defaultSlot }: WebCellProps) {
+export function Example({ className, defaultSlot }: HTMLProps & WebCellProps) {
     return (
-        <div className={`border border-light p-4 ${style.box}`}>
+        <div
+            className={classNames(
+                'border',
+                'border-light',
+                'p-4',
+                'bd-example',
+                className
+            )}
+        >
             {defaultSlot}
         </div>
     );
