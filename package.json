@@ -1,6 +1,6 @@
 {
     "name": "bootcell-document",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "Re-implemented Official Web-site of BootStrap based on WebCell, BootCell & MarkCell",
     "dependencies": {
         "boot-cell": "^1.0.0-beta.0",
