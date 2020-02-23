@@ -1,17 +1,18 @@
 ---
 layout: docs
 title: Collapse
-description: Toggle the visibility of content across your project with a few classes and our JavaScript plugins.
+description: Toggle the visibility of content across your project.
 group: Components
 toc: true
 ---
 
 import { AccordionList } from 'boot-cell/source/Content/Accordion';
+
 import { Example } from '../../../source/component/Example';
 
 ## Accordion example
 
-Using the [card](components/card) component, you can extend the default collapse behavior to create an accordion. To properly achieve the accordion style, be sure to use `.accordion` as a wrapper.
+Using the [card](components/card) component, you can extend the default collapse behavior to create an accordion.
 
 <Example>
     <AccordionList
@@ -37,21 +38,23 @@ Using the [card](components/card) component, you can extend the default collapse
 import { render } from 'web-cell';
 import { AccordionList } from 'boot-cell/source/Content/Accordion';
 
-render(<AccordionList
-    list={[
-        {
-            title: 'Collapsible Group Item #1',
-            content: "Content 1",
-            active: true
-        },
-        {
-            title: 'Collapsible Group Item #2',
-            content: "Content 2"
-        },
-        {
-            title: 'Collapsible Group Item #3',
-            content: "Content 3"
-        }
-    ]}
-/>);
+render(
+    <AccordionList
+        list={[
+            {
+                title: 'Collapsible Group Item #1',
+                content: "Content 1",
+                active: true
+            },
+            {
+                title: 'Collapsible Group Item #2',
+                content: "Content 2"
+            },
+            {
+                title: 'Collapsible Group Item #3',
+                content: "Content 3"
+            }
+        ]}
+    />
+);
 ```

@@ -6,6 +6,7 @@ group: Components
 ---
 
 import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
+
 import { Example } from '../../../source/component/Example';
 
 ## Example
@@ -46,18 +47,23 @@ render(<BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} /
 import { render } from 'web-cell';
 import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
 
-render(<BreadCrumb
-    path={[
-        { href: '#', title: 'Home' },
-        { href: '#', title: 'Library' },
-        { title: 'Data' }
-    ]}
-/>);
+render(
+    <BreadCrumb
+        path={[
+            { href: '#', title: 'Home' },
+            { href: '#', title: 'Library' },
+            { title: 'Data' }
+        ]}
+    />
+);
 ```
 
 ## Changing the separator
 
-Separators are automatically added in CSS through [`::before`](https://developer.mozilla.org/en-US/docs/Web/CSS/::before) and [`content`](https://developer.mozilla.org/en-US/docs/Web/CSS/content). They can be changed by changing `$breadcrumb-divider`. The [quote](https://sass-lang.com/documentation/functions/string#quote) function is needed to generate the quotes around a string, so if you want `>` as separator, you can use this:
+Separators are automatically added in CSS through [`::before`][1] and [`content`][2].
+They can be changed by changing `$breadcrumb-divider`.
+The [quote][3] function is needed to generate the quotes around a string,
+so if you want `>` as separator, you can use this:
 
 ```scss
 $breadcrumb-divider: quote('>');
@@ -74,3 +80,7 @@ The separator can be removed by setting `$breadcrumb-divider` to `none`:
 ```scss
 $breadcrumb-divider: none;
 ```
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/CSS/::before
+[2]: https://developer.mozilla.org/en-US/docs/Web/CSS/content
+[3]: https://sass-lang.com/documentation/functions/string#quote

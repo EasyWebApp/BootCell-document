@@ -26,30 +26,42 @@ import { Example } from '../../../source/component/Example';
 </Example>
 
 ```JavaScript
-<TooltipBox text="Tooltip on top">
-    <Button kind="secondary">Tooltip on top</Button>
-</TooltipBox>
-<TooltipBox position="right" text="Tooltip on right">
-    <Button kind="secondary">Tooltip on right</Button>
-</TooltipBox>
-<TooltipBox position="bottom" text="Tooltip on bottom">
-    <Button kind="secondary">Tooltip on bottom</Button>
-</TooltipBox>
-<TooltipBox position="left" text="Tooltip on left">
-    <Button kind="secondary">Tooltip on left</Button>
-</TooltipBox>
+import { render, Fragment } from 'web-cell';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+
+render(
+    <Fragment>
+        <TooltipBox text="Tooltip on top">
+            <Button kind="secondary">Tooltip on top</Button>
+        </TooltipBox>
+        <TooltipBox position="right" text="Tooltip on right">
+            <Button kind="secondary">Tooltip on right</Button>
+        </TooltipBox>
+        <TooltipBox position="bottom" text="Tooltip on bottom">
+            <Button kind="secondary">Tooltip on bottom</Button>
+        </TooltipBox>
+        <TooltipBox position="left" text="Tooltip on left">
+            <Button kind="secondary">Tooltip on left</Button>
+        </TooltipBox>
+    </Fragment>
+);
 ```
 
 And with custom HTML added:
 
 ```JavaScript
-<TooltipBox text={
-    <Fragment>
-        <em>Tooltip</em>{' '}
-        <u>with</u>{' '}
-        <b>HTML</b>
-    </Fragment>
-}>
-    <Button kind="secondary">Tooltip on left</Button>
-</TooltipBox>
+import { render } from 'web-cell';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+
+render(
+    <TooltipBox text={
+        <Fragment>
+            <em>Tooltip</em>{' '}
+            <u>with</u>{' '}
+            <b>HTML</b>
+        </Fragment>
+    }>
+        <Button kind="secondary">Tooltip on left</Button>
+    </TooltipBox>
+);
 ```

@@ -13,9 +13,11 @@ import { Example } from '../../../source/component/Example';
 
 ### Basic
 
-To encourage extensible and predictable toasts, we recommend a header and body. Toast headers use `display: flex`, allowing easy alignment of content thanks to our margin and flexbox utilities.
+To encourage extensible and predictable toasts, we recommend a header and body.
+Toast headers use `display: flex`, allowing easy alignment of content thanks to our margin and flexbox utilities.
 
-Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain your “toasted” content and strongly encourage a dismiss button.
+Toasts are as flexible as you need and have very little required markup.
+At a minimum, we require a single element to contain your “toasted” content and strongly encourage a dismiss button.
 
 <Example className="bg-light">
     <ToastBox
@@ -28,18 +30,24 @@ Toasts are as flexible as you need and have very little required markup. At a mi
 </Example>
 
 ```JavaScript
-<ToastBox
-    icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-    title="Bootstrap"
-    time="11 mins ago"
->
-    Hello, world! This is a toast message.
-</ToastBox>
+import { render } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <ToastBox
+        icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+        title="Bootstrap"
+        time="11 mins ago"
+    >
+        Hello, world! This is a toast message.
+    </ToastBox>
+);
 ```
 
 ### Translucent
 
-Toasts are slightly translucent, too, so they blend over whatever they might appear over. For browsers that support the `backdrop-filter` CSS property, we’ll also attempt to blur the elements under a toast.
+Toasts are slightly translucent, too, so they blend over whatever they might appear over.
+For browsers that support the `backdrop-filter` CSS property, we’ll also attempt to blur the elements under a toast.
 
 <Example className="bg-dark">
     <ToastBox
@@ -52,13 +60,18 @@ Toasts are slightly translucent, too, so they blend over whatever they might app
 </Example>
 
 ```JavaScript
-<ToastBox
-    icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-    title="Bootstrap"
-    time="11 mins ago"
->
-    Hello, world! This is a toast message.
-</ToastBox>
+import { render } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <ToastBox
+        icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+        title="Bootstrap"
+        time="11 mins ago"
+    >
+        Hello, world! This is a toast message.
+    </ToastBox>
+);
 ```
 
 ### Stacking
@@ -83,25 +96,33 @@ When you have multiple toasts, we default to vertically stacking them in a reada
 </Example>
 
 ```JavaScript
-<ToastBox
-    icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-    title="Bootstrap"
-    time="just now"
->
-    See? Just like this.
-</ToastBox>
-<ToastBox
-    icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-    title="Bootstrap"
-    time="2 seconds ago"
->
-    Heads up, toasts will stack automatically
-</ToastBox>
+import { render, Fragment } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <Fragment>
+        <ToastBox
+            icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+            title="Bootstrap"
+            time="just now"
+        >
+            See? Just like this.
+        </ToastBox>
+        <ToastBox
+            icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+            title="Bootstrap"
+            time="2 seconds ago"
+        >
+            Heads up, toasts will stack automatically
+        </ToastBox>
+    </Fragment>
+);
 ```
 
 ## Placement
 
-Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle. If you’re only ever going to show one toast at a time, put the positioning styles right on the `.toast`.
+Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
+If you’re only ever going to show one toast at a time, put the positioning styles right on the `.toast`.
 
 <Example className="bg-dark">
     <div
@@ -121,16 +142,25 @@ Place toasts with custom CSS as you need them. The top right is often used for n
 </Example>
 
 ```JavaScript
-<div className="position-relative vh-50" aria-live="polite" aria-atomic="true">
-    <ToastBox
-        className="position-absolute right-0"
-        icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-        title="Bootstrap"
-        time="11 mins ago"
+import { render } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <div
+        className="position-relative vh-50"
+        aria-live="polite"
+        aria-atomic="true"
     >
-        Hello, world! This is a toast message.
-    </ToastBox>
-</div>
+        <ToastBox
+            className="position-absolute right-0"
+            icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+            title="Bootstrap"
+            time="11 mins ago"
+        >
+            Hello, world! This is a toast message.
+        </ToastBox>
+    </div>
+);
 ```
 
 For systems that generate more notifications, consider using a wrapping element so they can easily stack.
@@ -162,26 +192,35 @@ For systems that generate more notifications, consider using a wrapping element 
 </Example>
 
 ```JavaScript
-<div className="position-relative vh-50" aria-live="polite" aria-atomic="true">
-    <div className="position-absolute right-0">
-        <ToastBox
-            className="position-absolute right-0"
-            icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-            title="Bootstrap"
-            time="just now"
-        >
-            See? Just like this.
-        </ToastBox>
-        <ToastBox
-            className="position-absolute right-0"
-            icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-            title="Bootstrap"
-            time="2 seconds ago"
-        >
-            Heads up, toasts will stack automatically
-        </ToastBox>
+import { render } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <div
+        className="position-relative vh-50"
+        aria-live="polite"
+        aria-atomic="true"
+    >
+        <div className="position-absolute right-0">
+            <ToastBox
+                className="position-absolute right-0"
+                icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+                title="Bootstrap"
+                time="just now"
+            >
+                See? Just like this.
+            </ToastBox>
+            <ToastBox
+                className="position-absolute right-0"
+                icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+                title="Bootstrap"
+                time="2 seconds ago"
+            >
+                Heads up, toasts will stack automatically
+            </ToastBox>
+        </div>
     </div>
-</div>
+);
 ```
 
 You can also get fancy with flexbox utilities to align toasts horizontally and/or vertically.
@@ -203,40 +242,62 @@ You can also get fancy with flexbox utilities to align toasts horizontally and/o
 </Example>
 
 ```JavaScript
-<div
-    className="d-flex justify-content-center align-items-center vh-50"
-    aria-live="polite"
-    aria-atomic="true"
->
-    <ToastBox
-        icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-        title="Bootstrap"
-        time="11 mins ago"
+import { render } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <div
+        className="d-flex justify-content-center align-items-center vh-50"
+        aria-live="polite"
+        aria-atomic="true"
     >
-        Hello, world! This is a toast message.
-    </ToastBox>
-</div>
+        <ToastBox
+            icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+            title="Bootstrap"
+            time="11 mins ago"
+        >
+            Hello, world! This is a toast message.
+        </ToastBox>
+    </div>
+);
 ```
 
 ## Accessibility
 
-Toasts are intended to be small interruptions to your visitors or users, so to help those with screen readers and similar assistive technologies, you should wrap your toasts in an [aria-live region][1]. Changes to live regions (such as injecting/updating a toast component) are automatically announced by screen readers without needing to move the user’s focus or otherwise interrupt the user. Additionally, include `aria-atomic="true"` to ensure that the entire toast is always announced as a single (atomic) unit, rather than announcing what was changed (which could lead to problems if you only update part of the toast’s content, or if displaying the same toast content at a later point in time). If the information needed is important for the process, e.g. for a list of errors in a form, then use the [alert component][2] instead of toast.
+Toasts are intended to be small interruptions to your visitors or users,
+so to help those with screen readers and similar assistive technologies,
+you should wrap your toasts in an [aria-live region][1].
+Changes to live regions (such as injecting/updating a toast component)
+are automatically announced by screen readers without needing to move the user’s focus or otherwise interrupt the user.
+Additionally, include `aria-atomic="true"` to ensure that the entire toast is always announced as a single (atomic) unit,
+rather than announcing what was changed (which could lead to problems if you only update part of the toast’s content,
+or if displaying the same toast content at a later point in time). If the information needed is important for the process,
+e.g. for a list of errors in a form, then use the [alert component][2] instead of toast.
 
-Note that the live region needs to be present in the markup before the toast is generated or updated. If you dynamically generate both at the same time and inject them into the page, they will generally not be announced by assistive technologies.
+Note that the live region needs to be present in the markup before the toast is generated or updated.
+If you dynamically generate both at the same time and inject them into the page,
+they will generally not be announced by assistive technologies.
 
-You also need to adapt the `role` and `aria-live` level depending on the content. If it’s an important message like an error, use `role="alert" aria-live="assertive"`, otherwise use `role="status" aria-live="polite"` attributes.
+You also need to adapt the `role` and `aria-live` level depending on the content.
+If it’s an important message like an error, use `role="alert" aria-live="assertive"`,
+otherwise use `role="status" aria-live="polite"` attributes.
 
 As the content you’re displaying changes, be sure to update the `delay` timeout to ensure people have enough time to read the toast.
 
 ```JavaScript
-<ToastBox
-    icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
-    title="Bootstrap"
-    time="just now"
-    delay={10000}
->
-    I'll disappear in 10 seconds.
-</ToastBox>
+import { render } from 'web-cell';
+import { ToastBox } from 'boot-cell/source/Prompt/Toast';
+
+render(
+    <ToastBox
+        icon="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+        title="Bootstrap"
+        time="just now"
+        delay={10000}
+    >
+        I'll disappear in 10 seconds.
+    </ToastBox>
+);
 ```
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions

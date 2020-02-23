@@ -1,0 +1,276 @@
+---
+layout: docs
+title: List group
+description: List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
+group: Components
+---
+
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+import { Example } from '../../../source/component/Example';
+
+## Example
+
+The most basic list group is an unordered list with list items and the proper classes.
+Build upon it with the options that follow, or with your own CSS as needed.
+
+<Example>
+    <ListGroup
+        activeIndex={0}
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in', disabled: true },
+            { content: 'Morbi leo risus' },
+            { content: 'Porta ac consectetur ac' },
+            { content: 'Vestibulum at eros' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        activeIndex={0}
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in', disabled: true },
+            { content: 'Morbi leo risus' },
+            { content: 'Porta ac consectetur ac' },
+            { content: 'Vestibulum at eros' }
+        ]}
+    />
+);
+```
+
+## Flush
+
+Add `flush` property to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
+
+<Example>
+    <ListGroup
+        flush
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' },
+            { content: 'Porta ac consectetur ac' },
+            { content: 'Vestibulum at eros' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        flush
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' },
+            { content: 'Porta ac consectetur ac' },
+            { content: 'Vestibulum at eros' }
+        ]}
+    />
+)
+```
+
+## Horizontal
+
+Add `horizontal` property to change the layout of list group items from vertical to horizontal across all breakpoints.
+Alternatively, choose a responsive variant `sm`, `md`, `lg` & `xl` to make a list group horizontal starting at that breakpoint’s `min-width`.
+Currently **horizontal list groups cannot be combined with flush list groups.**
+
+<Example>
+    <ListGroup
+        horizontal
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        horizontal
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+);
+```
+
+<Example>
+    <ListGroup
+        horizontal="sm"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        horizontal="sm"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+);
+```
+
+<Example>
+    <ListGroup
+        horizontal="md"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        horizontal="md"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+);
+```
+
+<Example>
+    <ListGroup
+        horizontal="lg"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        horizontal="lg"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+);
+```
+
+<Example>
+    <ListGroup
+        horizontal="xl"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        horizontal="xl"
+        list={[
+            { content: 'Cras justo odio' },
+            { content: 'Dapibus ac facilisis in' },
+            { content: 'Morbi leo risus' }
+        ]}
+    />
+);
+```
+
+## Contextual classes
+
+Use contextual classes to style list items with a stateful background and color.
+
+<Example>
+    <ListGroup
+        list={[
+            { content: 'Dapibus ac facilisis in' },
+            { color: 'primary', content: 'A simple primary list group item' },
+            {
+                color: 'secondary',
+                content: 'A simple secondary list group item'
+            },
+            { color: 'success', content: 'A simple success list group item' },
+            { color: 'danger', content: 'A simple danger list group item' },
+            { color: 'warning', content: 'A simple warning list group item' },
+            { color: 'info', content: 'A simple info list group item' },
+            { color: 'light', content: 'A simple light list group item' },
+            { color: 'dark', content: 'A simple dark list group item' }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup
+        list={[
+            { content: 'Dapibus ac facilisis in' },
+            { color: 'primary', content: 'A simple primary list group item' },
+            {
+                color: 'secondary',
+                content: 'A simple secondary list group item'
+            },
+            { color: 'success', content: 'A simple success list group item' },
+            { color: 'danger', content: 'A simple danger list group item' },
+            { color: 'warning', content: 'A simple warning list group item' },
+            { color: 'info', content: 'A simple info list group item' },
+            { color: 'light', content: 'A simple light list group item' },
+            { color: 'dark', content: 'A simple dark list group item' }
+        ]}
+    />
+);
+```
+
+> ##### Conveying meaning to assistive technologies
+>
+> Using color to add meaning only provides a visual indication,
+> which will not be conveyed to users of assistive technologies – such as screen readers.
+> Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text),
+> or is included through alternative means, such as additional text hidden with the `.sr-only` class.

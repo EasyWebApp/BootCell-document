@@ -1,15 +1,15 @@
 {
     "name": "bootcell-document",
-    "version": "0.7.0",
+    "version": "0.9.0",
     "description": "Re-implemented Official Web-site of BootStrap based on WebCell, BootCell & MarkCell",
     "dependencies": {
-        "boot-cell": "^0.30.0",
+        "boot-cell": "^1.0.0-beta.0",
         "cell-router": "^2.0.0-rc.6",
         "classnames": "^2.2.6",
         "lodash.groupby": "^4.6.0",
         "mobx": "^5.15.4",
         "mobx-web-cell": "^0.2.5",
-        "web-cell": "^2.0.0-rc.18"
+        "web-cell": "^2.0.0-rc.19"
     },
     "devDependencies": {
         "@types/classnames": "^2.2.9",
@@ -20,7 +20,7 @@
         "mark-cell": "^0.2.3",
         "parcel": "^1.12.4",
         "prettier": "^1.19.1",
-        "typescript": "^3.7.5"
+        "typescript": "^3.8.2"
     },
     "prettier": {
         "singleQuote": true,

@@ -24,14 +24,19 @@ import { Example } from '../../../source/component/Example';
 </Example>
 
 ```JavaScript
-<PopoverBox
-    header="Popover title"
-    body="And here's some amazing content. It's very engaging. Right?"
->
-    <Button kind="danger" size="lg">
-        Click to toggle popover
-    </Button>
-</PopoverBox>
+import { render } from 'web-cell';
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+
+render(
+    <PopoverBox
+        header="Popover title"
+        body="And here's some amazing content. It's very engaging. Right?"
+    >
+        <Button kind="danger" size="lg">
+            Click to toggle popover
+        </Button>
+    </PopoverBox>
+);
 ```
 
 ### Four directions
@@ -61,25 +66,32 @@ import { Example } from '../../../source/component/Example';
 </Example>
 
 ```JavaScript
-<PopoverBox body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-    <Button kind="secondary">Popover on top</Button>
-</PopoverBox>
-<PopoverBox
-    position="right"
-    body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
->
-    <Button kind="secondary">Popover on right</Button>
-</PopoverBox>
-<PopoverBox
-    position="bottom"
-    body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
->
-    <Button kind="secondary">Popover on bottom</Button>
-</PopoverBox>
-<PopoverBox
-    position="left"
-    body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
->
-    <Button kind="secondary">Popover on left</Button>
-</PopoverBox>
+import { render, Fragment } from 'web-cell';
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+
+render(
+    <Fragment>
+        <PopoverBox body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+            <Button kind="secondary">Popover on top</Button>
+        </PopoverBox>
+        <PopoverBox
+            position="right"
+            body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        >
+            <Button kind="secondary">Popover on right</Button>
+        </PopoverBox>
+        <PopoverBox
+            position="bottom"
+            body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        >
+            <Button kind="secondary">Popover on bottom</Button>
+        </PopoverBox>
+        <PopoverBox
+            position="left"
+            body="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        >
+            <Button kind="secondary">Popover on left</Button>
+        </PopoverBox>
+    </Fragment>
+);
 ```
