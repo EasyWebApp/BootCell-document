@@ -1,0 +1,283 @@
+---
+layout: docs
+title: Nav
+description: Documentation and examples for how to use Bootstrap’s included navigation components.
+group: Components
+---
+
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+import { Example } from '../../../source/component/Example';
+
+## Base nav
+
+The base `<Nav />` component is built with flexbox and provide a strong foundation for building all types of navigation components.
+It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling.
+
+<Example>
+    <Nav
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+## Available styles
+
+Change the style of `<Nav />` component with modifiers and utilities. Mix and match as needed, or build your own.
+
+### Horizontal alignment
+
+Change the horizontal alignment of your nav with `align` property.
+By default, navs are left-aligned, but you can easily change them to center or right aligned.
+
+Centered with `align="center"`:
+
+<Example>
+    <Nav
+        align="center"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        align="center"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+Right-aligned with `align="end"`:
+
+<Example>
+    <Nav
+        align="end"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        align="end"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+### Vertical
+
+Stack your navigation by changing `direction` property with `column` value.
+
+<Example>
+    <Nav
+        direction="column"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        direction="column"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+### Tabs
+
+Takes the basic nav from above and adds the `itemMode="tabs"` property to generate a tabbed interface.
+Use them to create tabbable regions with our [`<TabList />` component](components/tablist).
+
+<Example>
+    <Nav
+        itemMode="tabs"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        itemMode="tabs"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+### Pills
+
+Take that same JSX, but use `itemMode="pills"` instead:
+
+<Example>
+    <Nav
+        itemMode="pills"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        itemMode="pills"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+## Fill and justify
+
+To proportionately fill all available space with your nav items, use `itemWidth="fill"`.
+Notice that all horizontal space is occupied, but not every nav item has the same width.
+
+<Example>
+    <Nav
+        itemMode="pills"
+        itemWidth="fill"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        itemMode="pills"
+        itemWidth="fill"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
+For equal-width elements, use `itemWidth="justified"`. All horizontal space will be occupied by nav links,
+but unlike the `itemWidth="fill"` above, every nav item will be the same width.
+
+<Example>
+    <Nav
+        itemMode="pills"
+        itemWidth="justified"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        itemMode="pills"
+        itemWidth="justified"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
