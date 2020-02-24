@@ -1,0 +1,437 @@
+---
+layout: docs
+title: Icon
+description: Wrapper component for FontAwesome v5 (CSS fonts)
+group: Components
+---
+
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+import { Table } from 'boot-cell/source/Content/Table';
+
+import { Example } from '../../../source/component/Example';
+
+## Basic usage
+
+The easiest way to set up icon fonts for use in any web page is through [JSDelivr CDN][1].
+All you need to do is include a single line of HTML:
+
+```HTML
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css"
+/>
+```
+
+### Styles
+
+<Table>
+    <thead>
+        <tr>
+            <th>Style</th>
+            <th>@font-face weight</th>
+            <th>Availability</th>
+            <th>Example</th>
+            <th>Rendering</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Solid</td>
+            <td>900</td>
+            <td>Free</td>
+            <td>
+                <code>&lt;Icon name="camera" /></code>
+            </td>
+            <td>
+                <Icon name="camera" />
+            </td>
+        </tr>
+        <tr>
+            <td>Brands</td>
+            <td>400</td>
+            <td>Free</td>
+            <td>
+                <code>&lt;Icon kind="brands" name="font-awesome" /></code>
+            </td>
+            <td>
+                <Icon kind="brands" name="font-awesome" />
+            </td>
+        </tr>
+        <tr>
+            <td>Regular</td>
+            <td>400</td>
+            <td>
+                <a target="_blank" href="https://fontawesome.com/pro">
+                    Pro
+                </a>
+            </td>
+            <td>
+                <code>&lt;Icon kind="regular" name="camera" /></code>
+            </td>
+            <td>(Only available to Pro users)</td>
+        </tr>
+        <tr>
+            <td>Light</td>
+            <td>300</td>
+            <td>
+                <a target="_blank" href="https://fontawesome.com/pro">
+                    Pro
+                </a>
+            </td>
+            <td>
+                <code>&lt;Icon kind="light" name="camera" /></code>
+            </td>
+            <td>(Only available to Pro users)</td>
+        </tr>
+        <tr>
+            <td>Duotone</td>
+            <td>900</td>
+            <td>
+                <a target="_blank" href="https://fontawesome.com/pro">
+                    Pro
+                </a>
+            </td>
+            <td>
+                <code>&lt;Icon kind="duotone" name="camera" /></code>
+            </td>
+            <td>(Only available to Pro users)</td>
+        </tr>
+    </tbody>
+</Table>
+
+## Sizing
+
+You can also directly style an icon's size by setting a `font-size` in your project's CSS that targets an icon or
+directly in the `style` property of the JSX element referencing an icon.
+
+### Relative
+
+Icons inherit the `font-size` of their parent container which allow them to match any text you might use with them.
+With the following properties, we can increase or decrease the size of icons relative to that inherited `font-size`.
+
+<Example>
+    <Icon name="camera" size="xs" />
+    <Icon name="camera" size="sm" />
+    <Icon name="camera" size="lg" />
+    <Icon name="camera" size="2x" />
+    <Icon name="camera" size="3x" />
+    <Icon name="camera" size="5x" />
+    <Icon name="camera" size="7x" />
+    <Icon name="camera" size="10x" />
+</Example>
+
+```JavaScript
+import { render, Fragment } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <Fragment>
+        <Icon name="camera" size="xs" />
+        <Icon name="camera" size="sm" />
+        <Icon name="camera" size="lg" />
+        <Icon name="camera" size="2x" />
+        <Icon name="camera" size="3x" />
+        <Icon name="camera" size="5x" />
+        <Icon name="camera" size="7x" />
+        <Icon name="camera" size="10x" />
+    </Fragment>
+);
+```
+
+> More Details of [Sizing Scale][2].
+
+### Fixed Width
+
+> Need to vertically align a series of icons, like in a list or navigation menu?
+> We’ve included a fixed-width support styling for just those cases.
+
+Add a property of `fixedWidth` on the JSX element referencing your icon to set one or more icons to the same fixed width.
+This is great to use when varying icon widths (e.g. a tall but skinny icon atop a wide but short icon) would throw off vertical alignment.
+For clarity in the following example, we’ve added a background color on the icon so you can see the fixed width and also bumped up the `font-size` of the parent element.
+
+<Example>
+    <ul className="list-unstyled">
+        <li>
+            <Icon name="skating" fixedWidth className="bg-primary" /> Skating
+        </li>
+        <li>
+            <Icon name="skiing" fixedWidth className="bg-info" /> Skiing
+        </li>
+        <li>
+            <Icon name="skiing-nordic" fixedWidth className="bg-primary" />{' '}
+            Nordic Skiing
+        </li>
+        <li>
+            <Icon name="snowboarding" fixedWidth className="bg-info" />{' '}
+            Snowboarding
+        </li>
+        <li>
+            <Icon name="snowplow" fixedWidth className="bg-primary" /> Snowplow
+        </li>
+    </ul>
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <ul className="list-unstyled">
+        <li>
+            <Icon name="skating" fixedWidth className="bg-primary" /> Skating
+        </li>
+        <li>
+            <Icon name="skiing" fixedWidth className="bg-info" /> Skiing
+        </li>
+        <li>
+            <Icon name="skiing-nordic" fixedWidth className="bg-primary" />{' '}
+            Nordic Skiing
+        </li>
+        <li>
+            <Icon name="snowboarding" fixedWidth className="bg-info" />{' '}
+            Snowboarding
+        </li>
+        <li>
+            <Icon name="snowplow" fixedWidth className="bg-primary" />{' '}
+            Snowplow
+        </li>
+    </ul>
+);
+```
+
+## Bordered + Pulled Icons
+
+> Occasionally you might want to wrap text around an icon or give it some visual distinction with a border.
+> Here’s how with the support styling we’ve included.
+
+Use `border` and `pull="right"` or `pull="left"` for easy pull quotes or article icons.
+
+<Example>
+    <Icon name="quote-left" size={2} pull="left" />
+    Gatsby believed in the green light, the orgastic future that year by year recedes
+    before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
+    stretch our arms further... And one fine morning — So we beat on, boats against
+    the current, borne back ceaselessly into the past.
+</Example>
+
+```JavaScript
+import { render, Fragment } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <Fragment>
+        <Icon name="quote-left" size={2} pull="left" />
+        Gatsby believed in the green light, the orgastic future that year by year recedes
+        before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
+        stretch our arms further... And one fine morning — So we beat on, boats against
+        the current, borne back ceaselessly into the past.
+    </Fragment>
+);
+```
+
+Use `border` in combination with pulled icon styles for more visual separation.
+
+<Example>
+    <Icon name="quote-left" size={2} pull="left" />
+    Gatsby believed in the green light, the orgastic future that year by year recedes
+    before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
+    stretch our arms further... And one fine morning — So we beat on, boats against
+    the current, borne back ceaselessly into the past.
+</Example>
+
+```JavaScript
+import { render, Fragment } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <Fragment>
+        <Icon name="arrow-right" size={2} pull="right" border />
+        Gatsby believed in the green light, the orgastic future that year by year recedes
+        before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
+        stretch our arms further... And one fine morning — So we beat on, boats against
+        the current, borne back ceaselessly into the past.
+    </Fragment>
+);
+```
+
+## Rotating
+
+> Sometimes you need to rotate, flip, or mirror an icon for it to work in your project or design.
+> We’ve included some quick utilities to help with that.
+
+To arbitrarily rotate and flip icons, use the `rotate` and `flip` properties when you reference an icon.
+
+<Example className="fa-4x">
+    <Icon name="snowboarding" />
+    <Icon name="snowboarding" rotate={90} />
+    <Icon name="snowboarding" rotate={180} />
+    <Icon name="snowboarding" rotate={270} />
+    <Icon name="snowboarding" flip="horizontal" />
+    <Icon name="snowboarding" flip="vertical" />
+    <Icon name="snowboarding" flip="both" />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <div className="fa-4x">
+        <Icon name="snowboarding" />
+        <Icon name="snowboarding" rotate={90} />
+        <Icon name="snowboarding" rotate={180} />
+        <Icon name="snowboarding" rotate={270} />
+        <Icon name="snowboarding" flip="horizontal" />
+        <Icon name="snowboarding" flip="vertical" />
+        <Icon name="snowboarding" flip="both" />
+    </div>
+);
+```
+
+## Animating
+
+> Need a loading or status communicating-icon to spin? You’ve come to the right place.
+> We’ve included some basic animations in our support styling for you to use.
+
+Use the `animation="spin"` property to get any icon to rotate, and use `animation="pulse"` to have it rotate with 8 steps.
+Works especially well with `name="spinner"` & everything in the [spinner icons category][3].
+
+<Example className="fa-3x">
+    <Icon name="spinner" animation="spin" />
+    <Icon name="circle-notch" animation="spin" />
+    <Icon name="sync" animation="spin" />
+    <Icon name="cog" animation="spin" />
+    <Icon name="spinner" animation="pulse" />
+    <Icon name="stroopwafel" animation="spin" />
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <div className="fa-3x">
+        <Icon name="spinner" animation="spin" />
+        <Icon name="circle-notch" animation="spin" />
+        <Icon name="sync" animation="spin" />
+        <Icon name="cog" animation="spin" />
+        <Icon name="spinner" animation="pulse" />
+        <Icon name="stroopwafel" animation="spin" />
+    </div>
+);
+```
+
+> [Animation Wobbles][4] issue
+
+## In a List
+
+> Building off of the vertical alignment in our `fixedWidth` styling,
+> we added some utility styling to handle HTML lists with icons used as decorative bullets.
+
+Use `fa-ul` and `fa-li` to replace default bullets in unordered lists.
+
+<Example>
+    <ul className="fa-ul">
+        <li>
+            <Icon name="check-square" listItem />
+            List icons can
+        </li>
+        <li>
+            <Icon name="check-square" listItem />
+            be used to
+        </li>
+        <li>
+            <Icon name="spinner" animation="pulse" listItem />
+            replace bullets
+        </li>
+    </ul>
+</Example>
+
+```JavaScript
+import { render } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <ul className="fa-ul">
+        <li>
+            <Icon name="check-square" listItem />
+            List icons can
+        </li>
+        <li>
+            <Icon name="check-square" listItem />
+            be used to
+        </li>
+        <li>
+            <Icon name="spinner" animation="pulse" listItem />
+            replace bullets
+        </li>
+    </ul>
+);
+```
+
+## Stacked
+
+> You can stack our icons easily with the support styling bundled with Font Awesome.
+
+To stack multiple icons, use the `fa-stack` class on the parent HTML element of the 2 icons you want to stack.
+Then add the `stack={1}` property for the regularly sized icon and add the `stack={2}` property for the larger icon.
+`inverse` can be added to the icon with the `stack={1}` to help with a knock-out looking effect.
+You can even throw larger icon classes on the parent to get further control of sizing.
+
+<Example>
+    <span class="fa-stack fa-2x">
+        <Icon name="square" stack={2} />
+        <Icon kind="brands" name="twitter" stack={1} inverse />
+    </span>
+    <span class="fa-stack fa-2x">
+        <Icon name="circle" stack={2} />
+        <Icon name="flag" stack={1} inverse />
+    </span>
+    <span class="fa-stack fa-2x">
+        <Icon name="square" stack={2} />
+        <Icon name="terminal" stack={1} inverse />
+    </span>
+    <span class="fa-stack fa-4x">
+        <Icon name="square" stack={2} />
+        <Icon name="terminal" stack={1} inverse />
+    </span>
+    <span class="fa-stack fa-2x">
+        <Icon name="camera" stack={1} />
+        <Icon name="ban" stack={2} className="text-danger" />
+    </span>
+</Example>
+
+```JavaScript
+import { render, Fragment } from 'web-cell';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+render(
+    <Fragment>
+        <span class="fa-stack fa-2x">
+            <Icon name="square" stack={2} />
+            <Icon kind="brands" name="twitter" stack={1} inverse />
+        </span>
+        <span class="fa-stack fa-2x">
+            <Icon name="circle" stack={2} />
+            <Icon name="flag" stack={1} inverse />
+        </span>
+        <span class="fa-stack fa-2x">
+            <Icon name="square" stack={2} />
+            <Icon name="terminal" stack={1} inverse />
+        </span>
+        <span class="fa-stack fa-4x">
+            <Icon name="square" stack={2} />
+            <Icon name="terminal" stack={1} inverse />
+        </span>
+        <span class="fa-stack fa-2x">
+            <Icon name="camera" stack={1} />
+            <Icon name="ban" stack={2} className="text-danger" />
+        </span>
+    </Fragment>
+);
+```
+
+[1]: https://www.jsdelivr.com/
+[2]: https://fontawesome.com/how-to-use/on-the-web/styling/sizing-icons#scale
+[3]: https://fontawesome.com/icons?c=spinners
+[4]: https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons#issues

@@ -18,10 +18,14 @@ export function HomePage() {
                 UI library based on{' '}
                 <a target="_blank" href="https://web-cell.dev/">
                     WebCell v2
-                </a>{' '}
-                &amp;{' '}
+                </a>
+                ,{' '}
                 <a target="_blank" href="https://getbootstrap.com/">
                     BootStrap v4
+                </a>{' '}
+                &amp;{' '}
+                <a target="_blank" href="https://fontawesome.com/">
+                    FontAwesome v5
                 </a>
             </p>
             <Button outline size="lg" href={routes[0].paths[0]}>

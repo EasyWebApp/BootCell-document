@@ -55,8 +55,19 @@ export class PageRouter extends HTMLRouter {
     render() {
         return (
             <Fragment>
-                <NavBar brand="BootCell" />
-
+                <NavBar
+                    brand="BootCell"
+                    menu={[
+                        {
+                            title: 'API document',
+                            href: 'https://web-cell.dev/BootCell/'
+                        },
+                        {
+                            title: 'Source code',
+                            href: 'https://github.com/EasyWebApp/BootCell'
+                        }
+                    ]}
+                />
                 <main className="mt-5">{super.render()}</main>
 
                 <footer className="text-center bg-light py-5">
