@@ -3,7 +3,7 @@
     "version": "0.13.0",
     "description": "Re-implemented Official Document site of BootStrap & FontAwesome based on WebCell, BootCell & MarkCell",
     "dependencies": {
-        "boot-cell": "^1.0.0-beta.1",
+        "boot-cell": "^1.0.0-beta.3",
         "cell-router": "^2.0.0-rc.6",
         "classnames": "^2.2.6",
         "lodash.groupby": "^4.6.0",
@@ -16,7 +16,7 @@
         "@types/lodash.groupby": "^4.6.6",
         "husky": "^4.2.3",
         "less": "^3.11.1",
-        "lint-staged": "^10.0.7",
+        "lint-staged": "^10.0.8",
         "mark-cell": "^0.2.3",
         "parcel": "^1.12.4",
         "prettier": "^1.19.1",

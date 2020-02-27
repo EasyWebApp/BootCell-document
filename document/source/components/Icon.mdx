@@ -232,7 +232,7 @@ render(
 Use `border` in combination with pulled icon styles for more visual separation.
 
 <Example>
-    <Icon name="quote-left" size={2} pull="left" />
+    <Icon name="arrow-right" size={2} pull="right" border />
     Gatsby believed in the green light, the orgastic future that year by year recedes
     before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
     stretch our arms further... And one fine morning — So we beat on, boats against
@@ -379,23 +379,23 @@ Then add the `stack={1}` property for the regularly sized icon and add the `stac
 You can even throw larger icon classes on the parent to get further control of sizing.
 
 <Example>
-    <span class="fa-stack fa-2x">
+    <span className="fa-stack fa-2x">
         <Icon name="square" stack={2} />
         <Icon kind="brands" name="twitter" stack={1} inverse />
     </span>
-    <span class="fa-stack fa-2x">
+    <span className="fa-stack fa-2x">
         <Icon name="circle" stack={2} />
         <Icon name="flag" stack={1} inverse />
     </span>
-    <span class="fa-stack fa-2x">
+    <span className="fa-stack fa-2x">
         <Icon name="square" stack={2} />
         <Icon name="terminal" stack={1} inverse />
     </span>
-    <span class="fa-stack fa-4x">
+    <span className="fa-stack fa-4x">
         <Icon name="square" stack={2} />
         <Icon name="terminal" stack={1} inverse />
     </span>
-    <span class="fa-stack fa-2x">
+    <span className="fa-stack fa-2x">
         <Icon name="camera" stack={1} />
         <Icon name="ban" stack={2} className="text-danger" />
     </span>
@@ -407,23 +407,23 @@ import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
     <Fragment>
-        <span class="fa-stack fa-2x">
+        <span className="fa-stack fa-2x">
             <Icon name="square" stack={2} />
             <Icon kind="brands" name="twitter" stack={1} inverse />
         </span>
-        <span class="fa-stack fa-2x">
+        <span className="fa-stack fa-2x">
             <Icon name="circle" stack={2} />
             <Icon name="flag" stack={1} inverse />
         </span>
-        <span class="fa-stack fa-2x">
+        <span className="fa-stack fa-2x">
             <Icon name="square" stack={2} />
             <Icon name="terminal" stack={1} inverse />
         </span>
-        <span class="fa-stack fa-4x">
+        <span className="fa-stack fa-4x">
             <Icon name="square" stack={2} />
             <Icon name="terminal" stack={1} inverse />
         </span>
-        <span class="fa-stack fa-2x">
+        <span className="fa-stack fa-2x">
             <Icon name="camera" stack={1} />
             <Icon name="ban" stack={2} className="text-danger" />
         </span>

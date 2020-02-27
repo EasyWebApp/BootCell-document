@@ -28,6 +28,7 @@ import { Example } from '../../../source/component/Example';
 ```JavaScript
 import { render, Fragment } from 'web-cell';
 import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Fragment>
@@ -50,8 +51,9 @@ render(
 And with custom HTML added:
 
 ```JavaScript
-import { render } from 'web-cell';
+import { render, Fragment } from 'web-cell';
 import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <TooltipBox text={
