@@ -1,9 +1,9 @@
 {
     "name": "bootcell-document",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "description": "Re-implemented Official Document site of BootStrap & FontAwesome based on WebCell, BootCell & MarkCell",
     "dependencies": {
-        "boot-cell": "^1.0.0-beta.4",
+        "boot-cell": "^1.0.0-beta.5",
         "cell-router": "^2.0.0-rc.6",
         "classnames": "^2.2.6",
         "lodash.groupby": "^4.6.0",
