@@ -1,5 +1,5 @@
-import { createCell } from 'web-cell';
-import { HTMLProps, WebCellProps } from 'boot-cell/source/utility/type';
+import { WebCellProps, createCell } from 'web-cell';
+import { HTMLProps } from 'web-utility/source/DOM-type';
 import classNames from 'classnames';
 
 export function Example({ className, defaultSlot }: HTMLProps & WebCellProps) {

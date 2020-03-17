@@ -5,7 +5,7 @@ import { HTMLRouter } from 'cell-router/source';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 
 import { history } from '../model';
-import { SideNav } from '../component/SideNav';
+import { PageFrame } from '../component/PageFrame';
 import { HomePage } from './Home';
 import routes from '../../document/dist';
 
@@ -29,21 +29,19 @@ export class PageRouter extends HTMLRouter {
                 const Content = await component();
 
                 return () => (
-                    <div className="d-flex">
-                        <SideNav className="p-3" menu={side_menu} />
-
-                        <div className="flex-fill p-3">
-                            <h1>{title}</h1>
-                            <p className="lead">{description}</p>
-                            <Content />
-                        </div>
-                    </div>
+                    <PageFrame
+                        menu={side_menu}
+                        title={title}
+                        description={description}
+                    >
+                        <Content />
+                    </PageFrame>
                 );
             }
         }))
     ];
 
-    @on('click', 'pre > code')
+    @on('click', 'pre[class*="language-"]')
     autoCopy({ target }: MouseEvent) {
         self.getSelection()
             .getRangeAt(0)

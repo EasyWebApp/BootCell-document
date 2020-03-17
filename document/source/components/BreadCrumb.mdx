@@ -15,22 +15,26 @@ import { Example } from '../../../source/component/Example';
     <BreadCrumb path={[{ title: 'Home' }]} />
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
 
-render(<BreadCrumb path={[{ title: 'Home' }]} />);
+render(
+    <BreadCrumb path={[{ title: 'Home' }]} />
+);
 ```
 
 <Example>
     <BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
 
-render(<BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />);
+render(
+    <BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} />
+);
 ```
 
 <Example>
@@ -43,7 +47,7 @@ render(<BreadCrumb path={[{ href: '#', title: 'Home' }, { title: 'Library' }]} /
     />
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { BreadCrumb } from 'boot-cell/source/Navigator/BreadCrumb';
 

@@ -1,5 +1,5 @@
 import { createCell } from 'web-cell';
-import { HTMLProps, HTMLHyperLinkProps } from 'boot-cell/source/utility/type';
+import { HTMLProps, HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 
 interface SideNavProps extends HTMLProps {
     menu: { [group: string]: HTMLHyperLinkProps[] };

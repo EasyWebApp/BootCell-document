@@ -5,7 +5,7 @@ description: Wrapper component for FontAwesome v5 (CSS fonts)
 group: Components
 ---
 
-import { Icon } from 'boot-cell/source/Reminder/Icon';
+import { Icon, BGIcon } from 'boot-cell/source/Reminder/Icon';
 import { Table } from 'boot-cell/source/Content/Table';
 
 import { Example } from '../../../source/component/Example';
@@ -120,7 +120,7 @@ With the following properties, we can increase or decrease the size of icons rel
     <Icon name="camera" size="10x" />
 </Example>
 
-```JavaScript
+```TSX
 import { render, Fragment } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -171,7 +171,7 @@ For clarity in the following example, we’ve added a background color on the ic
     </ul>
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -214,7 +214,7 @@ Use `border` and `pull="right"` or `pull="left"` for easy pull quotes or article
     the current, borne back ceaselessly into the past.
 </Example>
 
-```JavaScript
+```TSX
 import { render, Fragment } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -239,7 +239,7 @@ Use `border` in combination with pulled icon styles for more visual separation.
     the current, borne back ceaselessly into the past.
 </Example>
 
-```JavaScript
+```TSX
 import { render, Fragment } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -271,7 +271,7 @@ To arbitrarily rotate and flip icons, use the `rotate` and `flip` properties whe
     <Icon name="snowboarding" flip="both" />
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -305,7 +305,7 @@ Works especially well with `name="spinner"` & everything in the [spinner icons c
     <Icon name="stroopwafel" animation="spin" />
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -347,7 +347,7 @@ Use `fa-ul` and `fa-li` to replace default bullets in unordered lists.
     </ul>
 </Example>
 
-```JavaScript
+```TSX
 import { render } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
@@ -379,53 +379,29 @@ Then add the `stack={1}` property for the regularly sized icon and add the `stac
 You can even throw larger icon classes on the parent to get further control of sizing.
 
 <Example>
-    <span className="fa-stack fa-2x">
-        <Icon name="square" stack={2} />
-        <Icon kind="brands" name="twitter" stack={1} inverse />
-    </span>
-    <span className="fa-stack fa-2x">
-        <Icon name="circle" stack={2} />
-        <Icon name="flag" stack={1} inverse />
-    </span>
-    <span className="fa-stack fa-2x">
-        <Icon name="square" stack={2} />
-        <Icon name="terminal" stack={1} inverse />
-    </span>
-    <span className="fa-stack fa-4x">
-        <Icon name="square" stack={2} />
-        <Icon name="terminal" stack={1} inverse />
-    </span>
+    <BGIcon type="square" kind="brands" name="twitter" size={2} />
+    <BGIcon type="circle" name="flag" size={2} />
+    <BGIcon type="square" name="terminal" size={2} />
+    <BGIcon type="square" name="terminal" size={4} />
     <span className="fa-stack fa-2x">
         <Icon name="camera" stack={1} />
-        <Icon name="ban" stack={2} className="text-danger" />
+        <Icon name="ban" stack={2} color="danger" />
     </span>
 </Example>
 
-```JavaScript
+```TSX
 import { render, Fragment } from 'web-cell';
-import { Icon } from 'boot-cell/source/Reminder/Icon';
+import { Icon, BGIcon } from 'boot-cell/source/Reminder/Icon';
 
 render(
     <Fragment>
-        <span className="fa-stack fa-2x">
-            <Icon name="square" stack={2} />
-            <Icon kind="brands" name="twitter" stack={1} inverse />
-        </span>
-        <span className="fa-stack fa-2x">
-            <Icon name="circle" stack={2} />
-            <Icon name="flag" stack={1} inverse />
-        </span>
-        <span className="fa-stack fa-2x">
-            <Icon name="square" stack={2} />
-            <Icon name="terminal" stack={1} inverse />
-        </span>
-        <span className="fa-stack fa-4x">
-            <Icon name="square" stack={2} />
-            <Icon name="terminal" stack={1} inverse />
-        </span>
+        <BGIcon type="square" kind="brands" name="twitter" size={2} />
+        <BGIcon type="circle" name="flag" size={2} />
+        <BGIcon type="square" name="terminal" size={2} />
+        <BGIcon type="square" name="terminal" size={4} />
         <span className="fa-stack fa-2x">
             <Icon name="camera" stack={1} />
-            <Icon name="ban" stack={2} className="text-danger" />
+            <Icon name="ban" stack={2} color="danger" />
         </span>
     </Fragment>
 );
