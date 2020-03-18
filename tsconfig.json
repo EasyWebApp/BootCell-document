@@ -4,6 +4,7 @@
         "module": "ESNext",
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
         "experimentalDecorators": true,
         "jsx": "react",
         "jsxFactory": "createCell",

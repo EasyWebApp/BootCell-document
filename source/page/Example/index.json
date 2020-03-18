@@ -1,0 +1,126 @@
+[
+    {
+        "title": "Custom components",
+        "description": "Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework.",
+        "list": [
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/album.png",
+                "title": "Album",
+                "description": "Simple one-page template for photo galleries, portfolios, and more."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/pricing.png",
+                "title": "Pricing",
+                "description": "Example pricing page built with Cards and featuring a custom header and footer."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/checkout.png",
+                "title": "Checkout",
+                "description": "Custom checkout form showing our form components and their validation features."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/product.png",
+                "title": "Product",
+                "description": "Lean product-focused marketing page with extensive grid and image work."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/cover.png",
+                "title": "Cover",
+                "description": "A one-page template for building simple and beautiful home pages."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/carousel.png",
+                "title": "Carousel",
+                "description": "Customize the navbar and carousel, then add some new components."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/blog.png",
+                "title": "Blog",
+                "description": "Magazine like blog template with header, navigation, featured content."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/dashboard.png",
+                "title": "Dashboard",
+                "description": "Basic admin dashboard shell with fixed sidebar and navbar."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/sign-in.png",
+                "title": "Sign-in",
+                "description": "Custom form layout and design for a simple sign in form."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/sticky-footer.png",
+                "title": "Sticky footer",
+                "description": "Attach a footer to the bottom of the viewport when page content is short."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/sticky-footer-navbar.png",
+                "title": "Sticky footer navbar",
+                "description": "Attach a footer to the bottom of the viewport with a fixed top navbar."
+            }
+        ]
+    },
+    {
+        "title": "Framework",
+        "description": "Examples that focus on implementing uses of built-in components provided by Bootstrap.",
+        "list": [
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/starter-template.png",
+                "title": "Starter template",
+                "description": "Nothing but the basics: compiled CSS and JavaScript."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/grid.png",
+                "title": "Grid",
+                "description": "Multiple examples of grid layouts with all four tiers, nesting, and more."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/jumbotron.png",
+                "title": "Jumbotron",
+                "description": "Build around the jumbotron with a navbar and some basic grid columns."
+            }
+        ]
+    },
+    {
+        "title": "Navbars",
+        "description": "Taking the default navbar component and showing how it can be moved, placed, and extended.",
+        "list": [
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/navbars.png",
+                "title": "Navbars",
+                "description": "Demonstration of all responsive and container options for the navbar."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/navbar-static.png",
+                "title": "Navbar static",
+                "description": "Single navbar example of a static top navbar along with some additional content."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/navbar-fixed.png",
+                "title": "Navbar fixed",
+                "description": "Single navbar example with a fixed top navbar along with some additional content."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/navbar-bottom.png",
+                "title": "Navbar bottom",
+                "description": "Single navbar example with a bottom navbar along with some additional content."
+            }
+        ]
+    },
+    {
+        "title": "Experiments",
+        "description": "Examples that focus on future-friendly features or techniques.",
+        "list": [
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/floating-labels.png",
+                "title": "Floating labels",
+                "description": "Beautifully simple forms with floating labels over your inputs."
+            },
+            {
+                "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/offcanvas.png",
+                "title": "Offcanvas",
+                "description": "Turn your expandable navbar into a sliding offcanvas menu."
+            }
+        ]
+    }
+]

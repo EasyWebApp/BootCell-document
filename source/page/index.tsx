@@ -45,6 +45,25 @@ export class PageRouter extends HTMLRouter {
         ...examples
     ];
 
+    private menu = [
+        {
+            title: 'Documentation',
+            href: documents[0].paths[0]
+        },
+        {
+            title: 'API',
+            href: 'https://web-cell.dev/BootCell/'
+        },
+        {
+            title: 'Examples',
+            href: 'example'
+        },
+        {
+            title: 'Source code',
+            href: 'https://github.com/EasyWebApp/BootCell'
+        }
+    ];
+
     @on('click', 'pre[class*="language-"]')
     autoCopy({ target }: MouseEvent) {
         self.getSelection()
@@ -57,23 +76,8 @@ export class PageRouter extends HTMLRouter {
     render() {
         return (
             <Fragment>
-                <NavBar
-                    brand="BootCell"
-                    menu={[
-                        {
-                            title: 'API document',
-                            href: 'https://web-cell.dev/BootCell/'
-                        },
-                        {
-                            title: 'Examples',
-                            href: 'example'
-                        },
-                        {
-                            title: 'Source code',
-                            href: 'https://github.com/EasyWebApp/BootCell'
-                        }
-                    ]}
-                />
+                <NavBar brand="BootCell" menu={this.menu} />
+
                 <main className="mt-5">{super.render()}</main>
 
                 <footer className="text-center bg-light py-5">
