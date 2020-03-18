@@ -19,4 +19,5 @@ deploy:
         branch: master
     skip_cleanup: true
     local_dir: dist/
+    fqdn: bootstrap.web-cell.dev
     token: ${TOKEN}

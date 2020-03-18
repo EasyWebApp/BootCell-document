@@ -5,9 +5,9 @@ blockquote {
 pre[class*='language-'] {
     margin: 0 0 1rem;
     border-radius: 0 0 0.3rem 0.3rem;
-    max-width: 82vw;
-    overflow: auto;
-
+    & > code {
+        white-space: pre-wrap;
+    }
     position: relative;
     &::before {
         position: absolute;

@@ -1,40 +1,86 @@
-import { WebCellProps, createCell } from 'web-cell';
+import {
+    WebCellProps,
+    component,
+    mixin,
+    watch,
+    attribute,
+    createCell,
+    Fragment
+} from 'web-cell';
 import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 import { Button } from 'boot-cell/source/Form/Button';
+import { HeaderList } from 'boot-cell/source/Navigator/HeaderList';
 
 import { SideNav } from './SideNav';
 
 interface PageFrameProps extends WebCellProps {
     menu: { [key: string]: HTMLHyperLinkProps[] };
-    title: string;
+    header: string;
     description: string;
 }
 
-export function PageFrame({
-    menu,
-    title,
-    description,
-    defaultSlot
-}: PageFrameProps) {
-    const API = `https://web-cell.dev/BootCell/interfaces/${title
-        .replace(' ', '')
-        .toLowerCase()}props.html`;
+@component({
+    tagName: 'page-frame',
+    renderTarget: 'children'
+})
+export class PageFrame extends mixin<PageFrameProps>() {
+    @watch
+    menu = [];
 
-    return (
-        <div className="d-flex">
-            <SideNav className="border-right p-4" menu={menu} />
+    @attribute
+    @watch
+    header = '';
 
-            <div className="flex-fill p-4">
-                <h1 className="d-flex justify-content-between align-items-center">
-                    {title}
-                    <Button size="sm" href={API}>
-                        API
-                    </Button>
-                </h1>
-                <p className="lead">{description}</p>
+    @attribute
+    @watch
+    description = '';
 
-                {defaultSlot}
-            </div>
-        </div>
-    );
+    private box: HTMLElement;
+    private nav: HeaderList;
+
+    connectedCallback() {
+        this.classList.add('d-flex', 'align-items-start');
+
+        super.connectedCallback();
+    }
+
+    updatedCallback() {
+        if (this.box && this.nav) this.nav.spy(this.box);
+    }
+
+    render({ header, menu, description, defaultSlot }: PageFrameProps) {
+        const API = `https://web-cell.dev/BootCell/interfaces/${header
+            .replace(' ', '')
+            .toLowerCase()}props.html`;
+
+        return (
+            <Fragment>
+                <SideNav
+                    className="sticky-top"
+                    style={{ top: '3.5rem', height: 'calc(100vh - 3.5rem)' }}
+                    menu={menu}
+                />
+
+                <div className="flex-fill p-4 border-left">
+                    <h1 className="d-flex justify-content-between align-items-center">
+                        {header}
+                        <Button size="sm" href={API}>
+                            API
+                        </Button>
+                    </h1>
+                    <p className="lead">{description}</p>
+
+                    <div ref={(node: HTMLElement) => (this.box = node)}>
+                        {defaultSlot}
+                    </div>
+                </div>
+
+                <HeaderList
+                    className="p-4 d-none d-md-block"
+                    style={{ top: '3.5rem' }}
+                    ref={(node: HeaderList) => (this.nav = node)}
+                />
+            </Fragment>
+        );
+    }
 }

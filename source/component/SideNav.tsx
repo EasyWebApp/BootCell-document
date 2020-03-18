@@ -1,14 +1,14 @@
-import { createCell } from 'web-cell';
+import { WebCellProps, createCell } from 'web-cell';
 import { HTMLProps, HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 
-interface SideNavProps extends HTMLProps {
+interface SideNavProps extends WebCellProps, HTMLProps {
     menu: { [group: string]: HTMLHyperLinkProps[] };
 }
 
-export function SideNav({ menu, ...rest }: SideNavProps) {
+export function SideNav({ menu, defaultSlot, ...rest }: SideNavProps) {
     return (
         <nav {...rest}>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled p-4 h-100 overflow-auto">
                 {Object.entries(menu).map(([group, list]) => (
                     <li>
                         <h5>{group}</h5>

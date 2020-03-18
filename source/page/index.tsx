@@ -7,10 +7,11 @@ import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { history } from '../model';
 import { PageFrame } from '../component/PageFrame';
 import { HomePage } from './Home';
-import routes from '../../document/dist';
+import documents from '../../document/dist';
+import examples from './Example';
 
 const side_menu = groupBy(
-    routes.map(({ paths: [href], meta }) => ({ ...meta, href })),
+    documents.map(({ paths: [href], meta }) => ({ ...meta, href })),
     'group'
 );
 
@@ -23,22 +24,25 @@ export class PageRouter extends HTMLRouter {
     protected history = history;
     protected routes = [
         { paths: [''], component: HomePage },
-        ...routes.map(({ paths, component, meta: { title, description } }) => ({
-            paths,
-            component: async () => {
-                const Content = await component();
+        ...documents.map(
+            ({ paths, component, meta: { title, description } }) => ({
+                paths,
+                component: async () => {
+                    const Content = await component();
 
-                return () => (
-                    <PageFrame
-                        menu={side_menu}
-                        title={title}
-                        description={description}
-                    >
-                        <Content />
-                    </PageFrame>
-                );
-            }
-        }))
+                    return () => (
+                        <PageFrame
+                            menu={side_menu}
+                            header={title}
+                            description={description}
+                        >
+                            <Content />
+                        </PageFrame>
+                    );
+                }
+            })
+        ),
+        ...examples
     ];
 
     @on('click', 'pre[class*="language-"]')
@@ -59,6 +63,10 @@ export class PageRouter extends HTMLRouter {
                         {
                             title: 'API document',
                             href: 'https://web-cell.dev/BootCell/'
+                        },
+                        {
+                            title: 'Examples',
+                            href: 'example'
                         },
                         {
                             title: 'Source code',
