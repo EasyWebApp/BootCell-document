@@ -30,7 +30,7 @@ At a minimum, we require a single element to contain your “toasted” content 
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(
@@ -60,7 +60,7 @@ For browsers that support the `backdrop-filter` CSS property, we’ll also attem
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(
@@ -96,7 +96,7 @@ When you have multiple toasts, we default to vertically stacking them in a reada
 </Example>
 
 ```TSX
-import { render, Fragment } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(
@@ -142,7 +142,7 @@ If you’re only ever going to show one toast at a time, put the positioning sty
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(
@@ -192,7 +192,7 @@ For systems that generate more notifications, consider using a wrapping element 
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(
@@ -242,7 +242,7 @@ You can also get fancy with flexbox utilities to align toasts horizontally and/o
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(
@@ -285,7 +285,7 @@ otherwise use `role="status" aria-live="polite"` attributes.
 As the content you’re displaying changes, be sure to update the `delay` timeout to ensure people have enough time to read the toast.
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 render(

@@ -42,7 +42,7 @@ Here’s a carousel with slides only.
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { CarouselView } from 'boot-cell/source/Content/Carousel';
 
 render(
@@ -72,7 +72,7 @@ Adding in the previous and next controls:
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { CarouselView } from 'boot-cell/source/Content/Carousel';
 
 render(
@@ -104,7 +104,7 @@ You can also add the indicators to the carousel, alongside the controls, too.
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { CarouselView } from 'boot-cell/source/Content/Carousel';
 
 render(
@@ -133,22 +133,25 @@ We hide them initially with `.d-none` and bring them back on medium-sized device
         list={[
             {
                 image: 'https://tech-query.me/medias/featureimages/6.jpg',
-                title: 'Mountain'
+                title: 'Mountain',
+                detail: 'A description sample'
             },
             {
                 image: 'https://tech-query.me/medias/featureimages/7.jpg',
-                title: 'River'
+                title: 'River',
+                detail: 'A description sample'
             },
             {
                 image: 'https://tech-query.me/medias/featureimages/21.jpg',
-                title: 'Lake'
+                title: 'Lake',
+                detail: 'A description sample'
             }
         ]}
     />
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { CarouselView } from 'boot-cell/source/Content/Carousel';
 
 render(
@@ -158,15 +161,18 @@ render(
         list={[
             {
                 image: 'https://tech-query.me/medias/featureimages/6.jpg',
-                title: 'Mountain'
+                title: 'Mountain',
+                detail: 'A description sample'
             },
             {
                 image: 'https://tech-query.me/medias/featureimages/7.jpg',
-                title: 'River'
+                title: 'River',
+                detail: 'A description sample'
             },
             {
                 image: 'https://tech-query.me/medias/featureimages/21.jpg',
-                title: 'Lake'
+                title: 'Lake',
+                detail: 'A description sample'
             }
         ]}
     />
@@ -190,7 +196,7 @@ Add `mode="fade"` to your carousel to animate slides with a fade transition inst
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { CarouselView } from 'boot-cell/source/Content/Carousel';
 
 render(

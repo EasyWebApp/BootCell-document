@@ -25,7 +25,7 @@ Alerts are available for any length of text, as well as an optional dismiss butt
 </Example>
 
 ```TSX
-import { render, Fragment } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { Alert } from 'boot-cell/source/Prompt/Alert';
 
 render(
@@ -71,7 +71,7 @@ Alerts can also contain additional HTML elements like headings, paragraphs and d
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Alert } from 'boot-cell/source/Prompt/Alert';
 
 render(
@@ -102,7 +102,7 @@ You can see this in action with a live demo:
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Alert } from 'boot-cell/source/Prompt/Alert';
 
 render(

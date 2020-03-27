@@ -14,6 +14,9 @@ import { Example } from '../../../source/component/Example';
 The most basic list group is an unordered list with list items and the proper classes.
 Build upon it with the options that follow, or with your own CSS as needed.
 
+Add `activeIndex` to a `<ListGroup />` to indicate the current active selection.
+Add `disabled: true` to an item of `list={[]}` to make it appear disabled.
+
 <Example>
     <ListGroup
         activeIndex={0}
@@ -28,7 +31,7 @@ Build upon it with the options that follow, or with your own CSS as needed.
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -63,7 +66,7 @@ Add `flush` property to remove some borders and rounded corners to render list g
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -98,7 +101,7 @@ Currently **horizontal list groups cannot be combined with flush list groups.**
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -125,7 +128,7 @@ render(
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -152,7 +155,7 @@ render(
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -179,7 +182,7 @@ render(
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -206,7 +209,7 @@ render(
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(
@@ -245,7 +248,7 @@ Use contextual classes to style list items with a stateful background and color.
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { ListGroup } from 'boot-cell/source/Content/ListGroup';
 
 render(

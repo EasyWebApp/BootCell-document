@@ -29,25 +29,30 @@ export function HomePage() {
 }
 
 function Section({ title, description, list }: typeof data[0]) {
-    const path = 'example/' + title.replace(' ', '-').toLowerCase();
-
     return (
         <section>
             <h2>{title}</h2>
             <p className="lead">{description}</p>
+
             <div className="card-deck">
-                {list.map(({ image, title, description }) => (
-                    <Card
-                        className="mb-4"
-                        style={{
-                            minWidth: '15.5rem',
-                            maxWidth: '15.5rem'
-                        }}
-                        image={image}
-                        title={<a href={path}>{title}</a>}
-                        text={description}
-                    />
-                ))}
+                {list.map(({ href, image, title, description }) => {
+                    href =
+                        href ||
+                        'example/' + title.replace(' ', '-').toLowerCase();
+
+                    return (
+                        <Card
+                            className="mb-4"
+                            style={{
+                                minWidth: '15.5rem',
+                                maxWidth: '15.5rem'
+                            }}
+                            image={image}
+                            title={<a href={href}>{title}</a>}
+                            text={description}
+                        />
+                    );
+                })}
             </div>
         </section>
     );

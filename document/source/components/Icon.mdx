@@ -121,7 +121,7 @@ With the following properties, we can increase or decrease the size of icons rel
 </Example>
 
 ```TSX
-import { render, Fragment } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
@@ -150,7 +150,7 @@ This is great to use when varying icon widths (e.g. a tall but skinny icon atop 
 For clarity in the following example, we’ve added a background color on the icon so you can see the fixed width and also bumped up the `font-size` of the parent element.
 
 <Example>
-    <ul className="list-unstyled">
+    <ul className="list-unstyled" style={{ fontSize: '2rem' }}>
         <li>
             <Icon name="skating" fixedWidth className="bg-primary" /> Skating
         </li>
@@ -172,11 +172,11 @@ For clarity in the following example, we’ve added a background color on the ic
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
-    <ul className="list-unstyled">
+    <ul className="list-unstyled" style={{ fontSize: '2rem' }}>
         <li>
             <Icon name="skating" fixedWidth className="bg-primary" /> Skating
         </li>
@@ -215,7 +215,7 @@ Use `border` and `pull="right"` or `pull="left"` for easy pull quotes or article
 </Example>
 
 ```TSX
-import { render, Fragment } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
@@ -240,7 +240,7 @@ Use `border` in combination with pulled icon styles for more visual separation.
 </Example>
 
 ```TSX
-import { render, Fragment } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
@@ -272,7 +272,7 @@ To arbitrarily rotate and flip icons, use the `rotate` and `flip` properties whe
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
@@ -306,7 +306,7 @@ Works especially well with `name="spinner"` & everything in the [spinner icons c
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
@@ -348,7 +348,7 @@ Use `fa-ul` and `fa-li` to replace default bullets in unordered lists.
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
@@ -390,7 +390,7 @@ You can even throw larger icon classes on the parent to get further control of s
 </Example>
 
 ```TSX
-import { render, Fragment } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { Icon, BGIcon } from 'boot-cell/source/Reminder/Icon';
 
 render(

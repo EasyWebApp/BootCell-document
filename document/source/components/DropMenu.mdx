@@ -20,10 +20,9 @@ They're toggled by clicking, not by hovering; this is [an intentional design dec
 The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>][2]
 standard defines an actual [`role="menu"` widget][3], but this is specific to application-like menus which trigger actions or functions.
 
-<abbr title="Accessible Rich Internet Applications">
-    ARIA
-</abbr> menus can only contain menu items,
-checkbox menu items, radio button menu items, radio button groups, and sub-menus.
+<abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain
+menu items, checkbox menu items, radio button menu items, radio button groups, and
+sub-menus.
 
 Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures.
 For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms.
@@ -57,7 +56,7 @@ Here's how you can put them to work with either `<button>` elements:
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
@@ -89,7 +88,7 @@ The best part is you can do this with any button variant, too:
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
@@ -125,7 +124,7 @@ render(
 </Example>
 
 ```TSX
-import { render } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
@@ -139,6 +138,284 @@ render(
             { href: '#', title: 'Something else here' },
             {},
             { href: '#', title: 'Separated link' }
+        ]}
+    />
+);
+```
+
+## Sizing
+
+Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
+
+<Example>
+    <DropMenu
+        buttonSize="lg"
+        title="Large button"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+    <DropMenu
+        buttonSize="sm"
+        title="Small button"
+        href="https://web-cell.dev/BootCell/"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <Fragment>
+        <DropMenu
+            buttonSize="lg"
+            title="Large button"
+            list={[
+                { href: '#', title: 'Action' },
+                { href: '#', title: 'Another action' },
+                { href: '#', title: 'Something else here' },
+                {},
+                { href: '#', title: 'Separated link' }
+            ]}
+        />
+        <DropMenu
+            buttonSize="sm"
+            title="Small button"
+            href="https://web-cell.dev/BootCell/"
+            list={[
+                { href: '#', title: 'Action' },
+                { href: '#', title: 'Another action' },
+                { href: '#', title: 'Something else here' },
+                {},
+                { href: '#', title: 'Separated link' }
+            ]}
+        />
+    </Fragment>
+);
+```
+
+## Directions
+
+### Dropup
+
+Trigger drop menus above elements by adding `direction="up"` to the component.
+
+<Example>
+    <DropMenu
+        direction="up"
+        title="Dropup"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        direction="up"
+        title="Dropup"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+);
+```
+
+### Dropright
+
+Trigger drop menus at the right of the elements by adding `direction="right"` to the component.
+
+<Example>
+    <DropMenu
+        direction="right"
+        title="Dropright"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        direction="right"
+        title="Dropright"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+);
+```
+
+### Dropleft
+
+Trigger drop menus at the left of the elements by adding `direction="left"` to the component.
+
+<Example>
+    <DropMenu
+        direction="left"
+        title="Dropleft"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        direction="left"
+        title="Dropleft"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' },
+            {},
+            { href: '#', title: 'Separated link' }
+        ]}
+    />
+);
+```
+
+## Menu alignment
+
+By default, a drop menu is automatically positioned 100% from the top and along the left side of its parent.
+Add `alignType="right"` to a `<DropMenu />` to right align the dropdown menu.
+
+<Example>
+    <DropMenu
+        alignType="right"
+        title="Right-aligned menu"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        alignType="right"
+        title="Right-aligned menu"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' }
+        ]}
+    />
+);
+```
+
+### Responsive alignment
+
+To align right the drop menu with the given breakpoint or larger, add `alignType="right" alignSize="sm|md|lg|xl"`.
+
+<Example>
+    <DropMenu
+        alignType="right"
+        alignSize="lg"
+        title="Left-aligned but right aligned when large screen"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        alignType="right"
+        alignSize="lg"
+        title="Left-aligned but right aligned when large screen"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' }
+        ]}
+    />
+);
+```
+
+To align left the drop menu with the given breakpoint or larger, add `alignType="left" alignSize="sm|md|lg|xl"`.
+
+<Example>
+    <DropMenu
+        alignType="left"
+        alignSize="lg"
+        title="Left-aligned but left aligned when large screen"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        alignType="left"
+        alignSize="lg"
+        title="Left-aligned but left aligned when large screen"
+        list={[
+            { href: '#', title: 'Action' },
+            { href: '#', title: 'Another action' },
+            { href: '#', title: 'Something else here' }
         ]}
     />
 );

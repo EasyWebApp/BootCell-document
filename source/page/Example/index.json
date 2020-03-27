@@ -36,12 +36,14 @@
             {
                 "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/blog.png",
                 "title": "Blog",
-                "description": "Magazine like blog template with header, navigation, featured content."
+                "description": "Magazine like blog template with header, navigation, featured content.",
+                "href": "https://web-cell.dev/mark-wiki/"
             },
             {
                 "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/dashboard.png",
                 "title": "Dashboard",
-                "description": "Basic admin dashboard shell with fixed sidebar and navbar."
+                "description": "Basic admin dashboard shell with fixed sidebar and navbar.",
+                "href": "https://web-cell.dev/DashBoard/#admin"
             },
             {
                 "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/sign-in.png",
@@ -114,7 +116,8 @@
             {
                 "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/floating-labels.png",
                 "title": "Floating labels",
-                "description": "Beautifully simple forms with floating labels over your inputs."
+                "description": "Beautifully simple forms with floating labels over your inputs.",
+                "href": "https://web-cell.dev/DashBoard/"
             },
             {
                 "image": "https://getbootstrap.com/docs/4.4/assets/img/examples/offcanvas.png",
