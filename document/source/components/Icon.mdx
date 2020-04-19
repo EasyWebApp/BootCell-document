@@ -51,10 +51,10 @@ All you need to do is include a single line of HTML:
             <td>400</td>
             <td>Free</td>
             <td>
-                <code>&lt;Icon kind="brands" name="font-awesome" /></code>
+                <code>&lt;Icon group="brands" name="font-awesome" /></code>
             </td>
             <td>
-                <Icon kind="brands" name="font-awesome" />
+                <Icon group="brands" name="font-awesome" />
             </td>
         </tr>
         <tr>
@@ -66,7 +66,7 @@ All you need to do is include a single line of HTML:
                 </a>
             </td>
             <td>
-                <code>&lt;Icon kind="regular" name="camera" /></code>
+                <code>&lt;Icon group="regular" name="camera" /></code>
             </td>
             <td>(Only available to Pro users)</td>
         </tr>
@@ -79,7 +79,7 @@ All you need to do is include a single line of HTML:
                 </a>
             </td>
             <td>
-                <code>&lt;Icon kind="light" name="camera" /></code>
+                <code>&lt;Icon group="light" name="camera" /></code>
             </td>
             <td>(Only available to Pro users)</td>
         </tr>
@@ -92,7 +92,7 @@ All you need to do is include a single line of HTML:
                 </a>
             </td>
             <td>
-                <code>&lt;Icon kind="duotone" name="camera" /></code>
+                <code>&lt;Icon group="duotone" name="camera" /></code>
             </td>
             <td>(Only available to Pro users)</td>
         </tr>
@@ -379,7 +379,7 @@ Then add the `stack={1}` property for the regularly sized icon and add the `stac
 You can even throw larger icon classes on the parent to get further control of sizing.
 
 <Example>
-    <BGIcon type="square" kind="brands" name="twitter" size={2} />
+    <BGIcon type="square" group="brands" name="twitter" size={2} />
     <BGIcon type="circle" name="flag" size={2} />
     <BGIcon type="square" name="terminal" size={2} />
     <BGIcon type="square" name="terminal" size={4} />
@@ -395,7 +395,7 @@ import { Icon, BGIcon } from 'boot-cell/source/Reminder/Icon';
 
 render(
     <Fragment>
-        <BGIcon type="square" kind="brands" name="twitter" size={2} />
+        <BGIcon type="square" group="brands" name="twitter" size={2} />
         <BGIcon type="circle" name="flag" size={2} />
         <BGIcon type="square" name="terminal" size={2} />
         <BGIcon type="square" name="terminal" size={4} />

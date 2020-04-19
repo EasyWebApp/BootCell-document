@@ -4,7 +4,7 @@ blockquote {
 }
 pre[class*='language-'] {
     margin: 0 0 1rem;
-    border-radius: 0 0 0.3rem 0.3rem;
+    border-radius: 0.3rem;
     & > code {
         white-space: pre-wrap;
     }
@@ -31,6 +31,11 @@ pre[class*='language-'] {
 .right-0 {
     right: 0;
 }
-.bd-example > *:not(:only-child) {
-    margin: 0.5rem;
+.bd-example {
+    & > *:not(:only-child) {
+        margin: 0.5rem;
+    }
+    & + pre {
+        border-radius: 0 0 0.3rem 0.3rem;
+    }
 }
