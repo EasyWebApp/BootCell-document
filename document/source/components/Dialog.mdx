@@ -1,0 +1,490 @@
+---
+layout: docs
+title: Modal
+description: Use BootCell’s JavaScript dialog methods to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+group: Components
+---
+
+import { openDialog, openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { Table } from 'boot-cell/source/Content/Table';
+import { FormField } from 'boot-cell/source/Form/FormField';
+
+import { Fragment } from 'web-cell';
+import { Example } from '../../../source/component/Example';
+
+## How it works
+
+Before getting started with BootCell’s modal component, be sure to read the following as our menu options have recently changed.
+
+-   Modals are built with HTML, CSS, and JavaScript. They’re positioned over everything else in the document and remove scroll from the `<body>` so that modal content scrolls instead.
+
+-   BootCell only supports one modal window at a time. Nested modals aren’t supported as we believe them to be poor user experiences.
+
+Keep reading for demos and usage guidelines.
+
+## Examples
+
+### Live demo
+
+Toggle a working modal demo by clicking the button below.
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: "Woohoo, you're reading this text in a modal!",
+                confirmText: 'Save changes'
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: "Woohoo, you're reading this text in a modal!",
+                confirmText: 'Save changes'
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+);
+```
+
+### Scrolling long content
+
+When modals become too long for the user’s viewport or device, they scroll independent of the page itself.
+Try the demo below to see what we mean.
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: document.body.textContent.trim(),
+                confirmText: 'Save changes'
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: document.body.textContent.trim(),
+                confirmText: 'Save changes'
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+);
+```
+
+You can also create a scrollable modal that allows scroll the modal body
+by adding `scrollable: true` to `openModal()`.
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: document.body.textContent.trim(),
+                confirmText: 'Save changes',
+                scrollable: true
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: document.body.textContent.trim(),
+                confirmText: 'Save changes',
+                scrollable: true
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+);
+```
+
+### Vertically centered
+
+Add `centered: true` to `openModal()` to vertically center the modal.
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: "Woohoo, you're reading this text in a modal!",
+                confirmText: 'Save changes',
+                centered: true
+            })
+        }
+    >
+        Vertically centered modal
+    </Button>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                body: document.body.textContent.trim(),
+                confirmText: 'Save changes',
+                centered: true,
+                scrollable: true
+            })
+        }
+    >
+        Vertically centered scrollable modal
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Fragment>
+        <Button
+            onClick={() =>
+                openModal({
+                    title: 'Modal title',
+                    body: "Woohoo, you're reading this text in a modal!",
+                    confirmText: 'Save changes',
+                    centered: true
+                })
+            }
+        >
+            Vertically centered modal
+        </Button>
+        <Button
+            onClick={() =>
+                openModal({
+                    title: 'Modal title',
+                    body: document.body.textContent.trim(),
+                    confirmText: 'Save changes',
+                    centered: true,
+                    scrollable: true
+                })
+            }
+        >
+            Vertically centered scrollable modal
+        </Button>
+    </Fragment>
+);
+```
+
+### Tooltips and popovers
+
+[Tooltips][1] and [popovers][2] can be placed within modals as needed. When modals are closed,
+any tooltips and popovers within are also automatically dismissed.
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                confirmText: 'Save changes',
+                body: (
+                    <Fragment>
+                        <h5>Popover in a modal</h5>
+                        <p>
+                            This{' '}
+                            <PopoverBox
+                                position="right"
+                                header="Popover title"
+                                body="Popover body content is set in this attribute."
+                            >
+                                <Button kind="secondary">button</Button>
+                            </PopoverBox>{' '}
+                            triggers a popover on click.
+                        </p>
+                        <hr />
+                        <h5>Tooltips in a modal</h5>
+                        <p>
+                            <TooltipBox text="Tooltip">
+                                <a href="javascript: ;">This link</a>
+                            </TooltipBox>{' '}
+                            and{' '}
+                            <TooltipBox text="Tooltip">
+                                <a href="javascript: ;">that link</a>
+                            </TooltipBox>{' '}
+                            have tooltips on hover.
+                        </p>
+                    </Fragment>
+                )
+            })
+        }
+    >
+        Launch demo modal
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Button } from 'boot-cell/source/Form/Button';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+
+render(
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Modal title',
+                confirmText: 'Save changes',
+                body: (
+                    <Fragment>
+                        <h5>Popover in a modal</h5>
+                        <p>
+                            This{' '}
+                            <PopoverBox
+                                position="right"
+                                header="Popover title"
+                                body="Popover body content is set in this attribute."
+                            >
+                                <Button kind="secondary">button</Button>
+                            </PopoverBox>{' '}
+                            triggers a popover on click.
+                        </p>
+                        <hr />
+                        <h5>Tooltips in a modal</h5>
+                        <p>
+                            <TooltipBox text="Tooltip">
+                                <a href="javascript: ;">This link</a>
+                            </TooltipBox>{' '}
+                            and{' '}
+                            <TooltipBox text="Tooltip">
+                                <a href="javascript: ;">that link</a>
+                            </TooltipBox>{' '}
+                            have tooltips on hover.
+                        </p>
+                    </Fragment>
+                )
+            })
+        }
+    >
+        Vertically centered modal
+    </Button>
+);
+```
+
+### Varying modal content
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'New message to @mdo',
+                confirmText: 'Send message',
+                body: (
+                    <Fragment>
+                        <FormField label="Recipient:" value="@mdo" />
+                        <FormField is="textarea" label="Message:" />
+                    </Fragment>
+                )
+            })
+        }
+    >
+        Open modal for @mdo
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+import { FormField } from 'boot-cell/source/Form/FormField';
+
+render(
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'New message to @mdo',
+                confirmText: 'Send message',
+                body: (
+                    <Fragment>
+                        <FormField label="Recipient:" value="@mdo" />
+                        <FormField is="textarea" label="Message:" />
+                    </Fragment>
+                )
+            })
+        }
+    >
+        Open modal for @mdo
+    </Button>
+);
+```
+
+## Optional sizes
+
+Modals have three optional sizes, available via `size` parameter to be placed on a `openModal()`.
+These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
+
+<Table border striped>
+    <thead>
+        <tr>
+            <th>Size</th>
+            <th>Parameter value</th>
+            <th>Modal max-width</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Small</td>
+            <td>
+                <code>sm</code>
+            </td>
+            <td>
+                <code>300px</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Default</td>
+            <td>None</td>
+            <td>
+                <code>500px</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Large</td>
+            <td>
+                <code>lg</code>
+            </td>
+            <td>
+                <code>800px</code>
+            </td>
+        </tr>
+        <tr>
+            <td>Extra large</td>
+            <td>
+                <code>xl</code>
+            </td>
+            <td>
+                <code>1140px</code>
+            </td>
+        </tr>
+    </tbody>
+</Table>
+
+Our default modal without `size` parameter constitutes the "medium" size modal.
+
+<Example>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Extra large modal',
+                body: 'Hello, BootCell!',
+                size: 'xl'
+            })
+        }
+    >
+        Extra large modal
+    </Button>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Large modal',
+                body: 'Hello, BootCell!',
+                size: 'lg'
+            })
+        }
+    >
+        Large modal
+    </Button>
+    <Button
+        onClick={() =>
+            openModal({
+                title: 'Small modal',
+                body: 'Hello, BootCell!',
+                size: 'sm'
+            })
+        }
+    >
+        Small modal
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Fragment>
+        <Button
+            onClick={() =>
+                openModal({
+                    title: 'Extra large modal',
+                    body: 'Hello, BootCell!',
+                    size: 'xl'
+                })
+            }
+        >
+            Extra large modal
+        </Button>
+        <Button
+            onClick={() =>
+                openModal({
+                    title: 'Large modal',
+                    body: 'Hello, BootCell!',
+                    size: 'lg'
+                })
+            }
+        >
+            Large modal
+        </Button>
+        <Button
+            onClick={() =>
+                openModal({
+                    title: 'Small modal',
+                    body: 'Hello, BootCell!',
+                    size: 'sm'
+                })
+            }
+        >
+            Small modal
+        </Button>
+    </Fragment>
+);
+```
+
+[1]: components/tooltip
+[2]: components/popover
