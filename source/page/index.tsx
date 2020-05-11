@@ -78,7 +78,7 @@ export class PageRouter extends HTMLRouter {
             <Fragment>
                 <NavBar brand="BootCell" menu={this.menu} />
 
-                <main className="mt-5">{super.render()}</main>
+                <main>{super.render()}</main>
 
                 <footer className="text-center bg-light py-5">
                     Proudly developed with{' '}
