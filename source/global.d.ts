@@ -1,5 +1,5 @@
 declare module '*.css' {
-    const map: { [key: string]: string };
+    const map: Record<string, string>;
 
     export default map;
 }

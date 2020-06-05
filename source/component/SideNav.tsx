@@ -1,8 +1,8 @@
 import { WebCellProps, createCell } from 'web-cell';
-import { HTMLProps, HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
+import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 
-interface SideNavProps extends WebCellProps, HTMLProps {
-    menu: { [group: string]: HTMLHyperLinkProps[] };
+export interface SideNavProps extends WebCellProps {
+    menu: Record<string, HTMLHyperLinkProps[]>;
 }
 
 export function SideNav({ menu, defaultSlot, ...rest }: SideNavProps) {

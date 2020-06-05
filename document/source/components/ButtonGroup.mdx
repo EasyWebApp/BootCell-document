@@ -1,0 +1,302 @@
+---
+layout: docs
+title: ButtonGroup
+description: Group a series of buttons together on a single line with the button group, and super-power them with JavaScript.
+group: Components
+---
+
+import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+import { Example } from '../../../source/component/Example';
+
+## Basic example
+
+Wrap a series of buttons with `<Button />` in `<ButtonGroup />`.
+
+<Example>
+    <ButtonGroup>
+        <Button kind="secondary">Left</Button>
+        <Button kind="secondary">Middle</Button>
+        <Button kind="secondary">Right</Button>
+    </ButtonGroup>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <ButtonGroup>
+        <Button kind="secondary">Left</Button>
+        <Button kind="secondary">Middle</Button>
+        <Button kind="secondary">Right</Button>
+    </ButtonGroup>
+);
+```
+
+> ##### Ensure correct `role` and provide a label
+>
+> In order for assistive technologies (such as screen readers) to convey that a series of buttons is grouped,
+> an appropriate `role` attribute needs to be provided. For button groups, this would be `role="group"`,
+> while toolbars should have a `role="toolbar"`.
+>
+> In addition, groups and toolbars should be given an explicit label, as most assistive technologies will otherwise not announce them,
+> despite the presence of the correct role attribute. In the examples provided here, we use `aria-label`,
+> but alternatives such as `aria-labelledby` can also be used.
+
+## Button toolbar
+
+Combine sets of button groups into button toolbars for more complex components.
+Use utility classes as needed to space out groups, buttons, and more.
+
+<Example>
+    <Toolbar aria-label="Toolbar with button groups">
+        <ButtonGroup className="mr-2" aria-label="First group">
+            <Button kind="secondary">1</Button>
+            <Button kind="secondary">2</Button>
+            <Button kind="secondary">3</Button>
+            <Button kind="secondary">4</Button>
+        </ButtonGroup>
+        <ButtonGroup className="mr-2" aria-label="Second group">
+            <Button kind="secondary">5</Button>
+            <Button kind="secondary">6</Button>
+            <Button kind="secondary">7</Button>
+        </ButtonGroup>
+        <ButtonGroup aria-label="Third group">
+            <Button kind="secondary">8</Button>
+        </ButtonGroup>
+    </Toolbar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Toolbar aria-label="Toolbar with button groups">
+        <ButtonGroup className="mr-2" aria-label="First group">
+            <Button kind="secondary">1</Button>
+            <Button kind="secondary">2</Button>
+            <Button kind="secondary">3</Button>
+            <Button kind="secondary">4</Button>
+        </ButtonGroup>
+        <ButtonGroup className="mr-2" aria-label="Second group">
+            <Button kind="secondary">5</Button>
+            <Button kind="secondary">6</Button>
+            <Button kind="secondary">7</Button>
+        </ButtonGroup>
+        <ButtonGroup aria-label="Third group">
+            <Button kind="secondary">8</Button>
+        </ButtonGroup>
+    </Toolbar>
+);
+```
+
+## Sizing
+
+Instead of applying button sizing properties to every button in a group,
+just add `size` property to each `<ButtonGroup />`, including each one when nesting multiple groups.
+
+<Example>
+    <ButtonGroup size="lg">
+        <Button kind="secondary">Left</Button>
+        <Button kind="secondary">Middle</Button>
+        <Button kind="secondary">Right</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+        <Button kind="secondary">Left</Button>
+        <Button kind="secondary">Middle</Button>
+        <Button kind="secondary">Right</Button>
+    </ButtonGroup>
+    <ButtonGroup size="sm">
+        <Button kind="secondary">Left</Button>
+        <Button kind="secondary">Middle</Button>
+        <Button kind="secondary">Right</Button>
+    </ButtonGroup>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Fragment>
+        <ButtonGroup size="lg">
+            <Button kind="secondary">Left</Button>
+            <Button kind="secondary">Middle</Button>
+            <Button kind="secondary">Right</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button kind="secondary">Left</Button>
+            <Button kind="secondary">Middle</Button>
+            <Button kind="secondary">Right</Button>
+        </ButtonGroup>
+        <ButtonGroup size="sm">
+            <Button kind="secondary">Left</Button>
+            <Button kind="secondary">Middle</Button>
+            <Button kind="secondary">Right</Button>
+        </ButtonGroup>
+    </Fragment>
+);
+```
+
+## Nesting
+
+Place a `<ButtonGroup />` within another `<ButtonGroup />`
+when you want `<DropMenu />`s mixed with a series of buttons.
+
+<Example>
+    <ButtonGroup>
+        <Button kind="secondary">1</Button>
+        <Button kind="secondary">2</Button>
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+    </ButtonGroup>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <ButtonGroup>
+        <Button kind="secondary">1</Button>
+        <Button kind="secondary">2</Button>
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+    </ButtonGroup>
+);
+```
+
+## Vertical variation
+
+Make a set of buttons appear vertically stacked rather than horizontally.
+
+<Example>
+    <ButtonGroup vertical>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+    </ButtonGroup>
+</Example>
+
+<Example>
+    <ButtonGroup vertical>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+    </ButtonGroup>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <ButtonGroup vertical>
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+        <Button kind="secondary">Button</Button>
+        <Button kind="secondary">Button</Button>
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+        <DropMenu
+            buttonKind="secondary"
+            title="Dropdown"
+            href="https://web-cell.dev/"
+            list={[
+                { href: '#', title: 'Dropdown link' },
+                { href: '#', title: 'Dropdown link' }
+            ]}
+        />
+    </ButtonGroup>
+);
+```

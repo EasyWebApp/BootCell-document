@@ -7,14 +7,13 @@ import {
     createCell,
     Fragment
 } from 'web-cell';
-import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 import { Button } from 'boot-cell/source/Form/Button';
 import { HeaderList } from 'boot-cell/source/Navigator/HeaderList';
 
-import { SideNav } from './SideNav';
+import { SideNavProps, SideNav } from './SideNav';
 
 interface PageFrameProps extends WebCellProps {
-    menu: { [key: string]: HTMLHyperLinkProps[] };
+    menu: SideNavProps['menu'];
     header: string;
     description: string;
 }
@@ -57,7 +56,11 @@ export class PageFrame extends mixin<PageFrameProps>() {
             <Fragment>
                 <SideNav
                     className="sticky-top"
-                    style={{ top: '3.5rem', height: 'calc(100vh - 3.5rem)' }}
+                    style={{
+                        top: '3.5rem',
+                        height: 'calc(100vh - 3.5rem)',
+                        zIndex: 1019
+                    }}
                     menu={menu}
                 />
 
