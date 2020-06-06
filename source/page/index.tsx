@@ -3,6 +3,7 @@ import { component, createCell, Fragment, on } from 'web-cell';
 import { observer } from 'mobx-web-cell';
 import { HTMLRouter } from 'cell-router/source';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
 
 import { history } from '../model';
 import { PageFrame } from '../component/PageFrame';
@@ -78,7 +79,9 @@ export class PageRouter extends HTMLRouter {
             <Fragment>
                 <NavBar brand="BootCell" menu={this.menu} />
 
-                <main>{super.render()}</main>
+                <SpinnerBox cover={this.state.loading}>
+                    {super.render()}
+                </SpinnerBox>
 
                 <footer className="text-center bg-light py-5">
                     Proudly developed with{' '}

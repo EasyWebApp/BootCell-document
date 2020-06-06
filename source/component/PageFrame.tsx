@@ -64,7 +64,7 @@ export class PageFrame extends mixin<PageFrameProps>() {
                     menu={menu}
                 />
 
-                <div className="flex-fill p-4 border-left">
+                <main className="flex-fill p-4 border-left">
                     <h1 className="d-flex justify-content-between align-items-center">
                         {header}
                         <Button size="sm" href={API}>
@@ -76,7 +76,7 @@ export class PageFrame extends mixin<PageFrameProps>() {
                     <div ref={(node: HTMLElement) => (this.box = node)}>
                         {defaultSlot}
                     </div>
-                </div>
+                </main>
 
                 <HeaderList
                     className="p-4 d-none d-md-block"

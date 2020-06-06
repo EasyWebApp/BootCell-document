@@ -1,15 +1,16 @@
 {
     "name": "bootcell-document",
-    "version": "0.22.0",
+    "version": "0.23.0",
     "description": "Re-implemented Official Document site of BootStrap & FontAwesome based on WebCell, BootCell & MarkCell",
     "dependencies": {
-        "boot-cell": "^1.0.0-rc.22",
+        "boot-cell": "^1.0.0-rc.23",
         "cell-router": "^2.0.0-rc.8",
         "classnames": "^2.2.6",
         "github-web-widget": "^3.0.0-beta.4",
         "lodash.groupby": "^4.6.0",
         "mobx": "^5.15.4",
         "mobx-web-cell": "^0.3.0",
+        "snabbdom-looks-like": "^1.0.5",
         "web-cell": "^2.0.1",
         "web-utility": "^1.5.2"
     },
@@ -17,7 +18,7 @@
         "@types/classnames": "^2.2.10",
         "@types/lodash.groupby": "^4.6.6",
         "husky": "^4.2.5",
-        "less": "^3.11.2",
+        "less": "^3.11.3",
         "lint-staged": "^10.2.9",
         "mark-cell": "^0.4.1",
         "parcel": "^1.12.4",

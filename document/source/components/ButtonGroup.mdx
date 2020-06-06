@@ -1,12 +1,13 @@
 ---
 layout: docs
-title: ButtonGroup
+title: Button group
 description: Group a series of buttons together on a single line with the button group, and super-power them with JavaScript.
 group: Components
 ---
 
 import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
 
 import { Example } from '../../../source/component/Example';
@@ -93,6 +94,82 @@ render(
             <Button kind="secondary">8</Button>
         </ButtonGroup>
     </Toolbar>
+);
+```
+
+Feel free to mix input groups with button groups in your toolbars. Similar to the example above,
+you’ll likely need some utilities though to space things properly.
+
+<Example>
+    <Toolbar aria-label="Toolbar with button groups">
+        <ButtonGroup className="mr-2" aria-label="First group">
+            <Button kind="secondary">1</Button>
+            <Button kind="secondary">2</Button>
+            <Button kind="secondary">3</Button>
+            <Button kind="secondary">4</Button>
+        </ButtonGroup>
+        <InputGroup
+            placeholder="Input group example"
+            aria-label="Input group example"
+            prepend="@"
+        />
+    </Toolbar>
+    <Toolbar
+        className="justify-content-between"
+        aria-label="Toolbar with button groups"
+    >
+        <ButtonGroup className="mr-2" aria-label="First group">
+            <Button kind="secondary">1</Button>
+            <Button kind="secondary">2</Button>
+            <Button kind="secondary">3</Button>
+            <Button kind="secondary">4</Button>
+        </ButtonGroup>
+        <InputGroup
+            placeholder="Input group example"
+            aria-label="Input group example"
+            prepend="@"
+        />
+    </Toolbar>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+
+render(
+    <Fragment>
+        <Toolbar aria-label="Toolbar with button groups">
+            <ButtonGroup className="mr-2" aria-label="First group">
+                <Button kind="secondary">1</Button>
+                <Button kind="secondary">2</Button>
+                <Button kind="secondary">3</Button>
+                <Button kind="secondary">4</Button>
+            </ButtonGroup>
+            <InputGroup
+                placeholder="Input group example"
+                aria-label="Input group example"
+                prepend="@"
+            />
+        </Toolbar>
+        <Toolbar
+            className="justify-content-between"
+            aria-label="Toolbar with button groups"
+        >
+            <ButtonGroup className="mr-2" aria-label="First group">
+                <Button kind="secondary">1</Button>
+                <Button kind="secondary">2</Button>
+                <Button kind="secondary">3</Button>
+                <Button kind="secondary">4</Button>
+            </ButtonGroup>
+            <InputGroup
+                placeholder="Input group example"
+                aria-label="Input group example"
+                prepend="@"
+            />
+        </Toolbar>
+    </Fragment>
 );
 ```
 
