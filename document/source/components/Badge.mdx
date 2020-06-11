@@ -1,0 +1,275 @@
+---
+layout: docs
+title: Badge
+description: Documentation and examples for badges, our small count and labeling component.
+group: Components
+---
+
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+import { Button } from 'boot-cell/source/Form/Button';
+
+import { Example } from '../../../source/component/Example';
+
+## Example
+
+Badges scale to match the size of the immediate parent element by using relative font sizing and `em` units.
+
+<Example>
+    <h1>
+        Example heading <Badge kind="secondary">New</Badge>
+    </h1>
+    <h2>
+        Example heading <Badge kind="secondary">New</Badge>
+    </h2>
+    <h3>
+        Example heading <Badge kind="secondary">New</Badge>
+    </h3>
+    <h4>
+        Example heading <Badge kind="secondary">New</Badge>
+    </h4>
+    <h5>
+        Example heading <Badge kind="secondary">New</Badge>
+    </h5>
+    <h6>
+        Example heading <Badge kind="secondary">New</Badge>
+    </h6>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+
+render(
+    <Fragment>
+        <h1>
+            Example heading <Badge kind="secondary">New</Badge>
+        </h1>
+        <h2>
+            Example heading <Badge kind="secondary">New</Badge>
+        </h2>
+        <h3>
+            Example heading <Badge kind="secondary">New</Badge>
+        </h3>
+        <h4>
+            Example heading <Badge kind="secondary">New</Badge>
+        </h4>
+        <h5>
+            Example heading <Badge kind="secondary">New</Badge>
+        </h5>
+        <h6>
+            Example heading <Badge kind="secondary">New</Badge>
+        </h6>
+    </Fragment>
+);
+```
+
+Badges can be used as part of links or buttons to provide a counter.
+
+<Example>
+    <Button>
+        Notifications <Badge kind="light">4</Badge>
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Button>
+        Notifications <Badge kind="light">4</Badge>
+    </Button>
+);
+```
+
+Note that depending on how they are used, badges may be confusing for users of screen readers
+and similar assistive technologies. While the styling of badges provides a visual cue as to their purpose,
+these users will simply be presented with the content of the badge.
+Depending on the specific situation, these badges may seem like random additional words or
+numbers at the end of a sentence, link, or button.
+
+Unless the context is clear (as with the “Notifications” example, where it is understood that
+the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.
+
+<Example>
+    <Button>
+        Profile <Badge kind="light">9</badge>
+        <span class="sr-only">unread messages</span>
+    </Button>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Button>
+        Profile <Badge kind="light">9</badge>
+        <span class="sr-only">unread messages</span>
+    </Button>
+);
+```
+
+## Contextual variations
+
+Add any of the below mentioned `kind` property values to change the appearance of a badge.
+
+<Example>
+    <Badge>Primary</Badge>
+    <Badge kind="secondary">Secondary</Badge>
+    <Badge kind="success">Success</Badge>
+    <Badge kind="danger">Danger</Badge>
+    <Badge kind="warning">Warning</Badge>
+    <Badge kind="info">Info</Badge>
+    <Badge kind="light">Light</Badge>
+    <Badge kind="dark">Dark</Badge>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+
+render(
+    <Fragment>
+        <Badge>Primary</Badge>
+        <Badge kind="secondary">Secondary</Badge>
+        <Badge kind="success">Success</Badge>
+        <Badge kind="danger">Danger</Badge>
+        <Badge kind="warning">Warning</Badge>
+        <Badge kind="info">Info</Badge>
+        <Badge kind="light">Light</Badge>
+        <Badge kind="dark">Dark</Badge>
+    </Fragment>
+);
+```
+
+> ##### Conveying meaning to assistive technologies
+>
+> Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies –
+> such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text),
+> or is included through alternative means, such as additional text hidden with the `.sr-only` class.
+
+## Pill badges
+
+Use the `pill` property to make badges more rounded (with a larger border-radius and additional horizontal padding).
+Useful if you miss the badges from v3.
+
+<Example>
+    <Badge pill>Primary</Badge>
+    <Badge pill kind="secondary">
+        Secondary
+    </Badge>
+    <Badge pill kind="success">
+        Success
+    </Badge>
+    <Badge pill kind="danger">
+        Danger
+    </Badge>
+    <Badge pill kind="warning">
+        Warning
+    </Badge>
+    <Badge pill kind="info">
+        Info
+    </Badge>
+    <Badge pill kind="light">
+        Light
+    </Badge>
+    <Badge pill kind="dark">
+        Dark
+    </Badge>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+
+render(
+    <Fragment>
+        <Badge pill>Primary</Badge>
+        <Badge pill kind="secondary">
+            Secondary
+        </Badge>
+        <Badge pill kind="success">
+            Success
+        </Badge>
+        <Badge pill kind="danger">
+            Danger
+        </Badge>
+        <Badge pill kind="warning">
+            Warning
+        </Badge>
+        <Badge pill kind="info">
+            Info
+        </Badge>
+        <Badge pill kind="light">
+            Light
+        </Badge>
+        <Badge pill kind="dark">
+            Dark
+        </Badge>
+    </Fragment>
+);
+```
+
+## Links
+
+Using `href` property on `<Badge />` quickly provide actionable badges with hover and focus states.
+
+<Example>
+    <Badge href=".">Primary</Badge>
+    <Badge href="." kind="secondary">
+        Secondary
+    </Badge>
+    <Badge href="." kind="success">
+        Success
+    </Badge>
+    <Badge href="." kind="danger">
+        Danger
+    </Badge>
+    <Badge href="." kind="warning">
+        Warning
+    </Badge>
+    <Badge href="." kind="info">
+        Info
+    </Badge>
+    <Badge href="." kind="light">
+        Light
+    </Badge>
+    <Badge href="." kind="dark">
+        Dark
+    </Badge>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+
+render(
+    <Fragment>
+        <Badge href=".">Primary</Badge>
+        <Badge href="." kind="secondary">
+            Secondary
+        </Badge>
+        <Badge href="." kind="success">
+            Success
+        </Badge>
+        <Badge href="." kind="danger">
+            Danger
+        </Badge>
+        <Badge href="." kind="warning">
+            Warning
+        </Badge>
+        <Badge href="." kind="info">
+            Info
+        </Badge>
+        <Badge href="." kind="light">
+            Light
+        </Badge>
+        <Badge href="." kind="dark">
+            Dark
+        </Badge>
+    </Fragment>
+);
+```

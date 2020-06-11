@@ -40,7 +40,12 @@ export function HomePage() {
                             FontAwesome v5
                         </a>
                     </p>
-                    <Button outline size="lg" href={routes[0].paths[0]}>
+                    <Button
+                        outline
+                        size="lg"
+                        title={routes[0].meta.title}
+                        href={routes[0].paths[0]}
+                    >
                         Get started
                     </Button>
                 </Jumbotron>
