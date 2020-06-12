@@ -1,6 +1,8 @@
 import { WebCellProps, createCell } from 'web-cell';
 import classNames from 'classnames';
 
+import style from './Example.less';
+
 export function Example({ className, defaultSlot }: WebCellProps) {
     return (
         <div
@@ -8,7 +10,7 @@ export function Example({ className, defaultSlot }: WebCellProps) {
                 'border',
                 'border-light',
                 'p-4',
-                'bd-example',
+                style.example,
                 className
             )}
         >

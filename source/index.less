@@ -1,41 +1,35 @@
-blockquote {
-    border-left: 3px solid lightgray;
-    padding-left: 1rem;
-}
-pre[class*='language-'] {
-    margin: 0 0 1rem;
-    border-radius: 0.3rem;
-    & > code {
-        white-space: pre-wrap;
+:global {
+    blockquote {
+        border-left: 3px solid lightgray;
+        padding-left: 1rem;
     }
-    position: relative;
-    &::before {
-        position: absolute;
-        top: 0.25rem;
-        right: 0.5rem;
-        content: 'Copy';
-        color: gray;
-        padding: 0.25rem 0.5rem;
-        border-radius: 3px;
-        cursor: pointer;
-        transition: 0.25s;
+    pre[class*='language-'] {
+        margin: 0 0 1rem;
+        border-radius: 0.3rem;
+        & > code {
+            white-space: pre-wrap;
+        }
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.5rem;
+            content: 'Copy';
+            color: gray;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        &:hover::before {
+            background: white;
+            color: black;
+        }
     }
-    &:hover::before {
-        background: white;
-        color: black;
+    .vh-50 {
+        height: 50vh;
     }
-}
-.vh-50 {
-    height: 50vh;
-}
-.right-0 {
-    right: 0;
-}
-.bd-example {
-    & > *:not(:only-child) {
-        margin: 0.5rem;
-    }
-    & + pre {
-        border-radius: 0 0 0.3rem 0.3rem;
+    .right-0 {
+        right: 0;
     }
 }

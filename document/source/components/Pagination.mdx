@@ -1,0 +1,65 @@
+---
+layout: docs
+title: Pagination
+description: Documentation and examples for showing pagination to indicate a series of related content exists across multiple pages.
+group: Components
+---
+
+import { Pagination } from 'boot-cell/source/Navigator/Pagination';
+
+import { Example } from '../../../source/component/Example';
+
+## Overview
+
+We use a large block of connected links for our pagination, making links hard to miss and easily scalable —
+all while providing large hit areas.
+Pagination is built with list HTML elements so screen readers can announce the number of available links.
+Use a wrapping `<nav>` element to identify it as a navigation section to screen readers and other assistive technologies.
+
+In addition, as pages likely have more than one such navigation section,
+it’s advisable to provide a descriptive `aria-label` for the `<Pagination />` to reflect its purpose.
+For example, if the pagination component is used to navigate between a set of search results,
+an appropriate label could be `aria-label="Search results pages"`.
+
+<Example>
+    <Pagination total={3} current={2} aria-label="Page navigation example" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Pagination } from 'boot-cell/source/Navigator/Pagination';
+
+render(
+    <Pagination total={3} current={2} aria-label="Page navigation example" />
+);
+```
+
+## Sizing
+
+Fancy larger or smaller pagination? Add `size="lg"` or `size="sm"` for additional sizes.
+
+<Example>
+    <Pagination size="lg" total={3} current={1} aria-label="..." />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Pagination } from 'boot-cell/source/Navigator/Pagination';
+
+render(
+    <Pagination size="lg" total={3} current={1} aria-label="..." />
+);
+```
+
+<Example>
+    <Pagination size="sm" total={3} current={1} aria-label="..." />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Pagination } from 'boot-cell/source/Navigator/Pagination';
+
+render(
+    <Pagination size="sm" total={3} current={1} aria-label="..." />
+);
+```
