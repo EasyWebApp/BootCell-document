@@ -1,0 +1,178 @@
+---
+layout: docs
+title: Progress
+description: Documentation and examples for using BootCell custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
+group: Components
+---
+
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+import { Example } from '../../../source/component/Example';
+
+## How it works
+
+Progress components are built with two HTML elements, some CSS to set the width, and a few attributes.
+We don’t use the HTML5 `<progress>` element, ensuring you can stack progress bars, animate them, and place text labels over them.
+
+<Example>
+    <Progress />
+    <Progress percent={25} />
+    <Progress percent={50} />
+    <Progress percent={75} />
+    <Progress percent={100} />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(
+    <Fragment>
+        <Progress />
+        <Progress percent={25} />
+        <Progress percent={50} />
+        <Progress percent={75} />
+        <Progress percent={100} />
+    </Fragment>
+);
+```
+
+## Labels
+
+Add labels to your progress bars by setting `label` property.
+
+<Example>
+    <Progress label percent={25} />
+    <Progress label={percent => percent + ' percent'} percent={25} />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(
+    <Fragment>
+        <Progress label percent={25} />
+        <Progress label={percent => percent + ' percent'} percent={25} />
+    </Fragment>
+);
+```
+
+## Height
+
+We only set a `height` style value on the `<Progress />`,
+so if you change that value the inner `.progress-bar` will automatically resize accordingly.
+
+<Example>
+    <Progress style={{ height: '1px' }} percent={25} />
+    <Progress style={{ height: '20px' }} percent={25} />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(
+    <Fragment>
+        <Progress style={{ height: '1px' }} percent={25} />
+        <Progress style={{ height: '20px' }} percent={25} />
+    </Fragment>
+);
+```
+
+## Backgrounds
+
+Use `status` property values to change the appearance of individual progress bars.
+
+<Example>
+    <Progress status="success" percent={25} />
+    <Progress status="info" percent={50} />
+    <Progress status="warning" percent={75} />
+    <Progress status="danger" percent={100} />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(
+    <Fragment>
+        <Progress status="success" percent={25} />
+        <Progress status="info" percent={50} />
+        <Progress status="warning" percent={75} />
+        <Progress status="danger" percent={100} />
+    </Fragment>
+);
+```
+
+## Multiple bars
+
+Include multiple progress bars in a progress component if you need.
+
+<Example>
+    <Progress
+        bars={[
+            { percent: 15 },
+            { status: 'success', percent: 30 },
+            { status: 'info', percent: 20 }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(
+    <Progress
+        bars={[
+            { percent: 15 },
+            { status: 'success', percent: 30 },
+            { status: 'info', percent: 20 }
+        ]}
+    />
+);
+```
+
+## Striped
+
+Add `striped` property to any `<Progress />` to apply a stripe via CSS gradient over the progress bar’s background color.
+
+<Example>
+    <Progress striped percent={10} />
+    <Progress striped status="success" percent={25} />
+    <Progress striped status="info" percent={50} />
+    <Progress striped status="warning" percent={75} />
+    <Progress striped status="danger" percent={100} />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(
+    <Fragment>
+        <Progress striped percent={10} />
+        <Progress striped status="success" percent={25} />
+        <Progress striped status="info" percent={50} />
+        <Progress striped status="warning" percent={75} />
+        <Progress striped status="danger" percent={100} />
+    </Fragment>
+);
+```
+
+## Animated stripes
+
+The striped gradient can also be animated.
+Add `animated` property to `<Progress striped />` to animate the stripes right to left via CSS3 animations.
+
+<Example>
+    <Progress striped animated percent={75} />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Progress } from 'boot-cell/source/Reminder/Progress';
+
+render(<Progress striped animated percent={75} />);
+```
