@@ -43,57 +43,27 @@ render(
 ### Four directions
 
 <Example>
-    <PopoverBox body="Web Components engine based on JSX &amp; TypeScript">
-        <Button kind="secondary">Popover on top</Button>
-    </PopoverBox>
-    <PopoverBox
-        position="right"
-        body="Web Components engine based on JSX &amp; TypeScript"
-    >
-        <Button kind="secondary">Popover on right</Button>
-    </PopoverBox>
-    <PopoverBox
-        position="bottom"
-        body="Web Components engine based on JSX &amp; TypeScript"
-    >
-        <Button kind="secondary">Popover on bottom</Button>
-    </PopoverBox>
-    <PopoverBox
-        position="left"
-        body="Web Components engine based on JSX &amp; TypeScript"
-    >
-        <Button kind="secondary">Popover on left</Button>
-    </PopoverBox>
+    {['top', 'right', 'bottom', 'left'].map(position => (
+        <PopoverBox
+            position={position}
+            body="Web Components engine based on JSX &amp; TypeScript"
+        >
+            <Button kind="secondary">Popover on {position}</Button>
+        </PopoverBox>
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
 import { Button } from 'boot-cell/source/Form/Button';
 
-render(
-    <Fragment>
-        <PopoverBox body="Web Components engine based on JSX &amp; TypeScript">
-            <Button kind="secondary">Popover on top</Button>
-        </PopoverBox>
-        <PopoverBox
-            position="right"
-            body="Web Components engine based on JSX &amp; TypeScript"
-        >
-            <Button kind="secondary">Popover on right</Button>
-        </PopoverBox>
-        <PopoverBox
-            position="bottom"
-            body="Web Components engine based on JSX &amp; TypeScript"
-        >
-            <Button kind="secondary">Popover on bottom</Button>
-        </PopoverBox>
-        <PopoverBox
-            position="left"
-            body="Web Components engine based on JSX &amp; TypeScript"
-        >
-            <Button kind="secondary">Popover on left</Button>
-        </PopoverBox>
-    </Fragment>
-);
+render(['top', 'right', 'bottom', 'left'].map(position => (
+    <PopoverBox
+        position={position}
+        body="Web Components engine based on JSX &amp; TypeScript"
+    >
+        <Button kind="secondary">Popover on {position}</Button>
+    </PopoverBox>
+)));
 ```

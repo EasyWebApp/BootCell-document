@@ -11,41 +11,23 @@ import { Button } from 'boot-cell/source/Form/Button';
 import { Example } from '../../../source/component/Example';
 
 <Example>
-    <TooltipBox text="Tooltip on top">
-        <Button kind="secondary">Tooltip on top</Button>
-    </TooltipBox>
-    <TooltipBox position="right" text="Tooltip on right">
-        <Button kind="secondary">Tooltip on right</Button>
-    </TooltipBox>
-    <TooltipBox position="bottom" text="Tooltip on bottom">
-        <Button kind="secondary">Tooltip on bottom</Button>
-    </TooltipBox>
-    <TooltipBox position="left" text="Tooltip on left">
-        <Button kind="secondary">Tooltip on left</Button>
-    </TooltipBox>
+    {['top', 'right', 'bottom', 'left'].map(position => (
+        <TooltipBox position={position} text="Tooltip on top">
+            <Button kind="secondary">Tooltip on {position}</Button>
+        </TooltipBox>
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
 import { Button } from 'boot-cell/source/Form/Button';
 
-render(
-    <Fragment>
-        <TooltipBox text="Tooltip on top">
-            <Button kind="secondary">Tooltip on top</Button>
-        </TooltipBox>
-        <TooltipBox position="right" text="Tooltip on right">
-            <Button kind="secondary">Tooltip on right</Button>
-        </TooltipBox>
-        <TooltipBox position="bottom" text="Tooltip on bottom">
-            <Button kind="secondary">Tooltip on bottom</Button>
-        </TooltipBox>
-        <TooltipBox position="left" text="Tooltip on left">
-            <Button kind="secondary">Tooltip on left</Button>
-        </TooltipBox>
-    </Fragment>
-);
+render(['top', 'right', 'bottom', 'left'].map(position => (
+    <TooltipBox position={position} text="Tooltip on top">
+        <Button kind="secondary">Tooltip on {position}</Button>
+    </TooltipBox>
+)));
 ```
 
 And with custom HTML added:

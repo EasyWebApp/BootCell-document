@@ -29,7 +29,9 @@ Use the border spinners for a lightweight loading indicator.
 import { render, createCell } from 'web-cell';
 import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 
-render(<Spinner />);
+render(
+    <Spinner />
+);
 ```
 
 ### Colors
@@ -83,7 +85,9 @@ While it doesn’t technically spin, it does repeatedly grow!
 import { render, createCell } from 'web-cell';
 import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 
-render(<Spinner type="grow" />);
+render(
+    <Spinner type="grow" />
+);
 ```
 
 Once again, this spinner is built with `currentColor`, so you can easily change its appearance with [text color utilities][1].
@@ -135,7 +139,9 @@ Use [margin utilities][2] like `.m-5` for easy spacing.
 import { render, createCell } from 'web-cell';
 import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 
-render(<Spinner className="m-5" />);
+render(
+    <Spinner className="m-5" />
+);
 ```
 
 ### Placement
@@ -266,12 +272,11 @@ You may also swap the text out of the spinner element and utilize button text as
 
 <Example>
     <Button disabled>
-        <Spinner small aria-hidden="true" />
+        <Spinner small aria-hidden="true" />{' '}
         <span className="sr-only">Loading...</span>
     </Button>
     <Button disabled>
-        <Spinner small aria-hidden="true" />
-        Loading...
+        <Spinner small aria-hidden="true" /> Loading...
     </Button>
 </Example>
 
@@ -283,12 +288,11 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <Fragment>
         <Button disabled>
-            <Spinner small aria-hidden="true" />
+            <Spinner small aria-hidden="true" />{' '}
             <span className="sr-only">Loading...</span>
         </Button>
         <Button disabled>
-            <Spinner small aria-hidden="true" />
-            Loading...
+            <Spinner small aria-hidden="true" /> Loading...
         </Button>
     </Fragment>
 );
@@ -296,12 +300,11 @@ render(
 
 <Example>
     <Button disabled>
-        <Spinner type="grow" small aria-hidden="true" />
+        <Spinner type="grow" small aria-hidden="true" />{' '}
         <span className="sr-only">Loading...</span>
     </Button>
     <Button disabled>
-        <Spinner type="grow" small aria-hidden="true" />
-        Loading...
+        <Spinner type="grow" small aria-hidden="true" /> Loading...
     </Button>
 </Example>
 
@@ -313,12 +316,11 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <Fragment>
         <Button disabled>
-            <Spinner type="grow" small aria-hidden="true" />
+            <Spinner type="grow" small aria-hidden="true" />{' '}
             <span className="sr-only">Loading...</span>
         </Button>
         <Button disabled>
-            <Spinner type="grow" small aria-hidden="true" />
-            Loading...
+            <Spinner type="grow" small aria-hidden="true" /> Loading...
         </Button>
     </Fragment>
 );

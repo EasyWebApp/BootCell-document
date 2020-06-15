@@ -367,123 +367,67 @@ These sizes kick in at certain breakpoints to avoid horizontal scrollbars on nar
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Small</td>
-            <td>
-                <code>sm</code>
-            </td>
-            <td>
-                <code>300px</code>
-            </td>
-        </tr>
-        <tr>
-            <td>Default</td>
-            <td>None</td>
-            <td>
-                <code>500px</code>
-            </td>
-        </tr>
-        <tr>
-            <td>Large</td>
-            <td>
-                <code>lg</code>
-            </td>
-            <td>
-                <code>800px</code>
-            </td>
-        </tr>
-        <tr>
-            <td>Extra large</td>
-            <td>
-                <code>xl</code>
-            </td>
-            <td>
-                <code>1140px</code>
-            </td>
-        </tr>
+        {[
+            ['Small', 'sm', 300],
+            ['Default', null, 500],
+            ['Large', 'lg', 800],
+            ['Extra large', 'xl', 1140]
+        ].map(([level, name, size]) => (
+            <tr>
+                <td>{level}</td>
+                <td>{name ? <code>{name}</code> : 'None'}</td>
+                <td>
+                    <code>{size}px</code>
+                </td>
+            </tr>
+        ))}
     </tbody>
 </Table>
 
 Our default modal without `size` parameter constitutes the "medium" size modal.
 
 <Example>
-    <Button
-        onClick={() =>
-            openModal({
-                title: 'Extra large modal',
-                body: 'Hello, BootCell!',
-                size: 'xl'
-            })
-        }
-    >
-        Extra large modal
-    </Button>
-    <Button
-        onClick={() =>
-            openModal({
-                title: 'Large modal',
-                body: 'Hello, BootCell!',
-                size: 'lg'
-            })
-        }
-    >
-        Large modal
-    </Button>
-    <Button
-        onClick={() =>
-            openModal({
-                title: 'Small modal',
-                body: 'Hello, BootCell!',
-                size: 'sm'
-            })
-        }
-    >
-        Small modal
-    </Button>
+    {[
+        ['Extra large', 'xl'],
+        ['Large', 'lg'],
+        ['Small', 'sm']
+    ].map(([level, size]) => (
+        <Button
+            onClick={() =>
+                openModal({
+                    title: level + ' modal',
+                    body: 'Hello, BootCell!',
+                    size
+                })
+            }
+        >
+            {level} modal
+        </Button>
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { openModal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 
-render(
-    <Fragment>
-        <Button
-            onClick={() =>
-                openModal({
-                    title: 'Extra large modal',
-                    body: 'Hello, BootCell!',
-                    size: 'xl'
-                })
-            }
-        >
-            Extra large modal
-        </Button>
-        <Button
-            onClick={() =>
-                openModal({
-                    title: 'Large modal',
-                    body: 'Hello, BootCell!',
-                    size: 'lg'
-                })
-            }
-        >
-            Large modal
-        </Button>
-        <Button
-            onClick={() =>
-                openModal({
-                    title: 'Small modal',
-                    body: 'Hello, BootCell!',
-                    size: 'sm'
-                })
-            }
-        >
-            Small modal
-        </Button>
-    </Fragment>
-);
+render([
+    ['Extra large', 'xl'],
+    ['Large', 'lg'],
+    ['Small', 'sm']
+].map(([level, size]) => (
+    <Button
+        onClick={() =>
+            openModal({
+                title: level+' modal',
+                body: 'Hello, BootCell!',
+                size
+            })
+        }
+    >
+        {level} modal
+    </Button>
+)));
 ```
 
 [1]: components/tooltip

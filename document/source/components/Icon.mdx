@@ -35,67 +35,53 @@ All you need to do is include a single line of HTML:
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Solid</td>
-            <td>900</td>
-            <td>Free</td>
-            <td>
-                <code>&lt;Icon name="camera" /></code>
-            </td>
-            <td>
-                <Icon name="camera" />
-            </td>
-        </tr>
-        <tr>
-            <td>Brands</td>
-            <td>400</td>
-            <td>Free</td>
-            <td>
-                <code>&lt;Icon group="brands" name="font-awesome" /></code>
-            </td>
-            <td>
-                <Icon group="brands" name="font-awesome" />
-            </td>
-        </tr>
-        <tr>
-            <td>Regular</td>
-            <td>400</td>
-            <td>
-                <a target="_blank" href="https://fontawesome.com/pro">
-                    Pro
-                </a>
-            </td>
-            <td>
-                <code>&lt;Icon group="regular" name="camera" /></code>
-            </td>
-            <td>(Only available to Pro users)</td>
-        </tr>
-        <tr>
-            <td>Light</td>
-            <td>300</td>
-            <td>
-                <a target="_blank" href="https://fontawesome.com/pro">
-                    Pro
-                </a>
-            </td>
-            <td>
-                <code>&lt;Icon group="light" name="camera" /></code>
-            </td>
-            <td>(Only available to Pro users)</td>
-        </tr>
-        <tr>
-            <td>Duotone</td>
-            <td>900</td>
-            <td>
-                <a target="_blank" href="https://fontawesome.com/pro">
-                    Pro
-                </a>
-            </td>
-            <td>
-                <code>&lt;Icon group="duotone" name="camera" /></code>
-            </td>
-            <td>(Only available to Pro users)</td>
-        </tr>
+        {[
+            {
+                group: 'Solid',
+                weight: 900,
+                code: '<Icon name="camera" />',
+                example: <Icon name="camera" />
+            },
+            {
+                group: 'Brands',
+                weight: 400,
+                code: '<Icon group="brands" name="font-awesome" />',
+                example: <Icon group="brands" name="font-awesome" />
+            },
+            {
+                group: 'Regular',
+                weight: 400,
+                code: '<Icon group="regular" name="camera" />'
+            },
+            {
+                group: 'Light',
+                weight: 300,
+                code: '<Icon group="light" name="camera" />'
+            },
+            {
+                group: 'Duotone',
+                weight: 900,
+                code: '<Icon group="duotone" name="camera" />'
+            }
+        ].map(({ group, weight, code, example }) => (
+            <tr>
+                <td>{group}</td>
+                <td>{weight}</td>
+                <td>
+                    {example ? (
+                        'Free'
+                    ) : (
+                        <a target="_blank" href="https://fontawesome.com/pro">
+                            Pro
+                        </a>
+                    )}
+                </td>
+                <td>
+                    <code>{code}</code>
+                </td>
+                <td>{example || '(Only available to Pro users)'}</td>
+            </tr>
+        ))}
     </tbody>
 </Table>
 
@@ -110,32 +96,18 @@ Icons inherit the `font-size` of their parent container which allow them to matc
 With the following properties, we can increase or decrease the size of icons relative to that inherited `font-size`.
 
 <Example>
-    <Icon name="camera" size="xs" />
-    <Icon name="camera" size="sm" />
-    <Icon name="camera" size="lg" />
-    <Icon name="camera" size="2x" />
-    <Icon name="camera" size="3x" />
-    <Icon name="camera" size="5x" />
-    <Icon name="camera" size="7x" />
-    <Icon name="camera" size="10x" />
+    {['xs', 'sm', 'lg', '2x', '3x', '5x', '7x', '10x'].map(size => (
+        <Icon name="camera" size={size} />
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Icon } from 'boot-cell/source/Reminder/Icon';
 
-render(
-    <Fragment>
-        <Icon name="camera" size="xs" />
-        <Icon name="camera" size="sm" />
-        <Icon name="camera" size="lg" />
-        <Icon name="camera" size="2x" />
-        <Icon name="camera" size="3x" />
-        <Icon name="camera" size="5x" />
-        <Icon name="camera" size="7x" />
-        <Icon name="camera" size="10x" />
-    </Fragment>
-);
+render(['xs', 'sm', 'lg', '2x', '3x', '5x', '7x', '10x'].map(size => (
+    <Icon name="camera" size={size} />
+)));
 ```
 
 > More Details of [Sizing Scale][2].
@@ -151,23 +123,22 @@ For clarity in the following example, we’ve added a background color on the ic
 
 <Example>
     <ul className="list-unstyled" style={{ fontSize: '2rem' }}>
-        <li>
-            <Icon name="skating" fixedWidth className="bg-primary" /> Skating
-        </li>
-        <li>
-            <Icon name="skiing" fixedWidth className="bg-info" /> Skiing
-        </li>
-        <li>
-            <Icon name="skiing-nordic" fixedWidth className="bg-primary" />{' '}
-            Nordic Skiing
-        </li>
-        <li>
-            <Icon name="snowboarding" fixedWidth className="bg-info" />{' '}
-            Snowboarding
-        </li>
-        <li>
-            <Icon name="snowplow" fixedWidth className="bg-primary" /> Snowplow
-        </li>
+        {[
+            { name: 'skating', title: 'Skating' },
+            { name: 'skiing', title: 'Skiing' },
+            { name: 'skiing-nordic', title: 'Nordic Skiing' },
+            { name: 'snowboarding', title: 'Snowboarding' },
+            { name: 'snowplow', title: 'Snowplow' }
+        ].map(({ name, title }, index) => (
+            <li>
+                <Icon
+                    name={name}
+                    fixedWidth
+                    className={'bg-' + (index % 2 ? 'info' : 'primary')}
+                />{' '}
+                {title}
+            </li>
+        ))}
     </ul>
 </Example>
 
@@ -177,24 +148,22 @@ import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 render(
     <ul className="list-unstyled" style={{ fontSize: '2rem' }}>
-        <li>
-            <Icon name="skating" fixedWidth className="bg-primary" /> Skating
-        </li>
-        <li>
-            <Icon name="skiing" fixedWidth className="bg-info" /> Skiing
-        </li>
-        <li>
-            <Icon name="skiing-nordic" fixedWidth className="bg-primary" />{' '}
-            Nordic Skiing
-        </li>
-        <li>
-            <Icon name="snowboarding" fixedWidth className="bg-info" />{' '}
-            Snowboarding
-        </li>
-        <li>
-            <Icon name="snowplow" fixedWidth className="bg-primary" />{' '}
-            Snowplow
-        </li>
+        {[
+            { name: 'skating', title: 'Skating' },
+            { name: 'skiing', title: 'Skiing' },
+            { name: 'skiing-nordic', title: 'Nordic Skiing' },
+            { name: 'snowboarding', title: 'Snowboarding' },
+            { name: 'snowplow', title: 'Snowplow' }
+        ].map(({ name, title }, index) => (
+            <li>
+                <Icon
+                    name={name}
+                    fixedWidth
+                    className={'bg-' + (index % 2 ? 'info' : 'primary')}
+                />{' '}
+                {title}
+            </li>
+        ))}
     </ul>
 );
 ```
@@ -263,12 +232,12 @@ To arbitrarily rotate and flip icons, use the `rotate` and `flip` properties whe
 
 <Example className="fa-4x">
     <Icon name="snowboarding" />
-    <Icon name="snowboarding" rotate={90} />
-    <Icon name="snowboarding" rotate={180} />
-    <Icon name="snowboarding" rotate={270} />
-    <Icon name="snowboarding" flip="horizontal" />
-    <Icon name="snowboarding" flip="vertical" />
-    <Icon name="snowboarding" flip="both" />
+    {[90, 180, 270].map(rotate => (
+        <Icon name="snowboarding" rotate={rotate} />
+    ))}
+    {['horizontal', 'vertical', 'both'].map(flip => (
+        <Icon name="snowboarding" flip={flip} />
+    ))}
 </Example>
 
 ```TSX
@@ -278,12 +247,12 @@ import { Icon } from 'boot-cell/source/Reminder/Icon';
 render(
     <div className="fa-4x">
         <Icon name="snowboarding" />
-        <Icon name="snowboarding" rotate={90} />
-        <Icon name="snowboarding" rotate={180} />
-        <Icon name="snowboarding" rotate={270} />
-        <Icon name="snowboarding" flip="horizontal" />
-        <Icon name="snowboarding" flip="vertical" />
-        <Icon name="snowboarding" flip="both" />
+        {[90, 180, 270].map(rotate => (
+            <Icon name="snowboarding" rotate={rotate} />
+        ))}
+        {['horizontal', 'vertical', 'both'].map(flip => (
+            <Icon name="snowboarding" flip={flip} />
+        ))}
     </div>
 );
 ```

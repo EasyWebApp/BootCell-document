@@ -15,26 +15,18 @@ Progress components are built with two HTML elements, some CSS to set the width,
 We don’t use the HTML5 `<progress>` element, ensuring you can stack progress bars, animate them, and place text labels over them.
 
 <Example>
-    <Progress />
-    <Progress percent={25} />
-    <Progress percent={50} />
-    <Progress percent={75} />
-    <Progress percent={100} />
+    {[0, 25, 50, 75, 100].map(percent => (
+        <Progress percent={percent} />
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Progress } from 'boot-cell/source/Reminder/Progress';
 
-render(
-    <Fragment>
-        <Progress />
-        <Progress percent={25} />
-        <Progress percent={50} />
-        <Progress percent={75} />
-        <Progress percent={100} />
-    </Fragment>
-);
+render([0, 25, 50, 75, 100].map(percent => (
+    <Progress percent={percent} />
+)));
 ```
 
 ## Labels
@@ -85,24 +77,18 @@ render(
 Use `status` property values to change the appearance of individual progress bars.
 
 <Example>
-    <Progress status="success" percent={25} />
-    <Progress status="info" percent={50} />
-    <Progress status="warning" percent={75} />
-    <Progress status="danger" percent={100} />
+    {['success', 'info', 'warning', 'danger'].map((status, index) => (
+        <Progress status={status} percent={25 * ++index} />
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Progress } from 'boot-cell/source/Reminder/Progress';
 
-render(
-    <Fragment>
-        <Progress status="success" percent={25} />
-        <Progress status="info" percent={50} />
-        <Progress status="warning" percent={75} />
-        <Progress status="danger" percent={100} />
-    </Fragment>
-);
+render(['success', 'info', 'warning', 'danger'].map((status, index) => (
+    <Progress status={status} percent={25 * ++index} />
+)));
 ```
 
 ## Multiple bars
@@ -140,10 +126,9 @@ Add `striped` property to any `<Progress />` to apply a stripe via CSS gradient 
 
 <Example>
     <Progress striped percent={10} />
-    <Progress striped status="success" percent={25} />
-    <Progress striped status="info" percent={50} />
-    <Progress striped status="warning" percent={75} />
-    <Progress striped status="danger" percent={100} />
+    {['success', 'info', 'warning', 'danger'].map((status, index) => (
+        <Progress striped status={status} percent={25 * ++index} />
+    ))}
 </Example>
 
 ```TSX
@@ -153,10 +138,9 @@ import { Progress } from 'boot-cell/source/Reminder/Progress';
 render(
     <Fragment>
         <Progress striped percent={10} />
-        <Progress striped status="success" percent={25} />
-        <Progress striped status="info" percent={50} />
-        <Progress striped status="warning" percent={75} />
-        <Progress striped status="danger" percent={100} />
+        {['success', 'info', 'warning', 'danger'].map((status, index) => (
+            <Progress striped status={status} percent={25 * ++index} />
+        ))}
     </Fragment>
 );
 ```
@@ -174,5 +158,7 @@ Add `animated` property to `<Progress striped />` to animate the stripes right t
 import { render, createCell } from 'web-cell';
 import { Progress } from 'boot-cell/source/Reminder/Progress';
 
-render(<Progress striped animated percent={75} />);
+render(
+    <Progress striped animated percent={75} />
+);
 ```

@@ -77,18 +77,14 @@ Be sure to explore our [custom forms](#Custom-forms) to further style
             placeholder="name@example.com"
         />
         <FormField is="select" label="Example select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            {[1, 2, 3, 4, 5].map(index => (
+                <option>{index}</option>
+            ))}
         </FormField>
         <FormField is="select" multiple label="Example multiple select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            {[1, 2, 3, 4, 5].map(index => (
+                <option>{index}</option>
+            ))}
         </FormField>
         <FormField is="textarea" label="Example textarea" rows={3} />
     </form>
@@ -106,18 +102,14 @@ render(
             placeholder="name@example.com"
         />
         <FormField is="select" label="Example select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            {[1, 2, 3, 4, 5].map(index => (
+                <option>{index}</option>
+            ))}
         </FormField>
         <FormField is="select" multiple label="Example multiple select">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            {[1, 2, 3, 4, 5].map(index => (
+                <option>{index}</option>
+            ))}
         </FormField>
         <FormField is="textarea" label="Example textarea" rows={3} />
     </form>
@@ -360,9 +352,9 @@ You may need to manually address the width and alignment of individual form cont
     <Form inline>
         <FormField is="select" label="Preference" className="mr-sm-2">
             <option selected>Choose...</option>
-            <option value={1}>One</option>
-            <option value={2}>Two</option>
-            <option value={3}>Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </FormField>
         <ToggleField type="checkbox" className="mr-sm-2">
             Remember my preference
@@ -382,9 +374,9 @@ render(
     <Form inline>
         <FormField is="select" label="Preference" className="mr-sm-2">
             <option selected>Choose...</option>
-            <option value={1}>One</option>
-            <option value={2}>Two</option>
-            <option value={3}>Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </FormField>
         <ToggleField type="checkbox" className="mr-sm-2">
             Remember my preference
@@ -714,9 +706,9 @@ Custom styles are limited to the `<select>`’s initial appearance and cannot mo
 <Example>
     <FormField is="select">
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </FormField>
 </Example>
 
@@ -727,9 +719,9 @@ import { FormField } from 'boot-cell/source/Form/FormField';
 render(
     <FormField is="select">
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </FormField>
 );
 ```
@@ -739,15 +731,15 @@ You may also choose from small and large custom selects to match our similarly s
 <Example>
     <FormField is="select" size="lg">
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </FormField>
     <FormField is="select" size="sm">
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </FormField>
 </Example>
 
@@ -759,15 +751,15 @@ render(
     <Fragment>
         <FormField is="select" size="lg">
             <option selected>Open this select menu</option>
-            <option value={1}>One</option>
-            <option value={2}>Two</option>
-            <option value={3}>Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </FormField>
         <FormField is="select" size="sm">
             <option selected>Open this select menu</option>
-            <option value={1}>One</option>
-            <option value={2}>Two</option>
-            <option value={3}>Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </FormField>
     <Fragment>
 );
@@ -778,9 +770,9 @@ The `multiple` property is also supported:
 <Example>
     <FormField is="select" multiple>
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </FormField>
 </Example>
 
@@ -791,9 +783,9 @@ import { FormField } from 'boot-cell/source/Form/FormField';
 render(
     <FormField is="select" multiple>
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </FormField>
 );
 ```
@@ -803,9 +795,9 @@ As is the `size` property:
 <Example>
     <Field is="select" size={3}>
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </Field>
 </Example>
 
@@ -816,9 +808,9 @@ import { Field } from 'boot-cell/source/Form/Field';
 render(
     <Field is="select" size={3}>
         <option selected>Open this select menu</option>
-        <option value={1}>One</option>
-        <option value={2}>Two</option>
-        <option value={3}>Three</option>
+        {['One', 'Two', 'Three'].map((text, index) => (
+            <option value={index + 1}>{text}</option>
+        ))}
     </Field>
 );
 ```

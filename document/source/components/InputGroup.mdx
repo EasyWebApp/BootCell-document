@@ -357,17 +357,17 @@ Browser default versions of these are not supported.
     <InputGroup id="inputGroupSelect01" prepend="Options">
         <Field is="select" id="inputGroupSelect01">
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </Field>
     </InputGroup>
     <InputGroup id="inputGroupSelect02" append="Options">
         <Field is="select" id="inputGroupSelect02">
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </Field>
     </InputGroup>
     <InputGroup
@@ -384,9 +384,9 @@ Browser default versions of these are not supported.
             aria-label="Example select with button addon"
         >
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </Field>
     </InputGroup>
     <InputGroup
@@ -403,9 +403,9 @@ Browser default versions of these are not supported.
             aria-label="Example select with button addon"
         >
             <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {['One', 'Two', 'Three'].map((text, index) => (
+                <option value={index + 1}>{text}</option>
+            ))}
         </Field>
     </InputGroup>
 </Example>
@@ -420,17 +420,17 @@ render(
         <InputGroup id="inputGroupSelect01" prepend="Options">
             <Field is="select" id="inputGroupSelect01">
                 <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {['One', 'Two', 'Three'].map((text, index) => (
+                    <option value={index + 1}>{text}</option>
+                ))}
             </Field>
         </InputGroup>
         <InputGroup id="inputGroupSelect02" append="Options">
             <Field is="select" id="inputGroupSelect02">
                 <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {['One', 'Two', 'Three'].map((text, index) => (
+                    <option value={index + 1}>{text}</option>
+                ))}
             </Field>
         </InputGroup>
         <InputGroup
@@ -447,9 +447,9 @@ render(
                 aria-label="Example select with button addon"
             >
                 <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {['One', 'Two', 'Three'].map((text, index) => (
+                    <option value={index + 1}>{text}</option>
+                ))}
             </Field>
         </InputGroup>
         <InputGroup
@@ -466,9 +466,9 @@ render(
                 aria-label="Example select with button addon"
             >
                 <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {['One', 'Two', 'Three'].map((text, index) => (
+                    <option value={index + 1}>{text}</option>
+                ))}
             </Field>
         </InputGroup>
     </Fragment>
