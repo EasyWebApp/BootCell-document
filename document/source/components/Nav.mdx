@@ -5,7 +5,9 @@ description: Documentation and examples for how to use Bootstrap’s included na
 group: Components
 ---
 
+import { Fragment } from 'web-cell';
 import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
 
 import { Example } from '../../../source/component/Example';
 
@@ -281,3 +283,59 @@ render(
     />
 );
 ```
+
+## Scrollable nav
+
+`scrollable` mode is imported from [Offcanvas example][1] of Bootstrap.
+
+<Example>
+    <Nav
+        scrollable
+        list={[
+            { title: 'Dashboard' },
+            {
+                title: (
+                    <Fragment>
+                        Friends{' '}
+                        <Badge pill kind="light" className="align-text-bottom">
+                            27
+                        </Badge>
+                    </Fragment>
+                )
+            },
+            { title: 'Explore' },
+            { title: 'Suggestions' },
+            ...[1, 2, 3, 4, 5, 6, 7, 8].map(() => ({ title: 'Link' }))
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+
+render(
+    <Nav
+        scrollable
+        list={[
+            { title: 'Dashboard' },
+            {
+                title: (
+                    <Fragment>
+                        Friends{' '}
+                        <Badge pill kind="light" className="align-text-bottom">
+                            27
+                        </Badge>
+                    </Fragment>
+                )
+            },
+            { title: 'Explore' },
+            { title: 'Suggestions' },
+            ...[1, 2, 3, 4, 5, 6, 7, 8].map(() => ({ title: 'Link' }))
+        ]}
+    />
+);
+```
+
+[1]: https://getbootstrap.com/docs/4.5/examples/offcanvas/

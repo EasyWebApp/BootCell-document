@@ -1,0 +1,55 @@
+---
+layout: docs
+title: SplitView
+description:
+group: Components
+---
+
+import { SplitView } from 'boot-cell/source/Content/SplitView';
+import { Embed } from 'boot-cell/source/Content/Embed';
+
+import { Example } from '../../../source/component/Example';
+
+This component is built on the top of [Iterator Observer][1], the dependency below should be installed:
+
+```Shell
+npm install iterable-observer
+```
+
+<Example>
+    <SplitView>
+        <Embed
+            is="iframe"
+            className="vh-100"
+            src="https://web-cell.dev/WebCell/"
+        />
+        <Embed
+            is="iframe"
+            className="vh-100"
+            src="https://web-cell.dev/BootCell/"
+        />
+    </SplitView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { SplitView } from 'boot-cell/source/Content/SplitView';
+import { Embed } from 'boot-cell/source/Content/Embed';
+
+render(
+    <SplitView>
+        <Embed
+            is="iframe"
+            className="vh-100"
+            src="https://web-cell.dev/WebCell/"
+        />
+        <Embed
+            is="iframe"
+            className="vh-100"
+            src="https://web-cell.dev/BootCell/"
+        />
+    </SplitView>
+);
+```
+
+[1]: https://github.com/EasyWebApp/iterable-observer

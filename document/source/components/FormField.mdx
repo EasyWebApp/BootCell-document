@@ -885,6 +885,23 @@ We hide the default file `<input>` via `opacity` and instead style the `<label>`
 The button is generated and positioned with `::after`.
 Lastly, we declare a `width` and `height` on the `<input>` for proper spacing for surrounding content.
 
+### Floating label
+
+`labelFloat` mode is imported from [Floating labels][10] of Bootstrap.
+
+<Example>
+    <FormField labelFloat placeholder="Account" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { FormField } from 'boot-cell/source/Form/FormField';
+
+render(
+    <FormField labelFloat placeholder="Account" />
+);
+```
+
 [1]: https://getbootstrap.com/docs/4.5/content/reboot/#forms
 [2]: https://getbootstrap.com/docs/4.5/utilities/spacing/
 [3]: https://getbootstrap.com/docs/4.5/utilities/flex/
@@ -894,3 +911,4 @@ Lastly, we declare a `width` and `height` on the `<input>` for proper spacing fo
 [7]: https://www.w3.org/TR/html5/sec-forms.html#the-constraint-validation-api
 [8]: #Browser-defaults
 [9]: https://github.com/iconic/open-iconic
+[10]: https://getbootstrap.com/docs/4.5/examples/floating-labels/

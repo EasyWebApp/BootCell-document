@@ -38,7 +38,7 @@ export class PageFrame extends mixin<PageFrameProps>() {
     private nav: HeaderList;
 
     connectedCallback() {
-        this.classList.add('d-flex', 'align-items-start');
+        this.classList.add('row', 'align-items-start');
 
         super.connectedCallback();
     }
@@ -55,7 +55,7 @@ export class PageFrame extends mixin<PageFrameProps>() {
         return (
             <Fragment>
                 <SideNav
-                    className="sticky-top"
+                    className="col-4 col-md-2 sticky-top"
                     style={{
                         top: '3.5rem',
                         height: 'calc(100vh - 3.5rem)',
@@ -64,7 +64,7 @@ export class PageFrame extends mixin<PageFrameProps>() {
                     menu={menu}
                 />
 
-                <main className="flex-fill p-4 border-left">
+                <main className="col-8 p-4 border-left">
                     <h1 className="d-flex justify-content-between align-items-center">
                         {header}
                         <Button size="sm" href={API}>
@@ -79,8 +79,8 @@ export class PageFrame extends mixin<PageFrameProps>() {
                 </main>
 
                 <HeaderList
-                    className="p-4 d-none d-md-block"
-                    style={{ top: '3.5rem' }}
+                    className="col-2 p-4 d-none d-md-block"
+                    style={{ top: '3.5rem', zIndex: 1019 }}
                     ref={(node: HeaderList) => (this.nav = node)}
                 />
             </Fragment>

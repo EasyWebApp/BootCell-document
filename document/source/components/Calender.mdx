@@ -1,0 +1,112 @@
+---
+layout: docs
+title: Calendar
+description:
+group: Components
+---
+
+import { CalendarView } from 'boot-cell/source/Extra/Calendar';
+import { formatDate } from 'web-utility/source/date';
+
+import { Example } from '../../../source/component/Example';
+
+This component is built on the top of [`<Table />`][1] & [`<IconButton />`][2], so [FontAwesome v5][3] is required:
+
+```HTML
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"
+/>
+```
+
+## Default calendar
+
+<Example>
+    <CalendarView date={new Date(1989, 5, 4)} />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { CalendarView } from 'boot-cell/source/Extra/Calendar';
+
+render(
+    <CalendarView date={new Date(1989, 5, 4)} />
+);
+```
+
+## Custom Date captions
+
+<Example>
+    <CalendarView
+        date={new Date(1989, 5, 4)}
+        dateTemplate="YYYY 年 MM 月"
+        weekDays={['一', '二', '三', '四', '五', '六', '七']}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { CalendarView } from 'boot-cell/source/Extra/Calendar';
+
+render(
+    <CalendarView
+        date={new Date(1989, 5, 4)}
+        dateTemplate="YYYY 年 MM 月"
+        weekDays={['一', '二', '三', '四', '五', '六', '七']}
+    />
+);
+```
+
+## Custom Date cell
+
+<Example>
+    <CalendarView
+        date={new Date(1989, 5, 4)}
+        dateTemplate="YYYY 年 MM 月"
+        weekDays={['一', '二', '三', '四', '五', '六', '七']}
+        renderCell={date => (
+            <a
+                className="stretched-link"
+                style={{ color: 'inherit' }}
+                target="_blank"
+                href={
+                    'https://zh.wikipedia.org/wiki/' +
+                    formatDate(date, 'M月D日')
+                }
+            >
+                {date.getDate()}
+            </a>
+        )}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { CalendarView } from 'boot-cell/source/Extra/Calendar';
+import { formatDate } from 'web-utility/source/date';
+
+render(
+    <CalendarView
+        date={new Date(1989, 5, 4)}
+        dateTemplate="YYYY 年 MM 月"
+        weekDays={['一', '二', '三', '四', '五', '六', '七']}
+        renderCell={date => (
+            <a
+                className="stretched-link"
+                style={{ color: 'inherit' }}
+                target="_blank"
+                href={
+                    'https://zh.wikipedia.org/wiki/' +
+                    formatDate(date, 'M月D日')
+                }
+            >
+                {date.getDate()}
+            </a>
+        )}
+    />
+);
+```
+
+[1]: components/table
+[2]: components/icon
+[3]: https://fontawesome.com/

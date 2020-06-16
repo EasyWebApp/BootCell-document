@@ -1,0 +1,31 @@
+---
+layout: docs
+title: Markdown Editor
+description:
+group: Components
+---
+
+import { MarkdownEditor } from 'boot-cell/source/Form/MarkdownEditor';
+
+import { Example } from '../../../source/component/Example';
+
+This component is built on the top of [MarkdownIME][1], these dependencies below should be installed:
+
+```Shell
+npm install markdown-ime marked turndown turndown-plugin-gfm
+```
+
+<Example>
+    <MarkdownEditor value="# WebCell" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MarkdownEditor } from 'boot-cell/source/Form/MarkdownEditor';
+
+render(
+    <MarkdownEditor value="# WebCell" />
+);
+```
+
+[1]: https://laobubu.net/MarkdownIME/
