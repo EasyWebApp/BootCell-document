@@ -75,10 +75,13 @@ export class PageRouter extends HTMLRouter {
     }
 
     render() {
+        const [path_0, path_1] = history.path.split('/');
+
         return (
             <Fragment>
-                <NavBar brand="BootCell" menu={this.menu} />
-
+                {path_0 === 'example' && path_1 ? null : (
+                    <NavBar brand="BootCell" menu={this.menu} />
+                )}
                 <SpinnerBox cover={this.state.loading}>
                     {super.render()}
                 </SpinnerBox>

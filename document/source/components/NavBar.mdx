@@ -25,7 +25,11 @@ Here’s what you need to know before getting started with the navbar:
 -   Navbars are responsive by default, but you can easily modify them to change that.
 -   Navbars are hidden by default when printing. Force them to be printed by adding `.d-print` to the `<NavBar />`. See the [display][3] utility class.
 
-> The animation effect of this component is dependent on the prefers-reduced-motion media query. See the reduced motion section of our accessibility documentation.
+In addition, `<NavBar />` uses [`ResizeObserver`][4] to detect **Viewport resizing**, so a polyfill may be required:
+
+```HTML
+<script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=ResizeObserver"></script>
+```
 
 Read on for an example and list of supported sub-components.
 
@@ -610,7 +614,7 @@ render(
 
 Choose from fixed to the bottom or stickied to the top (scrolls with the page until it reaches the top, then stays there).
 
-Also note that **`fixed="top"` uses `position: sticky`, which [isn’t fully supported in every browser][4]**.
+Also note that **`fixed="top"` uses `position: sticky`, which [isn’t fully supported in every browser][5]**.
 
 <Example>
     <NavBar className="position-static mb-4" brand="Sticky top" />
@@ -789,4 +793,5 @@ render(
 [1]: https://getbootstrap.com/docs/4.5/utilities/spacing/
 [2]: https://getbootstrap.com/docs/4.5/utilities/flex/
 [3]: https://getbootstrap.com/docs/4.5/utilities/display/
-[4]: https://caniuse.com/#feat=css-sticky
+[4]: https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+[5]: https://caniuse.com/#feat=css-sticky
