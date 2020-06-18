@@ -34,7 +34,7 @@ function Section({ title, description, list }: typeof data[0]) {
             <h2>{title}</h2>
             <p className="lead">{description}</p>
 
-            <div className="card-deck">
+            <div className="card-deck m-auto">
                 {list.map(({ href, image, title, description }) => {
                     href =
                         href ||
@@ -44,11 +44,15 @@ function Section({ title, description, list }: typeof data[0]) {
                         <Card
                             className="mb-4"
                             style={{
-                                minWidth: '15.5rem',
-                                maxWidth: '15.5rem'
+                                minWidth: '15rem',
+                                maxWidth: '15rem'
                             }}
                             image={image}
-                            title={<a href={href}>{title}</a>}
+                            title={
+                                <a className="stretched-link" href={href}>
+                                    {title}
+                                </a>
+                            }
                             text={description}
                         />
                     );
