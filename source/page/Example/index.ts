@@ -4,6 +4,10 @@ export default [
         component: async () => (await import('./Home')).HomePage
     },
     {
+        paths: ['example/pricing'],
+        component: async () => (await import('./Pricing')).PricingPage
+    },
+    {
         paths: ['example/product'],
         component: async () => (await import('./Product')).ProductPage
     },

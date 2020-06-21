@@ -102,8 +102,8 @@ export function OffcanvasPage() {
                         <small>Since 2019</small>
                     </div>
                 </div>
-                <div class="my-3 p-3 bg-white rounded shadow-sm">
-                    <h6 class="border-bottom border-gray pb-2 mb-0">
+                <div className="my-3 p-3 bg-white rounded shadow-sm">
+                    <h6 className="border-bottom border-gray pb-2 mb-0">
                         Recent updates
                     </h6>
                     {Array.from(new Array(3), () => (
@@ -121,7 +121,7 @@ export function OffcanvasPage() {
                                     'border-bottom'
                                 )}
                             >
-                                <strong class="d-block">@TechQuery</strong>
+                                <strong className="d-block">@TechQuery</strong>
                                 Web Components engine based on JSX &amp;
                                 TypeScript
                             </p>
@@ -131,8 +131,8 @@ export function OffcanvasPage() {
                         <a href="#">All updates</a>
                     </small>
                 </div>
-                <div class="my-3 p-3 bg-white rounded shadow-sm">
-                    <h6 class="border-bottom border-gray pb-2 mb-0">
+                <div className="my-3 p-3 bg-white rounded shadow-sm">
+                    <h6 className="border-bottom border-gray pb-2 mb-0">
                         Suggestions
                     </h6>
                     {Array.from(new Array(3), () => (
@@ -150,11 +150,11 @@ export function OffcanvasPage() {
                                     'border-bottom'
                                 )}
                             >
-                                <div class="d-flex justify-content-between align-items-center w-100">
+                                <div className="d-flex justify-content-between align-items-center w-100">
                                     <strong>Full Name</strong>
                                     <a href="#">Follow</a>
                                 </div>
-                                <span class="d-block">@username</span>
+                                <span className="d-block">@username</span>
                             </div>
                         </MediaObject>
                     ))}
