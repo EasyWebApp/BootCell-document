@@ -1,10 +1,10 @@
 import { createCell, Fragment } from 'web-cell';
-import { NavBar } from 'boot-cell/source/Navigator';
-import { Button } from 'boot-cell/source/Form';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { Button } from 'boot-cell/source/Form/Button';
 import { Card } from 'boot-cell/source/Content/Card';
 
 import { FooterList } from '../../../component/FooterList';
-import { prices } from './data';
+import prices from './index.json';
 import { footers } from '../Product/data';
 
 export function PricingPage() {
@@ -17,6 +17,7 @@ export function PricingPage() {
             <NavBar
                 theme="light"
                 background="light"
+                menuAlign="end"
                 brand="Company name"
                 menu={[
                     { title: 'Features' },

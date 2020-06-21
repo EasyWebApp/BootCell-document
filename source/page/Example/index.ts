@@ -12,6 +12,10 @@ export default [
         component: async () => (await import('./Product')).ProductPage
     },
     {
+        paths: ['example/carousel'],
+        component: async () => (await import('./Carousel')).CarouselPage
+    },
+    {
         paths: ['example/offcanvas'],
         component: async () => (await import('./Offcanvas')).OffcanvasPage
     }
