@@ -40,22 +40,24 @@ export function PricingPage() {
                     customization.
                 </p>
             </div>
-            <div class="container">
-                <div class="card-deck mb-3 text-center">
+            <div className="container">
+                <div className="card-deck mb-3 text-center">
                     {prices.map(({ level, amount, details, action }, index) => (
                         <Card
-                            class="mb-4 shadow-sm"
+                            className="mb-4 shadow-sm"
                             header={
-                                <h4 class="my-0 font-weight-normal">{level}</h4>
+                                <h4 className="my-0 font-weight-normal">
+                                    {level}
+                                </h4>
                             }
                             title={
                                 <span style={{ fontSize: '2.5rem' }}>
                                     ${amount}{' '}
-                                    <small class="text-muted">/ mo</small>
+                                    <small className="text-muted">/ mo</small>
                                 </span>
                             }
                         >
-                            <ul class="list-unstyled mt-3 mb-4">
+                            <ul className="list-unstyled mt-3 mb-4">
                                 {details.map(item => (
                                     <li>{item}</li>
                                 ))}
@@ -66,14 +68,14 @@ export function PricingPage() {
                         </Card>
                     ))}
                 </div>
-                <footer class="pt-4 my-md-5 pt-md-5 border-top">
-                    <div class="row">
-                        <div class="col-12 col-md">
+                <footer className="pt-4 my-md-5 pt-md-5 border-top">
+                    <div className="row">
+                        <div className="col-12 col-md">
                             <img
                                 style={{ width: '24px' }}
                                 src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
                             />
-                            <small class="d-block mb-3 text-muted">
+                            <small className="d-block mb-3 text-muted">
                                 © 2017-{new Date().getFullYear()}
                             </small>
                         </div>

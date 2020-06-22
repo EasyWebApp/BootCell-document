@@ -79,7 +79,7 @@ export function OffcanvasPage() {
                         'align-items-center',
                         'p-3',
                         'my-3',
-                        style['text-white-50'],
+                        'text-white-50',
                         style['bg-purple'],
                         'rounded',
                         'shadow-sm'

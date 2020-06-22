@@ -95,8 +95,8 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                         </Fragment>
                     ))}
                 </div>
-                <footer class="container">
-                    <p class="float-right">
+                <footer className="container">
+                    <p className="float-right">
                         <a href="#top">Back to top</a>
                     </p>
                     <p>

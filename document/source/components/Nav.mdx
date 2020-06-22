@@ -214,6 +214,39 @@ render(
 );
 ```
 
+### Masthead
+
+Take that same JSX, but use `itemMode="masthead"` instead:
+
+<Example>
+    <Nav
+        itemMode="masthead"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Nav } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav
+        itemMode="masthead"
+        list={[
+            { title: 'Active', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Link', href: 'javascript: void;' },
+            { title: 'Disabled', href: 'javascript: void;', disabled: true }
+        ]}
+    />
+);
+```
+
 ## Fill and justify
 
 To proportionately fill all available space with your nav items, use `itemWidth="fill"`.
