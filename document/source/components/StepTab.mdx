@@ -1,0 +1,326 @@
+---
+layout: docs
+title: Step tab
+description: A tab-like component for Step Wizard
+group: Components
+---
+
+import { StepTab } from 'boot-cell/source/Content/StepTab';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+import { Example } from '../../../source/component/Example';
+
+## Linear stepper
+
+<Example>
+    <StepTab
+        linear
+        path={[
+            {
+                title: 'Email',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            label="Email address"
+                            placeholder="Enter email"
+                        />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Password',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            type="password"
+                            label="Password"
+                            placeholder="Password"
+                        />
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Validate',
+                content: (
+                    <form
+                        className="text-center"
+                        onSubmit={event => event.preventDefault()}
+                    >
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Submit</Button>
+                    </form>
+                )
+            }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { StepTab } from 'boot-cell/source/Content/StepTab';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <StepTab
+        linear
+        path={[
+            {
+                title: 'Email',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            label="Email address"
+                            placeholder="Enter email"
+                        />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Password',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            type="password"
+                            label="Password"
+                            placeholder="Password"
+                        />
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Validate',
+                content: (
+                    <form
+                        className="text-center"
+                        onSubmit={event => event.preventDefault()}
+                    >
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Submit</Button>
+                    </form>
+                )
+            }
+        ]}
+    />
+);
+```
+
+## Non linear stepper
+
+<Example>
+    <StepTab
+        path={[
+            {
+                title: 'Name',
+                icon: <Icon name="user" />,
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField label="Name" placeholder="Enter your name" />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Address',
+                icon: <Icon name="map-marked-alt" />,
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            label="Address"
+                            placeholder="Enter your address"
+                        />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Submit',
+                icon: <Icon name="save" />,
+                content: (
+                    <form
+                        className="text-center"
+                        onSubmit={event => event.preventDefault()}
+                    >
+                        <Button type="submit">Submit</Button>
+                    </form>
+                )
+            }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { StepTab } from 'boot-cell/source/Content/StepTab';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <StepTab
+        path={[
+            {
+                title: 'Name',
+                icon: <Icon name="user" />,
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField label="Name" placeholder="Enter your name" />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Address',
+                icon: <Icon name="map-marked-alt" />,
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            label="Address"
+                            placeholder="Enter your address"
+                        />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Submit',
+                icon: <Icon name="save" />,
+                content: (
+                    <form
+                        className="text-center"
+                        onSubmit={event => event.preventDefault()}
+                    >
+                        <Button type="submit">Submit</Button>
+                    </form>
+                )
+            }
+        ]}
+    />
+);
+```
+
+## Vertical linear stepper
+
+<Example>
+    <StepTab
+        direction="vertical"
+        linear
+        path={[
+            {
+                title: 'Email',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            label="Email address"
+                            placeholder="Enter email"
+                        />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Password',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            type="password"
+                            label="Password"
+                            placeholder="Password"
+                        />
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Validate',
+                content: (
+                    <form
+                        className="text-center"
+                        onSubmit={event => event.preventDefault()}
+                    >
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Submit</Button>
+                    </form>
+                )
+            }
+        ]}
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { StepTab } from 'boot-cell/source/Content/StepTab';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <StepTab
+        direction="vertical"
+        linear
+        path={[
+            {
+                title: 'Email',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            label="Email address"
+                            placeholder="Enter email"
+                        />
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Password',
+                content: (
+                    <form onSubmit={event => event.preventDefault()}>
+                        <FormField
+                            type="password"
+                            label="Password"
+                            placeholder="Password"
+                        />
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Next</Button>
+                    </form>
+                )
+            },
+            {
+                title: 'Validate',
+                content: (
+                    <form
+                        className="text-center"
+                        onSubmit={event => event.preventDefault()}
+                    >
+                        <Button type="reset" kind="danger" className="mr-3">
+                            Previous
+                        </Button>
+                        <Button type="submit">Submit</Button>
+                    </form>
+                )
+            }
+        ]}
+    />
+);
+```

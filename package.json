@@ -4,7 +4,7 @@
     "description": "Re-implemented Official Document site of BootStrap & FontAwesome based on WebCell, BootCell & MarkCell",
     "dependencies": {
         "@nuintun/qrcode": "^2.1.1",
-        "boot-cell": "^1.0.0-rc.34",
+        "boot-cell": "^1.0.0-rc.35",
         "cell-router": "^2.0.0-rc.8",
         "classnames": "^2.2.6",
         "github-web-widget": "^3.0.0-beta.5",
@@ -14,12 +14,12 @@
         "markdown-ime": "^1.0.3",
         "marked": "^1.1.0",
         "mobx": "^5.15.4",
-        "mobx-web-cell": "^0.3.0",
+        "mobx-web-cell": "^0.3.1",
         "snabbdom-looks-like": "^1.0.5",
         "turndown": "^6.0.0",
         "turndown-plugin-gfm": "^1.0.2",
-        "web-cell": "^2.0.1",
-        "web-utility": "^1.5.2"
+        "web-cell": "^2.1.1",
+        "web-utility": "^1.6.1"
     },
     "devDependencies": {
         "@octokit/types": "^5.0.1",
@@ -32,7 +32,7 @@
         "parcel": "^1.12.4",
         "postcss-modules": "^2.0.0",
         "prettier": "^2.0.5",
-        "typescript": "^3.9.5"
+        "typescript": "^3.9.6"
     },
     "prettier": {
         "singleQuote": true,
