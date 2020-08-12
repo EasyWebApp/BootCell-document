@@ -1,0 +1,20 @@
+{
+    "name": "BootCell",
+    "short_name": "BootCell",
+    "start_url": "https://bootstrap.web-cell.dev/",
+    "description": "Web Components UI library based on WebCell v2, BootStrap v4, BootStrap Icon v1 & FontAwesome v5",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "lang": "zh-CN",
+    "dir": "ltr",
+    "theme_color": "rgba(0,0,0,0.5)",
+    "background_color": "transparent",
+    "icons": [
+        {
+            "src": "https://web-cell.dev/WebCell-0.f1ffd28b.png",
+            "type": "image/png",
+            "sizes": "300x300"
+        }
+    ]
+}
