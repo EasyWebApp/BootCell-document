@@ -6,7 +6,7 @@ import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
-import { CarouselView } from 'boot-cell/source/Content/Carousel';
+import { CarouselView } from 'boot-cell/source/Media/Carousel';
 
 import { Feature } from './Feature';
 import style from './index.less';

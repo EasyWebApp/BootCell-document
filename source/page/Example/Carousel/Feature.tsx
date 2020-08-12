@@ -1,6 +1,6 @@
 import { VNodeChildElement, createCell } from 'web-cell';
 import classNames from 'classnames';
-import { Image } from 'boot-cell/source/Content/Image';
+import { Image } from 'boot-cell/source/Media/Image';
 
 import style from './index.less';
 

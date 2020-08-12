@@ -5,7 +5,7 @@ description:
 group: Components
 ---
 
-import { ShareBar } from 'boot-cell/source/Extra/ShareBar';
+import { ShareBar } from 'boot-cell/source/Navigator/ShareBar';
 
 import { Example } from '../../../source/component/Example';
 
@@ -15,9 +15,9 @@ these dependencies below should be installed:
 ```HTML
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"
 />
-<script src="https://cdn.jsdelivr.net/npm/share-api-polyfill@1.0.13/dist/share-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/share-api-polyfill@1.0.18/dist/share-min.js"></script>
 ```
 
 ```Shell
@@ -32,7 +32,7 @@ npm install @nuintun/qrcode
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ShareBar } from 'boot-cell/source/Extra/ShareBar';
+import { ShareBar } from 'boot-cell/source/Navigator/ShareBar';
 
 render(
     <ShareBar />
@@ -47,7 +47,7 @@ render(
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ShareBar } from 'boot-cell/source/Extra/ShareBar';
+import { ShareBar } from 'boot-cell/source/Navigator/ShareBar';
 
 render(
     <ShareBar targets={['Twitter', 'Douban', 'QQ']} />
@@ -62,7 +62,7 @@ render(
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ShareBar } from 'boot-cell/source/Extra/ShareBar';
+import { ShareBar } from 'boot-cell/source/Navigator/ShareBar';
 
 render(
     <ShareBar direction="column" />
