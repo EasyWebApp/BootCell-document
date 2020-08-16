@@ -5,46 +5,38 @@ description: List groups are a flexible and powerful component for displaying a 
 group: Components
 ---
 
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
 
 import { Example } from '../../../source/component/Example';
 
 ## Example
 
-The most basic list group is an unordered list with list items and the proper classes.
-Build upon it with the options that follow, or with your own CSS as needed.
-
-Add `activeIndex` to a `<ListGroup />` to indicate the current active selection.
-Add `disabled: true` to an item of `list={[]}` to make it appear disabled.
+Add `active` property to a `<ListItem />` to indicate the current active selection,
+or `disabled` property to make it appear disabled.
 
 <Example>
-    <ListGroup
-        activeIndex={0}
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router', disabled: true },
-            { content: 'BootCell' },
-            { content: 'KoAJAX' },
-            { content: 'MarkCell' }
-        ]}
-    />
+    <ListGroup>
+        <ListItem active>WebCell</ListItem>
+        <ListItem disabled>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+        <ListItem>KoAJAX</ListItem>
+        <ListItem>MarkCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        activeIndex={0}
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router', disabled: true },
-            { content: 'BootCell' },
-            { content: 'KoAJAX' },
-            { content: 'MarkCell' }
-        ]}
-    />
+    <ListGroup>
+        <ListItem active>WebCell</ListItem>
+        <ListItem disabled>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+        <ListItem>KoAJAX</ListItem>
+        <ListItem>MarkCell</ListItem>
+    </ListGroup>
 );
 ```
 
@@ -53,33 +45,27 @@ render(
 Add `flush` property to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
 
 <Example>
-    <ListGroup
-        flush
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' },
-            { content: 'KoAJAX' },
-            { content: 'MarkCell' }
-        ]}
-    />
+    <ListGroup flush>
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+        <ListItem>KoAJAX</ListItem>
+        <ListItem>MarkCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        flush
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' },
-            { content: 'KoAJAX' },
-            { content: 'MarkCell' }
-        ]}
-    />
+    <ListGroup flush>
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+        <ListItem>KoAJAX</ListItem>
+        <ListItem>MarkCell</ListItem>
+    </ListGroup>
 )
 ```
 
@@ -90,137 +76,107 @@ Alternatively, choose a responsive variant `sm`, `md`, `lg` & `xl` to make a lis
 Currently **horizontal list groups cannot be combined with flush list groups.**
 
 <Example>
-    <ListGroup
-        horizontal
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal>
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        horizontal
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal>
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 );
 ```
 
 <Example>
-    <ListGroup
-        horizontal="sm"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="sm">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        horizontal="sm"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="sm">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 );
 ```
 
 <Example>
-    <ListGroup
-        horizontal="md"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="md">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        horizontal="md"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="md">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 );
 ```
 
 <Example>
-    <ListGroup
-        horizontal="lg"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="lg">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        horizontal="lg"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="lg">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 );
 ```
 
 <Example>
-    <ListGroup
-        horizontal="xl"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="xl">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        horizontal="xl"
-        list={[
-            { content: 'WebCell' },
-            { content: 'Cell Router' },
-            { content: 'BootCell' }
-        ]}
-    />
+    <ListGroup horizontal="xl">
+        <ListItem>WebCell</ListItem>
+        <ListItem>Cell Router</ListItem>
+        <ListItem>BootCell</ListItem>
+    </ListGroup>
 );
 ```
 
@@ -229,45 +185,39 @@ render(
 Use contextual classes to style list items with a stateful background and color.
 
 <Example>
-    <ListGroup
-        list={[
-            { content: 'WebCell' },
-            { color: 'primary', content: 'A simple primary list group item' },
-            {
-                color: 'secondary',
-                content: 'A simple secondary list group item'
-            },
-            { color: 'success', content: 'A simple success list group item' },
-            { color: 'danger', content: 'A simple danger list group item' },
-            { color: 'warning', content: 'A simple warning list group item' },
-            { color: 'info', content: 'A simple info list group item' },
-            { color: 'light', content: 'A simple light list group item' },
-            { color: 'dark', content: 'A simple dark list group item' }
-        ]}
-    />
+    <ListGroup>
+        <ListItem>WebCell</ListItem>
+        <ListItem color="primary">A simple primary list group item</ListItem>
+        <ListItem color="secondary">
+            A simple secondary list group item
+        </ListItem>
+        <ListItem color="success">A simple success list group item</ListItem>
+        <ListItem color="danger">A simple danger list group item</ListItem>
+        <ListItem color="warning">A simple warning list group item</ListItem>
+        <ListItem color="info">A simple info list group item</ListItem>
+        <ListItem color="light">A simple light list group item</ListItem>
+        <ListItem color="dark">A simple dark list group item</ListItem>
+    </ListGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { ListGroup } from 'boot-cell/source/Content/ListGroup';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
-    <ListGroup
-        list={[
-            { content: 'WebCell' },
-            { color: 'primary', content: 'A simple primary list group item' },
-            {
-                color: 'secondary',
-                content: 'A simple secondary list group item'
-            },
-            { color: 'success', content: 'A simple success list group item' },
-            { color: 'danger', content: 'A simple danger list group item' },
-            { color: 'warning', content: 'A simple warning list group item' },
-            { color: 'info', content: 'A simple info list group item' },
-            { color: 'light', content: 'A simple light list group item' },
-            { color: 'dark', content: 'A simple dark list group item' }
-        ]}
-    />
+    <ListGroup>
+        <ListItem>WebCell</ListItem>
+        <ListItem color="primary">A simple primary list group item</ListItem>
+        <ListItem color="secondary">
+            A simple secondary list group item
+        </ListItem>
+        <ListItem color="success">A simple success list group item</ListItem>
+        <ListItem color="danger">A simple danger list group item</ListItem>
+        <ListItem color="warning">A simple warning list group item</ListItem>
+        <ListItem color="info">A simple info list group item</ListItem>
+        <ListItem color="light">A simple light list group item</ListItem>
+        <ListItem color="dark">A simple dark list group item</ListItem>
+    </ListGroup>
 );
 ```
 
@@ -277,3 +227,114 @@ render(
 > which will not be conveyed to users of assistive technologies – such as screen readers.
 > Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text),
 > or is included through alternative means, such as additional text hidden with the `.sr-only` class.
+
+## With badges
+
+Add badges to any list group item to show unread counts, activity, and more with the help of some [utilities][1].
+
+<Example>
+    <ListGroup>
+        <ListItem className="d-flex justify-content-between align-items-center">
+            WebCell<Badge pill>1</Badge>
+        </ListItem>
+        <ListItem className="d-flex justify-content-between align-items-center">
+            Cell Router<Badge pill>2</Badge>
+        </ListItem>
+        <ListItem className="d-flex justify-content-between align-items-center">
+            BootCell<Badge pill>3</Badge>
+        </ListItem>
+    </ListGroup>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
+import { Badge } from 'boot-cell/source/Reminder/Badge';
+
+render(
+    <ListGroup>
+        <ListItem className="d-flex justify-content-between align-items-center">
+            WebCell<Badge pill>1</Badge>
+        </ListItem>
+        <ListItem className="d-flex justify-content-between align-items-center">
+            Cell Router<Badge pill>2</Badge>
+        </ListItem>
+        <ListItem className="d-flex justify-content-between align-items-center">
+            BootCell<Badge pill>3</Badge>
+        </ListItem>
+    </ListGroup>
+);
+```
+
+## Custom content
+
+Add nearly any HTML within, even for linked list groups like the one below, with the help of [flexbox utilities][1].
+
+<Example>
+    <ListGroup>
+        <ListItem href="https://bootstrap.web-cell.dev/">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">BootCell</h5>
+                <small>2 days ago</small>
+            </div>
+            <p class="mb-1">
+                Web Components UI library based on WebCell v2, BootStrap v4,
+                BootStrap Icon v1 &amp; FontAwesome v5
+            </p>
+        </ListItem>
+        <ListItem href="https://web-cell.dev/">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">WebCell</h5>
+                <small>4 days ago</small>
+            </div>
+            <p class="mb-1">
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
+        </ListItem>
+        <ListItem>
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">MarkCell</h5>
+                <small>5 months ago</small>
+            </div>
+            <p class="mb-1">General MDX to TSX converter</p>
+        </ListItem>
+    </ListGroup>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <ListGroup>
+        <ListItem href="https://bootstrap.web-cell.dev/">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">BootCell</h5>
+                <small>2 days ago</small>
+            </div>
+            <p class="mb-1">
+                Web Components UI library based on WebCell v2, BootStrap v4,
+                BootStrap Icon v1 &amp; FontAwesome v5
+            </p>
+        </ListItem>
+        <ListItem href="https://web-cell.dev/">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">WebCell</h5>
+                <small>4 days ago</small>
+            </div>
+            <p class="mb-1">
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
+        </ListItem>
+        <ListItem>
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">MarkCell</h5>
+                <small>5 months ago</small>
+            </div>
+            <p class="mb-1">General MDX to TSX converter</p>
+        </ListItem>
+    </ListGroup>
+);
+```
+
+[1]: https://getbootstrap.com/docs/4.5/utilities/flex/

@@ -6,7 +6,7 @@ group: Components
 ---
 
 import { Fragment } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Badge } from 'boot-cell/source/Reminder/Badge';
 
 import { Example } from '../../../source/component/Example';
@@ -17,29 +17,25 @@ The base `<Nav />` component is built with flexbox and provide a strong foundati
 It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling.
 
 <Example>
-    <Nav
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav>
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav>
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -55,62 +51,50 @@ By default, navs are left-aligned, but you can easily change them to center or r
 Centered with `align="center"`:
 
 <Example>
-    <Nav
-        align="center"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav align="center">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        align="center"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav align="center">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
 Right-aligned with `align="end"`:
 
 <Example>
-    <Nav
-        align="end"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav align="end">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        align="end"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav align="end">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -119,31 +103,25 @@ render(
 Stack your navigation by changing `direction` property with `column` value.
 
 <Example>
-    <Nav
-        direction="column"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav direction="column">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        direction="column"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav direction="column">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -153,31 +131,25 @@ Takes the basic nav from above and adds the `itemMode="tabs"` property to genera
 Use them to create tabbable regions with our [`<TabList />` component](components/tablist).
 
 <Example>
-    <Nav
-        itemMode="tabs"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="tabs">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        itemMode="tabs"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="tabs">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -186,31 +158,25 @@ render(
 Take that same JSX, but use `itemMode="pills"` instead:
 
 <Example>
-    <Nav
-        itemMode="pills"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="pills">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        itemMode="pills"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="pills">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -219,67 +185,53 @@ render(
 Take that same JSX, but use `itemMode="masthead"` instead:
 
 <Example>
-    <Nav
-        itemMode="masthead"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="masthead">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        itemMode="masthead"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="masthead">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
-## Fill and justify
+### Fill and justify
 
 To proportionately fill all available space with your nav items, use `itemWidth="fill"`.
 Notice that all horizontal space is occupied, but not every nav item has the same width.
 
 <Example>
-    <Nav
-        itemMode="pills"
-        itemWidth="fill"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="pills" itemWidth="fill">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        itemMode="pills"
-        itemWidth="fill"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="pills" itemWidth="fill">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -287,33 +239,25 @@ For equal-width elements, use `itemWidth="justified"`. All horizontal space will
 but unlike the `itemWidth="fill"` above, every nav item will be the same width.
 
 <Example>
-    <Nav
-        itemMode="pills"
-        itemWidth="justified"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="pills" itemWidth="justified">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <Nav
-        itemMode="pills"
-        itemWidth="justified"
-        list={[
-            { title: 'Active', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Link', href: 'javascript: void;' },
-            { title: 'Disabled', href: 'javascript: void;', disabled: true }
-        ]}
-    />
+    <Nav itemMode="pills" itemWidth="justified">
+        <NavLink active>Active</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 
@@ -322,52 +266,136 @@ render(
 `scrollable` mode is imported from [Offcanvas example][1] of Bootstrap.
 
 <Example>
-    <Nav
-        scrollable
-        list={[
-            { title: 'Dashboard' },
-            {
-                title: (
-                    <Fragment>
-                        Friends{' '}
-                        <Badge pill kind="light" className="align-text-bottom">
-                            27
-                        </Badge>
-                    </Fragment>
-                )
-            },
-            { title: 'Explore' },
-            { title: 'Suggestions' },
-            ...[1, 2, 3, 4, 5, 6, 7, 8].map(() => ({ title: 'Link' }))
-        ]}
-    />
+    <Nav scrollable>
+        <NavLink>Dashboard</NavLink>
+        <NavLink>
+            Friends{' '}
+            <Badge pill kind="light" className="align-text-bottom">
+                27
+            </Badge>
+        </NavLink>
+        <NavLink>Explore</NavLink>
+        <NavLink>Suggestions</NavLink>
+        {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
+            <NavLink>Link</NavLink>
+        ))}
+    </Nav>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Badge } from 'boot-cell/source/Reminder/Badge';
 
 render(
-    <Nav
-        scrollable
-        list={[
-            { title: 'Dashboard' },
-            {
-                title: (
-                    <Fragment>
-                        Friends{' '}
-                        <Badge pill kind="light" className="align-text-bottom">
-                            27
-                        </Badge>
-                    </Fragment>
-                )
-            },
-            { title: 'Explore' },
-            { title: 'Suggestions' },
-            ...[1, 2, 3, 4, 5, 6, 7, 8].map(() => ({ title: 'Link' }))
-        ]}
-    />
+    <Nav scrollable>
+        <NavLink>Dashboard</NavLink>
+        <NavLink>
+            Friends{' '}
+            <Badge pill kind="light" className="align-text-bottom">
+                27
+            </Badge>
+        </NavLink>
+        <NavLink>Explore</NavLink>
+        <NavLink>Suggestions</NavLink>
+        {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
+            <NavLink>Link</NavLink>
+        ))}
+    </Nav>
+);
+```
+
+## Using dropdowns
+
+Add dropdown menus with `list` property.
+
+### Tabs with dropdowns
+
+<Example>
+    <Nav>
+        <NavLink active>Active</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                { title: 'Something else here' },
+                {},
+                { title: 'Separated link' }
+            ]}
+        >
+            Dropdown
+        </NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav>
+        <NavLink active>Active</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                { title: 'Something else here' },
+                {},
+                { title: 'Separated link' }
+            ]}
+        >
+            Dropdown
+        </NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
+);
+```
+
+### Pills with dropdowns
+
+<Example>
+    <Nav itemMode="pills">
+        <NavLink active>Active</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                { title: 'Something else here' },
+                {},
+                { title: 'Separated link' }
+            ]}
+        >
+            Dropdown
+        </NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <Nav>
+        <NavLink active>Active</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                { title: 'Something else here' },
+                {},
+                { title: 'Separated link' }
+            ]}
+        >
+            Dropdown
+        </NavLink>
+        <NavLink>Link</NavLink>
+        <NavLink disabled>Disabled</NavLink>
+    </Nav>
 );
 ```
 

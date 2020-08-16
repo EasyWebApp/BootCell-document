@@ -6,7 +6,10 @@ group: Components
 toc: true
 ---
 
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { ToggleField } from 'boot-cell/source/Form/ToggleField';
+import { Button } from 'boot-cell/source/Form/Button';
 
 import { Example } from '../../../source/component/Example';
 
@@ -45,64 +48,50 @@ Any single `.btn` can be turned into a dropdown toggle with some markup changes.
 Here's how you can put them to work with either `<button>` elements:
 
 <Example>
-    <DropMenu
-        title="Dropdown button"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+    <DropMenu caption="Dropdown button">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        title="Dropdown button"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+    <DropMenu caption="Dropdown button">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
 );
 ```
 
 The best part is you can do this with any button variant, too:
 
 <Example>
-    <DropMenu
-        buttonKind="danger"
-        title="Danger"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu buttonKind="danger" caption="Danger">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        buttonKind="danger"
-        title="Danger"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu buttonKind="danger" caption="Danger">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -111,35 +100,33 @@ render(
 <Example>
     <DropMenu
         buttonKind="danger"
-        title="Action"
+        caption="Action"
         href="https://web-cell.dev/BootCell/"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <DropMenu
         buttonKind="danger"
-        title="Action"
+        caption="Action"
         href="https://web-cell.dev/BootCell/"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -148,60 +135,50 @@ render(
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
 
 <Example>
-    <DropMenu
-        buttonSize="lg"
-        title="Large button"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu buttonSize="lg" caption="Large button">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
     <DropMenu
         buttonSize="sm"
-        title="Small button"
+        caption="Small button"
         href="https://web-cell.dev/BootCell/"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <Fragment>
-        <DropMenu
-            buttonSize="lg"
-            title="Large button"
-            list={[
-                { href: '#', title: 'Action' },
-                { href: '#', title: 'Another action' },
-                { href: '#', title: 'Something else here' },
-                {},
-                { href: '#', title: 'Separated link' }
-            ]}
-        />
+        <DropMenu buttonSize="lg" caption="Large button">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
         <DropMenu
             buttonSize="sm"
-            title="Small button"
+            caption="Small button"
             href="https://web-cell.dev/BootCell/"
-            list={[
-                { href: '#', title: 'Action' },
-                { href: '#', title: 'Another action' },
-                { href: '#', title: 'Something else here' },
-                {},
-                { href: '#', title: 'Separated link' }
-            ]}
-        />
+        >
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
     </Fragment>
 );
 ```
@@ -213,35 +190,27 @@ render(
 Trigger drop menus above elements by adding `direction="up"` to the component.
 
 <Example>
-    <DropMenu
-        direction="up"
-        title="Dropup"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu direction="up" caption="Dropup">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        direction="up"
-        title="Dropup"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu direction="up" caption="Dropup">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -250,35 +219,27 @@ render(
 Trigger drop menus at the right of the elements by adding `direction="right"` to the component.
 
 <Example>
-    <DropMenu
-        direction="right"
-        title="Dropright"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu direction="right" caption="Dropright">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        direction="right"
-        title="Dropright"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu direction="right" caption="Dropright">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -287,35 +248,87 @@ render(
 Trigger drop menus at the left of the elements by adding `direction="left"` to the component.
 
 <Example>
-    <DropMenu
-        direction="left"
-        title="Dropleft"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu direction="left" caption="Dropleft">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        direction="left"
-        title="Dropleft"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' },
-            {},
-            { href: '#', title: 'Separated link' }
-        ]}
-    />
+    <DropMenu direction="left" caption="Dropleft">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+        <DropMenuItem />
+        <DropMenuItem>Separated link</DropMenuItem>
+    </DropMenu>
+);
+```
+
+## Menu items
+
+### Active
+
+Add `active` property to items in the dropdown to **style them as active**.
+
+<Example>
+    <DropMenu caption="Dropdown">
+        <DropMenuItem href="#">Regular link</DropMenuItem>
+        <DropMenuItem href="#" active>
+            Active link
+        </DropMenuItem>
+        <DropMenuItem href="#">Another link</DropMenuItem>
+    </DropMenu>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu caption="Dropdown">
+        <DropMenuItem href="#">Regular link</DropMenuItem>
+        <DropMenuItem href="#" active>
+            Active link
+        </DropMenuItem>
+        <DropMenuItem href="#">Another link</DropMenuItem>
+    </DropMenu>
+);
+```
+
+### Disabled
+
+Add `disabled` property to items in the dropdown to **style them as disabled**.
+
+<Example>
+    <DropMenu caption="Dropdown">
+        <DropMenuItem href="#">Regular link</DropMenuItem>
+        <DropMenuItem href="#" disabled>
+            Disabled link
+        </DropMenuItem>
+        <DropMenuItem href="#">Another link</DropMenuItem>
+    </DropMenu>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu caption="Dropdown">
+        <DropMenuItem href="#">Regular link</DropMenuItem>
+        <DropMenuItem href="#" disabled>
+            Disabled link
+        </DropMenuItem>
+        <DropMenuItem href="#">Another link</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -325,31 +338,23 @@ By default, a drop menu is automatically positioned 100% from the top and along 
 Add `alignType="right"` to a `<DropMenu />` to right align the dropdown menu.
 
 <Example>
-    <DropMenu
-        alignType="right"
-        title="Right-aligned menu"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+    <DropMenu alignType="right" caption="Right-aligned menu">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        alignType="right"
-        title="Right-aligned menu"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+    <DropMenu alignType="right" caption="Right-aligned menu">
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -361,30 +366,28 @@ To align right the drop menu with the given breakpoint or larger, add `alignType
     <DropMenu
         alignType="right"
         alignSize="lg"
-        title="Left-aligned but right aligned when large screen"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+        caption="Left-aligned but right aligned when large screen"
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <DropMenu
         alignType="right"
         alignSize="lg"
-        title="Left-aligned but right aligned when large screen"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+        caption="Left-aligned but right aligned when large screen"
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
 );
 ```
 
@@ -394,13 +397,45 @@ To align left the drop menu with the given breakpoint or larger, add `alignType=
     <DropMenu
         alignType="left"
         alignSize="lg"
-        title="Left-aligned but left aligned when large screen"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+        caption="Left-aligned but left aligned when large screen"
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <DropMenu
+        alignType="left"
+        alignSize="lg"
+        caption="Left-aligned but left aligned when large screen"
+    >
+        <DropMenuItem>Action</DropMenuItem>
+        <DropMenuItem>Another action</DropMenuItem>
+        <DropMenuItem>Something else here</DropMenuItem>
+    </DropMenu>
+);
+```
+
+## Menu content
+
+### Text
+
+Place any freeform text within a dropdown menu with text and use [spacing utilities][4].
+Note that you’ll likely need additional sizing styles to constrain the menu width.
+
+<Example>
+    <DropMenu caption="Dropdown">
+        <p className="text-muted mx-4 my-3">
+            Some example text that's free-flowing within the dropdown menu.
+        </p>
+        <p className="text-muted mx-4 my-3">And this is more example text.</p>
+    </DropMenu>
 </Example>
 
 ```TSX
@@ -408,19 +443,77 @@ import { render, createCell } from 'web-cell';
 import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu
-        alignType="left"
-        alignSize="lg"
-        title="Left-aligned but left aligned when large screen"
-        list={[
-            { href: '#', title: 'Action' },
-            { href: '#', title: 'Another action' },
-            { href: '#', title: 'Something else here' }
-        ]}
-    />
+    <DropMenu caption="Dropdown">
+        <p className="text-muted mx-4 my-3">
+            Some example text that's free-flowing within the dropdown menu.
+        </p>
+        <p className="text-muted mx-4 my-3">And this is more example text.</p>
+    </DropMenu>
+);
+```
+
+### Forms
+
+Put a form within a dropdown menu, or make it into a dropdown menu,
+and use [margin or padding utilities][4] to give it the negative space you require.
+
+<Example>
+    <DropMenu>
+        <form className="px-4 py-3">
+            <FormField
+                type="email"
+                label="Email address"
+                placeholder="email@example.com"
+            />
+            <FormField
+                type="password"
+                label="Password"
+                placeholder="Password"
+            />
+            <FormField>
+                <ToggleField type="checkbox">Remember me</ToggleField>
+            </FormField>
+            <Button type="submit">Sign in</Button>
+        </form>
+        <DropMenuItem />
+        <DropMenuItem href="#">New around here? Sign up</DropMenuItem>
+        <DropMenuItem href="#">Forgot password?</DropMenuItem>
+    </DropMenu>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { ToggleField } from 'boot-cell/source/Form/ToggleField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <DropMenu>
+        <form className="px-4 py-3">
+            <FormField
+                type="email"
+                label="Email address"
+                placeholder="email@example.com"
+            />
+            <FormField
+                type="password"
+                label="Password"
+                placeholder="Password"
+            />
+            <FormField>
+                <ToggleField type="checkbox">Remember me</ToggleField>
+            </FormField>
+            <Button type="submit">Sign in</Button>
+        </form>
+        <DropMenuItem />
+        <DropMenuItem href="#">New around here? Sign up</DropMenuItem>
+        <DropMenuItem href="#">Forgot password?</DropMenuItem>
+    </DropMenu>
 );
 ```
 
 [1]: http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/
 [2]: https://www.w3.org/TR/wai-aria/
 [3]: https://www.w3.org/WAI/PF/aria/roles#menu
+[4]: https://getbootstrap.com/docs/4.5/utilities/spacing/

@@ -5,7 +5,7 @@ description: A slideshow component for cycling through elements—images or slid
 group: Components
 ---
 
-import { CarouselView } from 'boot-cell/source/Media/Carousel';
+import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 
 import { Example } from '../../../source/component/Example';
 
@@ -32,27 +32,23 @@ While carousels support previous/next controls and indicators, they’re not exp
 Here’s a carousel with slides only.
 
 <Example>
-    <CarouselView
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { CarouselView } from 'boot-cell/source/Media/Carousel';
+import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 
 render(
-    <CarouselView
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 );
 ```
 
@@ -61,29 +57,23 @@ render(
 Adding in the previous and next controls:
 
 <Example>
-    <CarouselView
-        controls
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView controls>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { CarouselView } from 'boot-cell/source/Media/Carousel';
+import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 
 render(
-    <CarouselView
-        controls
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView controls>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 );
 ```
 
@@ -92,31 +82,23 @@ render(
 You can also add the indicators to the carousel, alongside the controls, too.
 
 <Example>
-    <CarouselView
-        controls
-        indicators
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView controls indicators>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { CarouselView } from 'boot-cell/source/Media/Carousel';
+import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 
 render(
-    <CarouselView
-        controls
-        indicators
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView controls indicators>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 );
 ```
 
@@ -127,55 +109,47 @@ They can be easily hidden on smaller viewports, as shown below, with optional [d
 We hide them initially with `.d-none` and bring them back on medium-sized devices with `.d-md-block`.
 
 <Example>
-    <CarouselView
-        controls
-        indicators
-        list={[
-            {
-                image: 'https://tech-query.me/medias/featureimages/6.jpg',
-                title: 'Mountain',
-                detail: 'A description sample'
-            },
-            {
-                image: 'https://tech-query.me/medias/featureimages/7.jpg',
-                title: 'River',
-                detail: 'A description sample'
-            },
-            {
-                image: 'https://tech-query.me/medias/featureimages/21.jpg',
-                title: 'Lake',
-                detail: 'A description sample'
-            }
-        ]}
-    />
+    <CarouselView controls indicators>
+        <CarouselItem
+            image="https://tech-query.me/medias/featureimages/6.jpg"
+            title="Mountain"
+            detail="A description sample"
+        />
+        <CarouselItem
+            image="https://tech-query.me/medias/featureimages/7.jpg"
+            title="River"
+            detail="A description sample"
+        />
+        <CarouselItem
+            image="https://tech-query.me/medias/featureimages/21.jpg"
+            title="Lake"
+            detail="A description sample"
+        />
+    </CarouselView>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { CarouselView } from 'boot-cell/source/Media/Carousel';
+import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 
 render(
-    <CarouselView
-        controls
-        indicators
-        list={[
-            {
-                image: 'https://tech-query.me/medias/featureimages/6.jpg',
-                title: 'Mountain',
-                detail: 'A description sample'
-            },
-            {
-                image: 'https://tech-query.me/medias/featureimages/7.jpg',
-                title: 'River',
-                detail: 'A description sample'
-            },
-            {
-                image: 'https://tech-query.me/medias/featureimages/21.jpg',
-                title: 'Lake',
-                detail: 'A description sample'
-            }
-        ]}
-    />
+    <CarouselView controls indicators>
+        <CarouselItem
+            image="https://tech-query.me/medias/featureimages/6.jpg"
+            title="Mountain"
+            detail="A description sample"
+        />
+        <CarouselItem
+            image="https://tech-query.me/medias/featureimages/7.jpg"
+            title="River"
+            detail="A description sample"
+        />
+        <CarouselItem
+            image="https://tech-query.me/medias/featureimages/21.jpg"
+            title="Lake"
+            detail="A description sample"
+        />
+    </CarouselView>
 );
 ```
 
@@ -184,31 +158,23 @@ render(
 Add `mode="fade"` to your carousel to animate slides with a fade transition instead of a slide.
 
 <Example>
-    <CarouselView
-        mode="fade"
-        controls
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView mode="fade" controls>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { CarouselView } from 'boot-cell/source/Media/Carousel';
+import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 
 render(
-    <CarouselView
-        mode="fade"
-        controls
-        list={[
-            { image: 'https://tech-query.me/medias/featureimages/6.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/7.jpg' },
-            { image: 'https://tech-query.me/medias/featureimages/21.jpg' }
-        ]}
-    />
+    <CarouselView mode="fade" controls>
+        <CarouselItem image="https://tech-query.me/medias/featureimages/6.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/7.jpg" />
+        <CarouselItem image="https://tech-query.me/medias/featureimages/21.jpg" />
+    </CarouselView>
 );
 ```
 
