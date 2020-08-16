@@ -1,5 +1,5 @@
 import { createCell, Fragment } from 'web-cell';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Button } from 'boot-cell/source/Form/Button';
 
 import { FooterList } from '../../../component/FooterList';
@@ -17,18 +17,14 @@ export function ProductPage() {
     );
     return (
         <Fragment>
-            <nav className="bg-dark sticky-top py-1">
-                <Nav
-                    className="container text-light"
-                    align="between"
-                    list={[
-                        {
-                            title: logo
-                        },
-                        ...headers
-                    ]}
-                />
-            </nav>
+            <div className="bg-dark sticky-top py-1">
+                <Nav className="container" align="between">
+                    <NavLink className="text-light">{logo}</NavLink>
+                    {headers.map(header => (
+                        <NavLink className="text-light">{header}</NavLink>
+                    ))}
+                </Nav>
+            </div>
             <header className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                 <div className="col-md-5 p-lg-5 mx-auto my-5">
                     <h1 className="display-4 font-weight-normal">

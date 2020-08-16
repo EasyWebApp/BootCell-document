@@ -1,15 +1,14 @@
-import { NavProps } from 'boot-cell/source/Navigator';
 import { FooterListProps } from '../../../component/FooterList';
 import { CaseProps } from './Case';
 
-export const headers: NavProps['list'] = [
-    { title: 'Tour' },
-    { title: 'Product' },
-    { title: 'Features' },
-    { title: 'Enterprise' },
-    { title: 'Support' },
-    { title: 'Pricing' },
-    { title: 'Cart' }
+export const headers = [
+    'Tour',
+    'Product',
+    'Features',
+    'Enterprise',
+    'Support',
+    'Pricing',
+    'Cart'
 ];
 
 export const products: Pick<CaseProps, 'background' | 'color'>[][] = [

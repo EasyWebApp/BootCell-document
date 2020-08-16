@@ -2,7 +2,7 @@ import { createCell, Fragment } from 'web-cell';
 import classNames from 'classnames';
 
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
@@ -49,29 +49,20 @@ export function OffcanvasPage() {
                     </Button>
                 </Form>
             </NavBar>
-            <Nav
-                scrollable
-                list={[
-                    { title: 'Dashboard' },
-                    {
-                        title: (
-                            <Fragment>
-                                Friends{' '}
-                                <Badge
-                                    pill
-                                    kind="light"
-                                    className="align-text-bottom"
-                                >
-                                    27
-                                </Badge>
-                            </Fragment>
-                        )
-                    },
-                    { title: 'Explore' },
-                    { title: 'Suggestions' },
-                    ...Array.from(new Array(5), () => ({ title: 'Link' }))
-                ]}
-            />
+            <Nav scrollable>
+                <NavLink>Dashboard</NavLink>
+                <NavLink>
+                    Friends{' '}
+                    <Badge pill kind="light" className="align-text-bottom">
+                        27
+                    </Badge>
+                </NavLink>
+                <NavLink>Explore</NavLink>
+                <NavLink>Suggestions</NavLink>
+                {Array.from(new Array(5), () => (
+                    <NavLink>Link</NavLink>
+                ))}
+            </Nav>
             <main className="container">
                 <div
                     className={classNames(

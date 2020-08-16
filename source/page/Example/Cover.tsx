@@ -1,6 +1,6 @@
 import { createCell } from 'web-cell';
 import classNames from 'classnames';
-import { Nav } from 'boot-cell/source/Navigator/Nav';
+import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Button } from 'boot-cell/source/Form/Button';
 
 import style from './Cover.less';
@@ -25,12 +25,11 @@ export function CoverPage() {
                     className="text-white-50 float-md-right"
                     itemMode="masthead"
                     align="center"
-                    list={[
-                        { title: 'Home' },
-                        { title: 'Features' },
-                        { title: 'Contact' }
-                    ]}
-                />
+                >
+                    <NavLink>Home</NavLink>
+                    <NavLink>Features</NavLink>
+                    <NavLink>Contact</NavLink>
+                </Nav>
             </header>
 
             <main className="mx-auto py-0 px-4">

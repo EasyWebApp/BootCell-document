@@ -8,6 +8,10 @@ export default [
         component: async () => (await import('./Pricing')).PricingPage
     },
     {
+        paths: ['example/checkout'],
+        component: async () => (await import('./Checkout')).CheckoutPage
+    },
+    {
         paths: ['example/product'],
         component: async () => (await import('./Product')).ProductPage
     },

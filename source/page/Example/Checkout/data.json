@@ -1,0 +1,29 @@
+{
+    "cart_list": [
+        {
+            "title": "Product name",
+            "description": "Brief description",
+            "price": 12
+        },
+        {
+            "title": "Second product",
+            "description": "Brief description",
+            "price": 8
+        },
+        {
+            "title": "Third item",
+            "description": "Brief description",
+            "price": 5
+        },
+        {
+            "title": "Promo code",
+            "code": "EXAMPLECODE",
+            "price": 5
+        }
+    ],
+    "foot_links": [
+        { "title": "Privacy" },
+        { "title": "Terms" },
+        { "title": "Support" }
+    ]
+}
