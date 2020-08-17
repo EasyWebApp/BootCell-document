@@ -5,7 +5,7 @@ description: Documentation and examples for using BootCell custom progress bars 
 group: Components
 ---
 
-import { Progress } from 'boot-cell/source/Reminder/Progress';
+import { Progress, ProgressBar } from 'boot-cell/source/Reminder/Progress';
 
 import { Example } from '../../../source/component/Example';
 
@@ -96,27 +96,23 @@ render(['success', 'info', 'warning', 'danger'].map((status, index) => (
 Include multiple progress bars in a progress component if you need.
 
 <Example>
-    <Progress
-        bars={[
-            { percent: 15 },
-            { status: 'success', percent: 30 },
-            { status: 'info', percent: 20 }
-        ]}
-    />
+    <Progress>
+        <ProgressBar percent={15} />
+        <ProgressBar status="success" percent={30} />
+        <ProgressBar status="info" percent={20} />
+    </Progress>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Progress } from 'boot-cell/source/Reminder/Progress';
+import { Progress, ProgressBar } from 'boot-cell/source/Reminder/Progress';
 
 render(
-    <Progress
-        bars={[
-            { percent: 15 },
-            { status: 'success', percent: 30 },
-            { status: 'info', percent: 20 }
-        ]}
-    />
+    <Progress>
+        <ProgressBar percent={15} />
+        <ProgressBar status="success" percent={30} />
+        <ProgressBar status="info" percent={20} />
+    </Progress>
 );
 ```
 

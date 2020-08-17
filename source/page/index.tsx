@@ -3,6 +3,7 @@ import { component, createCell, Fragment, on } from 'web-cell';
 import { observer } from 'mobx-web-cell';
 import { HTMLRouter } from 'cell-router/source';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
 
 import { history } from '../model';
@@ -80,7 +81,11 @@ export class PageRouter extends HTMLRouter {
         return (
             <Fragment>
                 {path_0 === 'example' && path_1 ? null : (
-                    <NavBar brand="BootCell" menu={this.menu} />
+                    <NavBar brand="BootCell">
+                        {this.menu.map(({ title, ...rest }) => (
+                            <NavLink {...rest}>{title}</NavLink>
+                        ))}
+                    </NavBar>
                 )}
                 <SpinnerBox cover={this.state.loading}>
                     {super.render()}

@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: NavBar
+title: Nav bar
 description: Documentation and examples for BootCell’s powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse component.
 group: Components
 ---
@@ -8,6 +8,7 @@ group: Components
 import { Fragment } from 'web-cell';
 import { Image } from 'boot-cell/source/Media/Image';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
@@ -43,25 +44,23 @@ Navbars come with built-in support for a handful of sub-components. Choose from 
 Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the `lg` (large) breakpoint.
 
 <Example>
-    <NavBar
-        className="position-static"
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Link', href: 'components/navbar' },
-            {
-                title: 'Dropdown',
-                list: [
-                    { title: 'Action' },
-                    { title: 'Another action' },
-                    {},
-                    { title: 'Something else here' }
-                ]
-            },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    >
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Link</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                {},
+                { title: 'Something else here' }
+            ]}
+        >
+            Dropdown
+        </NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -79,34 +78,35 @@ Here’s an example of all the sub-components included in a responsive light-the
             </Button>
         </Form>
     </NavBar>
+
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <NavBar
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Link', href: 'components/navbar' },
-            {
-                title: 'Dropdown',
-                list: [
-                    { title: 'Action' },
-                    { title: 'Another action' },
-                    {},
-                    { title: 'Something else here' }
-                ]
-            },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    >
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Link</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                {},
+                { title: 'Something else here' }
+            ]}
+        >
+            Dropdown
+        </NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -216,94 +216,72 @@ Navbar navigation links build on our `<Nav />` options with their own properties
 **Navigation in navbars will also grow to occupy as much horizontal space as possible** to keep your navbar contents securely aligned.
 
 <Example>
-    <NavBar
-        className="position-static"
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    />
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+    </NavBar>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <NavBar
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    />
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+    </NavBar>
 );
 ```
 
 You may also utilize `<DropMenu />`s in your navbar.
 
 <Example>
-    <NavBar
-        className="position-static"
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            },
-            {
-                title: 'Dropdown link',
-                list: [
-                    { title: 'Action' },
-                    { title: 'Another action' },
-                    { title: 'Something else here' }
-                ]
-            }
-        ]}
-    />
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                { title: 'Something else here' }
+            ]}
+        >
+            Dropdown link
+        </NavLink>
+    </NavBar>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <NavBar
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            },
-            {
-                title: 'Dropdown link',
-                list: [
-                    { title: 'Action' },
-                    { title: 'Another action' },
-                    { title: 'Something else here' }
-                ]
-            }
-        ]}
-    />
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+        <NavLink
+            list={[
+                { title: 'Action' },
+                { title: 'Another action' },
+                { title: 'Something else here' }
+            ]}
+        >
+            Dropdown link
+        </NavLink>
+    </NavBar>
 );
 ```
 
@@ -457,43 +435,28 @@ render(
 Mix and match with other components and utilities as needed.
 
 <Example>
-    <NavBar
-        className="position-static"
-        expand="lg"
-        brand="NavBar w/ text"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            }
-        ]}
-    >
+    <NavBar className="position-static" expand="lg" brand="NavBar w/ text">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+
         <span className="navbar-text">Navbar text with an inline element</span>
     </NavBar>
+
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <NavBar
-        expand="lg"
-        brand="NavBar w/ text"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            }
-        ]}
-    >
-        <span className="navbar-text">
-            Navbar text with an inline element
-        </span>
+    <NavBar className="position-static" expand="lg" brand="NavBar w/ text">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+
+        <span className="navbar-text">Navbar text with an inline element</span>
     </NavBar>
 );
 ```
@@ -514,16 +477,12 @@ Choose from `background="light"` for use with light background colors, or `backg
             expand="lg"
             brand="NavBar"
             {...props}
-            menu={[
-                { title: 'Home', href: '.' },
-                { title: 'Feature', href: 'components/navbar' },
-                {
-                    title: 'Pricing',
-                    href: 'components/navbar'
-                },
-                { title: 'About', href: 'components/navbar' }
-            ]}
         >
+            <NavLink href=".">Home</NavLink>
+            <NavLink href="components/navbar">Feature</NavLink>
+            <NavLink href="components/navbar">Pricing</NavLink>
+            <NavLink href="components/navbar">About</NavLink>
+
             <Form inline className="my-2 my-lg-0">
                 <Field
                     type="search"
@@ -542,6 +501,7 @@ Choose from `background="light"` for use with light background colors, or `backg
             </Form>
         </NavBar>
     ))}
+
 </Example>
 
 ```TSX
@@ -561,16 +521,12 @@ render([
         expand="lg"
         brand="NavBar"
         {...props}
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Feature', href: 'components/navbar' },
-            {
-                title: 'Pricing',
-                href: 'components/navbar'
-            },
-            { title: 'About', href: 'components/navbar' }
-        ]}
     >
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Feature</NavLink>
+        <NavLink href="components/navbar">Pricing</NavLink>
+        <NavLink href="components/navbar">About</NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -653,16 +609,13 @@ render(
 With a brand name shown on the left and toggler on the right:
 
 <Example>
-    <NavBar
-        className="position-static"
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Link', href: 'components/navbar' },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    >
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -680,25 +633,25 @@ With a brand name shown on the left and toggler on the right:
             </Button>
         </Form>
     </NavBar>
+
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <NavBar
-        expand="lg"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Link', href: 'components/navbar' },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    >
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -727,12 +680,13 @@ With a toggler on the left and brand name on the right:
         expand="lg"
         direction="right"
         brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Link', href: 'components/navbar' },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
     >
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -750,26 +704,25 @@ With a toggler on the left and brand name on the right:
             </Button>
         </Form>
     </NavBar>
+
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <NavBar
-        expand="lg"
-        direction="right"
-        brand="NavBar"
-        menu={[
-            { title: 'Home', href: '.' },
-            { title: 'Link', href: 'components/navbar' },
-            { title: 'Disabled', href: '#', disabled: true }
-        ]}
-    >
+    <NavBar expand="lg" direction="right" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"

@@ -14,24 +14,21 @@ import style from './Offcanvas.less';
 export function OffcanvasPage() {
     return (
         <Fragment>
-            <NavBar
-                offcanvas
-                brand="Offcanvas navbar"
-                menu={[
-                    { title: 'Dashboard' },
-                    { title: 'Notifications' },
-                    { title: 'Profile' },
-                    { title: 'Switch account' },
-                    {
-                        title: 'Settings',
-                        list: [
-                            { title: 'Action' },
-                            { title: 'Another action' },
-                            { title: 'Something else here' }
-                        ]
-                    }
-                ]}
-            >
+            <NavBar offcanvas brand="Offcanvas navbar">
+                <NavLink>Dashboard</NavLink>
+                <NavLink>Notifications</NavLink>
+                <NavLink>Profile</NavLink>
+                <NavLink>Switch account</NavLink>
+                <NavLink
+                    list={[
+                        { title: 'Action' },
+                        { title: 'Another action' },
+                        { title: 'Something else here' }
+                    ]}
+                >
+                    Settings
+                </NavLink>
+
                 <Form inline className="my-2 my-lg-0">
                     <Field
                         type="search"

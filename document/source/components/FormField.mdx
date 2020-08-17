@@ -10,6 +10,7 @@ import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 import { Button } from 'boot-cell/source/Form/Button';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 
 import { Example } from '../../../source/component/Example';
 
@@ -503,8 +504,9 @@ render(
 Provide valuable, actionable feedback to your users with HTML5 form validation [available in all our supported browsers][5].
 Choose from the browser default validation feedback, or implement custom messages with our built-in classes and starter JavaScript.
 
-> We currently recommend using custom validation styles, as native browser default validation messages
-> are not consistently exposed to assistive technologies in all browsers (most notably, Chrome on desktop and mobile).
+> We are aware that currently the client-side custom validation styles and tooltips are not accessible,
+> since they are not exposed to assistive technologies. While we work on a solution,
+> we’d recommend using the default browser validation method.
 
 ### How it works
 
@@ -527,6 +529,541 @@ Here’s how form validation works with BootCell:
 -   You may provide custom validity messages with `setCustomValidity` in JavaScript.
 
 With that in mind, consider the following demos for our custom form validation styles, optional server side properties, and browser defaults.
+
+### Custom styles
+
+For custom BootCell form validation messages, you’ll need to add the `validate` boolean property to your `<Form />`.
+This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript.
+Try to submit the form below; our JavaScript will intercept the submit button and relay feedback to you.
+When attempting to submit, you’ll see the `:invalid` and `:valid` styles applied to your form controls.
+
+Custom feedback styles apply custom colors, borders, focus styles, and background icons to better communicate feedback.
+
+<Example>
+    <Form validate>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="First name"
+                value="Mark"
+                required
+                validMessage="Looks good!"
+            />
+            <FormField
+                className="col-md-6 mb-3"
+                label="Last name"
+                value="Otto"
+                required
+                validMessage="Looks good!"
+            />
+        </div>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="City"
+                required
+                invalidMessage="Please provide a valid city."
+            />
+            <FormField
+                className="col-md-3 mb-3"
+                is="select"
+                label="State"
+                required
+                invalidMessage="Please select a valid state."
+            >
+                <option selected disabled value="">
+                    Choose...
+                </option>
+                <option>...</option>
+            </FormField>
+            <FormField
+                className="col-md-3 mb-3"
+                label="Zip"
+                required
+                invalidMessage="Please provide a valid zip."
+            />
+        </div>
+        <ToggleField
+            className="mb-3"
+            type="checkbox"
+            required
+            invalidMessage="You must agree before submitting."
+        >
+            Agree to terms and conditions
+        </ToggleField>
+        <Button type="submit">Submit form</Button>
+    </Form>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Form } from 'boot-cell/source/Form/Form';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { ToggleField } from 'boot-cell/source/Form/ToggleField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Form validate>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="First name"
+                value="Mark"
+                required
+                validMessage="Looks good!"
+            />
+            <FormField
+                className="col-md-6 mb-3"
+                label="Last name"
+                value="Otto"
+                required
+                validMessage="Looks good!"
+            />
+        </div>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="City"
+                required
+                invalidMessage="Please provide a valid city."
+            />
+            <FormField
+                className="col-md-3 mb-3"
+                is="select"
+                label="State"
+                required
+                invalidMessage="Please select a valid state."
+            >
+                <option selected disabled value="">
+                    Choose...
+                </option>
+                <option>...</option>
+            </FormField>
+            <FormField
+                className="col-md-3 mb-3"
+                label="Zip"
+                required
+                invalidMessage="Please provide a valid zip."
+            />
+        </div>
+        <ToggleField
+            className="mb-3"
+            type="checkbox"
+            required
+            invalidMessage="You must agree before submitting."
+        >
+            Agree to terms and conditions
+        </ToggleField>
+
+        <Button type="submit">Submit form</Button>
+    </Form>
+);
+```
+
+### Browser defaults
+
+Not interested in custom validation feedback messages or writing JavaScript to change form behaviors?
+All good, you can use the browser defaults. Try submitting the form below. Depending on your browser and OS,
+you’ll see a slightly different style of feedback.
+
+While these feedback styles cannot be styled with CSS, you can still customize the feedback text through JavaScript.
+
+<Example>
+    <form>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="First name"
+                value="Mark"
+                required
+            />
+            <FormField
+                className="col-md-6 mb-3"
+                label="Last name"
+                value="Otto"
+                required
+            />
+        </div>
+        <div className="form-row">
+            <FormField className="col-md-6 mb-3" label="City" required />
+            <FormField
+                className="col-md-3 mb-3"
+                is="select"
+                label="State"
+                required
+            >
+                <option selected disabled value="">
+                    Choose...
+                </option>
+                <option>...</option>
+            </FormField>
+            <FormField className="col-md-3 mb-3" label="Zip" required />
+        </div>
+        <ToggleField className="mb-3" type="checkbox" required>
+            Agree to terms and conditions
+        </ToggleField>
+        <Button type="submit">Submit form</Button>
+    </form>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { ToggleField } from 'boot-cell/source/Form/ToggleField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <form>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="First name"
+                value="Mark"
+                required
+            />
+            <FormField
+                className="col-md-6 mb-3"
+                label="Last name"
+                value="Otto"
+                required
+            />
+        </div>
+        <div className="form-row">
+            <FormField className="col-md-6 mb-3" label="City" required />
+            <FormField
+                className="col-md-3 mb-3"
+                is="select"
+                label="State"
+                required
+            >
+                <option selected disabled value="">
+                    Choose...
+                </option>
+                <option>...</option>
+            </FormField>
+            <FormField className="col-md-3 mb-3" label="Zip" required />
+        </div>
+        <ToggleField className="mb-3" type="checkbox" required>
+            Agree to terms and conditions
+        </ToggleField>
+
+        <Button type="submit">Submit form</Button>
+    </form>
+);
+```
+
+### Supported elements
+
+Validation styles are available for the following form components:
+
+-   `<FormField />`
+-   `<ToggleField />`
+-   `<InputGroup />`
+
+<Example>
+    <Form validated>
+        <FormField
+            className="mb-3"
+            is="textarea"
+            label="Textarea"
+            placeholder="Required example textarea"
+            required
+            valid={false}
+            invalidMessage="Please enter a message in the textarea."
+        />
+        <ToggleField
+            className="mb-3"
+            type="checkbox"
+            required
+            invalidMessage="Example invalid feedback text"
+        >
+            Check this custom checkbox
+        </ToggleField>
+        <ToggleField
+            type="radio"
+            name="radio-stacked"
+            required
+            invalidMessage="Example invalid feedback text"
+        >
+            Toggle this custom radio
+        </ToggleField>
+        <ToggleField
+            className="mb-3"
+            type="radio"
+            name="radio-stacked"
+            required
+            invalidMessage="More example invalid feedback text"
+        >
+            Or toggle this other custom radio
+        </ToggleField>
+        <FormField
+            className="mb-3"
+            is="select"
+            required
+            invalidMessage="Example invalid custom select feedback"
+        >
+            <option value="">Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </FormField>
+        <FormField
+            className="mb-3"
+            type="file"
+            label="Choose file..."
+            required
+            invalidMessage="Example invalid custom file feedback"
+        />
+        <InputGroup
+            className="mb-3"
+            prepend="@"
+            required
+            valid={false}
+            invalidMessage="Example invalid input group feedback"
+        />
+        <InputGroup
+            className="mb-3"
+            is="select"
+            prepend="Options"
+            required
+            valid={false}
+            invalidMessage="Example invalid input group feedback"
+        >
+            <option value="">Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </InputGroup>
+        <InputGroup
+            type="file"
+            label="Choose file..."
+            append={
+                <Button kind="secondary" outline>
+                    Button
+                </Button>
+            }
+            required
+            valid={false}
+            invalidMessage="Example invalid input group feedback"
+        />
+    </Form>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Form } from 'boot-cell/source/Form/Form';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { ToggleField } from 'boot-cell/source/Form/ToggleField';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Form validated>
+        <FormField
+            className="mb-3"
+            is="textarea"
+            label="Textarea"
+            placeholder="Required example textarea"
+            required
+            valid={false}
+            invalidMessage="Please enter a message in the textarea."
+        />
+        <ToggleField
+            className="mb-3"
+            type="checkbox"
+            required
+            invalidMessage="Example invalid feedback text"
+        >
+            Check this custom checkbox
+        </ToggleField>
+        <ToggleField
+            type="radio"
+            name="radio-stacked"
+            required
+            invalidMessage="Example invalid feedback text"
+        >
+            Toggle this custom radio
+        </ToggleField>
+        <ToggleField
+            className="mb-3"
+            type="radio"
+            name="radio-stacked"
+            required
+            invalidMessage="More example invalid feedback text"
+        >
+            Or toggle this other custom radio
+        </ToggleField>
+        <FormField
+            className="mb-3"
+            is="select"
+            required
+            invalidMessage="Example invalid custom select feedback"
+        >
+            <option value="">Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </FormField>
+        <FormField
+            className="mb-3"
+            type="file"
+            label="Choose file..."
+            required
+            invalidMessage="Example invalid custom file feedback"
+        />
+        <InputGroup
+            className="mb-3"
+            prepend="@"
+            required
+            valid={false}
+            invalidMessage="Example invalid input group feedback"
+        />
+        <InputGroup
+            className="mb-3"
+            is="select"
+            prepend="Options"
+            required
+            valid={false}
+            invalidMessage="Example invalid input group feedback"
+        >
+            <option value="">Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </InputGroup>
+        <InputGroup
+            type="file"
+            label="Choose file..."
+            append={
+                <Button kind="secondary" outline>
+                    Button
+                </Button>
+            }
+            required
+            valid={false}
+            invalidMessage="Example invalid input group feedback"
+        />
+    </Form>
+);
+```
+
+### Tooltips
+
+If your form layout allows it, you can add `validMode="tooltip"` property
+to display validation feedback in a styled tooltip.
+
+<Example>
+    <Form validate>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="First name"
+                value="Mark"
+                required
+                validMode="tooltip"
+                validMessage="Looks good!"
+            />
+            <FormField
+                className="col-md-6 mb-3"
+                label="Last name"
+                value="Otto"
+                required
+                validMode="tooltip"
+                validMessage="Looks good!"
+            />
+        </div>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="City"
+                required
+                validMode="tooltip"
+                invalidMessage="Please provide a valid city."
+            />
+            <FormField
+                className="col-md-3 mb-3"
+                is="select"
+                label="State"
+                required
+                validMode="tooltip"
+                invalidMessage="Please select a valid state."
+            >
+                <option selected disabled value="">
+                    Choose...
+                </option>
+                <option>...</option>
+            </FormField>
+            <FormField
+                className="col-md-3 mb-3"
+                label="Zip"
+                required
+                validMode="tooltip"
+                invalidMessage="Please provide a valid zip."
+            />
+        </div>
+        <Button type="submit">Submit form</Button>
+    </Form>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Form } from 'boot-cell/source/Form/Form';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Form validate>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="First name"
+                value="Mark"
+                required
+                validMode="tooltip"
+                validMessage="Looks good!"
+            />
+            <FormField
+                className="col-md-6 mb-3"
+                label="Last name"
+                value="Otto"
+                required
+                validMode="tooltip"
+                validMessage="Looks good!"
+            />
+        </div>
+        <div className="form-row">
+            <FormField
+                className="col-md-6 mb-3"
+                label="City"
+                required
+                validMode="tooltip"
+                invalidMessage="Please provide a valid city."
+            />
+            <FormField
+                className="col-md-3 mb-3"
+                is="select"
+                label="State"
+                required
+                validMode="tooltip"
+                invalidMessage="Please select a valid state."
+            >
+                <option selected disabled value="">
+                    Choose...
+                </option>
+                <option>...</option>
+            </FormField>
+            <FormField
+                className="col-md-3 mb-3"
+                label="Zip"
+                required
+                validMode="tooltip"
+                invalidMessage="Please provide a valid zip."
+            />
+        </div>
+        <Button type="submit">Submit form</Button>
+    </Form>
+);
+```
 
 ## Custom forms
 
@@ -869,15 +1406,15 @@ render(
 ### File browser
 
 <Example>
-    <FormField type="file" />
+    <Field type="file" />
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { FormField } from 'boot-cell/source/Form/FormField';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
-    <FormField type="file" />
+    <Field type="file" />
 );
 ```
 

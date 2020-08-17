@@ -1,5 +1,6 @@
 import { createCell, Fragment } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Button } from 'boot-cell/source/Form/Button';
 import { Card } from 'boot-cell/source/Content/Card';
 
@@ -19,13 +20,12 @@ export function PricingPage() {
                 background="light"
                 menuAlign="end"
                 brand="Company name"
-                menu={[
-                    { title: 'Features' },
-                    { title: 'Enterprise' },
-                    { title: 'Support' },
-                    { title: 'Pricing' }
-                ]}
             >
+                <NavLink>Features</NavLink>
+                <NavLink>Enterprise</NavLink>
+                <NavLink>Support</NavLink>
+                <NavLink>Pricing</NavLink>
+
                 <Button outline>Sign up</Button>
             </NavBar>
             <div

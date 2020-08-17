@@ -479,12 +479,8 @@ render(
 ### Custom file input
 
 <Example>
-    <InputGroup prepend="Upload">
-        <FormField type="file" />
-    </InputGroup>
-    <InputGroup append="Upload">
-        <FormField type="file" />
-    </InputGroup>
+    <InputGroup type="file" prepend="Upload" />
+    <InputGroup type="file" append="Upload" />
     <InputGroup
         type="file"
         prepend={
@@ -492,9 +488,7 @@ render(
                 Button
             </Button>
         }
-    >
-        <FormField type="file" />
-    </InputGroup>
+    />
     <InputGroup
         type="file"
         append={
@@ -502,25 +496,18 @@ render(
                 Button
             </Button>
         }
-    >
-        <FormField type="file" />
-    </InputGroup>
+    />
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
-import { FormField } from 'boot-cell/source/Form/FormField';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Fragment>
-        <InputGroup prepend="Upload">
-            <FormField type="file" />
-        </InputGroup>
-        <InputGroup append="Upload">
-            <FormField type="file" />
-        </InputGroup>
+        <InputGroup type="file" prepend="Upload" />
+        <InputGroup type="file" append="Upload" />
         <InputGroup
             type="file"
             prepend={
@@ -528,9 +515,7 @@ render(
                     Button
                 </Button>
             }
-        >
-            <FormField type="file" />
-        </InputGroup>
+        />
         <InputGroup
             type="file"
             append={
@@ -538,9 +523,7 @@ render(
                     Button
                 </Button>
             }
-        >
-            <FormField type="file" />
-        </InputGroup>
+        />
     </Fragment>
 );
 ```

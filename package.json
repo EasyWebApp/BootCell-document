@@ -5,7 +5,7 @@
     "dependencies": {
         "@nuintun/qrcode": "^3.0.1",
         "@tech_query/snabbdom-looks-like": "^2.0.0",
-        "boot-cell": "^1.0.0-rc.39",
+        "boot-cell": "^1.0.0-rc.41",
         "bootstrap-icons": "^1.0.0-alpha5",
         "cell-router": "^2.0.0-rc.8",
         "classnames": "^2.2.6",

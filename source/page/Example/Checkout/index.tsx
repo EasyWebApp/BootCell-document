@@ -78,6 +78,7 @@ export function CheckoutPage() {
                         <form className="card p-2">
                             <InputGroup
                                 name="promo_code"
+                                required
                                 placeholder="Promo code"
                                 append={
                                     <Button type="submit" kind="secondary">
@@ -91,28 +92,20 @@ export function CheckoutPage() {
                         <h4 className="mb-3">Billing address</h4>
                         <Form validate>
                             <div className="row">
-                                <div className="col-md-6 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="firstName"
-                                        required
-                                        label="First name"
-                                    />
-                                    <div className="invalid-feedback">
-                                        Valid first name is required.
-                                    </div>
-                                </div>
-                                <div className="col-md-6 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="lastName"
-                                        required
-                                        label="Last name"
-                                    />
-                                    <div className="invalid-feedback">
-                                        Valid last name is required.
-                                    </div>
-                                </div>
+                                <FormField
+                                    className="col-md-6 mb-3 m-0"
+                                    name="firstName"
+                                    required
+                                    label="First name"
+                                    invalidMessage="Valid first name is required."
+                                />
+                                <FormField
+                                    className="col-md-6 mb-3 m-0"
+                                    name="lastName"
+                                    required
+                                    label="Last name"
+                                    invalidMessage="Valid last name is required."
+                                />
                             </div>
 
                             <div className="mb-3">
@@ -123,10 +116,8 @@ export function CheckoutPage() {
                                     required
                                     prepend="@"
                                     placeholder="Username"
+                                    invalidMessage="Your username is required."
                                 />
-                                <div className="invalid-feedback w-100">
-                                    Your username is required.
-                                </div>
                             </div>
 
                             <div className="mb-3">
@@ -141,26 +132,18 @@ export function CheckoutPage() {
                                     id="email"
                                     name="email"
                                     placeholder="you@example.com"
+                                    invalidMessage="Please enter a valid email address for shipping updates."
                                 />
-                                <div className="invalid-feedback">
-                                    Please enter a valid email address for
-                                    shipping updates.
-                                </div>
                             </div>
 
-                            <div className="mb-3">
-                                <FormField
-                                    className="m-0"
-                                    name="address"
-                                    required
-                                    label="Address"
-                                    placeholder="1234 Main St"
-                                />
-                                <div className="invalid-feedback">
-                                    Please enter your shipping address.
-                                </div>
-                            </div>
-
+                            <FormField
+                                className="mb-3 m-0"
+                                name="address"
+                                required
+                                label="Address"
+                                placeholder="1234 Main St"
+                                invalidMessage="Please enter your shipping address."
+                            />
                             <div className="mb-3">
                                 <label for="address2">
                                     Address 2{' '}
@@ -176,49 +159,40 @@ export function CheckoutPage() {
                             </div>
 
                             <div className="row">
-                                <div className="col-md-5 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        is="select"
-                                        name="country"
-                                        required
-                                        label="Country"
-                                    >
-                                        <option value="">Choose...</option>
-                                        <option>United States</option>
-                                    </FormField>
-                                    <div className="invalid-feedback">
-                                        Please select a valid country.
-                                    </div>
-                                </div>
-                                <div className="col-md-4 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        is="select"
-                                        name="state"
-                                        required
-                                        label="State"
-                                    >
-                                        <option value="">Choose...</option>
-                                        <option>California</option>
-                                    </FormField>
-                                    <div className="invalid-feedback">
-                                        Please provide a valid state.
-                                    </div>
-                                </div>
-                                <div className="col-md-3 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="zip"
-                                        required
-                                        label="Zip"
-                                    />
-                                    <div className="invalid-feedback">
-                                        Zip code required.
-                                    </div>
-                                </div>
+                                <FormField
+                                    className="col-md-5 mb-3 m-0"
+                                    is="select"
+                                    name="country"
+                                    required
+                                    label="Country"
+                                    invalidMessage="Please select a valid country."
+                                >
+                                    <option value="">Choose...</option>
+                                    <option>United States</option>
+                                </FormField>
+
+                                <FormField
+                                    className="col-md-4 mb-3 m-0"
+                                    is="select"
+                                    name="state"
+                                    required
+                                    label="State"
+                                    invalidMessage="Please provide a valid state."
+                                >
+                                    <option value="">Choose...</option>
+                                    <option>California</option>
+                                </FormField>
+
+                                <FormField
+                                    className="col-md-3 mb-3 m-0"
+                                    name="zip"
+                                    required
+                                    label="Zip"
+                                    invalidMessage="Zip code required."
+                                />
                             </div>
                             <hr className="mb-4" />
+
                             <ToggleField type="checkbox" name="same_address">
                                 Shipping address is the same as my billing
                                 address
@@ -240,6 +214,7 @@ export function CheckoutPage() {
                                 >
                                     Credit card
                                 </ToggleField>
+
                                 <ToggleField
                                     type="radio"
                                     name="paymentMethod"
@@ -248,6 +223,7 @@ export function CheckoutPage() {
                                 >
                                     Debit card
                                 </ToggleField>
+
                                 <ToggleField
                                     type="radio"
                                     name="paymentMethod"
@@ -257,58 +233,42 @@ export function CheckoutPage() {
                                     PayPal
                                 </ToggleField>
                             </div>
+
                             <div className="row">
-                                <div className="col-md-6 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="cc_name"
-                                        required
-                                        label="Name on card"
-                                    />
-                                    <small className="text-muted">
-                                        Full name as displayed on card
-                                    </small>
-                                    <div className="invalid-feedback">
-                                        Name on card is required
-                                    </div>
-                                </div>
-                                <div className="col-md-6 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="cc_number"
-                                        required
-                                        label="Credit card number"
-                                    />
-                                    <div className="invalid-feedback">
-                                        Credit card number is required
-                                    </div>
-                                </div>
+                                <FormField
+                                    className="col-md-6 mb-3 m-0"
+                                    name="cc_name"
+                                    required
+                                    label="Name on card"
+                                    tips="Full name as displayed on card"
+                                    invalidMessage="Name on card is required"
+                                />
+                                <FormField
+                                    className="col-md-6 mb-3 m-0"
+                                    name="cc_number"
+                                    required
+                                    label="Credit card number"
+                                    invalidMessage="Credit card number is required"
+                                />
                             </div>
                             <div className="row">
-                                <div className="col-md-3 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="cc_expiration"
-                                        required
-                                        label="Expiration"
-                                    />
-                                    <div className="invalid-feedback">
-                                        Expiration date required
-                                    </div>
-                                </div>
-                                <div className="col-md-3 mb-3">
-                                    <FormField
-                                        className="m-0"
-                                        name="cc_cvv"
-                                        required
-                                        label="CVV"
-                                    />
-                                    <div className="invalid-feedback">
-                                        Security code required
-                                    </div>
-                                </div>
+                                <FormField
+                                    className="col-md-3 mb-3 m-0"
+                                    name="cc_expiration"
+                                    required
+                                    label="Expiration"
+                                    invalidMessage="Expiration date required"
+                                />
+                                <FormField
+                                    className="col-md-3 mb-3 m-0"
+                                    name="cc_cvv"
+                                    required
+                                    label="CVV"
+                                    invalidMessage="Security code required"
+                                />
                             </div>
                             <hr className="mb-4" />
+
                             <Button block size="lg" type="submit">
                                 Continue to checkout
                             </Button>
