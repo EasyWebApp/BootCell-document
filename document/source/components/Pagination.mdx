@@ -63,3 +63,32 @@ render(
     <Pagination size="sm" total={3} current={1} aria-label="..." />
 );
 ```
+
+## Alignment
+
+Change the alignment of pagination components with `align` property.
+
+<Example>
+    {['start', 'end'].map(align => (
+        <Pagination
+            align={align}
+            total={3}
+            current={1}
+            aria-label="Page navigation example"
+        />
+    ))}
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Pagination } from 'boot-cell/source/Navigator/Pagination';
+
+render(['start', 'end'].map(align => (
+    <Pagination
+        align={align}
+        total={3}
+        current={1}
+        aria-label="Page navigation example"
+    />
+)));
+```

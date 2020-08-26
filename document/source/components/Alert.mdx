@@ -14,32 +14,36 @@ import { Example } from '../../../source/component/Example';
 Alerts are available for any length of text, as well as an optional dismiss button.
 
 <Example>
-    <Alert>A simple primary alert—check it out!</Alert>
-    <Alert type="secondary">A simple secondary alert—check it out!</Alert>
-    <Alert type="success">A simple success alert—check it out!</Alert>
-    <Alert type="danger">A simple danger alert—check it out!</Alert>
-    <Alert type="warning">A simple warning alert—check it out!</Alert>
-    <Alert type="info">A simple info alert—check it out!</Alert>
-    <Alert type="light">A simple light alert—check it out!</Alert>
-    <Alert type="dark">A simple dark alert—check it out!</Alert>
+    {[
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark'
+    ].map(color => (
+        <Alert color={color}>A simple {color} alert—check it out!</Alert>
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Alert } from 'boot-cell/source/Prompt/Alert';
 
-render(
-    <Fragment>
-        <Alert>A simple primary alert—check it out!</Alert>
-        <Alert type="secondary">A simple secondary alert—check it out!</Alert>
-        <Alert type="success">A simple success alert—check it out!</Alert>
-        <Alert type="danger">A simple danger alert—check it out!</Alert>
-        <Alert type="warning">A simple warning alert—check it out!</Alert>
-        <Alert type="info">A simple info alert—check it out!</Alert>
-        <Alert type="light">A simple light alert—check it out!</Alert>
-        <Alert type="dark">A simple dark alert—check it out!</Alert>
-    </Fragment>
-);
+render([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark'
+].map(color => (
+    <Alert color={color}>A simple {color} alert—check it out!</Alert>
+)));
 ```
 
 > ##### Conveying meaning to assistive technologies
@@ -56,7 +60,7 @@ render(
 Alerts can also contain additional HTML elements like headings, paragraphs and dividers.
 
 <Example>
-    <Alert type="success" title="Well done!">
+    <Alert color="success" title="Well done!">
         <p>
             Aww yeah, you successfully read this important alert message. This
             example text is going to run a bit longer so that you can see how
@@ -75,7 +79,7 @@ import { render, createCell } from 'web-cell';
 import { Alert } from 'boot-cell/source/Prompt/Alert';
 
 render(
-    <Alert type="success" title="Well done!">
+    <Alert color="success" title="Well done!">
         <p>
             Aww yeah, you successfully read this important alert message. This
             example text is going to run a bit longer so that you can see how
@@ -95,7 +99,7 @@ render(
 You can see this in action with a live demo:
 
 <Example>
-    <Alert type="warning" closable>
+    <Alert color="warning" closable>
         <strong>Holy guacamole!</strong> You should check in on some of those
         fields below.
     </Alert>
@@ -106,7 +110,7 @@ import { render, createCell } from 'web-cell';
 import { Alert } from 'boot-cell/source/Prompt/Alert';
 
 render(
-    <Alert type="warning" closable>
+    <Alert color="warning" closable>
         <strong>Holy guacamole!</strong> You should check in on some of those
         fields below.
     </Alert>

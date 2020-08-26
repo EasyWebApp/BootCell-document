@@ -12,7 +12,7 @@ import { Example } from '../../../source/component/Example';
 ## How it works
 
 Progress components are built with two HTML elements, some CSS to set the width, and a few attributes.
-We don’t use the HTML5 `<progress>` element, ensuring you can stack progress bars, animate them, and place text labels over them.
+We don’t use [the HTML5 `<progress>` element][1], ensuring you can stack progress bars, animate them, and place text labels over them.
 
 <Example>
     {[0, 25, 50, 75, 100].map(percent => (
@@ -52,8 +52,7 @@ render(
 
 ## Height
 
-We only set a `height` style value on the `<Progress />`,
-so if you change that value the inner `.progress-bar` will automatically resize accordingly.
+We only set a `height` style value on the `<Progress />`.
 
 <Example>
     <Progress style={{ height: '1px' }} percent={25} />
@@ -158,3 +157,5 @@ render(
     <Progress striped animated percent={75} />
 );
 ```
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress

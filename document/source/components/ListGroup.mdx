@@ -46,11 +46,11 @@ Add `flush` property to remove some borders and rounded corners to render list g
 
 <Example>
     <ListGroup flush>
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
-        <ListItem>KoAJAX</ListItem>
-        <ListItem>MarkCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell', 'KoAJAX', 'MarkCell'].map(
+            text => (
+                <ListItem>{text}</ListItem>
+            )
+        )}
     </ListGroup>
 </Example>
 
@@ -60,11 +60,11 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup flush>
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
-        <ListItem>KoAJAX</ListItem>
-        <ListItem>MarkCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell', 'KoAJAX', 'MarkCell'].map(
+            text => (
+                <ListItem>{text}</ListItem>
+            )
+        )}
     </ListGroup>
 )
 ```
@@ -77,9 +77,9 @@ Currently **horizontal list groups cannot be combined with flush list groups.**
 
 <Example>
     <ListGroup horizontal>
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -89,18 +89,18 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup horizontal>
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 );
 ```
 
 <Example>
     <ListGroup horizontal="sm">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -110,18 +110,18 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup horizontal="sm">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 );
 ```
 
 <Example>
     <ListGroup horizontal="md">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -131,18 +131,18 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup horizontal="md">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 );
 ```
 
 <Example>
     <ListGroup horizontal="lg">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -152,18 +152,18 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup horizontal="lg">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 );
 ```
 
 <Example>
     <ListGroup horizontal="xl">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -173,9 +173,9 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup horizontal="xl">
-        <ListItem>WebCell</ListItem>
-        <ListItem>Cell Router</ListItem>
-        <ListItem>BootCell</ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map(text => (
+            <ListItem>{text}</ListItem>
+        ))}
     </ListGroup>
 );
 ```
@@ -187,16 +187,18 @@ Use contextual classes to style list items with a stateful background and color.
 <Example>
     <ListGroup>
         <ListItem>WebCell</ListItem>
-        <ListItem color="primary">A simple primary list group item</ListItem>
-        <ListItem color="secondary">
-            A simple secondary list group item
-        </ListItem>
-        <ListItem color="success">A simple success list group item</ListItem>
-        <ListItem color="danger">A simple danger list group item</ListItem>
-        <ListItem color="warning">A simple warning list group item</ListItem>
-        <ListItem color="info">A simple info list group item</ListItem>
-        <ListItem color="light">A simple light list group item</ListItem>
-        <ListItem color="dark">A simple dark list group item</ListItem>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <ListItem color={color}>A simple {color} list group item</ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -207,16 +209,18 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 render(
     <ListGroup>
         <ListItem>WebCell</ListItem>
-        <ListItem color="primary">A simple primary list group item</ListItem>
-        <ListItem color="secondary">
-            A simple secondary list group item
-        </ListItem>
-        <ListItem color="success">A simple success list group item</ListItem>
-        <ListItem color="danger">A simple danger list group item</ListItem>
-        <ListItem color="warning">A simple warning list group item</ListItem>
-        <ListItem color="info">A simple info list group item</ListItem>
-        <ListItem color="light">A simple light list group item</ListItem>
-        <ListItem color="dark">A simple dark list group item</ListItem>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <ListItem color={color}>A simple {color} list group item</ListItem>
+        ))}
     </ListGroup>
 );
 ```
@@ -234,15 +238,12 @@ Add badges to any list group item to show unread counts, activity, and more with
 
 <Example>
     <ListGroup>
-        <ListItem className="d-flex justify-content-between align-items-center">
-            WebCell<Badge pill>1</Badge>
-        </ListItem>
-        <ListItem className="d-flex justify-content-between align-items-center">
-            Cell Router<Badge pill>2</Badge>
-        </ListItem>
-        <ListItem className="d-flex justify-content-between align-items-center">
-            BootCell<Badge pill>3</Badge>
-        </ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map((text, index) => (
+            <ListItem className="d-flex justify-content-between align-items-center">
+                {text}
+                <Badge pill>{++index}</Badge>
+            </ListItem>
+        ))}
     </ListGroup>
 </Example>
 
@@ -253,15 +254,12 @@ import { Badge } from 'boot-cell/source/Reminder/Badge';
 
 render(
     <ListGroup>
-        <ListItem className="d-flex justify-content-between align-items-center">
-            WebCell<Badge pill>1</Badge>
-        </ListItem>
-        <ListItem className="d-flex justify-content-between align-items-center">
-            Cell Router<Badge pill>2</Badge>
-        </ListItem>
-        <ListItem className="d-flex justify-content-between align-items-center">
-            BootCell<Badge pill>3</Badge>
-        </ListItem>
+        {['WebCell', 'Cell Router', 'BootCell'].map((text, index) => (
+            <ListItem className="d-flex justify-content-between align-items-center">
+                {text}
+                <Badge pill>{++index}</Badge>
+            </ListItem>
+        ))}
     </ListGroup>
 );
 ```
@@ -272,7 +270,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 <Example>
     <ListGroup>
-        <ListItem href="https://bootstrap.web-cell.dev/">
+        <ListItem href="https://bootstrap.web-cell.dev/" active>
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">BootCell</h5>
                 <small>2 days ago</small>
@@ -307,7 +305,7 @@ import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 
 render(
     <ListGroup>
-        <ListItem href="https://bootstrap.web-cell.dev/">
+        <ListItem href="https://bootstrap.web-cell.dev/" active>
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">BootCell</h5>
                 <small>2 days ago</small>

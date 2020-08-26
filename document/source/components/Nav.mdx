@@ -7,6 +7,7 @@ group: Components
 
 import { Fragment } from 'web-cell';
 import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 import { Badge } from 'boot-cell/source/Reminder/Badge';
 
 import { Example } from '../../../source/component/Example';
@@ -15,6 +16,9 @@ import { Example } from '../../../source/component/Example';
 
 The base `<Nav />` component is built with flexbox and provide a strong foundation for building all types of navigation components.
 It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling.
+
+> The base `<Nav />` component does not include any `active` state.
+> The following examples include the property, mainly to demonstrate that this particular property does not trigger any special styling.
 
 <Example>
     <Nav>
@@ -128,7 +132,7 @@ render(
 ### Tabs
 
 Takes the basic nav from above and adds the `itemMode="tabs"` property to generate a tabbed interface.
-Use them to create tabbable regions with our [`<TabList />` component](components/tablist).
+Use them to create tabbable regions with our [`<TabView />` component](components/tabview).
 
 <Example>
     <Nav itemMode="tabs">
@@ -209,6 +213,7 @@ render(
 
 ### Fill and justify
 
+Force your `<Nav />`’s contents to extend the full available width one of two modifier properties.
 To proportionately fill all available space with your nav items, use `itemWidth="fill"`.
 Notice that all horizontal space is occupied, but not every nav item has the same width.
 
@@ -270,7 +275,7 @@ render(
         <NavLink>Dashboard</NavLink>
         <NavLink>
             Friends{' '}
-            <Badge pill kind="light" className="align-text-bottom">
+            <Badge pill color="light" className="align-text-bottom">
                 27
             </Badge>
         </NavLink>
@@ -292,7 +297,7 @@ render(
         <NavLink>Dashboard</NavLink>
         <NavLink>
             Friends{' '}
-            <Badge pill kind="light" className="align-text-bottom">
+            <Badge pill color="light" className="align-text-bottom">
                 27
             </Badge>
         </NavLink>
@@ -307,23 +312,19 @@ render(
 
 ## Using dropdowns
 
-Add dropdown menus with `list` property.
+Add dropdown menus with `title` property & `<DropMenuItem />`s.
 
 ### Tabs with dropdowns
 
 <Example>
     <Nav>
         <NavLink active>Active</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                { title: 'Something else here' },
-                {},
-                { title: 'Separated link' }
-            ]}
-        >
-            Dropdown
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
         </NavLink>
         <NavLink>Link</NavLink>
         <NavLink disabled>Disabled</NavLink>
@@ -333,20 +334,17 @@ Add dropdown menus with `list` property.
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <Nav>
         <NavLink active>Active</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                { title: 'Something else here' },
-                {},
-                { title: 'Separated link' }
-            ]}
-        >
-            Dropdown
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
         </NavLink>
         <NavLink>Link</NavLink>
         <NavLink disabled>Disabled</NavLink>
@@ -359,16 +357,12 @@ render(
 <Example>
     <Nav itemMode="pills">
         <NavLink active>Active</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                { title: 'Something else here' },
-                {},
-                { title: 'Separated link' }
-            ]}
-        >
-            Dropdown
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
         </NavLink>
         <NavLink>Link</NavLink>
         <NavLink disabled>Disabled</NavLink>
@@ -378,20 +372,17 @@ render(
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <Nav>
         <NavLink active>Active</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                { title: 'Something else here' },
-                {},
-                { title: 'Separated link' }
-            ]}
-        >
-            Dropdown
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
         </NavLink>
         <NavLink>Link</NavLink>
         <NavLink disabled>Disabled</NavLink>

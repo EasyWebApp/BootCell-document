@@ -5,14 +5,13 @@ description: Use BootCell’s JavaScript dialog methods to add dialogs to your s
 group: Components
 ---
 
-import { openDialog, openModal } from 'boot-cell/source/Prompt/Dialog';
+import { Modal, openDialog } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
 import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
 import { Table } from 'boot-cell/source/Content/Table';
 import { FormField } from 'boot-cell/source/Form/FormField';
 
-import { Fragment } from 'web-cell';
 import { Example } from '../../../source/component/Example';
 
 ## How it works
@@ -27,6 +26,27 @@ Keep reading for demos and usage guidelines.
 
 ## Examples
 
+### Modal components
+
+Below is a static modal example. Included are the modal header, modal body (required for padding), and modal footer (optional).
+
+<Example>
+    <Modal title="Modal title" confirmText="Save changes">
+        <p>Modal body text goes here.</p>
+    </Modal>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Modal } from 'boot-cell/source/Prompt/Dialog';
+
+render(
+    <Modal title="Modal title" confirmText="Save changes">
+        <p>Modal body text goes here.</p>
+    </Modal>
+);
+```
+
 ### Live demo
 
 Toggle a working modal demo by clicking the button below.
@@ -34,11 +54,11 @@ Toggle a working modal demo by clicking the button below.
 <Example>
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: "Woohoo, you're reading this text in a modal!",
-                confirmText: 'Save changes'
-            })
+            openDialog(
+                <Modal title="Modal title" confirmText="Save changes">
+                    Woohoo, you're reading this text in a modal!
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -47,17 +67,17 @@ Toggle a working modal demo by clicking the button below.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: "Woohoo, you're reading this text in a modal!",
-                confirmText: 'Save changes'
-            })
+            openDialog(
+                <Modal title="Modal title" confirmText="Save changes">
+                    Woohoo, you're reading this text in a modal!
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -73,11 +93,11 @@ Try the demo below to see what we mean.
 <Example>
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: document.body.textContent.trim(),
-                confirmText: 'Save changes'
-            })
+            openDialog(
+                <Modal title="Modal title" confirmText="Save changes">
+                    {document.body.textContent.trim()}
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -86,17 +106,17 @@ Try the demo below to see what we mean.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: document.body.textContent.trim(),
-                confirmText: 'Save changes'
-            })
+            openDialog(
+                <Modal title="Modal title" confirmText="Save changes">
+                    {document.body.textContent.trim()}
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -105,17 +125,20 @@ render(
 ```
 
 You can also create a scrollable modal that allows scroll the modal body
-by adding `scrollable: true` to `openModal()`.
+by adding `scrollable: true` to `openDialog()`.
 
 <Example>
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: document.body.textContent.trim(),
-                confirmText: 'Save changes',
-                scrollable: true
-            })
+            openDialog(
+                <Modal
+                    scrollable
+                    title="Modal title"
+                    confirmText="Save changes"
+                >
+                    {document.body.textContent.trim()}
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -124,18 +147,21 @@ by adding `scrollable: true` to `openModal()`.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: document.body.textContent.trim(),
-                confirmText: 'Save changes',
-                scrollable: true
-            })
+            openDialog(
+                <Modal
+                    scrollable
+                    title="Modal title"
+                    confirmText="Save changes"
+                >
+                    {document.body.textContent.trim()}
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -145,30 +171,32 @@ render(
 
 ### Vertically centered
 
-Add `centered: true` to `openModal()` to vertically center the modal.
+Add `centered: true` to `openDialog()` to vertically center the modal.
 
 <Example>
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: "Woohoo, you're reading this text in a modal!",
-                confirmText: 'Save changes',
-                centered: true
-            })
+            openDialog(
+                <Modal centered title="Modal title" confirmText="Save changes">
+                    Woohoo, you're reading this text in a modal!
+                </Modal>
+            )
         }
     >
         Vertically centered modal
     </Button>
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                body: document.body.textContent.trim(),
-                confirmText: 'Save changes',
-                centered: true,
-                scrollable: true
-            })
+            openDialog(
+                <Modal
+                    scrollable
+                    centered
+                    title="Modal title"
+                    confirmText="Save changes"
+                >
+                    {document.body.textContent.trim()}
+                </Modal>
+            )
         }
     >
         Vertically centered scrollable modal
@@ -177,32 +205,34 @@ Add `centered: true` to `openModal()` to vertically center the modal.
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Fragment>
         <Button
             onClick={() =>
-                openModal({
-                    title: 'Modal title',
-                    body: "Woohoo, you're reading this text in a modal!",
-                    confirmText: 'Save changes',
-                    centered: true
-                })
+                openDialog(
+                    <Modal centered title="Modal title" confirmText="Save changes">
+                        Woohoo, you're reading this text in a modal!
+                    </Modal>
+                )
             }
         >
             Vertically centered modal
         </Button>
         <Button
             onClick={() =>
-                openModal({
-                    title: 'Modal title',
-                    body: document.body.textContent.trim(),
-                    confirmText: 'Save changes',
-                    centered: true,
-                    scrollable: true
-                })
+                openDialog(
+                    <Modal
+                        scrollable
+                        centered
+                        title="Modal title"
+                        confirmText="Save changes"
+                    >
+                        {document.body.textContent.trim()}
+                    </Modal>
+                )
             }
         >
             Vertically centered scrollable modal
@@ -219,38 +249,34 @@ any tooltips and popovers within are also automatically dismissed.
 <Example>
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                confirmText: 'Save changes',
-                body: (
-                    <Fragment>
-                        <h5>Popover in a modal</h5>
-                        <p>
-                            This{' '}
-                            <PopoverBox
-                                position="right"
-                                header="Popover title"
-                                body="Popover body content is set in this attribute."
-                            >
-                                <Button kind="secondary">button</Button>
-                            </PopoverBox>{' '}
-                            triggers a popover on click.
-                        </p>
-                        <hr />
-                        <h5>Tooltips in a modal</h5>
-                        <p>
-                            <TooltipBox text="Tooltip">
-                                <a href="javascript: ;">This link</a>
-                            </TooltipBox>{' '}
-                            and{' '}
-                            <TooltipBox text="Tooltip">
-                                <a href="javascript: ;">that link</a>
-                            </TooltipBox>{' '}
-                            have tooltips on hover.
-                        </p>
-                    </Fragment>
-                )
-            })
+            openDialog(
+                <Modal title="Modal title" confirmText="Save changes">
+                    <h5>Popover in a modal</h5>
+                    <p>
+                        This{' '}
+                        <PopoverBox
+                            position="right"
+                            header="Popover title"
+                            body="Popover body content is set in this attribute."
+                        >
+                            <Button color="secondary">button</Button>
+                        </PopoverBox>{' '}
+                        triggers a popover on click.
+                    </p>
+                    <hr />
+                    <h5>Tooltips in a modal</h5>
+                    <p>
+                        <TooltipBox text="Tooltip">
+                            <a href="javascript: ;">This link</a>
+                        </TooltipBox>{' '}
+                        and{' '}
+                        <TooltipBox text="Tooltip">
+                            <a href="javascript: ;">that link</a>
+                        </TooltipBox>{' '}
+                        have tooltips on hover.
+                    </p>
+                </Modal>
+            )
         }
     >
         Launch demo modal
@@ -260,45 +286,41 @@ any tooltips and popovers within are also automatically dismissed.
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { Button } from 'boot-cell/source/Form/Button';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
 import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
 
 render(
     <Button
         onClick={() =>
-            openModal({
-                title: 'Modal title',
-                confirmText: 'Save changes',
-                body: (
-                    <Fragment>
-                        <h5>Popover in a modal</h5>
-                        <p>
-                            This{' '}
-                            <PopoverBox
-                                position="right"
-                                header="Popover title"
-                                body="Popover body content is set in this attribute."
-                            >
-                                <Button kind="secondary">button</Button>
-                            </PopoverBox>{' '}
-                            triggers a popover on click.
-                        </p>
-                        <hr />
-                        <h5>Tooltips in a modal</h5>
-                        <p>
-                            <TooltipBox text="Tooltip">
-                                <a href="javascript: ;">This link</a>
-                            </TooltipBox>{' '}
-                            and{' '}
-                            <TooltipBox text="Tooltip">
-                                <a href="javascript: ;">that link</a>
-                            </TooltipBox>{' '}
-                            have tooltips on hover.
-                        </p>
-                    </Fragment>
-                )
-            })
+            openDialog(
+                <Modal title="Modal title" confirmText="Save changes">
+                    <h5>Popover in a modal</h5>
+                    <p>
+                        This{' '}
+                        <PopoverBox
+                            position="right"
+                            header="Popover title"
+                            body="Popover body content is set in this attribute."
+                        >
+                            <Button color="secondary">button</Button>
+                        </PopoverBox>{' '}
+                        triggers a popover on click.
+                    </p>
+                    <hr />
+                    <h5>Tooltips in a modal</h5>
+                    <p>
+                        <TooltipBox text="Tooltip">
+                            <a href="javascript: ;">This link</a>
+                        </TooltipBox>{' '}
+                        and{' '}
+                        <TooltipBox text="Tooltip">
+                            <a href="javascript: ;">that link</a>
+                        </TooltipBox>{' '}
+                        have tooltips on hover.
+                    </p>
+                </Modal>
+            )
         }
     >
         Vertically centered modal
@@ -311,16 +333,12 @@ render(
 <Example>
     <Button
         onClick={() =>
-            openModal({
-                title: 'New message to @mdo',
-                confirmText: 'Send message',
-                body: (
-                    <Fragment>
-                        <FormField label="Recipient:" value="@mdo" />
-                        <FormField is="textarea" label="Message:" />
-                    </Fragment>
-                )
-            })
+            openDialog(
+                <Modal title="New message to @mdo" confirmText="Send message">
+                    <FormField label="Recipient:" value="@mdo" />
+                    <FormField is="textarea" label="Message:" />
+                </Modal>
+            )
         }
     >
         Open modal for @mdo
@@ -329,23 +347,19 @@ render(
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 import { FormField } from 'boot-cell/source/Form/FormField';
 
 render(
     <Button
         onClick={() =>
-            openModal({
-                title: 'New message to @mdo',
-                confirmText: 'Send message',
-                body: (
-                    <Fragment>
-                        <FormField label="Recipient:" value="@mdo" />
-                        <FormField is="textarea" label="Message:" />
-                    </Fragment>
-                )
-            })
+            openDialog(
+                <Modal title="New message to @mdo" confirmText="Send message">
+                    <FormField label="Recipient:" value="@mdo" />
+                    <FormField is="textarea" label="Message:" />
+                </Modal>
+            )
         }
     >
         Open modal for @mdo
@@ -355,7 +369,7 @@ render(
 
 ## Optional sizes
 
-Modals have three optional sizes, available via `size` parameter to be placed on a `openModal()`.
+Modals have three optional sizes, available via `size` parameter to be placed on a `openDialog()`.
 These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
 
 <Table border striped>
@@ -394,11 +408,11 @@ Our default modal without `size` parameter constitutes the "medium" size modal.
     ].map(([level, size]) => (
         <Button
             onClick={() =>
-                openModal({
-                    title: level + ' modal',
-                    body: 'Hello, BootCell!',
-                    size
-                })
+                openDialog(
+                    <Modal title={level + ' modal'} size={size}>
+                        Hello, BootCell!
+                    </Modal>
+                )
             }
         >
             {level} modal
@@ -408,7 +422,7 @@ Our default modal without `size` parameter constitutes the "medium" size modal.
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { openModal } from 'boot-cell/source/Prompt/Dialog';
+import { openDialog, Modal } from 'boot-cell/source/Prompt/Dialog';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render([
@@ -418,11 +432,11 @@ render([
 ].map(([level, size]) => (
     <Button
         onClick={() =>
-            openModal({
-                title: level+' modal',
-                body: 'Hello, BootCell!',
-                size
-            })
+            openDialog(
+                <Modal title={level + ' modal'} size={size}>
+                    Hello, BootCell!
+                </Modal>
+            )
         }
     >
         {level} modal

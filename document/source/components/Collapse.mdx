@@ -7,7 +7,7 @@ toc: true
 ---
 
 import { Fragment } from 'web-cell';
-import { AccordionList } from 'boot-cell/source/Content/Accordion';
+import { Accordion, AccordionPanel } from 'boot-cell/source/Content/Accordion';
 import { Button } from 'boot-cell/source/Form/Button';
 
 import { Example } from '../../../source/component/Example';
@@ -35,6 +35,7 @@ In addition, `<collapse-box />` uses [`ResizeObserver`][1] to detect **Content r
         WebCell
     </Button>
     <collapse-box
+        className="d-block"
         onOpen={({ type }) => console.log(type)}
         onClose={({ type }) => console.log(type)}
     >
@@ -58,6 +59,7 @@ render(
             WebCell
         </Button>
         <collapse-box
+            className="d-block"
             onOpen={({ type }) => console.log(type)}
             onClose={({ type }) => console.log(type)}
         >
@@ -67,58 +69,41 @@ render(
 );
 ```
 
-## Accordion example
-
-Using the [card][2] component, you can extend the default collapse behavior to create an accordion.
+## Accordion
 
 <Example>
-    <AccordionList
-        list={[
-            {
-                title: 'WebCell',
-                content: 'Web Components engine based on JSX & TypeScript',
-                active: true
-            },
-            {
-                title: 'Cell Router',
-                content:
-                    'Decorator based Router component framework, powered by WebCell'
-            },
-            {
-                title: 'BootCell',
-                content:
-                    'Web Components UI library based on WebCell v2, BootStrap v4 & FontAwesome v5'
-            }
-        ]}
-    />
+    <Accordion>
+        <AccordionPanel title="WebCell" active>
+            Web Components engine based on JSX &amp; TypeScript
+        </AccordionPanel>
+        <AccordionPanel title="Cell Router">
+            Decorator based Router component framework, powered by WebCell
+        </AccordionPanel>
+        <AccordionPanel title="BootCell">
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </AccordionPanel>
+    </Accordion>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { AccordionList } from 'boot-cell/source/Content/Accordion';
+import { Accordion, AccordionPanel } from 'boot-cell/source/Content/Accordion';
 
 render(
-    <AccordionList
-        list={[
-            {
-                title: 'WebCell',
-                content: 'Web Components engine based on JSX & TypeScript',
-                active: true
-            },
-            {
-                title: 'Cell Router',
-                content:
-                    'Decorator based Router component framework, powered by WebCell'
-            },
-            {
-                title: 'BootCell',
-                content:
-                    'Web Components UI library based on WebCell v2, BootStrap v4 & FontAwesome v5'
-            }
-        ]}
-    />
+    <Accordion>
+        <AccordionPanel title="WebCell" active>
+            Web Components engine based on JSX &amp; TypeScript
+        </AccordionPanel>
+        <AccordionPanel title="Cell Router">
+            Decorator based Router component framework, powered by WebCell
+        </AccordionPanel>
+        <AccordionPanel title="BootCell">
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </AccordionPanel>
+    </Accordion>
 );
 ```
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
-[2]: components/card

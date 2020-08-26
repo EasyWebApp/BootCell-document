@@ -9,6 +9,9 @@ import { ToastBox } from 'boot-cell/source/Prompt/Toast';
 
 import { Example } from '../../../source/component/Example';
 
+Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop operating systems.
+They’re built with flexbox, so they’re easy to align and position.
+
 ## Examples
 
 ### Basic
@@ -122,7 +125,7 @@ render(
 ## Placement
 
 Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle.
-If you’re only ever going to show one toast at a time, put the positioning styles right on the `.toast`.
+If you’re only ever going to show one toast at a time, put the positioning styles right on the `<Toast />`.
 
 <Example className="bg-dark">
     <div

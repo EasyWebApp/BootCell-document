@@ -3,9 +3,12 @@ import classNames from 'classnames';
 
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
+
 import { Badge } from 'boot-cell/source/Reminder/Badge';
 import { MediaObject } from 'boot-cell/source/Content/MediaObject';
 
@@ -19,14 +22,10 @@ export function OffcanvasPage() {
                 <NavLink>Notifications</NavLink>
                 <NavLink>Profile</NavLink>
                 <NavLink>Switch account</NavLink>
-                <NavLink
-                    list={[
-                        { title: 'Action' },
-                        { title: 'Another action' },
-                        { title: 'Something else here' }
-                    ]}
-                >
-                    Settings
+                <NavLink title="Settings">
+                    <DropMenuItem>Action</DropMenuItem>
+                    <DropMenuItem>Another action</DropMenuItem>
+                    <DropMenuItem>Something else here</DropMenuItem>
                 </NavLink>
 
                 <Form inline className="my-2 my-lg-0">
@@ -38,7 +37,7 @@ export function OffcanvasPage() {
                     />
                     <Button
                         type="submit"
-                        kind="success"
+                        color="success"
                         outline
                         className="my-2 my-sm-0"
                     >
@@ -50,7 +49,7 @@ export function OffcanvasPage() {
                 <NavLink>Dashboard</NavLink>
                 <NavLink>
                     Friends{' '}
-                    <Badge pill kind="light" className="align-text-bottom">
+                    <Badge pill color="light" className="align-text-bottom">
                         27
                     </Badge>
                 </NavLink>

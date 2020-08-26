@@ -8,7 +8,7 @@ group: Components
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 import { Button } from 'boot-cell/source/Form/Button';
 import { Field } from 'boot-cell/source/Form/Field';
-import { FormField } from 'boot-cell/source/Form/FormField';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 import { Example } from '../../../source/component/Example';
 
@@ -187,8 +187,8 @@ render(
 
 ## Multiple inputs
 
-While multiple `<input>`s are supported visually,
-validation styles are only available for input groups with a single `<input>`.
+While multiple `<Field />`s are supported visually,
+validation styles are only available for input groups with a single `<Field />`.
 
 <Example>
     <InputGroup prepend="First and last name">
@@ -248,7 +248,7 @@ render(
 <Example>
     <InputGroup
         prepend={
-            <Button kind="secondary" outline>
+            <Button color="secondary" outline>
                 Button
             </Button>
         }
@@ -256,7 +256,7 @@ render(
     />
     <InputGroup
         append={
-            <Button kind="secondary" outline>
+            <Button color="secondary" outline>
                 Button
             </Button>
         }
@@ -266,10 +266,10 @@ render(
     <InputGroup
         prepend={
             <Fragment>
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             </Fragment>
@@ -279,10 +279,10 @@ render(
     <InputGroup
         append={
             <Fragment>
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             </Fragment>
@@ -301,7 +301,7 @@ render(
     <Fragment>
         <InputGroup
             prepend={
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             }
@@ -309,7 +309,7 @@ render(
         />
         <InputGroup
             append={
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             }
@@ -319,10 +319,10 @@ render(
         <InputGroup
             prepend={
                 <Fragment>
-                    <Button kind="secondary" outline>
+                    <Button color="secondary" outline>
                         Button
                     </Button>
-                    <Button kind="secondary" outline>
+                    <Button color="secondary" outline>
                         Button
                     </Button>
                 </Fragment>
@@ -332,16 +332,160 @@ render(
         <InputGroup
             append={
                 <Fragment>
-                    <Button kind="secondary" outline>
+                    <Button color="secondary" outline>
                         Button
                     </Button>
-                    <Button kind="secondary" outline>
+                    <Button color="secondary" outline>
                         Button
                     </Button>
                 </Fragment>
             }
             placeholder="Recipient's username"
             aria-label="Recipient's username with two button addons"
+        />
+    </Fragment>
+);
+```
+
+## Buttons with dropmenus
+
+<Example>
+    <InputGroup
+        prepend={
+            <DropMenu buttonColor="secondary" caption="Dropdown">
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+        }
+        aria-label="Text input with dropdown button"
+    />
+    <InputGroup
+        append={
+            <DropMenu buttonColor="secondary" caption="Dropdown">
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+        }
+        aria-label="Text input with dropdown button"
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <Fragment>
+        <InputGroup
+            prepend={
+                <DropMenu buttonColor="secondary" caption="Dropdown">
+                    <DropMenuItem>Action</DropMenuItem>
+                    <DropMenuItem>Another action</DropMenuItem>
+                    <DropMenuItem>Something else here</DropMenuItem>
+                    <DropMenuItem />
+                    <DropMenuItem>Separated link</DropMenuItem>
+                </DropMenu>
+            }
+            aria-label="Text input with dropdown button"
+        />
+        <InputGroup
+            append={
+                <DropMenu buttonColor="secondary" caption="Dropdown">
+                    <DropMenuItem>Action</DropMenuItem>
+                    <DropMenuItem>Another action</DropMenuItem>
+                    <DropMenuItem>Something else here</DropMenuItem>
+                    <DropMenuItem />
+                    <DropMenuItem>Separated link</DropMenuItem>
+                </DropMenu>
+            }
+            aria-label="Text input with dropdown button"
+        />
+    </Fragment>
+);
+```
+
+## Segmented buttons
+
+<Example>
+    <InputGroup
+        prepend={
+            <DropMenu
+                buttonColor="secondary"
+                caption="Action"
+                href="https://web-cell.dev/BootCell/"
+            >
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+        }
+        aria-label="Text input with segmented dropdown button"
+    />
+    <InputGroup
+        append={
+            <DropMenu
+                buttonColor="secondary"
+                caption="Action"
+                href="https://web-cell.dev/BootCell/"
+            >
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+        }
+        aria-label="Text input with segmented dropdown button"
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <Fragment>
+        <InputGroup
+            prepend={
+                <DropMenu
+                    buttonColor="secondary"
+                    caption="Action"
+                    href="https://web-cell.dev/BootCell/"
+                >
+                    <DropMenuItem>Action</DropMenuItem>
+                    <DropMenuItem>Another action</DropMenuItem>
+                    <DropMenuItem>Something else here</DropMenuItem>
+                    <DropMenuItem />
+                    <DropMenuItem>Separated link</DropMenuItem>
+                </DropMenu>
+            }
+            aria-label="Text input with segmented dropdown button"
+        />
+        <InputGroup
+            append={
+                <DropMenu
+                    buttonColor="secondary"
+                    caption="Action"
+                    href="https://web-cell.dev/BootCell/"
+                >
+                    <DropMenuItem>Action</DropMenuItem>
+                    <DropMenuItem>Another action</DropMenuItem>
+                    <DropMenuItem>Something else here</DropMenuItem>
+                    <DropMenuItem />
+                    <DropMenuItem>Separated link</DropMenuItem>
+                </DropMenu>
+            }
+            aria-label="Text input with segmented dropdown button"
         />
     </Fragment>
 );
@@ -374,7 +518,7 @@ Browser default versions of these are not supported.
     <InputGroup
         id="inputGroupSelect03"
         prepend={
-            <Button kind="secondary" outline>
+            <Button color="secondary" outline>
                 Button
             </Button>
         }
@@ -393,7 +537,7 @@ Browser default versions of these are not supported.
     <InputGroup
         id="inputGroupSelect04"
         append={
-            <Button kind="secondary" outline>
+            <Button color="secondary" outline>
                 Button
             </Button>
         }
@@ -437,7 +581,7 @@ render(
         <InputGroup
             id="inputGroupSelect03"
             prepend={
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             }
@@ -456,7 +600,7 @@ render(
         <InputGroup
             id="inputGroupSelect04"
             append={
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             }
@@ -484,7 +628,7 @@ render(
     <InputGroup
         type="file"
         prepend={
-            <Button kind="secondary" outline>
+            <Button color="secondary" outline>
                 Button
             </Button>
         }
@@ -492,7 +636,7 @@ render(
     <InputGroup
         type="file"
         append={
-            <Button kind="secondary" outline>
+            <Button color="secondary" outline>
                 Button
             </Button>
         }
@@ -511,7 +655,7 @@ render(
         <InputGroup
             type="file"
             prepend={
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             }
@@ -519,7 +663,7 @@ render(
         <InputGroup
             type="file"
             append={
-                <Button kind="secondary" outline>
+                <Button color="secondary" outline>
                     Button
                 </Button>
             }

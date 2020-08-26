@@ -35,7 +35,7 @@ export function CheckoutPage() {
                     <div className="col-md-4 order-md-2 mb-4">
                         <h4 className="d-flex justify-content-between align-items-center mb-3">
                             <span className="text-muted">Your cart</span>
-                            <Badge kind="secondary" pill>
+                            <Badge color="secondary" pill>
                                 {cart_list.filter(({ code }) => !code).length}
                             </Badge>
                         </h4>
@@ -81,7 +81,7 @@ export function CheckoutPage() {
                                 required
                                 placeholder="Promo code"
                                 append={
-                                    <Button type="submit" kind="secondary">
+                                    <Button type="submit" color="secondary">
                                         Redeem
                                     </Button>
                                 }

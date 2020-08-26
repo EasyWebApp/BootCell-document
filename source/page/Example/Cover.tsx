@@ -40,7 +40,7 @@ export function CoverPage() {
                     own fullscreen background photo to make it your own.
                 </p>
 
-                <Button kind="secondary" size="lg" href="#">
+                <Button color="secondary" size="lg" href="#">
                     Learn more
                 </Button>
             </main>

@@ -27,25 +27,15 @@ standard defines an actual [`role="menu"` widget][3], but this is specific to ap
 menu items, checkbox menu items, radio button menu items, radio button groups, and
 sub-menus.
 
-Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures.
-For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms.
-For this reason, Bootstrap does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus.
-Authors will have to include these more specific attributes themselves.
+BootCell's dropmenus, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures.
+For instance, it is possible to create dropmenus that contain additional inputs and form controls, such as search fields or login forms.
 
-However, Bootstrap does add built-in support for most standard keyboard menu interactions,
-such as the ability to move through individual `.dropdown-item` elements using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
+BootCell add built-in support for most standard keyboard menu interactions,
+such as the ability to move through individual `<DropMenuItem />` components using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
 
 ## Examples
 
-Wrap the dropdown's toggle (your button or link) and the dropdown menu within `.dropdown`,
-or another element that declares `position: relative;`.
-DropMenu can be triggered from `<a>` or `<button>` elements to better fit your potential needs.
-The examples shown here use semantic `<ul>` elements where appropriate, but custom markup is supported.
-
 ### Single button
-
-Any single `.btn` can be turned into a dropdown toggle with some markup changes.
-Here's how you can put them to work with either `<button>` elements:
 
 <Example>
     <DropMenu caption="Dropdown button">
@@ -71,53 +61,93 @@ render(
 The best part is you can do this with any button variant, too:
 
 <Example>
-    <DropMenu buttonKind="danger" caption="Danger">
-        <DropMenuItem>Action</DropMenuItem>
-        <DropMenuItem>Another action</DropMenuItem>
-        <DropMenuItem>Something else here</DropMenuItem>
-        <DropMenuItem />
-        <DropMenuItem>Separated link</DropMenuItem>
-    </DropMenu>
+    {[
+        'Primary',
+        'Secondary',
+        'Success',
+        'Danger',
+        'Warning',
+        'Info',
+        'Light',
+        'Dark'
+    ].map(color => (
+        <DropMenu buttonColor={color.toLowerCase()} caption={color}>
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
+    ))}
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
-render(
-    <DropMenu buttonKind="danger" caption="Danger">
+render([
+    'Primary',
+    'Secondary',
+    'Success',
+    'Danger',
+    'Warning',
+    'Info',
+    'Light',
+    'Dark'
+].map(color => (
+    <DropMenu buttonColor={color.toLowerCase()} caption={color}>
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
         <DropMenuItem />
         <DropMenuItem>Separated link</DropMenuItem>
     </DropMenu>
-);
+)));
 ```
 
 ### Split button
 
 <Example>
-    <DropMenu
-        buttonKind="danger"
-        caption="Action"
-        href="https://web-cell.dev/BootCell/"
-    >
-        <DropMenuItem>Action</DropMenuItem>
-        <DropMenuItem>Another action</DropMenuItem>
-        <DropMenuItem>Something else here</DropMenuItem>
-        <DropMenuItem />
-        <DropMenuItem>Separated link</DropMenuItem>
-    </DropMenu>
+    {[
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark'
+    ].map(color => (
+        <DropMenu
+            buttonColor={color}
+            caption="Action"
+            href="https://web-cell.dev/BootCell/"
+        >
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
+    ))}
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
-render(
+render([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark'
+].map(color => (
     <DropMenu
-        buttonKind="danger"
+        buttonColor={color}
         caption="Action"
         href="https://web-cell.dev/BootCell/"
     >
@@ -127,7 +157,7 @@ render(
         <DropMenuItem />
         <DropMenuItem>Separated link</DropMenuItem>
     </DropMenu>
-);
+)));
 ```
 
 ## Sizing
@@ -458,7 +488,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu,
 and use [margin or padding utilities][4] to give it the negative space you require.
 
 <Example>
-    <DropMenu>
+    <DropMenu caption="Dropdown form">
         <form className="px-4 py-3">
             <FormField
                 type="email"
@@ -489,7 +519,7 @@ import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <DropMenu>
+    <DropMenu caption="Dropdown form">
         <form className="px-4 py-3">
             <FormField
                 type="email"

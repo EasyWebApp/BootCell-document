@@ -9,6 +9,7 @@ import { Fragment } from 'web-cell';
 import { Image } from 'boot-cell/source/Media/Image';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
@@ -41,21 +42,18 @@ Navbars come with built-in support for a handful of sub-components. Choose from 
 -   `<Form inline />` for any form controls and actions.
 -   `.navbar-text` for adding vertically centered strings of text.
 
-Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically collapses at the `lg` (large) breakpoint.
+Here’s an example of all the sub-components included in a responsive light-themed navbar
+that automatically collapses at the `lg` (large) breakpoint.
 
 <Example>
     <NavBar className="position-static" expand="lg" brand="NavBar">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Link</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                {},
-                { title: 'Something else here' }
-            ]}
-        >
-            Dropdown
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Something else here</DropMenuItem>
         </NavLink>
         <NavLink href="#" disabled>
             Disabled
@@ -69,7 +67,7 @@ Here’s an example of all the sub-components included in a responsive light-the
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -83,23 +81,20 @@ Here’s an example of all the sub-components included in a responsive light-the
 import { render, createCell } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <NavBar className="position-static" expand="lg" brand="NavBar">
+    <NavBar expand="lg" brand="NavBar">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Link</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                {},
-                { title: 'Something else here' }
-            ]}
-        >
-            Dropdown
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Something else here</DropMenuItem>
         </NavLink>
         <NavLink href="#" disabled>
             Disabled
@@ -114,7 +109,7 @@ render(
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -125,7 +120,7 @@ render(
 );
 ```
 
-This example uses [spacing][1] (my-2, my-lg-0, mr-sm-0, my-sm-0) utility classes.
+This example uses [spacing][1] (`my-2`, `my-lg-0`, `mr-sm-0`, `my-sm-0`) utility classes.
 
 ### Brand
 
@@ -230,7 +225,7 @@ import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <NavBar className="position-static" expand="lg" brand="NavBar">
+    <NavBar expand="lg" brand="NavBar">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Feature</NavLink>
         <NavLink href="components/navbar">Pricing</NavLink>
@@ -241,21 +236,17 @@ render(
 );
 ```
 
-You may also utilize `<DropMenu />`s in your navbar.
+You may also utilize `<DropMenuItem />`s in your navbar.
 
 <Example>
     <NavBar className="position-static" expand="lg" brand="NavBar">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Feature</NavLink>
         <NavLink href="components/navbar">Pricing</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                { title: 'Something else here' }
-            ]}
-        >
-            Dropdown link
+        <NavLink title="Dropdown link">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
         </NavLink>
     </NavBar>
 </Example>
@@ -264,20 +255,17 @@ You may also utilize `<DropMenu />`s in your navbar.
 import { render, createCell, Fragment } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <NavBar className="position-static" expand="lg" brand="NavBar">
+    <NavBar expand="lg" brand="NavBar">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Feature</NavLink>
         <NavLink href="components/navbar">Pricing</NavLink>
-        <NavLink
-            list={[
-                { title: 'Action' },
-                { title: 'Another action' },
-                { title: 'Something else here' }
-            ]}
-        >
-            Dropdown link
+        <NavLink title="Dropdown link">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
         </NavLink>
     </NavBar>
 );
@@ -286,6 +274,9 @@ render(
 ### Forms
 
 Place various form controls and components within a navbar with `<Form inline />`.
+
+Immediate children elements in `<NavBar />` use flex layout and will default to `justify-content: space-between`.
+Use additional [flex utilities][2] as needed to adjust this behavior.
 
 <Example>
     <NavBar className="position-static" brand="NavBar">
@@ -298,7 +289,7 @@ Place various form controls and components within a navbar with `<Form inline />
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -326,7 +317,7 @@ render(
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -376,10 +367,10 @@ This is also a great reminder that vertical alignment utilities can be used to a
 <Example>
     <NavBar className="position-static" brand="NavBar">
         <Form inline className="my-2 my-lg-0">
-            <Button kind="success" outline>
+            <Button color="success" outline>
                 Main button
             </Button>
-            <Button kind="secondary" outline size="sm">
+            <Button color="secondary" outline size="sm">
                 Smaller button
             </Button>
         </Form>
@@ -395,10 +386,10 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <NavBar brand="NavBar">
         <Form inline className="my-2 my-lg-0">
-            <Button kind="success" outline>
+            <Button color="success" outline>
                 Main button
             </Button>
-            <Button kind="secondary" outline size="sm">
+            <Button color="secondary" outline size="sm">
                 Smaller button
             </Button>
         </Form>
@@ -447,7 +438,7 @@ import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 render(
-    <NavBar className="position-static" expand="lg" brand="NavBar w/ text">
+    <NavBar expand="lg" brand="NavBar w/ text">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Feature</NavLink>
         <NavLink href="components/navbar">Pricing</NavLink>
@@ -475,9 +466,9 @@ Choose from `background="light"` for use with light background colors, or `backg
             {...props}
         >
             <NavLink href=".">Home</NavLink>
-            <NavLink href="components/navbar">Feature</NavLink>
-            <NavLink href="components/navbar">Pricing</NavLink>
-            <NavLink href="components/navbar">About</NavLink>
+            {['Feature', 'Pricing', 'About'].map(title => (
+                <NavLink href="components/navbar">{title}</NavLink>
+            ))}
             <Form inline className="my-2 my-lg-0">
                 <Field
                     type="search"
@@ -487,7 +478,7 @@ Choose from `background="light"` for use with light background colors, or `backg
                 />
                 <Button
                     type="submit"
-                    kind="success"
+                    color="success"
                     outline
                     className="my-2 my-sm-0"
                 >
@@ -510,17 +501,11 @@ render([
     { theme: 'dark', background: 'primary' },
     { theme: 'light', background: 'light' }
 ].map(props => (
-    <NavBar
-        className="position-static"
-        expand="lg"
-        brand="NavBar"
-        {...props}
-    >
+    <NavBar expand="lg" brand="NavBar" {...props}>
         <NavLink href=".">Home</NavLink>
-        <NavLink href="components/navbar">Feature</NavLink>
-        <NavLink href="components/navbar">Pricing</NavLink>
-        <NavLink href="components/navbar">About</NavLink>
-
+        {['Feature', 'Pricing', 'About'].map(title => (
+            <NavLink href="components/navbar">{title}</NavLink>
+        ))}
         <Form inline className="my-2 my-lg-0">
             <Field
                 type="search"
@@ -530,7 +515,7 @@ render([
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -598,7 +583,14 @@ render(
 
 ## Responsive behaviors
 
+For navbars that never collapse, add the `expand` property on the navbar.
+For navbars that always collapse, don’t add any `expand` property.
+
 ### Toggler
+
+Navbar togglers are left-aligned by default, but should they follow a sibling element like a navbar brand,
+they’ll automatically be aligned to the far right. Reversing your markup will reverse the placement of the toggler.
+Below are examples of different toggle styles.
 
 With a brand name shown on the left and toggler on the right:
 
@@ -618,7 +610,7 @@ With a brand name shown on the left and toggler on the right:
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -637,7 +629,7 @@ import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <NavBar className="position-static" expand="lg" brand="NavBar">
+    <NavBar expand="lg" brand="NavBar">
         <NavLink href=".">Home</NavLink>
         <NavLink href="components/navbar">Link</NavLink>
         <NavLink href="#" disabled>
@@ -653,7 +645,7 @@ render(
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -687,7 +679,7 @@ With a toggler on the left and brand name on the right:
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >
@@ -722,7 +714,7 @@ render(
             />
             <Button
                 type="submit"
-                kind="success"
+                color="success"
                 outline
                 className="my-2 my-sm-0"
             >

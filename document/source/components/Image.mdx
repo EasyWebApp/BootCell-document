@@ -5,7 +5,7 @@ description: Documentation and examples for opting images into responsive behavi
 group: Components
 ---
 
-import { Image, Figure } from 'boot-cell/source/Media/Image';
+import { Image } from 'boot-cell/source/Media/Image';
 
 import { Example } from '../../../source/component/Example';
 
@@ -84,11 +84,11 @@ render(
 
 ## Figure images
 
-Anytime you need to display a piece of content — like an image with a caption, consider using a `<Figure />`.
+Anytime you need to display a piece of content — like an image with a caption, consider using a `<Image caption="" />`.
 
 <Example>
-    <Figure
-        title="Figure image"
+    <Image
+        caption="Figure image"
         alt="Figure image"
         src="https://tech-query.me/medias/featureimages/6.jpg"
     />
@@ -96,11 +96,11 @@ Anytime you need to display a piece of content — like an image with a caption,
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Figure } from 'boot-cell/source/Media/Image';
+import { Image } from 'boot-cell/source/Media/Image';
 
 render(
-    <Figure
-        title="Figure image"
+    <Image
+        caption="Figure image"
         alt="Figure image"
         src="https://tech-query.me/medias/featureimages/6.jpg"
     />

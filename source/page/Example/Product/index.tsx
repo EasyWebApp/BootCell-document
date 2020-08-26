@@ -35,7 +35,7 @@ export function ProductPage() {
                         marketing efforts with this example based on Apple’s
                         marketing pages.
                     </p>
-                    <Button outline kind="secondary" href="#">
+                    <Button outline color="secondary" href="#">
                         Coming soon
                     </Button>
                 </div>

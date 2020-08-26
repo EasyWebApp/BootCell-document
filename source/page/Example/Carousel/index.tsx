@@ -56,7 +56,7 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                         />
                         <Button
                             type="submit"
-                            kind="success"
+                            color="success"
                             outline
                             className="my-2 my-sm-0"
                         >
@@ -83,7 +83,7 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                                 <h2 style={{ fontWeight: 400 }}>{name}</h2>
                                 <p>{description}</p>
                                 <p>
-                                    <Button kind="secondary" href={html_url}>
+                                    <Button color="secondary" href={html_url}>
                                         View details »
                                     </Button>
                                 </p>

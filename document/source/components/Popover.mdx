@@ -17,7 +17,7 @@ import { Example } from '../../../source/component/Example';
         header="Popover title"
         body="And here's some amazing content. It's very engaging. Right?"
     >
-        <Button kind="danger" size="lg">
+        <Button color="danger" size="lg">
             Click to toggle popover
         </Button>
     </PopoverBox>
@@ -33,7 +33,7 @@ render(
         header="Popover title"
         body="And here's some amazing content. It's very engaging. Right?"
     >
-        <Button kind="danger" size="lg">
+        <Button color="danger" size="lg">
             Click to toggle popover
         </Button>
     </PopoverBox>
@@ -42,13 +42,15 @@ render(
 
 ### Four directions
 
+Four options are available: `top`, `right`, `bottom`, and `left` aligned.
+
 <Example>
     {['top', 'right', 'bottom', 'left'].map(position => (
         <PopoverBox
             position={position}
             body="Web Components engine based on JSX &amp; TypeScript"
         >
-            <Button kind="secondary">Popover on {position}</Button>
+            <Button color="secondary">Popover on {position}</Button>
         </PopoverBox>
     ))}
 </Example>
@@ -63,7 +65,7 @@ render(['top', 'right', 'bottom', 'left'].map(position => (
         position={position}
         body="Web Components engine based on JSX &amp; TypeScript"
     >
-        <Button kind="secondary">Popover on {position}</Button>
+        <Button color="secondary">Popover on {position}</Button>
     </PopoverBox>
 )));
 ```

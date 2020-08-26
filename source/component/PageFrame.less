@@ -1,0 +1,19 @@
+.box {
+    & > nav {
+        position: sticky;
+        top: 3.5rem;
+        z-index: 1019;
+        height: calc(100vh - 3.5rem);
+        &:last-child {
+            & > a {
+                border-left: 2px solid transparent;
+                transition: 0.25s;
+            }
+            :global {
+                a.active {
+                    border-left-color: lightblue;
+                }
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ import { Fragment } from 'web-cell';
 import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 import { Example } from '../../../source/component/Example';
 
@@ -20,9 +20,9 @@ Wrap a series of buttons with `<Button />` in `<ButtonGroup />`.
 
 <Example>
     <ButtonGroup>
-        <Button kind="secondary">Left</Button>
-        <Button kind="secondary">Middle</Button>
-        <Button kind="secondary">Right</Button>
+        {['Left', 'Middle', 'Right'].map(text => (
+            <Button color="secondary">{text}</Button>
+        ))}
     </ButtonGroup>
 </Example>
 
@@ -33,9 +33,9 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <ButtonGroup>
-        <Button kind="secondary">Left</Button>
-        <Button kind="secondary">Middle</Button>
-        <Button kind="secondary">Right</Button>
+        {['Left', 'Middle', 'Right'].map(text => (
+            <Button color="secondary">{text}</Button>
+        ))}
     </ButtonGroup>
 );
 ```
@@ -59,16 +59,16 @@ Use utility classes as needed to space out groups, buttons, and more.
     <Toolbar aria-label="Toolbar with button groups">
         <ButtonGroup className="mr-2" aria-label="First group">
             {[1, 2, 3, 4].map(index => (
-                <Button kind="secondary">{index}</Button>
+                <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
         <ButtonGroup className="mr-2" aria-label="Second group">
             {[5, 6, 7].map(index => (
-                <Button kind="secondary">{index}</Button>
+                <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
         <ButtonGroup aria-label="Third group">
-            <Button kind="secondary">8</Button>
+            <Button color="secondary">8</Button>
         </ButtonGroup>
     </Toolbar>
 </Example>
@@ -82,16 +82,16 @@ render(
     <Toolbar aria-label="Toolbar with button groups">
         <ButtonGroup className="mr-2" aria-label="First group">
             {[1, 2, 3, 4].map(index => (
-                <Button kind="secondary">{index}</Button>
+                <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
         <ButtonGroup className="mr-2" aria-label="Second group">
             {[5, 6, 7].map(index => (
-                <Button kind="secondary">{index}</Button>
+                <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
         <ButtonGroup aria-label="Third group">
-            <Button kind="secondary">8</Button>
+            <Button color="secondary">8</Button>
         </ButtonGroup>
     </Toolbar>
 );
@@ -104,7 +104,7 @@ you’ll likely need some utilities though to space things properly.
     <Toolbar aria-label="Toolbar with button groups">
         <ButtonGroup className="mr-2" aria-label="First group">
             {[1, 2, 3, 4].map(index => (
-                <Button kind="secondary">{index}</Button>
+                <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
         <InputGroup
@@ -119,7 +119,7 @@ you’ll likely need some utilities though to space things properly.
     >
         <ButtonGroup className="mr-2" aria-label="First group">
             {[1, 2, 3, 4].map(index => (
-                <Button kind="secondary">{index}</Button>
+                <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
         <InputGroup
@@ -141,7 +141,7 @@ render(
         <Toolbar aria-label="Toolbar with button groups">
             <ButtonGroup className="mr-2" aria-label="First group">
                 {[1, 2, 3, 4].map(index => (
-                    <Button kind="secondary">{index}</Button>
+                    <Button color="secondary">{index}</Button>
                 ))}
             </ButtonGroup>
             <InputGroup
@@ -156,7 +156,7 @@ render(
         >
             <ButtonGroup className="mr-2" aria-label="First group">
                 {[1, 2, 3, 4].map(index => (
-                    <Button kind="secondary">{index}</Button>
+                    <Button color="secondary">{index}</Button>
                 ))}
             </ButtonGroup>
             <InputGroup
@@ -177,17 +177,17 @@ just add `size` property to each `<ButtonGroup />`, including each one when nest
 <Example>
     <ButtonGroup size="lg">
         {['Left', 'Middle', 'Right'].map(text => (
-            <Button kind="secondary">{text}</Button>
+            <Button color="secondary">{text}</Button>
         ))}
     </ButtonGroup>
     <ButtonGroup>
         {['Left', 'Middle', 'Right'].map(text => (
-            <Button kind="secondary">{text}</Button>
+            <Button color="secondary">{text}</Button>
         ))}
     </ButtonGroup>
     <ButtonGroup size="sm">
         {['Left', 'Middle', 'Right'].map(text => (
-            <Button kind="secondary">{text}</Button>
+            <Button color="secondary">{text}</Button>
         ))}
     </ButtonGroup>
 </Example>
@@ -201,17 +201,17 @@ render(
     <Fragment>
         <ButtonGroup size="lg">
             {['Left', 'Middle', 'Right'].map(text => (
-                <Button kind="secondary">{text}</Button>
+                <Button color="secondary">{text}</Button>
             ))}
         </ButtonGroup>
         <ButtonGroup>
             {['Left', 'Middle', 'Right'].map(text => (
-                <Button kind="secondary">{text}</Button>
+                <Button color="secondary">{text}</Button>
             ))}
         </ButtonGroup>
         <ButtonGroup size="sm">
             {['Left', 'Middle', 'Right'].map(text => (
-                <Button kind="secondary">{text}</Button>
+                <Button color="secondary">{text}</Button>
             ))}
         </ButtonGroup>
     </Fragment>
@@ -225,17 +225,16 @@ when you want `<DropMenu />`s mixed with a series of buttons.
 
 <Example>
     <ButtonGroup>
-        <Button kind="secondary">1</Button>
-        <Button kind="secondary">2</Button>
+        <Button color="secondary">1</Button>
+        <Button color="secondary">2</Button>
         <DropMenu
-            buttonKind="secondary"
-            title="Dropdown"
+            buttonColor="secondary"
+            caption="Dropdown"
             href="https://web-cell.dev/"
-            list={[
-                { href: '#', title: 'Dropdown link' },
-                { href: '#', title: 'Dropdown link' }
-            ]}
-        />
+        >
+            <DropMenuItem>Dropdown link</DropMenuItem>
+            <DropMenuItem>Dropdown link</DropMenuItem>
+        </DropMenu>
     </ButtonGroup>
 </Example>
 
@@ -243,21 +242,20 @@ when you want `<DropMenu />`s mixed with a series of buttons.
 import { render, createCell } from 'web-cell';
 import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <ButtonGroup>
-        <Button kind="secondary">1</Button>
-        <Button kind="secondary">2</Button>
+        <Button color="secondary">1</Button>
+        <Button color="secondary">2</Button>
         <DropMenu
-            buttonKind="secondary"
-            title="Dropdown"
+            buttonColor="secondary"
+            caption="Dropdown"
             href="https://web-cell.dev/"
-            list={[
-                { href: '#', title: 'Dropdown link' },
-                { href: '#', title: 'Dropdown link' }
-            ]}
-        />
+        >
+            <DropMenuItem>Dropdown link</DropMenuItem>
+            <DropMenuItem>Dropdown link</DropMenuItem>
+        </DropMenu>
     </ButtonGroup>
 );
 ```
@@ -269,7 +267,7 @@ Make a set of buttons appear vertically stacked rather than horizontally.
 <Example>
     <ButtonGroup vertical>
         {[1, 2, 3, 4, 5, 6].map(() => (
-            <Button kind="secondary">Button</Button>
+            <Button color="secondary">Button</Button>
         ))}
     </ButtonGroup>
 </Example>
@@ -278,29 +276,27 @@ Make a set of buttons appear vertically stacked rather than horizontally.
     <ButtonGroup vertical>
         {[1, 2].map(() => (
             <Fragment>
-                <Button kind="secondary">Button</Button>
-                <Button kind="secondary">Button</Button>
+                <Button color="secondary">Button</Button>
+                <Button color="secondary">Button</Button>
                 <DropMenu
-                    buttonKind="secondary"
-                    title="Dropdown"
+                    buttonColor="secondary"
+                    caption="Dropdown"
                     href="https://web-cell.dev/"
-                    list={[
-                        { href: '#', title: 'Dropdown link' },
-                        { href: '#', title: 'Dropdown link' }
-                    ]}
-                />
+                >
+                    <DropMenuItem>Dropdown link</DropMenuItem>
+                    <DropMenuItem>Dropdown link</DropMenuItem>
+                </DropMenu>
             </Fragment>
         ))}
         {[1, 2].map(() => (
             <DropMenu
-                buttonKind="secondary"
-                title="Dropdown"
+                buttonColor="secondary"
+                caption="Dropdown"
                 href="https://web-cell.dev/"
-                list={[
-                    { href: '#', title: 'Dropdown link' },
-                    { href: '#', title: 'Dropdown link' }
-                ]}
-            />
+            >
+                <DropMenuItem>Dropdown link</DropMenuItem>
+                <DropMenuItem>Dropdown link</DropMenuItem>
+            </DropMenu>
         ))}
     </ButtonGroup>
 </Example>
@@ -309,35 +305,33 @@ Make a set of buttons appear vertically stacked rather than horizontally.
 import { render, createCell, Fragment } from 'web-cell';
 import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <ButtonGroup vertical>
         {[1, 2].map(() => (
             <Fragment>
-                <Button kind="secondary">Button</Button>
-                <Button kind="secondary">Button</Button>
+                <Button color="secondary">Button</Button>
+                <Button color="secondary">Button</Button>
                 <DropMenu
-                    buttonKind="secondary"
-                    title="Dropdown"
+                    buttonColor="secondary"
+                    caption="Dropdown"
                     href="https://web-cell.dev/"
-                    list={[
-                        { href: '#', title: 'Dropdown link' },
-                        { href: '#', title: 'Dropdown link' }
-                    ]}
-                />
+                >
+                    <DropMenuItem>Dropdown link</DropMenuItem>
+                    <DropMenuItem>Dropdown link</DropMenuItem>
+                </DropMenu>
             </Fragment>
         ))}
         {[1, 2].map(() => (
             <DropMenu
-                buttonKind="secondary"
-                title="Dropdown"
+                buttonColor="secondary"
+                caption="Dropdown"
                 href="https://web-cell.dev/"
-                list={[
-                    { href: '#', title: 'Dropdown link' },
-                    { href: '#', title: 'Dropdown link' }
-                ]}
-            />
+            >
+                <DropMenuItem>Dropdown link</DropMenuItem>
+                <DropMenuItem>Dropdown link</DropMenuItem>
+            </DropMenu>
         ))}
     </ButtonGroup>
 );

@@ -8,8 +8,7 @@ group: Components
 import { Fragment } from 'web-cell';
 
 import { Button } from 'boot-cell/source/Form/Button';
-import { InputGroup } from 'boot-cell/source/Form/InputGroup';
-import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
+import { ToggleGroup } from 'boot-cell/source/Form/ToggleField';
 
 import { Example } from '../../../source/component/Example';
 
@@ -19,34 +18,42 @@ Bootstrap includes several predefined button styles, each serving its own semant
 with a few extras thrown in for more control.
 
 <Example>
-    <Button>Primary</Button>
-    <Button kind="secondary">Secondary</Button>
-    <Button kind="success">Success</Button>
-    <Button kind="danger">Danger</Button>
-    <Button kind="warning">Warning</Button>
-    <Button kind="info">Info</Button>
-    <Button kind="light">Light</Button>
-    <Button kind="dark">Dark</Button>
-    <Button kind="link">Link</Button>
+    {[
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark',
+        'link'
+    ].map(color => (
+        <Button color={color} className="text-capitalize">
+            {color}
+        </Button>
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Button } from 'boot-cell/source/Form/Button';
 
-render(
-    <Fragment>
-        <Button>Primary</Button>
-        <Button kind="secondary">Secondary</Button>
-        <Button kind="success">Success</Button>
-        <Button kind="danger">Danger</Button>
-        <Button kind="warning">Warning</Button>
-        <Button kind="info">Info</Button>
-        <Button kind="light">Light</Button>
-        <Button kind="dark">Dark</Button>
-        <Button kind="link">Link</Button>
-    </Fragment>
-);
+render([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'link'
+].map(color => (
+    <Button color={color} className="text-capitalize">
+        {color}
+    </Button>
+)));
 ```
 
 > ##### Conveying meaning to assistive technologies
@@ -91,69 +98,45 @@ render(
 ## Outline buttons
 
 In need of a button, but not the hefty background colors they bring?
-Use `outline` property with `kind=""` property to remove all background images and colors on any button.
+Use `outline` property with `color=""` property to remove all background images and colors on any button.
 
 <Example>
-    <Button outline>Primary</Button>
-    <Button outline kind="secondary">
-        Secondary
-    </Button>
-    <Button outline kind="success">
-        Success
-    </Button>
-    <Button outline kind="danger">
-        Danger
-    </Button>
-    <Button outline kind="warning">
-        Warning
-    </Button>
-    <Button outline kind="info">
-        Info
-    </Button>
-    <Button outline kind="light">
-        Light
-    </Button>
-    <Button outline kind="dark">
-        Dark
-    </Button>
-    <Button outline kind="link">
-        Link
-    </Button>
+    {[
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark',
+        'link'
+    ].map(color => (
+        <Button outline color={color} className="text-capitalize">
+            {color}
+        </Button>
+    ))}
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
+import { render, createCell } from 'web-cell';
 import { Button } from 'boot-cell/source/Form/Button';
 
-render(
-    <Fragment>
-        <Button outline>Primary</Button>
-        <Button outline kind="secondary">
-            Secondary
-        </Button>
-        <Button outline kind="success">
-            Success
-        </Button>
-        <Button outline kind="danger">
-            Danger
-        </Button>
-        <Button outline kind="warning">
-            Warning
-        </Button>
-        <Button outline kind="info">
-            Info
-        </Button>
-        <Button outline kind="light">
-            Light
-        </Button>
-        <Button outline kind="dark">
-            Dark
-        </Button>
-        <Button outline kind="link">
-            Link
-        </Button>
-    </Fragment>
-);
+render([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'link'
+].map(color => (
+    <Button outline color={color} className="text-capitalize">
+        {color}
+    </Button>
+)));
 ```
 
 ## Sizes
@@ -162,7 +145,7 @@ Fancy larger or smaller buttons? Add `size="lg"` or `size="sm"` for additional s
 
 <Example>
     <Button size="lg">Large button</Button>
-    <Button kind="secondary" size="lg">
+    <Button color="secondary" size="lg">
         Large button
     </Button>
 </Example>
@@ -174,7 +157,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <Fragment>
         <Button size="lg">Large button</Button>
-        <Button kind="secondary" size="lg">
+        <Button color="secondary" size="lg">
             Large button
         </Button>
     </Fragment>
@@ -183,7 +166,7 @@ render(
 
 <Example>
     <Button size="sm">Small button</Button>
-    <Button kind="secondary" size="sm">
+    <Button color="secondary" size="sm">
         Small button
     </Button>
 </Example>
@@ -195,7 +178,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <Fragment>
         <Button size="sm">Small button</Button>
-        <Button kind="secondary" size="sm">
+        <Button color="secondary" size="sm">
             Small button
         </Button>
     </Fragment>
@@ -208,7 +191,7 @@ Create block level buttons — those that span the full width of a parent—by a
     <Button size="lg" block>
         Block level button
     </Button>
-    <Button kind="secondary" size="lg" block>
+    <Button color="secondary" size="lg" block>
         Block level button
     </Button>
 </Example>
@@ -222,7 +205,7 @@ render(
         <Button size="lg" block>
             Block level button
         </Button>
-        <Button kind="secondary" size="lg" block>
+        <Button color="secondary" size="lg" block>
             Block level button
         </Button>
     </Fragment>
@@ -241,7 +224,7 @@ should you need to replicate the state programmatically.
         Primary link
     </Button>
     <Button
-        kind="secondary"
+        color="secondary"
         size="lg"
         className="active"
         aria-pressed="true"
@@ -261,7 +244,7 @@ render(
             Primary link
         </Button>
         <Button
-            kind="secondary"
+            color="secondary"
             size="lg"
             className="active"
             aria-pressed="true"
@@ -281,7 +264,7 @@ Make buttons look inactive by adding the `disabled` boolean property to any `<Bu
     <Button size="lg" disabled>
         Primary button
     </Button>
-    <Button kind="secondary" size="lg" disabled>
+    <Button color="secondary" size="lg" disabled>
         Button
     </Button>
 </Example>
@@ -295,7 +278,7 @@ render(
         <Button size="lg" disabled>
             Primary button
         </Button>
-        <Button kind="secondary" size="lg" disabled>
+        <Button color="secondary" size="lg" disabled>
             Button
         </Button>
     </Fragment>
@@ -306,7 +289,7 @@ render(
     <Button size="lg" href="https://web-cell.dev/" disabled>
         Primary button
     </Button>
-    <Button kind="secondary" size="lg" href="https://web-cell.dev/" disabled>
+    <Button color="secondary" size="lg" href="https://web-cell.dev/" disabled>
         Button
     </Button>
 </Example>
@@ -320,9 +303,66 @@ render(
         <Button size="lg" href="https://web-cell.dev/" disabled>
             Primary button
         </Button>
-        <Button kind="secondary" size="lg" href="https://web-cell.dev/" disabled>
+        <Button color="secondary" size="lg" href="https://web-cell.dev/" disabled>
             Button
         </Button>
     </Fragment>
+);
+```
+
+## Toggle Button
+
+Do more with buttons. Control button states or create groups of buttons for more components like toolbars.
+
+### Checkbox and radio buttons
+
+**Note that you can create single input-powered buttons or groups of them.**
+The checked state for these buttons is **only updated via `click` event** on the button.
+
+<Example>
+    <ToggleGroup
+        type="checkbox"
+        color="secondary"
+        options={[{ title: 'Checked' }]}
+        value="Checked"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ToggleGroup } from 'boot-cell/source/Form/ToggleField';
+
+render(
+    <ToggleGroup
+        type="checkbox"
+        color="secondary"
+        options={[{ title: 'Checked' }]}
+        value="Checked"
+    />
+);
+```
+
+<Example>
+    <ToggleGroup
+        type="radio"
+        name="options"
+        color="secondary"
+        options={[{ title: 'Active' }, { title: 'Radio' }, { title: 'Radio' }]}
+        value="Active"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { ToggleGroup } from 'boot-cell/source/Form/ToggleField';
+
+render(
+    <ToggleGroup
+        type="radio"
+        name="options"
+        color="secondary"
+        options={[{ title: 'Active' }, { title: 'Radio' }, { title: 'Radio' }]}
+        value="Active"
+    />
 );
 ```
