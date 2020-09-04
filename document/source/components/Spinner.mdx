@@ -244,10 +244,10 @@ import { render, createCell, Fragment } from 'web-cell';
 import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 
 render(
-    <Fragment>
+    <>
         <Spinner small />
         <Spinner type="grow" small />
-    </Fragment>
+    </>
 );
 ```
 
@@ -263,10 +263,10 @@ import { render, createCell, Fragment } from 'web-cell';
 import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 
 render(
-    <Fragment>
+    <>
         <Spinner style={{ width: '3rem', height: '3rem' }} />
         <Spinner type="grow" style={{ width: '3rem', height: '3rem' }} />
-    </Fragment>
+    </>
 );
 ```
 
@@ -291,7 +291,7 @@ import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <Fragment>
+    <>
         <Button disabled>
             <Spinner small aria-hidden="true" />{' '}
             <span className="sr-only">Loading...</span>
@@ -299,7 +299,7 @@ render(
         <Button disabled>
             <Spinner small aria-hidden="true" /> Loading...
         </Button>
-    </Fragment>
+    </>
 );
 ```
 
@@ -319,7 +319,7 @@ import { Spinner } from 'boot-cell/source/Prompt/Spinner';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <Fragment>
+    <>
         <Button disabled>
             <Spinner type="grow" small aria-hidden="true" />{' '}
             <span className="sr-only">Loading...</span>
@@ -327,7 +327,7 @@ render(
         <Button disabled>
             <Spinner type="grow" small aria-hidden="true" /> Loading...
         </Button>
-    </Fragment>
+    </>
 );
 ```
 

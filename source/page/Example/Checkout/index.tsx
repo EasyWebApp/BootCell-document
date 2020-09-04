@@ -276,7 +276,7 @@ export function CheckoutPage() {
                     </div>
                 </div>
 
-                <footer className="pt-5 text-muted text-center text-small">
+                <footer className="py-5 text-muted text-center text-small">
                     <p className="mb-1">© 2017-2020 Company Name</p>
                     <ul className="list-inline m-0">
                         {foot_links.map(({ title }) => (

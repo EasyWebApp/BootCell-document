@@ -137,14 +137,14 @@ import { render, createCell, Fragment } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 
 render(
-    <Fragment>
+    <>
         <NavBar brand="NavBar" />
         <NavBar
             theme="light"
             background="light"
             brand={<span className="h1">NavBar</span>}
         />
-    </Fragment>
+    </>
 );
 ```
 
@@ -164,14 +164,14 @@ Here are some examples to demonstrate.
     <NavBar
         className="position-static"
         brand={
-            <Fragment>
+            <>
                 <Image
                     className="d-inline-block align-top"
                     style={{ width: '30px', height: '30px' }}
                     src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
                 />
                 BootCell
-            </Fragment>
+            </>
         }
     />
 </Example>
@@ -182,7 +182,7 @@ import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { Image } from 'boot-cell/source/Content/Image';
 
 render(
-    <Fragment>
+    <>
         <NavBar brand={
             <Image
                 style={{ width: '30px', height: '30px' }}
@@ -190,16 +190,16 @@ render(
             />
         } />
         <NavBar brand={
-            <Fragment>
+            <>
                 <Image
                     className="d-inline-block align-top"
                     style={{ width: '30px', height: '30px' }}
                     src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
                 />
                 BootCell
-            </Fragment>
+            </>
         } />
-    </Fragment>
+    </>
 );
 ```
 

@@ -45,7 +45,7 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
 
     render(_, { projects }: CarouselPageState) {
         return (
-            <Fragment>
+            <>
                 <NavBar brand="Carousel" menu={headers}>
                     <Form inline className="my-2 my-lg-0">
                         <Field
@@ -93,13 +93,13 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                     <hr className={style['featurette-divider']} />
 
                     {features.map((item, index) => (
-                        <Fragment>
+                        <>
                             <Feature reverse={!!(index % 2)} {...item} />
                             <hr className={style['featurette-divider']} />
-                        </Fragment>
+                        </>
                     ))}
                 </div>
-                <footer className="container">
+                <footer className="container my-5">
                     <p className="float-right">
                         <a href="#top">Back to top</a>
                     </p>
@@ -108,7 +108,7 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                         <a href="#">Privacy</a> · <a href="#">Terms</a>
                     </p>
                 </footer>
-            </Fragment>
+            </>
         );
     }
 }

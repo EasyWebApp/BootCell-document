@@ -16,7 +16,7 @@ export function ProductPage() {
         />
     );
     return (
-        <Fragment>
+        <>
             <div className="bg-dark sticky-top py-1">
                 <Nav className="container" align="between">
                     <NavLink className="text-light">{logo}</NavLink>
@@ -72,6 +72,6 @@ export function ProductPage() {
                     ))}
                 </div>
             </footer>
-        </Fragment>
+        </>
     );
 }

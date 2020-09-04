@@ -40,9 +40,9 @@ And with custom HTML added:
 <Example>
     <TooltipBox
         text={
-            <Fragment>
+            <>
                 <em>Tooltip</em> <u>with</u> <b>HTML</b>
-            </Fragment>
+            </>
         }
     >
         <Button color="secondary">Tooltip on left</Button>
@@ -56,9 +56,9 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <TooltipBox text={
-        <Fragment>
+        <>
             <em>Tooltip</em> <u>with</u> <b>HTML</b>
-        </Fragment>
+        </>
     }>
         <Button color="secondary">Tooltip on left</Button>
     </TooltipBox>

@@ -5,6 +5,7 @@ import {
     mixin,
     watch,
     attribute,
+    on,
     createCell,
     Fragment
 } from 'web-cell';
@@ -12,7 +13,7 @@ import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 import { watchScroll } from 'web-utility/source/DOM';
 import { Button } from 'boot-cell/source/Form/Button';
 
-import style from './PageFrame.less';
+import style from './DocumentBox.less';
 
 interface PageFrameProps extends WebCellProps {
     menu: Record<string, HTMLHyperLinkProps[]>;
@@ -73,6 +74,15 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
         this.setState({ headerList });
     }
 
+    @on('click', 'pre[class*="language-"]')
+    autoCopy({ target }: MouseEvent) {
+        self.getSelection()
+            .getRangeAt(0)
+            .selectNode(target as Node);
+
+        document.execCommand('copy');
+    }
+
     render(
         { header, menu, description, defaultSlot }: PageFrameProps,
         { headerList }: PageFrameState
@@ -82,10 +92,10 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
             .toLowerCase()}props.html`;
 
         return (
-            <Fragment>
+            <>
                 <nav className="col-4 col-md-2 p-4 overflow-auto">
                     {Object.entries(menu).map(([group, list]) => (
-                        <Fragment>
+                        <>
                             <h5 className="mx-2">{group}</h5>
 
                             {list.map(({ href, title }) => (
@@ -93,7 +103,7 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
                                     {title}
                                 </a>
                             ))}
-                        </Fragment>
+                        </>
                     ))}
                 </nav>
 
@@ -125,7 +135,7 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
                         </a>
                     ))}
                 </nav>
-            </Fragment>
+            </>
         );
     }
 }

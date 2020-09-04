@@ -1,13 +1,14 @@
-import { createCell, Fragment } from 'web-cell';
+import { createCell } from 'web-cell';
 import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
 import { Button } from 'boot-cell/source/Form/Button';
 import { CommandLine } from 'github-web-widget/source/CommandLine';
 
+import { PageBox } from '../component/PageBox';
 import routes from '../../document/dist';
 
 export function HomePage() {
     return (
-        <Fragment>
+        <PageBox>
             <div className="container d-md-flex flex-row-reverse align-items-center text-center text-md-left">
                 <img
                     className="pt-5 p-md-5"
@@ -55,8 +56,8 @@ export function HomePage() {
                 className="d-block mx-auto mb-5"
                 style={{ maxWidth: '27rem' }}
             >
-                npm install web-cell classnames boot-cell
+                npm install boot-cell
             </CommandLine>
-        </Fragment>
+        </PageBox>
     );
 }

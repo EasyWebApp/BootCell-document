@@ -16,7 +16,7 @@ import style from './Offcanvas.less';
 
 export function OffcanvasPage() {
     return (
-        <Fragment>
+        <>
             <NavBar offcanvas brand="Offcanvas navbar">
                 <NavLink>Dashboard</NavLink>
                 <NavLink>Notifications</NavLink>
@@ -150,6 +150,6 @@ export function OffcanvasPage() {
                     </small>
                 </div>
             </main>
-        </Fragment>
+        </>
     );
 }

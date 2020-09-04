@@ -132,11 +132,11 @@ import { render, createCell, Fragment } from 'web-cell';
 import { FormField } from 'boot-cell/source/Form/FormField';
 
 render(
-    <Fragment>
+    <>
         <FormField size="lg" placeholder=".form-control-lg" />
         <FormField placeholder="Default input" />
         <FormField size="sm" placeholder=".form-control-sm" />
-    </Fragment>
+    </>
 );
 ```
 
@@ -1137,14 +1137,14 @@ import { render, createCell, Fragment } from 'web-cell';
 import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 
 render(
-    <Fragment>
+    <>
         <ToggleField type="radio" name="customRadio">
             Toggle this custom radio
         </ToggleField>
         <ToggleField type="radio" name="customRadio">
             Or toggle this other custom radio
         </ToggleField>
-    </Fragment>
+    </>
 );
 ```
 
@@ -1164,14 +1164,14 @@ import { render, createCell, Fragment } from 'web-cell';
 import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 
 render(
-    <Fragment>
+    <>
         <ToggleField type="radio" name="customRadio" inline>
             Toggle this custom radio
         </ToggleField>
         <ToggleField type="radio" name="customRadio" inline>
             Or toggle this other custom radio
         </ToggleField>
-    </Fragment>
+    </>
 );
 ```
 
@@ -1195,14 +1195,14 @@ import { render, createCell, Fragment } from 'web-cell';
 import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 
 render(
-    <Fragment>
+    <>
         <ToggleField type="checkbox" disabled>
             Check this custom checkbox
         </ToggleField>
         <ToggleField type="radio" disabled>
             Toggle this custom radio
         </ToggleField>
-    </Fragment>
+    </>
 );
 ```
 
@@ -1225,14 +1225,14 @@ import { render, createCell, Fragment } from 'web-cell';
 import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 
 render(
-    <Fragment>
+    <>
         <ToggleField type="checkbox" switch>
             Toggle this switch element
         </ToggleField>
         <ToggleField type="checkbox" switch disabled>
             Disabled switch element
         </ToggleField>
-    </Fragment>
+    </>
 );
 ```
 
@@ -1285,7 +1285,7 @@ import { render, createCell, Fragment } from 'web-cell';
 import { FormField } from 'boot-cell/source/Form/FormField';
 
 render(
-    <Fragment>
+    <>
         <FormField is="select" size="lg">
             <option selected>Open this select menu</option>
             {['One', 'Two', 'Three'].map((text, index) => (
@@ -1298,7 +1298,7 @@ render(
                 <option value={index + 1}>{text}</option>
             ))}
         </FormField>
-    <Fragment>
+    <>
 );
 ```
 

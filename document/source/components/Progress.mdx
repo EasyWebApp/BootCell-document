@@ -43,10 +43,10 @@ import { render, createCell, Fragment } from 'web-cell';
 import { Progress } from 'boot-cell/source/Reminder/Progress';
 
 render(
-    <Fragment>
+    <>
         <Progress label percent={25} />
         <Progress label={percent => percent + ' percent'} percent={25} />
-    </Fragment>
+    </>
 );
 ```
 
@@ -64,10 +64,10 @@ import { render, createCell, Fragment } from 'web-cell';
 import { Progress } from 'boot-cell/source/Reminder/Progress';
 
 render(
-    <Fragment>
+    <>
         <Progress style={{ height: '1px' }} percent={25} />
         <Progress style={{ height: '20px' }} percent={25} />
-    </Fragment>
+    </>
 );
 ```
 
@@ -131,12 +131,12 @@ import { render, createCell, Fragment } from 'web-cell';
 import { Progress } from 'boot-cell/source/Reminder/Progress';
 
 render(
-    <Fragment>
+    <>
         <Progress striped percent={10} />
         {['success', 'info', 'warning', 'danger'].map((status, index) => (
             <Progress striped status={status} percent={25 * ++index} />
         ))}
-    </Fragment>
+    </>
 );
 ```
 

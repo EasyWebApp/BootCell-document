@@ -137,7 +137,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 
 render(
-    <Fragment>
+    <>
         <Toolbar aria-label="Toolbar with button groups">
             <ButtonGroup className="mr-2" aria-label="First group">
                 {[1, 2, 3, 4].map(index => (
@@ -165,7 +165,7 @@ render(
                 prepend="@"
             />
         </Toolbar>
-    </Fragment>
+    </>
 );
 ```
 
@@ -198,7 +198,7 @@ import { ButtonGroup } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <Fragment>
+    <>
         <ButtonGroup size="lg">
             {['Left', 'Middle', 'Right'].map(text => (
                 <Button color="secondary">{text}</Button>
@@ -214,7 +214,7 @@ render(
                 <Button color="secondary">{text}</Button>
             ))}
         </ButtonGroup>
-    </Fragment>
+    </>
 );
 ```
 
@@ -275,7 +275,7 @@ Make a set of buttons appear vertically stacked rather than horizontally.
 <Example>
     <ButtonGroup vertical>
         {[1, 2].map(() => (
-            <Fragment>
+            <>
                 <Button color="secondary">Button</Button>
                 <Button color="secondary">Button</Button>
                 <DropMenu
@@ -286,7 +286,7 @@ Make a set of buttons appear vertically stacked rather than horizontally.
                     <DropMenuItem>Dropdown link</DropMenuItem>
                     <DropMenuItem>Dropdown link</DropMenuItem>
                 </DropMenu>
-            </Fragment>
+            </>
         ))}
         {[1, 2].map(() => (
             <DropMenu
@@ -310,7 +310,7 @@ import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 render(
     <ButtonGroup vertical>
         {[1, 2].map(() => (
-            <Fragment>
+            <>
                 <Button color="secondary">Button</Button>
                 <Button color="secondary">Button</Button>
                 <DropMenu
@@ -321,7 +321,7 @@ render(
                     <DropMenuItem>Dropdown link</DropMenuItem>
                     <DropMenuItem>Dropdown link</DropMenuItem>
                 </DropMenu>
-            </Fragment>
+            </>
         ))}
         {[1, 2].map(() => (
             <DropMenu

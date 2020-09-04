@@ -14,7 +14,7 @@ export function PricingPage() {
     foot_nav.splice(-2, 1);
 
     return (
-        <Fragment>
+        <>
             <NavBar
                 theme="light"
                 background="light"
@@ -88,6 +88,6 @@ export function PricingPage() {
                     </div>
                 </footer>
             </div>
-        </Fragment>
+        </>
     );
 }
