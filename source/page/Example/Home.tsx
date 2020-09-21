@@ -1,14 +1,13 @@
-import { createCell } from 'web-cell';
+import { createCell, Fragment } from 'web-cell';
 import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
 import { Button } from 'boot-cell/source/Form/Button';
 import { Card } from 'boot-cell/source/Content/Card';
 
-import { PageBox } from '../../component/PageBox';
 import data from './index.json';
 
 export function HomePage() {
     return (
-        <PageBox>
+        <>
             <Jumbotron
                 fluid
                 title="Example"
@@ -25,7 +24,7 @@ export function HomePage() {
             </Jumbotron>
 
             <div className="container">{data.map(Section)}</div>
-        </PageBox>
+        </>
     );
 }
 

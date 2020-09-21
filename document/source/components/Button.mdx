@@ -7,7 +7,7 @@ group: Components
 
 import { Fragment } from 'web-cell';
 
-import { Button } from 'boot-cell/source/Form/Button';
+import { Button, IconButton } from 'boot-cell/source/Form/Button';
 import { ToggleGroup } from 'boot-cell/source/Form/ToggleField';
 
 import { Example } from '../../../source/component/Example';
@@ -366,3 +366,22 @@ render(
     />
 );
 ```
+
+## Icon Button
+
+`<IconButton />` component is built on [`<Icon />`][1].
+
+<Example>
+    <IconButton name="bootstrap" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { IconButton } from 'boot-cell/source/Form/Button';
+
+render(
+    <IconButton name="bootstrap" />
+);
+```
+
+[1]: components/icon

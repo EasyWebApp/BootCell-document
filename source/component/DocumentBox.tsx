@@ -11,25 +11,29 @@ import {
 } from 'web-cell';
 import { HTMLHyperLinkProps } from 'web-utility/source/DOM-type';
 import { watchScroll } from 'web-utility/source/DOM';
+import { autorun } from 'mobx';
+import { observer } from 'mobx-web-cell';
 import { Button } from 'boot-cell/source/Form/Button';
 
 import style from './DocumentBox.less';
+import { meta } from '../model';
 
-interface PageFrameProps extends WebCellProps {
+interface DocumentBoxProps extends WebCellProps {
     menu: Record<string, HTMLHyperLinkProps[]>;
     header: string;
     description: string;
 }
 
-interface PageFrameState {
+interface DocumentBoxState {
     headerList: ReturnType<typeof watchScroll>;
 }
 
+@observer
 @component({
-    tagName: 'page-frame',
+    tagName: 'document-box',
     renderTarget: 'children'
 })
-export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
+export class DocumentBox extends mixin<DocumentBoxProps, DocumentBoxState>() {
     @watch
     menu = [];
 
@@ -45,8 +49,8 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
 
     @watch
     set defaultSlot(defaultSlot: VNodeChildElement[]) {
-        this.setProps({ defaultSlot }).then(
-            () => this.box && this.updateHeaderNav(this.box)
+        this.setProps({ defaultSlot }).then(() =>
+            this.updateHeaderNav(this.box)
         );
     }
 
@@ -56,9 +60,13 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
         this.classList.add('row', 'align-items-start', style.box);
 
         super.connectedCallback();
+
+        autorun(() => this.updateHeaderNav(this.box));
     }
 
-    updateHeaderNav(content: HTMLElement) {
+    updateHeaderNav(content?: HTMLElement) {
+        if (!content || meta.deviceType !== 'desktop') return;
+
         const headerList = watchScroll(
             content,
             ({ links: [item] }) => {
@@ -84,30 +92,32 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
     }
 
     render(
-        { header, menu, description, defaultSlot }: PageFrameProps,
-        { headerList }: PageFrameState
+        { header, menu, description, defaultSlot }: DocumentBoxProps,
+        { headerList }: DocumentBoxState
     ) {
-        const API = `https://web-cell.dev/BootCell/interfaces/${header
-            .replace(' ', '')
-            .toLowerCase()}props.html`;
+        const { deviceType } = meta,
+            API = `https://web-cell.dev/BootCell/interfaces/${header
+                .replace(' ', '')
+                .toLowerCase()}props.html`;
 
         return (
             <>
-                <nav className="col-4 col-md-2 p-4 overflow-auto">
-                    {Object.entries(menu).map(([group, list]) => (
-                        <>
-                            <h5 className="mx-2">{group}</h5>
+                {deviceType === 'phone' ? null : (
+                    <nav className="col-4 col-md-2 p-4 overflow-auto">
+                        {Object.entries(menu).map(([group, list]) => (
+                            <>
+                                <h5 className="mx-2">{group}</h5>
 
-                            {list.map(({ href, title }) => (
-                                <a className="d-block m-2" href={href}>
-                                    {title}
-                                </a>
-                            ))}
-                        </>
-                    ))}
-                </nav>
-
-                <main className="col-8 p-4 border-left">
+                                {list.map(({ href, title }) => (
+                                    <a className="d-block m-2" href={href}>
+                                        {title}
+                                    </a>
+                                ))}
+                            </>
+                        ))}
+                    </nav>
+                )}
+                <main className="col-12 col-sm-8 p-4 border-left">
                     <h1 className="d-flex justify-content-between align-items-center">
                         {header}
                         <Button size="sm" href={API}>
@@ -121,20 +131,22 @@ export class PageFrame extends mixin<PageFrameProps, PageFrameState>() {
                     </div>
                 </main>
 
-                <nav className="col-2 p-4 overflow-auto d-none d-md-block">
-                    {headerList.map(({ level, id, text }) => (
-                        <a
-                            className="d-block pl-2 text-nowrap"
-                            style={{
-                                fontSize: `${0.5 + (6 - level) / 10}rem`,
-                                textIndent: `${level - 1}rem`
-                            }}
-                            href={'#' + id}
-                        >
-                            {text}
-                        </a>
-                    ))}
-                </nav>
+                {deviceType !== 'desktop' ? null : (
+                    <nav className="col-2 p-4 overflow-auto">
+                        {headerList.map(({ level, id, text }) => (
+                            <a
+                                className="d-block pl-2 text-nowrap"
+                                style={{
+                                    fontSize: `${0.5 + (6 - level) / 10}rem`,
+                                    textIndent: `${level - 1}rem`
+                                }}
+                                href={'#' + id}
+                            >
+                                {text}
+                            </a>
+                        ))}
+                    </nav>
+                )}
             </>
         );
     }

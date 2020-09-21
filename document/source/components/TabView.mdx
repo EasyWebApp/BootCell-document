@@ -16,12 +16,21 @@ import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 import { Example } from '../../../source/component/Example';
 
+Tab view is built on CSS of Bootstrap & [bs-stepper][1], so don't forget to include the extra style sheet:
+
+```HTML
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bs-stepper@1.7.0/dist/css/bs-stepper.min.css"
+/>
+```
+
 ## Tabs mode
 
 `mode="tabs"` is built based on [Nav](components/nav).
 
 Dynamic tabbed interfaces, as described in the
-[<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr> Authoring Practices][1],
+[<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr> Authoring Practices][2],
 require `role="tablist"`, `role="tab"`, `role="tabpanel"`, and additional `aria-` attributes in order to convey their structure,
 functionality and current state to users of assistive technologies (such as screen readers).
 
@@ -256,7 +265,7 @@ render(
 
 ## Step mode
 
-`mode="step"` is built based on [bs-stepper][2].
+`mode="step"` is built based on [bs-stepper][1].
 
 ### Linear
 
@@ -497,5 +506,5 @@ render(
 );
 ```
 
-[1]: https://www.w3.org/TR/wai-aria-practices/#tabpanel
-[2]: https://johann-s.github.io/bs-stepper/
+[1]: https://johann-s.github.io/bs-stepper/
+[2]: https://www.w3.org/TR/wai-aria-practices/#tabpanel

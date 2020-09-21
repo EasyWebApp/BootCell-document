@@ -1,14 +1,22 @@
-import { createCell } from 'web-cell';
+import { createCell, Fragment } from 'web-cell';
 import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
 import { Button } from 'boot-cell/source/Form/Button';
 import { CommandLine } from 'github-web-widget/source/CommandLine';
 
-import { PageBox } from '../component/PageBox';
 import routes from '../../document/dist';
 
-export function HomePage() {
+export interface HomePageProps {
+    entry: typeof routes[0];
+}
+
+export function HomePage({
+    entry: {
+        meta: { title },
+        paths: [path]
+    }
+}: HomePageProps) {
     return (
-        <PageBox>
+        <>
             <div className="container d-md-flex flex-row-reverse align-items-center text-center text-md-left">
                 <img
                     className="pt-5 p-md-5"
@@ -41,12 +49,7 @@ export function HomePage() {
                             FontAwesome v5
                         </a>
                     </p>
-                    <Button
-                        outline
-                        size="lg"
-                        title={routes[0].meta.title}
-                        href={routes[0].paths[0]}
-                    >
+                    <Button outline size="lg" title={title} href={path}>
                         Get started
                     </Button>
                 </Jumbotron>
@@ -58,6 +61,6 @@ export function HomePage() {
             >
                 npm install boot-cell
             </CommandLine>
-        </PageBox>
+        </>
     );
 }

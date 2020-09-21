@@ -6,7 +6,7 @@ group: Components
 toc: true
 ---
 
-import { Table, InputCell } from 'boot-cell/source/Content/Table';
+import { Table, TableRow, InputCell } from 'boot-cell/source/Content/Table';
 
 import { Example } from '../../../source/component/Example';
 
@@ -17,71 +17,63 @@ meaning any nested tables will be styled in the same manner as the parent.
 
 <Example>
     <Table>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -90,71 +82,63 @@ You can also invert the colors — with light text on dark backgrounds — with 
 
 <Example>
     <Table theme="dark">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table theme="dark">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -165,142 +149,126 @@ Use `striped` property to add zebra-striping to any table row within the `<tbody
 
 <Example>
     <Table striped>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table striped>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
 
 <Example>
     <Table theme="dark" striped>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table theme="dark" striped>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -311,138 +279,122 @@ Add `border` property for borders on all sides of the table and cells.
 
 <Example>
     <Table border>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table border>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
 
 <Example>
     <Table theme="dark" border>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table theme="dark" border>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -453,69 +405,61 @@ Add `border={false}` for a table without borders.
 
 <Example>
     <Table border={false}>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table border={false}>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -524,69 +468,61 @@ render(
 
 <Example>
     <Table theme="dark" border={false}>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table theme="dark" border={false}>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -597,138 +533,122 @@ Add `hover` property to enable a hover state on table rows within a `<tbody>`.
 
 <Example>
     <Table hover>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table hover>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
 
 <Example>
     <Table theme="dark" hover>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table theme="dark" hover>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -739,138 +659,122 @@ Add `small` property to make tables more compact by cutting cell padding in half
 
 <Example>
     <Table small>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table small>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
 
 <Example>
     <Table theme="dark" small>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table theme="dark" small>
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </TableRow>
+        <TableRow>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </TableRow>
+        <TableRow>
+            <th scope="row">3</th>
+            <td colSpan={2}>Larry the Bird</td>
+            <td>@twitter</td>
+        </TableRow>
     </Table>
 );
 ```
@@ -907,51 +811,43 @@ Responsive tables allow tables to be scrolled horizontally with ease.
 
 <Example>
     <Table>
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table>
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 );
 ```
@@ -965,204 +861,172 @@ From that breakpoint and up, the table will behave normally and not scroll horiz
 
 <Example>
     <Table responsive="sm">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table responsive="sm">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 );
 ```
 
 <Example>
     <Table responsive="md">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table responsive="md">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 );
 ```
 
 <Example>
     <Table responsive="lg">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table responsive="lg">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 );
 ```
 
 <Example>
     <Table responsive="xl">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table } from 'boot-cell/source/Content/Table';
+import { Table, TableRow } from 'boot-cell/source/Content/Table';
 
 render(
     <Table responsive="xl">
-        <thead>
-            <tr>
-                <th>#</th>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                    <th>Heading</th>
-                ))}
-            </tr>
-        </thead>
-        <tbody>
-            {[1, 2, 3].map(index => (
-                <tr>
-                    <th>{index}</th>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
-                        <td>Cell</td>
-                    ))}
-                </tr>
+        <TableRow type="head">
+            <th>#</th>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                <th>Heading</th>
             ))}
-        </tbody>
+        </TableRow>
+        {[1, 2, 3].map(index => (
+            <TableRow>
+                <th>{index}</th>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (
+                    <td>Cell</td>
+                ))}
+            </TableRow>
+        ))}
     </Table>
 );
 ```
@@ -1171,47 +1035,39 @@ render(
 
 <Example>
     <Table center>
-        <thead>
-            <tr>
-                <th>Number</th>
-                <th>Select</th>
-                <th>Multiple lines</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <InputCell type="number" defaultValue={0} />
-                <InputCell is="select">
-                    <option>select please</option>
-                </InputCell>
-                <InputCell is="textarea" />
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th>Number</th>
+            <th>Select</th>
+            <th>Multiple lines</th>
+        </TableRow>
+        <TableRow>
+            <InputCell type="number" defaultValue={0} />
+            <InputCell is="select">
+                <option>select please</option>
+            </InputCell>
+            <InputCell is="textarea" />
+        </TableRow>
     </Table>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Table, InputCell } from 'boot-cell/source/Content/Table';
+import { Table, TableRow, InputCell } from 'boot-cell/source/Content/Table';
 
 render(
     <Table center>
-        <thead>
-            <tr>
-                <th>Number</th>
-                <th>Select</th>
-                <th>Multiple lines</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <InputCell type="number" defaultValue={0} />
-                <InputCell is="select">
-                    <option>select please</option>
-                </InputCell>
-                <InputCell is="textarea" />
-            </tr>
-        </tbody>
+        <TableRow type="head">
+            <th>Number</th>
+            <th>Select</th>
+            <th>Multiple lines</th>
+        </TableRow>
+        <TableRow>
+            <InputCell type="number" defaultValue={0} />
+            <InputCell is="select">
+                <option>select please</option>
+            </InputCell>
+            <InputCell is="textarea" />
+        </TableRow>
     </Table>
 );
 ```

@@ -16,11 +16,19 @@ import { Example } from '../../../source/component/Example';
 
 ## How it works
 
-Before getting started with BootCell’s modal component, be sure to read the following as our menu options have recently changed.
-
 -   Modals are built with HTML, CSS, and JavaScript. They’re positioned over everything else in the document and remove scroll from the `<body>` so that modal content scrolls instead.
 
 -   BootCell only supports one modal window at a time. Nested modals aren’t supported as we believe them to be poor user experiences.
+
+-   Modal Dialogs are built on [`<dialog />`][1], so you may need an **Auto Polyfill** added:
+
+```HTML
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.3/dist/dialog-polyfill.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.3/dist/dialog-polyfill.js"></script>
+```
 
 Keep reading for demos and usage guidelines.
 
@@ -243,7 +251,7 @@ render(
 
 ### Tooltips and popovers
 
-[Tooltips][1] and [popovers][2] can be placed within modals as needed. When modals are closed,
+[Tooltips][2] and [popovers][3] can be placed within modals as needed. When modals are closed,
 any tooltips and popovers within are also automatically dismissed.
 
 <Example>
@@ -444,5 +452,6 @@ render([
 )));
 ```
 
-[1]: components/tooltip
-[2]: components/popover
+[1]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+[2]: components/tooltip
+[3]: components/popover

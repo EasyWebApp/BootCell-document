@@ -4,10 +4,12 @@ import { CellRouter } from 'cell-router/source';
 import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
 
 import { history } from '../model';
-import { PageBox } from '../component/PageBox';
-import { PageFrame } from '../component/DocumentBox';
+import { PageFrame } from '../component/PageBox';
+import { DocumentBox } from '../component/DocumentBox';
+
 import { HomePage } from './Home';
 import documents from '../../document/dist';
+import { HomePage as ExampleHome } from './Example/Home';
 import examples from './Example';
 
 const side_menu = groupBy(
@@ -15,7 +17,7 @@ const side_menu = groupBy(
     'group'
 );
 
-interface PageFrameState {
+interface PageRouterState {
     loading: boolean;
 }
 
@@ -23,11 +25,37 @@ interface PageFrameState {
     tagName: 'page-router',
     renderTarget: 'children'
 })
-export class PageRouter extends mixin<{}, PageFrameState>() {
+export class PageRouter extends mixin<{}, PageRouterState>() {
     state = { loading: false };
 
+    protected menu = [
+        {
+            title: 'Documentation',
+            href: documents[0].paths[0]
+        },
+        {
+            title: 'API',
+            href: 'https://web-cell.dev/BootCell/'
+        },
+        {
+            title: 'Examples',
+            href: 'example'
+        },
+        {
+            title: 'Source code',
+            href: 'https://github.com/EasyWebApp/BootCell'
+        }
+    ];
+
     protected routes = [
-        { paths: [''], component: HomePage },
+        {
+            paths: [''],
+            component: () => (
+                <PageFrame menu={this.menu}>
+                    <HomePage entry={documents[0]} />
+                </PageFrame>
+            )
+        },
         ...documents.map(
             ({ paths, component, meta: { title, description } }) => ({
                 paths,
@@ -35,19 +63,31 @@ export class PageRouter extends mixin<{}, PageFrameState>() {
                     const Content = await component();
 
                     return () => (
-                        <PageBox>
-                            <PageFrame
+                        <PageFrame
+                            menu={this.menu}
+                            activeIndex={0}
+                            subMenu={documents}
+                        >
+                            <DocumentBox
                                 menu={side_menu}
                                 header={title}
                                 description={description}
                             >
                                 <Content />
-                            </PageFrame>
-                        </PageBox>
+                            </DocumentBox>
+                        </PageFrame>
                     );
                 }
             })
         ),
+        {
+            paths: ['example'],
+            component: () => (
+                <PageFrame menu={this.menu} activeIndex={2}>
+                    <ExampleHome />
+                </PageFrame>
+            )
+        },
         ...examples
     ];
 
