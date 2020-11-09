@@ -5,9 +5,11 @@ description: Easily extend form controls by adding text, buttons, or button grou
 group: Components
 ---
 
+import { Fragment } from 'web-cell';
+
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
-import { Button } from 'boot-cell/source/Form/Button';
 import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 import { Example } from '../../../source/component/Example';
@@ -17,62 +19,65 @@ import { Example } from '../../../source/component/Example';
 Place one add-on or button on either side of an input. You may also place one on both sides of an input.
 
 <Example>
-    <InputGroup placeholder="Username" aria-label="Username" prepend="@" />
-    <InputGroup
-        placeholder="Recipient's username"
-        aria-label="Recipient's username"
-        append="@example.com"
-    />
+    <InputGroup>
+        @
+        <Field placeholder="Username" aria-label="Username" />
+    </InputGroup>
+    <InputGroup>
+        <Field
+            placeholder="Recipient's username"
+            aria-label="Recipient's username"
+        />
+        @example.com
+    </InputGroup>
     <label for="basic-url">Your vanity URL</label>
-    <InputGroup
-        id="basic-url"
-        placeholder="Username"
-        aria-label="Username"
-        prepend="https://example.com/users/"
-    />
-    <InputGroup
-        type="number"
-        aria-label="Amount (to the nearest dollar)"
-        prepend="$"
-        append=".00"
-    />
-    <InputGroup
-        is="textarea"
-        aria-label="With textarea"
-        prepend="With textarea"
-    />
+    <InputGroup>
+        https://example.com/users/
+        <Field id="basic-url" placeholder="Username" aria-label="Username" />
+    </InputGroup>
+    <InputGroup>
+        $
+        <Field type="number" aria-label="Amount (to the nearest dollar)" />
+        .00
+    </InputGroup>
+    <InputGroup>
+        With textarea
+        <Field is="textarea" aria-label="With textarea" />
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup placeholder="Username" aria-label="Username" prepend="@" />
-        <InputGroup
-            placeholder="Recipient's username"
-            aria-label="Recipient's username"
-            append="@example.com"
-        />
+        <InputGroup>
+            @
+            <Field placeholder="Username" aria-label="Username" />
+        </InputGroup>
+        <InputGroup>
+            <Field
+                placeholder="Recipient's username"
+                aria-label="Recipient's username"
+            />
+            @example.com
+        </InputGroup>
         <label for="basic-url">Your vanity URL</label>
-        <InputGroup
-            id="basic-url"
-            placeholder="Username"
-            aria-label="Username"
-            prepend="https://example.com/users/"
-        />
-        <InputGroup
-            type="number"
-            aria-label="Amount (to the nearest dollar)"
-            prepend="$"
-            append=".00"
-        />
-        <InputGroup
-            is="textarea"
-            aria-label="With textarea"
-            prepend="With textarea"
-        />
+        <InputGroup>
+            https://example.com/users/
+            <Field id="basic-url" placeholder="Username" aria-label="Username" />
+        </InputGroup>
+        <InputGroup>
+            $
+            <Field type="number" aria-label="Amount (to the nearest dollar)" />
+            .00
+        </InputGroup>
+        <InputGroup>
+            With textarea
+            <Field is="textarea" aria-label="With textarea" />
+        </InputGroup>
     </>
 );
 ```
@@ -83,25 +88,22 @@ Input groups wrap by default via `flex-wrap: wrap` in order to accommodate custo
 You may disable this with `.flex-nowrap`.
 
 <Example>
-    <InputGroup
-        className="flex-nowrap"
-        placeholder="Username"
-        aria-label="Username"
-        prepend="@"
-    />
+    <InputGroup className="flex-nowrap">
+        @
+        <Field placeholder="Username" aria-label="Username" />
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
-    <InputGroup
-        className="flex-nowrap"
-        placeholder="Username"
-        aria-label="Username"
-        prepend="@"
-    />
+    <InputGroup className="flex-nowrap">
+        @
+        <Field placeholder="Username" aria-label="Username" />
+    </InputGroup>
 );
 ```
 
@@ -114,20 +116,39 @@ no need for repeating the form control `size` property on each element.
 **Sizing on the individual input group elements isn’t supported.**
 
 <Example>
-    <InputGroup size="sm" prepend="Small" />
-    <InputGroup prepend="Default" />
-    <InputGroup size="lg" prepend="Large" />
+    <InputGroup size="sm">
+        Small
+        <Field />
+    </InputGroup>
+    <InputGroup>
+        Default
+        <Field />
+    </InputGroup>
+    <InputGroup size="lg">
+        Large
+        <Field />
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup size="sm" prepend="Small" />
-        <InputGroup prepend="Default" />
-        <InputGroup size="lg" prepend="Large" />
+        <InputGroup size="sm">
+            Small
+            <Field />
+        </InputGroup>
+        <InputGroup>
+            Default
+            <Field />
+        </InputGroup>
+        <InputGroup size="lg">
+            Large
+            <Field />
+        </InputGroup>
     </>
 );
 ```
@@ -137,50 +158,37 @@ render(
 Place any checkbox or radio option within an input group’s addon instead of text.
 
 <Example>
-    <InputGroup
-        prepend={
-            <input
-                type="checkbox"
-                aria-label="Checkbox for following text input"
-            />
-        }
-        aria-label="Text input with checkbox"
-    />
-    <InputGroup
-        prepend={
-            <input
-                type="radio"
-                aria-label="Radio button for following text input"
-            />
-        }
-        aria-label="Text input with radio button"
-    />
+    <InputGroup>
+        <input type="checkbox" aria-label="Checkbox for following text input" />
+        <Field aria-label="Text input with checkbox" />
+    </InputGroup>
+    <InputGroup>
+        <input
+            type="radio"
+            aria-label="Radio button for following text input"
+        />
+        <Field aria-label="Text input with radio button" />
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup
-            prepend={
-                <input
-                    type="checkbox"
-                    aria-label="Checkbox for following text input"
-                />
-            }
-            aria-label="Text input with checkbox"
-        />
-        <InputGroup
-            prepend={
-                <input
-                    type="radio"
-                    aria-label="Radio button for following text input"
-                />
-            }
-            aria-label="Text input with radio button"
-        />
+        <InputGroup>
+            <input type="checkbox" aria-label="Checkbox for following text input" />
+            <Field aria-label="Text input with checkbox" />
+        </InputGroup>
+        <InputGroup>
+            <input
+                type="radio"
+                aria-label="Radio button for following text input"
+            />
+            <Field aria-label="Text input with radio button" />
+        </InputGroup>
     </>
 );
 ```
@@ -191,7 +199,8 @@ While multiple `<Field />`s are supported visually,
 validation styles are only available for input groups with a single `<Field />`.
 
 <Example>
-    <InputGroup prepend="First and last name">
+    <InputGroup>
+        First and last name
         <Field aria-label="First name" />
         <Field aria-label="Last name" />
     </InputGroup>
@@ -203,7 +212,8 @@ import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 import { Field } from 'boot-cell/source/Form/Field';
 
 render(
-    <InputGroup prepend="First and last name">
+    <InputGroup>
+        First and last name
         <Field aria-label="First name" />
         <Field aria-label="Last name" />
     </InputGroup>
@@ -215,30 +225,35 @@ render(
 Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
 
 <Example>
-    <InputGroup
-        prepend={['$', '0.00']}
-        aria-label="Dollar amount (with dot and two decimal places)"
-    />
-    <InputGroup
-        append={['$', '0.00']}
-        aria-label="Dollar amount (with dot and two decimal places)"
-    />
+    <InputGroup>
+        <>$</>
+        <>0.00</>
+        <Field aria-label="Dollar amount (with dot and two decimal places)" />
+    </InputGroup>
+    <InputGroup>
+        <Field aria-label="Dollar amount (with dot and two decimal places)" />
+        <>$</>
+        <>0.00</>
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup
-            prepend={['$', '0.00']}
-            aria-label="Dollar amount (with dot and two decimal places)"
-        />
-        <InputGroup
-            append={['$', '0.00']}
-            aria-label="Dollar amount (with dot and two decimal places)"
-        />
+        <InputGroup>
+            <>$</>
+            <>0.00</>
+            <Field aria-label="Dollar amount (with dot and two decimal places)" />
+        </InputGroup>
+        <InputGroup>
+            <Field aria-label="Dollar amount (with dot and two decimal places)" />
+            <>$</>
+            <>0.00</>
+        </InputGroup>
     </>
 );
 ```
@@ -246,103 +261,88 @@ render(
 ## Button addons
 
 <Example>
-    <InputGroup
-        prepend={
-            <Button color="secondary" outline>
-                Button
-            </Button>
-        }
-        aria-label="Example text with button addon"
-    />
-    <InputGroup
-        append={
-            <Button color="secondary" outline>
-                Button
-            </Button>
-        }
-        placeholder="Recipient's username"
-        aria-label="Recipient's username"
-    />
-    <InputGroup
-        prepend={
-            <>
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            </>
-        }
-        aria-label="Example text with two button addons"
-    />
-    <InputGroup
-        append={
-            <>
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            </>
-        }
-        placeholder="Recipient's username"
-        aria-label="Recipient's username with two button addons"
-    />
+    <InputGroup>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Field aria-label="Example text with button addon" />
+    </InputGroup>
+    <InputGroup>
+        <Field
+            placeholder="Recipient's username"
+            aria-label="Recipient's username"
+        />
+        <Button color="secondary" outline>
+            Button
+        </Button>
+    </InputGroup>
+    <InputGroup>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Field aria-label="Example text with two button addons" />
+    </InputGroup>
+    <InputGroup>
+        <Field
+            placeholder="Recipient's username"
+            aria-label="Recipient's username with two button addons"
+        />
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 import { Button } from 'boot-cell/source/Form/Button';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup
-            prepend={
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            }
-            aria-label="Example text with button addon"
-        />
-        <InputGroup
-            append={
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            }
+    <InputGroup>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Field aria-label="Example text with button addon" />
+    </InputGroup>
+    <InputGroup>
+        <Field
             placeholder="Recipient's username"
             aria-label="Recipient's username"
         />
-        <InputGroup
-            prepend={
-                <>
-                    <Button color="secondary" outline>
-                        Button
-                    </Button>
-                    <Button color="secondary" outline>
-                        Button
-                    </Button>
-                </>
-            }
-            aria-label="Example text with two button addons"
-        />
-        <InputGroup
-            append={
-                <>
-                    <Button color="secondary" outline>
-                        Button
-                    </Button>
-                    <Button color="secondary" outline>
-                        Button
-                    </Button>
-                </>
-            }
+        <Button color="secondary" outline>
+            Button
+        </Button>
+    </InputGroup>
+    <InputGroup>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Field aria-label="Example text with two button addons" />
+    </InputGroup>
+    <InputGroup>
+        <Field
             placeholder="Recipient's username"
             aria-label="Recipient's username with two button addons"
         />
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+    </InputGroup>
     </>
 );
 ```
@@ -350,63 +350,56 @@ render(
 ## Buttons with dropmenus
 
 <Example>
-    <InputGroup
-        prepend={
-            <DropMenu buttonColor="secondary" caption="Dropdown">
-                <DropMenuItem>Action</DropMenuItem>
-                <DropMenuItem>Another action</DropMenuItem>
-                <DropMenuItem>Something else here</DropMenuItem>
-                <DropMenuItem />
-                <DropMenuItem>Separated link</DropMenuItem>
-            </DropMenu>
-        }
-        aria-label="Text input with dropdown button"
-    />
-    <InputGroup
-        append={
-            <DropMenu buttonColor="secondary" caption="Dropdown">
-                <DropMenuItem>Action</DropMenuItem>
-                <DropMenuItem>Another action</DropMenuItem>
-                <DropMenuItem>Something else here</DropMenuItem>
-                <DropMenuItem />
-                <DropMenuItem>Separated link</DropMenuItem>
-            </DropMenu>
-        }
-        aria-label="Text input with dropdown button"
-    />
+    <InputGroup>
+        <DropMenu buttonColor="secondary" caption="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
+        <Field aria-label="Text input with dropdown button" />
+    </InputGroup>
+    <InputGroup>
+        <Field aria-label="Text input with dropdown button" />
+        <DropMenu buttonColor="secondary" caption="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup
-            prepend={
-                <DropMenu buttonColor="secondary" caption="Dropdown">
-                    <DropMenuItem>Action</DropMenuItem>
-                    <DropMenuItem>Another action</DropMenuItem>
-                    <DropMenuItem>Something else here</DropMenuItem>
-                    <DropMenuItem />
-                    <DropMenuItem>Separated link</DropMenuItem>
-                </DropMenu>
-            }
-            aria-label="Text input with dropdown button"
-        />
-        <InputGroup
-            append={
-                <DropMenu buttonColor="secondary" caption="Dropdown">
-                    <DropMenuItem>Action</DropMenuItem>
-                    <DropMenuItem>Another action</DropMenuItem>
-                    <DropMenuItem>Something else here</DropMenuItem>
-                    <DropMenuItem />
-                    <DropMenuItem>Separated link</DropMenuItem>
-                </DropMenu>
-            }
-            aria-label="Text input with dropdown button"
-        />
+        <InputGroup>
+            <DropMenu buttonColor="secondary" caption="Dropdown">
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+            <Field aria-label="Text input with dropdown button" />
+        </InputGroup>
+        <InputGroup>
+            <Field aria-label="Text input with dropdown button" />
+            <DropMenu buttonColor="secondary" caption="Dropdown">
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+        </InputGroup>
     </>
 );
 ```
@@ -414,79 +407,72 @@ render(
 ## Segmented buttons
 
 <Example>
-    <InputGroup
-        prepend={
-            <DropMenu
-                buttonColor="secondary"
-                caption="Action"
-                href="https://web-cell.dev/BootCell/"
-            >
-                <DropMenuItem>Action</DropMenuItem>
-                <DropMenuItem>Another action</DropMenuItem>
-                <DropMenuItem>Something else here</DropMenuItem>
-                <DropMenuItem />
-                <DropMenuItem>Separated link</DropMenuItem>
-            </DropMenu>
-        }
-        aria-label="Text input with segmented dropdown button"
-    />
-    <InputGroup
-        append={
-            <DropMenu
-                buttonColor="secondary"
-                caption="Action"
-                href="https://web-cell.dev/BootCell/"
-            >
-                <DropMenuItem>Action</DropMenuItem>
-                <DropMenuItem>Another action</DropMenuItem>
-                <DropMenuItem>Something else here</DropMenuItem>
-                <DropMenuItem />
-                <DropMenuItem>Separated link</DropMenuItem>
-            </DropMenu>
-        }
-        aria-label="Text input with segmented dropdown button"
-    />
+    <InputGroup>
+        <DropMenu
+            buttonColor="secondary"
+            caption="Action"
+            href="https://web-cell.dev/BootCell/"
+        >
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
+        <Field aria-label="Text input with segmented dropdown button" />
+    </InputGroup>
+    <InputGroup>
+        <Field aria-label="Text input with segmented dropdown button" />
+        <DropMenu
+            buttonColor="secondary"
+            caption="Action"
+            href="https://web-cell.dev/BootCell/"
+        >
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Separated link</DropMenuItem>
+        </DropMenu>
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup
-            prepend={
-                <DropMenu
-                    buttonColor="secondary"
-                    caption="Action"
-                    href="https://web-cell.dev/BootCell/"
-                >
-                    <DropMenuItem>Action</DropMenuItem>
-                    <DropMenuItem>Another action</DropMenuItem>
-                    <DropMenuItem>Something else here</DropMenuItem>
-                    <DropMenuItem />
-                    <DropMenuItem>Separated link</DropMenuItem>
-                </DropMenu>
-            }
-            aria-label="Text input with segmented dropdown button"
-        />
-        <InputGroup
-            append={
-                <DropMenu
-                    buttonColor="secondary"
-                    caption="Action"
-                    href="https://web-cell.dev/BootCell/"
-                >
-                    <DropMenuItem>Action</DropMenuItem>
-                    <DropMenuItem>Another action</DropMenuItem>
-                    <DropMenuItem>Something else here</DropMenuItem>
-                    <DropMenuItem />
-                    <DropMenuItem>Separated link</DropMenuItem>
-                </DropMenu>
-            }
-            aria-label="Text input with segmented dropdown button"
-        />
+        <InputGroup>
+            <DropMenu
+                buttonColor="secondary"
+                caption="Action"
+                href="https://web-cell.dev/BootCell/"
+            >
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+            <Field aria-label="Text input with segmented dropdown button" />
+        </InputGroup>
+        <InputGroup>
+            <Field aria-label="Text input with segmented dropdown button" />
+            <DropMenu
+                buttonColor="secondary"
+                caption="Action"
+                href="https://web-cell.dev/BootCell/"
+            >
+                <DropMenuItem>Action</DropMenuItem>
+                <DropMenuItem>Another action</DropMenuItem>
+                <DropMenuItem>Something else here</DropMenuItem>
+                <DropMenuItem />
+                <DropMenuItem>Separated link</DropMenuItem>
+            </DropMenu>
+        </InputGroup>
     </>
 );
 ```
@@ -499,7 +485,8 @@ Browser default versions of these are not supported.
 ### Custom select
 
 <Example>
-    <InputGroup id="inputGroupSelect01" prepend="Options">
+    <InputGroup id="inputGroupSelect01">
+        Options
         <Field is="select" id="inputGroupSelect01">
             <option selected>Choose...</option>
             {['One', 'Two', 'Three'].map((text, index) => (
@@ -507,22 +494,19 @@ Browser default versions of these are not supported.
             ))}
         </Field>
     </InputGroup>
-    <InputGroup id="inputGroupSelect02" append="Options">
+    <InputGroup id="inputGroupSelect02">
         <Field is="select" id="inputGroupSelect02">
             <option selected>Choose...</option>
             {['One', 'Two', 'Three'].map((text, index) => (
                 <option value={index + 1}>{text}</option>
             ))}
         </Field>
+        Options
     </InputGroup>
-    <InputGroup
-        id="inputGroupSelect03"
-        prepend={
-            <Button color="secondary" outline>
-                Button
-            </Button>
-        }
-    >
+    <InputGroup id="inputGroupSelect03">
+        <Button color="secondary" outline>
+            Button
+        </Button>
         <Field
             is="select"
             id="inputGroupSelect03"
@@ -534,14 +518,7 @@ Browser default versions of these are not supported.
             ))}
         </Field>
     </InputGroup>
-    <InputGroup
-        id="inputGroupSelect04"
-        append={
-            <Button color="secondary" outline>
-                Button
-            </Button>
-        }
-    >
+    <InputGroup id="inputGroupSelect04">
         <Field
             is="select"
             id="inputGroupSelect04"
@@ -552,6 +529,9 @@ Browser default versions of these are not supported.
                 <option value={index + 1}>{text}</option>
             ))}
         </Field>
+        <Button color="secondary" outline>
+            Button
+        </Button>
     </InputGroup>
 </Example>
 
@@ -562,7 +542,8 @@ import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
-        <InputGroup id="inputGroupSelect01" prepend="Options">
+        <InputGroup id="inputGroupSelect01">
+            Options
             <Field is="select" id="inputGroupSelect01">
                 <option selected>Choose...</option>
                 {['One', 'Two', 'Three'].map((text, index) => (
@@ -570,22 +551,19 @@ render(
                 ))}
             </Field>
         </InputGroup>
-        <InputGroup id="inputGroupSelect02" append="Options">
+        <InputGroup id="inputGroupSelect02">
             <Field is="select" id="inputGroupSelect02">
                 <option selected>Choose...</option>
                 {['One', 'Two', 'Three'].map((text, index) => (
                     <option value={index + 1}>{text}</option>
                 ))}
             </Field>
+            Options
         </InputGroup>
-        <InputGroup
-            id="inputGroupSelect03"
-            prepend={
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            }
-        >
+        <InputGroup id="inputGroupSelect03">
+            <Button color="secondary" outline>
+                Button
+            </Button>
             <Field
                 is="select"
                 id="inputGroupSelect03"
@@ -597,14 +575,7 @@ render(
                 ))}
             </Field>
         </InputGroup>
-        <InputGroup
-            id="inputGroupSelect04"
-            append={
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            }
-        >
+        <InputGroup id="inputGroupSelect04">
             <Field
                 is="select"
                 id="inputGroupSelect04"
@@ -615,6 +586,9 @@ render(
                     <option value={index + 1}>{text}</option>
                 ))}
             </Field>
+            <Button color="secondary" outline>
+                Button
+            </Button>
         </InputGroup>
     </>
 );
@@ -623,51 +597,56 @@ render(
 ### Custom file input
 
 <Example>
-    <InputGroup type="file" prepend="Upload" />
-    <InputGroup type="file" append="Upload" />
-    <InputGroup
-        type="file"
-        prepend={
-            <Button color="secondary" outline>
-                Button
-            </Button>
-        }
-    />
-    <InputGroup
-        type="file"
-        append={
-            <Button color="secondary" outline>
-                Button
-            </Button>
-        }
-    />
+    <InputGroup>
+        Upload
+        <Field type="file" />
+    </InputGroup>
+    <InputGroup>
+        <Field type="file" />
+        Upload
+    </InputGroup>
+    <InputGroup>
+        <Button color="secondary" outline>
+            Button
+        </Button>
+        <Field type="file" />
+    </InputGroup>
+    <InputGroup>
+        <Field type="file" />
+        <Button color="secondary" outline>
+            Button
+        </Button>
+    </InputGroup>
 </Example>
 
 ```TSX
 import { render, createCell, Fragment } from 'web-cell';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <InputGroup type="file" prepend="Upload" />
-        <InputGroup type="file" append="Upload" />
-        <InputGroup
-            type="file"
-            prepend={
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            }
-        />
-        <InputGroup
-            type="file"
-            append={
-                <Button color="secondary" outline>
-                    Button
-                </Button>
-            }
-        />
+        <InputGroup>
+            Upload
+            <Field type="file" />
+        </InputGroup>
+        <InputGroup>
+            <Field type="file" />
+            Upload
+        </InputGroup>
+        <InputGroup>
+            <Button color="secondary" outline>
+                Button
+            </Button>
+            <Field type="file" />
+        </InputGroup>
+        <InputGroup>
+            <Field type="file" />
+            <Button color="secondary" outline>
+                Button
+            </Button>
+        </InputGroup>
     </>
 );
 ```

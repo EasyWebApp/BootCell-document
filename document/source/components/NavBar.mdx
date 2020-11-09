@@ -333,11 +333,10 @@ Input groups work, too:
 <Example>
     <NavBar className="position-static" brand="NavBar">
         <Form inline className="my-2 my-lg-0">
-            <InputGroup
-                prepend="@"
-                placeholder="Username"
-                aria-label="Username"
-            />
+            <InputGroup>
+                @
+                <Field placeholder="Username" aria-label="Username" />
+            </InputGroup>
         </Form>
     </NavBar>
 </Example>
@@ -347,15 +346,15 @@ import { render, createCell } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { Form } from 'boot-cell/source/Form/Form';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <NavBar brand="NavBar">
         <Form inline className="my-2 my-lg-0">
-            <InputGroup
-                prepend="@"
-                placeholder="Username"
-                aria-label="Username"
-            />
+            <InputGroup>
+                @
+                <Field placeholder="Username" aria-label="Username" />
+            </InputGroup>
         </Form>
     </NavBar>
 );

@@ -10,6 +10,7 @@ import { Fragment } from 'web-cell';
 import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 import { Example } from '../../../source/component/Example';
@@ -107,11 +108,13 @@ you’ll likely need some utilities though to space things properly.
                 <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
-        <InputGroup
-            placeholder="Input group example"
-            aria-label="Input group example"
-            prepend="@"
-        />
+        <InputGroup>
+            @
+            <Field
+                placeholder="Input group example"
+                aria-label="Input group example"
+            />
+        </InputGroup>
     </Toolbar>
     <Toolbar
         className="justify-content-between"
@@ -122,11 +125,13 @@ you’ll likely need some utilities though to space things properly.
                 <Button color="secondary">{index}</Button>
             ))}
         </ButtonGroup>
-        <InputGroup
-            placeholder="Input group example"
-            aria-label="Input group example"
-            prepend="@"
-        />
+        <InputGroup>
+            @
+            <Field
+                placeholder="Input group example"
+                aria-label="Input group example"
+            />
+        </InputGroup>
     </Toolbar>
 </Example>
 
@@ -135,6 +140,7 @@ import { render, createCell, Fragment } from 'web-cell';
 import { ButtonGroup, Toolbar } from 'boot-cell/source/Form/ButtonGroup';
 import { Button } from 'boot-cell/source/Form/Button';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 
 render(
     <>
@@ -144,11 +150,13 @@ render(
                     <Button color="secondary">{index}</Button>
                 ))}
             </ButtonGroup>
-            <InputGroup
-                placeholder="Input group example"
-                aria-label="Input group example"
-                prepend="@"
-            />
+            <InputGroup>
+                @
+                <Field
+                    placeholder="Input group example"
+                    aria-label="Input group example"
+                />
+            </InputGroup>
         </Toolbar>
         <Toolbar
             className="justify-content-between"
@@ -159,11 +167,13 @@ render(
                     <Button color="secondary">{index}</Button>
                 ))}
             </ButtonGroup>
-            <InputGroup
-                placeholder="Input group example"
-                aria-label="Input group example"
-                prepend="@"
-            />
+            <InputGroup>
+                @
+                <Field
+                    placeholder="Input group example"
+                    aria-label="Input group example"
+                />
+            </InputGroup>
         </Toolbar>
     </>
 );

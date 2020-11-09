@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Badge } from 'boot-cell/source/Reminder/Badge';
 import { ListGroup, ListItem } from 'boot-cell/source/Content/ListGroup';
 import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 import { Form } from 'boot-cell/source/Form/Form';
 import { FormField } from 'boot-cell/source/Form/FormField';
@@ -76,16 +77,16 @@ export function CheckoutPage() {
                         </ListGroup>
 
                         <form className="card p-2">
-                            <InputGroup
-                                name="promo_code"
-                                required
-                                placeholder="Promo code"
-                                append={
-                                    <Button type="submit" color="secondary">
-                                        Redeem
-                                    </Button>
-                                }
-                            />
+                            <InputGroup>
+                                <Field
+                                    name="promo_code"
+                                    required
+                                    placeholder="Promo code"
+                                />
+                                <Button type="submit" color="secondary">
+                                    Redeem
+                                </Button>
+                            </InputGroup>
                         </form>
                     </div>
                     <div className="col-md-8 order-md-1">
@@ -110,14 +111,15 @@ export function CheckoutPage() {
 
                             <div className="mb-3">
                                 <label for="username">Username</label>
-                                <InputGroup
-                                    id="username"
-                                    name="username"
-                                    required
-                                    prepend="@"
-                                    placeholder="Username"
-                                    invalidMessage="Your username is required."
-                                />
+                                <InputGroup invalidMessage="Your username is required.">
+                                    @
+                                    <Field
+                                        id="username"
+                                        name="username"
+                                        required
+                                        placeholder="Username"
+                                    />
+                                </InputGroup>
                             </div>
 
                             <div className="mb-3">
