@@ -1,5 +1,9 @@
 export default [
     {
+        paths: ['example/album'],
+        component: async () => (await import('./Album')).AlbumPage
+    },
+    {
         paths: ['example/pricing'],
         component: async () => (await import('./Pricing')).PricingPage
     },

@@ -5,9 +5,9 @@ description: Bootstrap’s cards provide a flexible and extensible content conta
 group: Components
 ---
 
-import { Card } from 'boot-cell/source/Content/Card';
+import { Card, CardHeader, CardFooter } from 'boot-cell/source/Content/Card';
 import { Button } from 'boot-cell/source/Form/Button';
-import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 
 import { Example } from '../../../source/component/Example';
 
@@ -150,32 +150,33 @@ Add an optional header and/or footer within a card.
 
 <Example>
     <Card
-        header="Featured"
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
     >
+        <CardHeader>Featured</CardHeader>
         <Button>Go somewhere</Button>
     </Card>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Card } from 'boot-cell/source/Content/Card';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Card
-        header="Featured"
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
     >
+        <CardHeader>Featured</CardHeader>
         <Button>Go somewhere</Button>
     </Card>
 );
 ```
 
 <Example>
-    <Card header="Quote">
+    <Card>
+        <CardHeader>Quote</CardHeader>
         <blockquote className="blockquote mb-0">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
@@ -190,10 +191,11 @@ render(
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Card } from 'boot-cell/source/Content/Card';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
 
 render(
-    <Card header="Quote">
+    <Card>
+        <CardHeader>Quote</CardHeader>
         <blockquote className="blockquote mb-0">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
@@ -210,73 +212,69 @@ render(
 <Example>
     <Card
         className="text-center"
-        header="Featured"
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
-        footer="2 days ago"
     >
+        <CardHeader>Featured</CardHeader>
         <Button>Go somewhere</Button>
+        <CardFooter>2 days ago</CardFooter>
     </Card>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Card } from 'boot-cell/source/Content/Card';
+import { Card, CardHeader, CardFooter } from 'boot-cell/source/Content/Card';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Card
         className="text-center"
-        header="Featured"
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
-        footer="2 days ago"
     >
+        <CardHeader>Featured</CardHeader>
         <Button>Go somewhere</Button>
+        <CardFooter>2 days ago</CardFooter>
     </Card>
 );
 ```
 
 ## Navigation
 
-Add some navigation to a card’s header (or block) with BootCell’s [`<Nav />` components][1].
+Add some navigation to a card’s header (or block) with BootCell’s [`<NavLink />` components][1].
 
 <Example>
     <Card
         className="text-center"
-        header={
-            <Nav className="card-header-tabs" itemMode="tabs">
-                <NavLink active>Active</NavLink>
-                <NavLink>Link</NavLink>
-                <NavLink disabled>Disabled</NavLink>
-            </Nav>
-        }
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
     >
+        <CardHeader itemMode="tabs">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
         <Button>Go somewhere</Button>
     </Card>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Card } from 'boot-cell/source/Content/Card';
-import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Card
         className="text-center"
-        header={
-            <Nav className="card-header-tabs" itemMode="tabs">
-                <NavLink active>Active</NavLink>
-                <NavLink>Link</NavLink>
-                <NavLink disabled>Disabled</NavLink>
-            </Nav>
-        }
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
     >
+        <CardHeader itemMode="tabs">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
         <Button>Go somewhere</Button>
     </Card>
 );
@@ -285,39 +283,35 @@ render(
 <Example>
     <Card
         className="text-center"
-        header={
-            <Nav className="card-header-pills" itemMode="pills">
-                <NavLink active>Active</NavLink>
-                <NavLink>Link</NavLink>
-                <NavLink disabled>Disabled</NavLink>
-            </Nav>
-        }
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
     >
+        <CardHeader itemMode="pills">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
         <Button>Go somewhere</Button>
     </Card>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
-import { Card } from 'boot-cell/source/Content/Card';
-import { Nav, NavLink } from 'boot-cell/source/Navigator/Nav';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Card
         className="text-center"
-        header={
-            <Nav className="card-header-pills" itemMode="pills">
-                <NavLink active>Active</NavLink>
-                <NavLink>Link</NavLink>
-                <NavLink disabled>Disabled</NavLink>
-            </Nav>
-        }
         title="Special title treatment"
         text="With supporting text below as a natural lead-in to additional content."
     >
+        <CardHeader itemMode="pills">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
         <Button>Go somewhere</Button>
     </Card>
 );

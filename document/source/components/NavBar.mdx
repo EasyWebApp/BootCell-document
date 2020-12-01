@@ -7,7 +7,7 @@ group: Components
 
 import { Fragment } from 'web-cell';
 import { Image } from 'boot-cell/source/Media/Image';
-import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavBar, BannerNavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
@@ -724,8 +724,36 @@ render(
 );
 ```
 
+### External content
+
+Sometimes you want to use the [`<collapse-box />`][6] to trigger hidden content elsewhere on the page.
+
+<Example>
+    <BannerNavBar className="position-static">
+        <div class="p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </BannerNavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { BannerNavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <BannerNavBar>
+        <div class="p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </BannerNavBar>
+);
+```
+
 [1]: https://getbootstrap.com/docs/4.5/utilities/spacing/
 [2]: https://getbootstrap.com/docs/4.5/utilities/flex/
 [3]: https://getbootstrap.com/docs/4.5/utilities/display/
 [4]: https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
 [5]: https://caniuse.com/#feat=css-sticky
+[6]: components/collapse

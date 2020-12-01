@@ -1,6 +1,5 @@
 import { component, mixin, createCell, Fragment } from 'web-cell';
 import classNames from 'classnames';
-import { ReposListForOrgResponseData } from '@octokit/types';
 
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { Form } from 'boot-cell/source/Form/Form';
@@ -11,11 +10,11 @@ import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
 import { Feature } from './Feature';
 import style from './index.less';
 
-import { github } from '../../../model';
+import { Repository, github } from '../../../model';
 import { headers, banners, features } from './data';
 
 interface CarouselPageState {
-    projects: ReposListForOrgResponseData;
+    projects: Repository[];
 }
 
 @component({
@@ -24,13 +23,13 @@ interface CarouselPageState {
 })
 export class CarouselPage extends mixin<{}, CarouselPageState>() {
     state = {
-        projects: [] as ReposListForOrgResponseData
+        projects: [] as Repository[]
     };
 
     async connectedCallback() {
         super.connectedCallback();
 
-        const { body } = await github.get<ReposListForOrgResponseData>(
+        const { body } = await github.get<Repository[]>(
             'orgs/EasyWebApp/repos'
         );
 
@@ -80,7 +79,7 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                                     style={{ width: '8.75rem' }}
                                     src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
                                 />
-                                <h2 style={{ fontWeight: 400 }}>{name}</h2>
+                                <h2 style={{ fontWeight: '400' }}>{name}</h2>
                                 <p>{description}</p>
                                 <p>
                                     <Button color="secondary" href={html_url}>
