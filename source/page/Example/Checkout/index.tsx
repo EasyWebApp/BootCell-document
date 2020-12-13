@@ -271,7 +271,12 @@ export function CheckoutPage() {
                             </div>
                             <hr className="mb-4" />
 
-                            <Button block size="lg" type="submit">
+                            <Button
+                                type="submit"
+                                block
+                                color="primary"
+                                size="lg"
+                            >
                                 Continue to checkout
                             </Button>
                         </Form>

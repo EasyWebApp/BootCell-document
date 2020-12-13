@@ -101,7 +101,7 @@ export function AlbumPage() {
                     description="Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely."
                 >
                     <p className="mb-0">
-                        <Button className="my-2 mr-2">
+                        <Button className="my-2 mr-2" color="primary">
                             Main call to action
                         </Button>
                         <Button className="my-2" color="secondary">

@@ -26,7 +26,9 @@ export function PricingPage() {
                 <NavLink>Support</NavLink>
                 <NavLink>Pricing</NavLink>
 
-                <Button outline>Sign up</Button>
+                <Button outline color="primary">
+                    Sign up
+                </Button>
             </NavBar>
             <div
                 className="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
@@ -62,7 +64,12 @@ export function PricingPage() {
                                     <li>{item}</li>
                                 ))}
                             </ul>
-                            <Button outline={!index} block size="lg">
+                            <Button
+                                block
+                                outline={!index}
+                                color="primary"
+                                size="lg"
+                            >
                                 {action}
                             </Button>
                         </Card>

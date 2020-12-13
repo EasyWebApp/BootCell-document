@@ -38,7 +38,7 @@ such as the ability to move through individual `<DropMenuItem />` components usi
 ### Single button
 
 <Example>
-    <DropMenu caption="Dropdown button">
+    <DropMenu buttonColor="primary" caption="Dropdown button">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -50,7 +50,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu caption="Dropdown button">
+    <DropMenu buttonColor="primary" caption="Dropdown button">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -165,7 +165,7 @@ render([
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
 
 <Example>
-    <DropMenu buttonSize="lg" caption="Large button">
+    <DropMenu buttonColor="primary" buttonSize="lg" caption="Large button">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -173,6 +173,7 @@ Button dropdowns work with buttons of all sizes, including default and split dro
         <DropMenuItem>Separated link</DropMenuItem>
     </DropMenu>
     <DropMenu
+        buttonColor="primary"
         buttonSize="sm"
         caption="Small button"
         href="https://web-cell.dev/BootCell/"
@@ -191,7 +192,7 @@ import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
     <>
-        <DropMenu buttonSize="lg" caption="Large button">
+        <DropMenu buttonColor="primary" buttonSize="lg" caption="Large button">
             <DropMenuItem>Action</DropMenuItem>
             <DropMenuItem>Another action</DropMenuItem>
             <DropMenuItem>Something else here</DropMenuItem>
@@ -199,6 +200,7 @@ render(
             <DropMenuItem>Separated link</DropMenuItem>
         </DropMenu>
         <DropMenu
+            buttonColor="primary"
             buttonSize="sm"
             caption="Small button"
             href="https://web-cell.dev/BootCell/"
@@ -220,7 +222,7 @@ render(
 Trigger drop menus above elements by adding `direction="up"` to the component.
 
 <Example>
-    <DropMenu direction="up" caption="Dropup">
+    <DropMenu direction="up" buttonColor="primary" caption="Dropup">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -234,7 +236,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu direction="up" caption="Dropup">
+    <DropMenu direction="up" buttonColor="primary" caption="Dropup">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -249,7 +251,7 @@ render(
 Trigger drop menus at the right of the elements by adding `direction="right"` to the component.
 
 <Example>
-    <DropMenu direction="right" caption="Dropright">
+    <DropMenu direction="right" buttonColor="primary" caption="Dropright">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -263,7 +265,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu direction="right" caption="Dropright">
+    <DropMenu direction="right" buttonColor="primary" caption="Dropright">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -278,7 +280,7 @@ render(
 Trigger drop menus at the left of the elements by adding `direction="left"` to the component.
 
 <Example>
-    <DropMenu direction="left" caption="Dropleft">
+    <DropMenu direction="left" buttonColor="primary" caption="Dropleft">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -292,7 +294,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu direction="left" caption="Dropleft">
+    <DropMenu direction="left" buttonColor="primary" caption="Dropleft">
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -309,7 +311,7 @@ render(
 Add `active` property to items in the dropdown to **style them as active**.
 
 <Example>
-    <DropMenu caption="Dropdown">
+    <DropMenu buttonColor="primary" caption="Dropdown">
         <DropMenuItem href="#">Regular link</DropMenuItem>
         <DropMenuItem href="#" active>
             Active link
@@ -323,7 +325,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu caption="Dropdown">
+    <DropMenu buttonColor="primary" caption="Dropdown">
         <DropMenuItem href="#">Regular link</DropMenuItem>
         <DropMenuItem href="#" active>
             Active link
@@ -338,7 +340,7 @@ render(
 Add `disabled` property to items in the dropdown to **style them as disabled**.
 
 <Example>
-    <DropMenu caption="Dropdown">
+    <DropMenu buttonColor="primary" caption="Dropdown">
         <DropMenuItem href="#">Regular link</DropMenuItem>
         <DropMenuItem href="#" disabled>
             Disabled link
@@ -352,7 +354,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu caption="Dropdown">
+    <DropMenu buttonColor="primary" caption="Dropdown">
         <DropMenuItem href="#">Regular link</DropMenuItem>
         <DropMenuItem href="#" disabled>
             Disabled link
@@ -368,7 +370,11 @@ By default, a drop menu is automatically positioned 100% from the top and along 
 Add `alignType="right"` to a `<DropMenu />` to right align the dropdown menu.
 
 <Example>
-    <DropMenu alignType="right" caption="Right-aligned menu">
+    <DropMenu
+        alignType="right"
+        buttonColor="primary"
+        caption="Right-aligned menu"
+    >
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -380,7 +386,11 @@ import { render, createCell } from 'web-cell';
 import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu alignType="right" caption="Right-aligned menu">
+    <DropMenu
+        alignType="right"
+        buttonColor="primary"
+        caption="Right-aligned menu"
+    >
         <DropMenuItem>Action</DropMenuItem>
         <DropMenuItem>Another action</DropMenuItem>
         <DropMenuItem>Something else here</DropMenuItem>
@@ -396,6 +406,7 @@ To align right the drop menu with the given breakpoint or larger, add `alignType
     <DropMenu
         alignType="right"
         alignSize="lg"
+        buttonColor="primary"
         caption="Left-aligned but right aligned when large screen"
     >
         <DropMenuItem>Action</DropMenuItem>
@@ -412,6 +423,7 @@ render(
     <DropMenu
         alignType="right"
         alignSize="lg"
+        buttonColor="primary"
         caption="Left-aligned but right aligned when large screen"
     >
         <DropMenuItem>Action</DropMenuItem>
@@ -427,6 +439,7 @@ To align left the drop menu with the given breakpoint or larger, add `alignType=
     <DropMenu
         alignType="left"
         alignSize="lg"
+        buttonColor="primary"
         caption="Left-aligned but left aligned when large screen"
     >
         <DropMenuItem>Action</DropMenuItem>
@@ -443,6 +456,7 @@ render(
     <DropMenu
         alignType="left"
         alignSize="lg"
+        buttonColor="primary"
         caption="Left-aligned but left aligned when large screen"
     >
         <DropMenuItem>Action</DropMenuItem>
@@ -460,7 +474,7 @@ Place any freeform text within a dropdown menu with text and use [spacing utilit
 Note that you’ll likely need additional sizing styles to constrain the menu width.
 
 <Example>
-    <DropMenu caption="Dropdown">
+    <DropMenu buttonColor="primary" caption="Dropdown">
         <p className="text-muted mx-4 my-3">
             Some example text that's free-flowing within the dropdown menu.
         </p>
@@ -473,7 +487,7 @@ import { render, createCell } from 'web-cell';
 import { DropMenu } from 'boot-cell/source/Navigator/DropMenu';
 
 render(
-    <DropMenu caption="Dropdown">
+    <DropMenu buttonColor="primary" caption="Dropdown">
         <p className="text-muted mx-4 my-3">
             Some example text that's free-flowing within the dropdown menu.
         </p>
@@ -488,7 +502,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu,
 and use [margin or padding utilities][4] to give it the negative space you require.
 
 <Example>
-    <DropMenu caption="Dropdown form">
+    <DropMenu buttonColor="primary" caption="Dropdown form">
         <form className="px-4 py-3">
             <FormField
                 type="email"
@@ -519,7 +533,7 @@ import { ToggleField } from 'boot-cell/source/Form/ToggleField';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <DropMenu caption="Dropdown form">
+    <DropMenu buttonColor="primary" caption="Dropdown form">
         <form className="px-4 py-3">
             <FormField
                 type="email"

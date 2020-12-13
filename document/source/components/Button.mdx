@@ -73,11 +73,19 @@ When using `<Button href="" />` that are used to trigger in-page functionality (
 rather than linking to new pages or sections within the current page.
 
 <Example>
-    <Button href="https://web-cell.dev/">Link</Button>
-    <Button type="submit">Button</Button>
-    <Button>Input</Button>
-    <Button type="submit">Submit</Button>
-    <Button type="reset">Reset</Button>
+    <Button color="primary" href="https://web-cell.dev/">
+        Link
+    </Button>
+    <Button color="primary" type="submit">
+        Button
+    </Button>
+    <Button color="primary">Input</Button>
+    <Button color="primary" type="submit">
+        Submit
+    </Button>
+    <Button color="primary" type="reset">
+        Reset
+    </Button>
 </Example>
 
 ```TSX
@@ -86,11 +94,19 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button href="https://web-cell.dev/">Link</Button>
-        <Button type="submit">Button</Button>
-        <Button>Input</Button>
-        <Button type="submit">Submit</Button>
-        <Button type="reset">Reset</Button>
+        <Button color="primary" href="https://web-cell.dev/">
+            Link
+        </Button>
+        <Button color="primary" type="submit">
+            Button
+        </Button>
+        <Button color="primary">Input</Button>
+        <Button color="primary" type="submit">
+            Submit
+        </Button>
+        <Button color="primary" type="reset">
+            Reset
+        </Button>
     </>
 );
 ```
@@ -144,7 +160,9 @@ render([
 Fancy larger or smaller buttons? Add `size="lg"` or `size="sm"` for additional sizes.
 
 <Example>
-    <Button size="lg">Large button</Button>
+    <Button color="primary" size="lg">
+        Large button
+    </Button>
     <Button color="secondary" size="lg">
         Large button
     </Button>
@@ -156,7 +174,9 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button size="lg">Large button</Button>
+        <Button color="primary" size="lg">
+            Large button
+        </Button>
         <Button color="secondary" size="lg">
             Large button
         </Button>
@@ -165,7 +185,9 @@ render(
 ```
 
 <Example>
-    <Button size="sm">Small button</Button>
+    <Button color="primary" size="sm">
+        Small button
+    </Button>
     <Button color="secondary" size="sm">
         Small button
     </Button>
@@ -177,7 +199,9 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button size="sm">Small button</Button>
+        <Button color="primary" size="sm">
+            Small button
+        </Button>
         <Button color="secondary" size="sm">
             Small button
         </Button>
@@ -188,7 +212,7 @@ render(
 Create block level buttons — those that span the full width of a parent—by adding `block` property.
 
 <Example>
-    <Button size="lg" block>
+    <Button color="primary" size="lg" block>
         Block level button
     </Button>
     <Button color="secondary" size="lg" block>
@@ -202,7 +226,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button size="lg" block>
+        <Button color="primary" size="lg" block>
             Block level button
         </Button>
         <Button color="secondary" size="lg" block>
@@ -220,7 +244,13 @@ However, you can still force the same active appearance with `.active` (and incl
 should you need to replicate the state programmatically.
 
 <Example>
-    <Button size="lg" className="active" aria-pressed="true" href="#">
+    <Button
+        color="primary"
+        size="lg"
+        className="active"
+        aria-pressed="true"
+        href="#"
+    >
         Primary link
     </Button>
     <Button
@@ -240,7 +270,13 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button size="lg" className="active" aria-pressed="true" href="#">
+        <Button
+            color="primary"
+            size="lg"
+            className="active"
+            aria-pressed="true"
+            href="#"
+        >
             Primary link
         </Button>
         <Button
@@ -261,7 +297,7 @@ render(
 Make buttons look inactive by adding the `disabled` boolean property to any `<Button />` component.
 
 <Example>
-    <Button size="lg" disabled>
+    <Button color="primary" size="lg" disabled>
         Primary button
     </Button>
     <Button color="secondary" size="lg" disabled>
@@ -275,7 +311,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button size="lg" disabled>
+        <Button color="primary" size="lg" disabled>
             Primary button
         </Button>
         <Button color="secondary" size="lg" disabled>
@@ -286,7 +322,7 @@ render(
 ```
 
 <Example>
-    <Button size="lg" href="https://web-cell.dev/" disabled>
+    <Button color="primary" size="lg" href="https://web-cell.dev/" disabled>
         Primary button
     </Button>
     <Button color="secondary" size="lg" href="https://web-cell.dev/" disabled>
@@ -300,7 +336,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <>
-        <Button size="lg" href="https://web-cell.dev/" disabled>
+        <Button color="primary" size="lg" href="https://web-cell.dev/" disabled>
             Primary button
         </Button>
         <Button color="secondary" size="lg" href="https://web-cell.dev/" disabled>
@@ -372,7 +408,7 @@ render(
 `<IconButton />` component is built on [`<Icon />`][1].
 
 <Example>
-    <IconButton name="bootstrap" />
+    <IconButton name="bootstrap" color="primary" />
 </Example>
 
 ```TSX
@@ -380,7 +416,7 @@ import { render, createCell } from 'web-cell';
 import { IconButton } from 'boot-cell/source/Form/Button';
 
 render(
-    <IconButton name="bootstrap" />
+    <IconButton name="bootstrap" color="primary" />
 );
 ```
 

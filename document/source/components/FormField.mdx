@@ -37,7 +37,9 @@ Keep reading for documentation on required properties, form layout, and more.
         <FormField>
             <ToggleField type="checkbox">Check me output</ToggleField>
         </FormField>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" color="primary">
+            Submit
+        </Button>
     </form>
 </Example>
 
@@ -57,7 +59,9 @@ render(
         <FormField>
             <ToggleField type="checkbox">Check me output</ToggleField>
         </FormField>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" color="primary">
+            Submit
+        </Button>
     </form>
 );
 ```
@@ -200,7 +204,7 @@ render(
             className="mx-sm-3 mb-2"
             placeholder="Password"
         />
-        <Button type="submit" className="mb-2">
+        <Button type="submit" color="primary" className="mb-2">
             Confirm identity
         </Button>
     </Form>
@@ -220,7 +224,7 @@ render(
             className="mx-sm-3 mb-2"
             placeholder="Password"
         />
-        <Button type="submit" className="mb-2">
+        <Button type="submit" color="primary" className="mb-2">
             Confirm identity
         </Button>
     </Form>
@@ -262,7 +266,9 @@ For example, we’ve removed the `padding-top` on our stacked radio inputs label
         <FormField label="Checkbox" labelColumn={2}>
             <ToggleField type="checkbox">Example checkbox</ToggleField>
         </FormField>
-        <Button type="submit">Sign in</Button>
+        <Button type="submit" color="primary">
+            Sign in
+        </Button>
     </form>
 </Example>
 
@@ -290,7 +296,9 @@ render(
         <FormField label="Checkbox" labelColumn={2}>
             <ToggleField type="checkbox">Example checkbox</ToggleField>
         </FormField>
-        <Button type="submit">Sign in</Button>
+        <Button type="submit" color="primary">
+            Sign in
+        </Button>
     </form>
 );
 ```
@@ -360,7 +368,9 @@ You may need to manually address the width and alignment of individual form cont
         <ToggleField type="checkbox" className="mr-sm-2">
             Remember my preference
         </ToggleField>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" color="primary">
+            Submit
+        </Button>
     </Form>
 </Example>
 
@@ -382,7 +392,9 @@ render(
         <ToggleField type="checkbox" className="mr-sm-2">
             Remember my preference
         </ToggleField>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" color="primary">
+            Submit
+        </Button>
     </Form>
 );
 ```
@@ -458,7 +470,9 @@ Add the `disabled` property to a `<fieldset />` to disable all the controls with
             <FormField>
                 <ToggleField type="checkbox">Can't check this</ToggleField>
             </FormField>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" color="primary">
+                Submit
+            </Button>
         </fieldset>
     </form>
 </Example>
@@ -479,7 +493,9 @@ render(
             <FormField>
                 <ToggleField type="checkbox">Can't check this</ToggleField>
             </FormField>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" color="primary">
+                Submit
+            </Button>
         </fieldset>
     </form>
 );
@@ -591,7 +607,9 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
         >
             Agree to terms and conditions
         </ToggleField>
-        <Button type="submit">Submit form</Button>
+        <Button type="submit" color="primary">
+            Submit form
+        </Button>
     </Form>
 </Example>
 
@@ -655,7 +673,9 @@ render(
             Agree to terms and conditions
         </ToggleField>
 
-        <Button type="submit">Submit form</Button>
+        <Button type="submit" color="primary">
+            Submit form
+        </Button>
     </Form>
 );
 ```
@@ -702,8 +722,12 @@ While these feedback styles cannot be styled with CSS, you can still customize t
         <ToggleField className="mb-3" type="checkbox" required>
             Agree to terms and conditions
         </ToggleField>
-        <Button type="submit">Submit form</Button>
+
+        <Button type="submit" color="primary">
+            Submit form
+        </Button>
     </form>
+
 </Example>
 
 ```TSX
@@ -747,7 +771,9 @@ render(
             Agree to terms and conditions
         </ToggleField>
 
-        <Button type="submit">Submit form</Button>
+        <Button type="submit" color="primary">
+            Submit form
+        </Button>
     </form>
 );
 ```
@@ -987,7 +1013,9 @@ to display validation feedback in a styled tooltip.
                 invalidMessage="Please provide a valid zip."
             />
         </div>
-        <Button type="submit">Submit form</Button>
+        <Button type="submit" color="primary">
+            Submit form
+        </Button>
     </Form>
 </Example>
 
@@ -1046,7 +1074,9 @@ render(
                 invalidMessage="Please provide a valid zip."
             />
         </div>
-        <Button type="submit">Submit form</Button>
+        <Button type="submit" color="primary">
+            Submit form
+        </Button>
     </Form>
 );
 ```
@@ -1444,15 +1474,48 @@ Lastly, we declare a `width` and `height` on the `<input>` for proper spacing fo
 `labelFloat` mode is imported from [Floating labels][10] of Bootstrap.
 
 <Example>
-    <FormField labelFloat placeholder="Account" />
+    <FormField labelFloat placeholder="Floating label" />
+    <FormField
+        type="datetime-local"
+        required
+        labelFloat
+        label="Date and time"
+    />
+    <FormField is="select" required labelFloat label="Select field box">
+        <option value="" />
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </FormField>
+    <FormField is="textarea" labelFloat placeholder="1 row textarea" rows={1} />
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
+import { render, createCell, Fragment } from 'web-cell';
 import { FormField } from 'boot-cell/source/Form/FormField';
 
 render(
-    <FormField labelFloat placeholder="Account" />
+    <>
+        <FormField labelFloat placeholder="Floating label" />
+        <FormField
+            type="datetime-local"
+            required
+            labelFloat
+            label="Date and time"
+        />
+        <FormField is="select" required labelFloat label="Select field box">
+            <option value="" />
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </FormField>
+        <FormField
+            is="textarea"
+            labelFloat
+            placeholder="1 row textarea"
+            rows={1}
+        />
+    </>
 );
 ```
 

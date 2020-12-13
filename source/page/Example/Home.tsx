@@ -15,6 +15,7 @@ export function HomePage() {
             >
                 <Button
                     outline
+                    color="primary"
                     size="lg"
                     target="_blank"
                     href="https://github.com/EasyWebApp/BootCell-document/tree/master/source/page/Example"

@@ -27,6 +27,7 @@ In addition, `<collapse-box />` uses [`ResizeObserver`][1] to detect **Content r
 
 <Example>
     <Button
+        color="primary"
         onClick={({ currentTarget }) => {
             const box = currentTarget.nextElementSibling;
             box.open = !box.open;
@@ -51,6 +52,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <>
         <Button
+            color="primary"
             onClick={({ currentTarget }) => {
                 const box = currentTarget.nextElementSibling;
                 box.open = !box.open;

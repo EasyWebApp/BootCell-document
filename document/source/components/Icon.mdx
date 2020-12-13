@@ -9,10 +9,13 @@ import { Icon } from 'boot-cell/source/Reminder/Icon';
 
 import { Example } from '../../../source/component/Example';
 
-This component is built on [SVG sprite of BootStrap Icon v1][1], so make sure to install it before bundling:
+This component is built on [Web font of BootStrap Icon 1.2+][1], so make sure to include it before bundling:
 
-```Shell
-npm install bootstrap-icons
+```HTML
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.2.1/font/bootstrap-icons.css"
+/>
 ```
 
 ## Basic usage
@@ -49,4 +52,4 @@ render(
 );
 ```
 
-[1]: https://icons.getbootstrap.com/#sprite
+[1]: https://icons.getbootstrap.com/#icon-font

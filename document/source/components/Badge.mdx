@@ -43,7 +43,7 @@ render([1, 2, 3, 4, 5, 6].map(level => {
 Badges can be used as part of links or buttons to provide a counter.
 
 <Example>
-    <Button>
+    <Button color="primary">
         Notifications <Badge color="light">4</Badge>
     </Button>
 </Example>
@@ -54,7 +54,7 @@ import { Badge } from 'boot-cell/source/Reminder/Badge';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <Button>
+    <Button color="primary">
         Notifications <Badge color="light">4</Badge>
     </Button>
 );
@@ -70,7 +70,7 @@ Unless the context is clear (as with the “Notifications” example, where it i
 the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.
 
 <Example>
-    <Button>
+    <Button color="primary">
         Profile <Badge color="light">9</badge>
         <span className="sr-only">unread messages</span>
     </Button>
@@ -82,7 +82,7 @@ import { Badge } from 'boot-cell/source/Reminder/Badge';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <Button>
+    <Button color="primary">
         Profile <Badge color="light">9</badge>
         <span className="sr-only">unread messages</span>
     </Button>

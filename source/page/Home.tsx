@@ -49,7 +49,13 @@ export function HomePage({
                             FontAwesome v5
                         </a>
                     </p>
-                    <Button outline size="lg" title={title} href={path}>
+                    <Button
+                        outline
+                        color="primary"
+                        size="lg"
+                        title={title}
+                        href={path}
+                    >
                         Get started
                     </Button>
                 </Jumbotron>

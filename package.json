@@ -4,36 +4,36 @@
     "description": "Re-implemented Official Document site of BootStrap & FontAwesome based on WebCell, BootCell & MarkCell",
     "dependencies": {
         "@nuintun/qrcode": "^3.0.1",
-        "boot-cell": "^1.5.1",
-        "bootstrap-icons": "^1.1.0",
-        "cell-router": "^2.0.1",
+        "boot-cell": "^1.6.1",
+        "cell-router": "^2.0.2",
         "classnames": "^2.2.6",
-        "github-web-widget": "^3.0.0-beta.5",
+        "github-web-widget": "^3.0.0-beta.7",
         "iterable-observer": "^1.0.0-beta.5",
         "koajax": "^0.6.4",
         "lodash.groupby": "^4.6.0",
         "markdown-ime": "^1.0.3",
-        "marked": "^1.2.5",
+        "marked": "^1.2.6",
         "mobx": "^5.15.7",
         "mobx-web-cell": "^0.3.2",
         "turndown": "^7.0.0",
         "turndown-plugin-gfm": "^1.0.2",
         "web-cell": "^2.2.0",
-        "web-utility": "^2.0.0"
+        "web-utility": "^2.1.0"
     },
     "devDependencies": {
         "@octokit/openapi-types": "^1.2.2",
         "@types/classnames": "^2.2.11",
         "@types/lodash.groupby": "^4.6.6",
-        "husky": "^4.3.0",
-        "less": "^3.12.2",
-        "lint-staged": "^10.5.2",
+        "autoprefixer": "^9.8.6",
+        "husky": "^4.3.5",
+        "less": "^3.13.0",
+        "lint-staged": "^10.5.3",
         "mark-cell": "^0.4.5",
         "parcel": "^1.12.4",
         "postcss-modules": "^3.2.2",
         "prettier": "^2.2.1",
-        "typescript": "^4.1.2",
-        "workbox-cli": "^4.3.1"
+        "typescript": "^4.1.3",
+        "workbox-cli": "^6.0.2"
     },
     "prettier": {
         "singleQuote": true,
@@ -47,14 +47,19 @@
         ]
     },
     "postcss": {
-        "modules": true
+        "modules": true,
+        "plugins": {
+            "autoprefixer": {
+                "grid": true
+            }
+        }
     },
     "scripts": {
         "test": "lint-staged",
-        "pack-mdx": "rm -rf document/dist/  &&  mark-cell document/source -p web-cell -f createCell",
+        "pack-mdx": "mark-cell document/source -p web-cell -f createCell",
         "pack-tsx": "parcel build source/index.html --public-url .",
-        "build": "npm run pack-mdx  &&  rm -rf dist/  &&  npm run pack-tsx  &&  workbox generateSW",
-        "start": "npm run pack-mdx  &&  workbox generateSW  &&  parcel source/index.html --open"
+        "build": "rm -rf dist/ document/dist/  &&  npm run pack-mdx  &&  npm run pack-tsx  &&  workbox generateSW",
+        "start": "npm run pack-mdx  &&  parcel source/index.html --open"
     },
     "husky": {
         "hooks": {

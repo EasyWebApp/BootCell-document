@@ -61,6 +61,7 @@ Toggle a working modal demo by clicking the button below.
 
 <Example>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="Modal title" confirmText="Save changes">
@@ -80,6 +81,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="Modal title" confirmText="Save changes">
@@ -100,6 +102,7 @@ Try the demo below to see what we mean.
 
 <Example>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="Modal title" confirmText="Save changes">
@@ -119,6 +122,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="Modal title" confirmText="Save changes">
@@ -137,6 +141,7 @@ by adding `scrollable: true` to `openDialog()`.
 
 <Example>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal
@@ -160,6 +165,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 
 render(
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal
@@ -183,6 +189,7 @@ Add `centered: true` to `openDialog()` to vertically center the modal.
 
 <Example>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal centered title="Modal title" confirmText="Save changes">
@@ -194,6 +201,7 @@ Add `centered: true` to `openDialog()` to vertically center the modal.
         Vertically centered modal
     </Button>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal
@@ -219,6 +227,7 @@ import { Button } from 'boot-cell/source/Form/Button';
 render(
     <>
         <Button
+            color="primary"
             onClick={() =>
                 openDialog(
                     <Modal centered title="Modal title" confirmText="Save changes">
@@ -230,6 +239,7 @@ render(
             Vertically centered modal
         </Button>
         <Button
+            color="primary"
             onClick={() =>
                 openDialog(
                     <Modal
@@ -256,6 +266,7 @@ any tooltips and popovers within are also automatically dismissed.
 
 <Example>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="Modal title" confirmText="Save changes">
@@ -300,6 +311,7 @@ import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
 
 render(
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="Modal title" confirmText="Save changes">
@@ -340,6 +352,7 @@ render(
 
 <Example>
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="New message to @mdo" confirmText="Send message">
@@ -361,6 +374,7 @@ import { FormField } from 'boot-cell/source/Form/FormField';
 
 render(
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title="New message to @mdo" confirmText="Send message">
@@ -415,6 +429,7 @@ Our default modal without `size` parameter constitutes the "medium" size modal.
         ['Small', 'sm']
     ].map(([level, size]) => (
         <Button
+            color="primary"
             onClick={() =>
                 openDialog(
                     <Modal title={level + ' modal'} size={size}>
@@ -439,6 +454,7 @@ render([
     ['Small', 'sm']
 ].map(([level, size]) => (
     <Button
+        color="primary"
         onClick={() =>
             openDialog(
                 <Modal title={level + ' modal'} size={size}>
