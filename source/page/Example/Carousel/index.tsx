@@ -1,4 +1,5 @@
 import { component, mixin, createCell, Fragment } from 'web-cell';
+import { observer } from 'mobx-web-cell';
 import classNames from 'classnames';
 
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
@@ -6,43 +7,46 @@ import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
 import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
+import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
 
 import { Feature } from './Feature';
 import style from './index.less';
 
-import { Repository, github } from '../../../model';
 import { headers, banners, features } from './data';
+import repository, { Repository } from '../../../model/Repository';
 
-interface CarouselPageState {
-    projects: Repository[];
-}
-
+@observer
 @component({
     tagName: 'carousel-page',
     renderTarget: 'children'
 })
-export class CarouselPage extends mixin<{}, CarouselPageState>() {
-    state = {
-        projects: [] as Repository[]
-    };
+export class CarouselPage extends mixin() {
+    connectedCallback() {
+        repository.getList();
 
-    async connectedCallback() {
         super.connectedCallback();
-
-        const { body } = await github.get<Repository[]>(
-            'orgs/EasyWebApp/repos'
-        );
-
-        await this.setState({
-            projects: body
-                .sort(({ updated_at: A }, { updated_at: B }) =>
-                    B.localeCompare(A)
-                )
-                .slice(0, 3)
-        });
     }
 
-    render(_, { projects }: CarouselPageState) {
+    renderItem = ({ name, description, html_url }: Repository) => (
+        <div className="col-lg-4 mb-4">
+            <img
+                className="rounded-circle"
+                style={{ width: '8.75rem' }}
+                src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            />
+            <h2 style={{ fontWeight: '400' }}>{name}</h2>
+            <p>{description}</p>
+            <p>
+                <Button color="secondary" href={html_url}>
+                    View details »
+                </Button>
+            </p>
+        </div>
+    );
+
+    render() {
+        const { loading, list } = repository;
+
         return (
             <>
                 <NavBar brand="Carousel" menu={headers}>
@@ -71,24 +75,9 @@ export class CarouselPage extends mixin<{}, CarouselPageState>() {
                 </CarouselView>
 
                 <div className={classNames('container', style.marketing)}>
-                    <div className="row text-center">
-                        {projects.map(({ name, description, html_url }) => (
-                            <div className="col-lg-4 mb-4">
-                                <img
-                                    className="rounded-circle"
-                                    style={{ width: '8.75rem' }}
-                                    src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
-                                />
-                                <h2 style={{ fontWeight: '400' }}>{name}</h2>
-                                <p>{description}</p>
-                                <p>
-                                    <Button color="secondary" href={html_url}>
-                                        View details »
-                                    </Button>
-                                </p>
-                            </div>
-                        ))}
-                    </div>
+                    <SpinnerBox className="row text-center" cover={loading}>
+                        {list.slice(0, 3).map(this.renderItem)}
+                    </SpinnerBox>
                     <hr className={style['featurette-divider']} />
 
                     {features.map((item, index) => (

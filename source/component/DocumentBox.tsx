@@ -71,7 +71,7 @@ export class DocumentBox extends mixin<DocumentBoxProps>() {
                 <main className="col-12 col-sm-9 col-md-10 p-4 border-left">
                     <h1 className="d-flex justify-content-between align-items-center">
                         {header}
-                        <Button size="sm" href={API}>
+                        <Button color="primary" size="sm" href={API}>
                             API
                         </Button>
                     </h1>

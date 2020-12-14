@@ -24,6 +24,10 @@ export default [
         component: async () => (await import('./Carousel')).CarouselPage
     },
     {
+        paths: ['example/jumbotron'],
+        component: async () => (await import('./Jumbotron')).JumbotronPage
+    },
+    {
         paths: ['example/offcanvas'],
         component: async () => (await import('./Offcanvas')).OffcanvasPage
     }
