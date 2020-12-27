@@ -1,0 +1,74 @@
+---
+layout: docs
+title: HTML editor
+description:
+group: Components
+---
+
+import { HTMLEditor } from 'boot-cell/source/Form/HTMLEditor';
+
+import { Example } from '../../../source/component/Example';
+
+This component is built on the top of [Quill][1], these dependencies below should be installed:
+
+```Shell
+npm install quill quill-image-uploader
+```
+
+## Bubble theme
+
+<Example>
+    <HTMLEditor>WebCell</HTMLEditor>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { HTMLEditor } from 'boot-cell/source/Form/HTMLEditor';
+
+render(
+    <HTMLEditor>WebCell</HTMLEditor>
+);
+```
+
+## Snow theme
+
+<Example>
+    <HTMLEditor
+        theme="snow"
+        upload={() =>
+            new Promise(resolve =>
+                setTimeout(
+                    () =>
+                        resolve('https://web-cell.dev/WebCell-1.fb612fdb.png'),
+                    1000
+                )
+            )
+        }
+    >
+        WebCell
+    </HTMLEditor>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { HTMLEditor } from 'boot-cell/source/Form/HTMLEditor';
+
+render(
+    <HTMLEditor
+        theme="snow"
+        upload={() =>
+            new Promise(resolve =>
+                setTimeout(
+                    () =>
+                        resolve('https://web-cell.dev/WebCell-1.fb612fdb.png'),
+                    1000
+                )
+            )
+        }
+    >
+        WebCell
+    </HTMLEditor>
+);
+```
+
+[1]: http://quilljs.com/

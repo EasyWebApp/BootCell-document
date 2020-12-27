@@ -20,7 +20,10 @@ Collapsing an element will animate the `height` from its current value to `0`.
 In addition, `<collapse-box />` uses [`ResizeObserver`][1] to detect **Content resizing**, so a polyfill may be required:
 
 ```HTML
-<script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=ResizeObserver"></script>
+<script
+    crossorigin
+    src="https://polyfill.app/api/polyfill?features=resize-observer"
+></script>
 ```
 
 ## Example

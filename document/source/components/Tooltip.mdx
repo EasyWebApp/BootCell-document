@@ -39,6 +39,7 @@ And with custom HTML added:
 
 <Example>
     <TooltipBox
+        position="left"
         text={
             <>
                 <em>Tooltip</em> <u>with</u> <b>HTML</b>
@@ -55,11 +56,14 @@ import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
 import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <TooltipBox text={
-        <>
-            <em>Tooltip</em> <u>with</u> <b>HTML</b>
-        </>
-    }>
+    <TooltipBox
+        position="left"
+        text={
+            <>
+                <em>Tooltip</em> <u>with</u> <b>HTML</b>
+            </>
+        }
+    >
         <Button color="secondary">Tooltip on left</Button>
     </TooltipBox>
 );

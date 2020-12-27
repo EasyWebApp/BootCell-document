@@ -30,7 +30,10 @@ Here’s what you need to know before getting started with the navbar:
 In addition, `<NavBar />` uses [`ResizeObserver`][4] to detect **Viewport resizing**, so a polyfill may be required:
 
 ```HTML
-<script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=ResizeObserver"></script>
+<script
+    crossorigin
+    src="https://polyfill.app/api/polyfill?features=resize-observer"
+></script>
 ```
 
 Read on for an example and list of supported sub-components.

@@ -6,34 +6,59 @@ group: Components
 ---
 
 import { MarkdownEditor } from 'boot-cell/source/Form/MarkdownEditor';
+import { FileUploader } from 'boot-cell/source/Form/FileUploader';
+import { Button } from 'boot-cell/source/Form/Button';
 
 import { Example } from '../../../source/component/Example';
 
-This component is built on the top of [MarkdownIME][1], these dependencies below should be installed:
+This component is built on the top of [MarkdownIME][1] & [GitHub Markdown CSS][2],
+these dependencies below should be installed:
 
 ```Shell
 npm install markdown-ime marked turndown turndown-plugin-gfm
 ```
 
-and a [CSS library][2] is needed, too:
-
-```HTML
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css"
-/>
-```
+You can **paste** or **drop** images into the editor, and **upload** them on `<form />` submitting.
 
 <Example>
-    <MarkdownEditor value="# WebCell" />
+    <form onSubmit={event => event.preventDefault()}>
+        <FileUploader
+            transport={() => ({
+                path: Promise.resolve(
+                    'https://web-cell.dev/WebCell-1.fb612fdb.png'
+                )
+            })}
+        >
+            <MarkdownEditor value="WebCell" />
+        </FileUploader>
+        <Button type="submit" color="success" className="my-3">
+            Submit
+        </Button>
+    </form>
 </Example>
 
 ```TSX
 import { render, createCell } from 'web-cell';
 import { MarkdownEditor } from 'boot-cell/source/Form/MarkdownEditor';
+import { FileUploader } from 'boot-cell/source/Form/FileUploader';
+import { Button } from 'boot-cell/source/Form/Button';
 
 render(
-    <MarkdownEditor value="# WebCell" />
+    <form onSubmit={event => event.preventDefault()}>
+        <FileUploader
+            transport={() => ({
+                path: Promise.resolve(
+                    'https://web-cell.dev/WebCell-1.fb612fdb.png'
+                )
+            })}
+        >
+            <MarkdownEditor value="WebCell" />
+        </FileUploader>
+
+        <Button type="submit" color="success" className="my-3">
+            Submit
+        </Button>
+    </form>
 );
 ```
 
