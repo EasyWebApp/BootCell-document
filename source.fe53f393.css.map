@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.less"],"names":[],"mappings":"AAAA,WAEQ,6BAAA,CACA,kBAHR,OAMQ,YANR,SASQ","file":"source.fe53f393.css","sourceRoot":"../source","sourcesContent":[":global {\n    blockquote {\n        border-left: 3px solid lightgray;\n        padding-left: 1rem;\n    }\n    .vh-50 {\n        height: 50vh;\n    }\n    .right-0 {\n        right: 0;\n    }\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["page/Example/Checkout/page/Example/Checkout/index.less"],"names":[],"mappings":"AAAA,uBAGY,gBAHZ,0BAMY","file":"Checkout.60180ca9.css","sourceRoot":"../source","sourcesContent":[".box {\n    :global {\n        .container {\n            max-width: 960px;\n        }\n        .lh-condensed {\n            line-height: 1.25;\n        }\n    }\n}\n"]}
