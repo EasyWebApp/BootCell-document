@@ -18,6 +18,7 @@ import style from './NavArticle.less';
 
 interface DocumentBoxProps extends WebCellProps {
     menu: Record<string, HTMLHyperLinkProps[]>;
+    path: string;
     header: string;
     description: string;
 }
@@ -33,6 +34,10 @@ export class DocumentBox extends mixin<DocumentBoxProps>() {
 
     @attribute
     @watch
+    path = '';
+
+    @attribute
+    @watch
     header = '';
 
     @attribute
@@ -45,11 +50,10 @@ export class DocumentBox extends mixin<DocumentBoxProps>() {
         super.connectedCallback();
     }
 
-    render({ header, menu, description, defaultSlot }: DocumentBoxProps) {
+    render({ path, menu, header, description, defaultSlot }: DocumentBoxProps) {
+        const [kind, name] = path.split('/');
         const { deviceType } = meta,
-            API = `https://web-cell.dev/BootCell/interfaces/${header
-                .replace(' ', '')
-                .toLowerCase()}props.html`;
+            API = `https://web-cell.dev/BootCell/interfaces/${kind}_${name}.${name}props.html`;
 
         return (
             <>

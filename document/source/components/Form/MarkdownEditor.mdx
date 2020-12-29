@@ -1,0 +1,76 @@
+---
+layout: docs
+title: Markdown editor
+description:
+group: Components
+---
+
+import { MarkdownEditor } from 'boot-cell/source/Form/MarkdownEditor';
+import { FileUploader } from 'boot-cell/source/Form/FileUploader';
+import { Button } from 'boot-cell/source/Form/Button';
+
+import { Example } from '../../../../source/component/Example';
+
+This component is built on the top of [MarkdownIME][1] & [GitHub Markdown CSS][2],
+these dependencies below should be installed:
+
+```Shell
+npm install markdown-ime marked turndown turndown-plugin-gfm
+```
+
+You can **paste** or **drop** images into the editor, and **upload** them on `<form />` submitting.
+
+<Example>
+    <form
+        onSubmit={event => {
+            event.preventDefault();
+            event.stopPropagation();
+        }}
+    >
+        <FileUploader
+            transport={() => ({
+                path: Promise.resolve(
+                    'https://web-cell.dev/WebCell-1.fb612fdb.png'
+                )
+            })}
+        >
+            <MarkdownEditor value="WebCell" />
+        </FileUploader>
+        <Button type="submit" color="success" className="my-3">
+            Submit
+        </Button>
+    </form>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MarkdownEditor } from 'boot-cell/source/Form/MarkdownEditor';
+import { FileUploader } from 'boot-cell/source/Form/FileUploader';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <form
+        onSubmit={event => {
+            event.preventDefault();
+            event.stopPropagation();
+        }}
+    >
+        <FileUploader
+            transport={() => ({
+                path: Promise.resolve(
+                    'https://web-cell.dev/WebCell-1.fb612fdb.png'
+                )
+            })}
+        >
+            <MarkdownEditor value="WebCell" />
+        </FileUploader>
+
+        <Button type="submit" color="success" className="my-3">
+            Submit
+        </Button>
+    </form>
+);
+```
+
+[1]: https://laobubu.net/MarkdownIME/
+[2]: https://sindresorhus.com/github-markdown-css/

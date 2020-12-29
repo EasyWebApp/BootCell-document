@@ -42,7 +42,7 @@ export class JumbotronPage extends mixin() {
             <>
                 <NavBar expand="lg" brand="NavBar">
                     <NavLink href=".">Home</NavLink>
-                    <NavLink href="components/navbar">Link</NavLink>
+                    <NavLink href="components/navigator/navbar">Link</NavLink>
                     <NavLink href="#" disabled>
                         Disabled
                     </NavLink>

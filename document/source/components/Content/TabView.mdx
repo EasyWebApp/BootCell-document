@@ -1,0 +1,540 @@
+---
+layout: docs
+title: Tab view
+description: Built based on Nav, List group & Stepper components
+group: Components
+---
+
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { ListItem } from 'boot-cell/source/Content/ListGroup';
+import { Step } from 'boot-cell/source/Navigator/Stepper';
+
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+
+import { Example } from '../../../../source/component/Example';
+
+Tab view is built on CSS of Bootstrap & [bs-stepper][1].
+
+## Tabs mode
+
+`mode="tabs"` is built based on [Nav][2].
+
+Dynamic tabbed interfaces, as described in the
+[<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr> Authoring Practices][2],
+require `role="tablist"`, `role="tab"`, `role="tabpanel"`, and additional `aria-` attributes in order to convey their structure,
+functionality and current state to users of assistive technologies (such as screen readers).
+
+Note that dynamic tabbed interfaces should not contain dropdown menus,
+as this causes both usability and accessibility issues.
+From a usability perspective, the fact that the currently displayed tab’s trigger element is not immediately visible
+(as it’s inside the closed dropdown menu) can cause confusion.
+From an accessibility point of view, there is currently no sensible way to map this sort of construct to a standard WAI ARIA pattern,
+meaning that it cannot be easily made understandable to users of assistive technologies.
+
+<Example>
+    <TabView>
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <TabView>
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+);
+```
+
+## Pills mode
+
+`mode="pills"` is built based on [Nav][2].
+
+<Example>
+    <TabView mode="pills">
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <TabView mode="pills">
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+);
+```
+
+<Example>
+    <TabView mode="pills" direction="column">
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <TabView mode="pills" direction="column">
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+);
+```
+
+## Masthead mode
+
+`mode="masthead"` is built based on [Nav][2].
+
+<Example>
+    <TabView mode="masthead">
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <TabView mode="masthead">
+        <NavLink>WebCell</NavLink>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <NavLink>Cell Router</NavLink>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <NavLink>BootCell</NavLink>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <NavLink>KoAJAX</NavLink>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+);
+```
+
+## List mode
+
+`mode="list"` is built based on [List group](components/content/listgroup).
+
+<Example>
+    <TabView mode="list" direction="column">
+        <ListItem>WebCell</ListItem>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <ListItem>Cell Router</ListItem>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <ListItem>BootCell</ListItem>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <ListItem>KoAJAX</ListItem>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { ListItem } from 'boot-cell/source/Content/ListGroup';
+
+render(
+    <TabView mode="list" direction="column">
+        <ListItem>WebCell</ListItem>
+        <TabPanel>Web Components engine based on JSX &amp; TypeScript</TabPanel>
+        <ListItem>Cell Router</ListItem>
+        <TabPanel>
+            Decorator based Router component framework, powered by WebCell
+        </TabPanel>
+        <ListItem>BootCell</ListItem>
+        <TabPanel>
+            Web Components UI library based on WebCell v2, BootStrap v4 &amp;
+            FontAwesome v5
+        </TabPanel>
+        <ListItem>KoAJAX</ListItem>
+        <TabPanel> HTTP Client based on Koa-like middlewares</TabPanel>
+    </TabView>
+);
+```
+
+## Step mode
+
+`mode="step"` is built based on [bs-stepper][1].
+
+### Linear
+
+<Example>
+    <TabView linear>
+        <Step icon={1}>Email</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Email address" placeholder="Enter email" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={2}>Password</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField
+                    type="password"
+                    label="Password"
+                    placeholder="Password"
+                />
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={3}>Validate</Step>
+        <TabPanel>
+            <form
+                className="text-center"
+                onSubmit={event => event.preventDefault()}
+            >
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { Step } from 'boot-cell/source/Navigator/Stepper';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <TabView linear>
+        <Step icon={1}>Email</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Email address" placeholder="Enter email" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={2}>Password</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField
+                    type="password"
+                    label="Password"
+                    placeholder="Password"
+                />
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={3}>Validate</Step>
+        <TabPanel>
+            <form
+                className="text-center"
+                onSubmit={event => event.preventDefault()}
+            >
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </TabPanel>
+    </TabView>
+);
+```
+
+### Non linear
+
+<Example>
+    <TabView>
+        <Step icon={<Icon name="person" />}>Name</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Name" placeholder="Enter your name" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={<Icon name="map" />}>Address</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Address" placeholder="Enter your address" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={<Icon name="hdd" />}>Submit</Step>
+        <TabPanel>
+            <form
+                className="text-center"
+                onSubmit={event => event.preventDefault()}
+            >
+                <Button type="submit" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { Step } from 'boot-cell/source/Navigator/Stepper';
+import { Icon } from 'boot-cell/source/Reminder/Icon';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <TabView>
+        <Step icon={<Icon name="person" />}>Name</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Name" placeholder="Enter your name" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={<Icon name="map" />}>Address</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Address" placeholder="Enter your address" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={<Icon name="hdd" />}>Submit</Step>
+        <TabPanel>
+            <form
+                className="text-center"
+                onSubmit={event => event.preventDefault()}
+            >
+                <Button type="submit" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </TabPanel>
+    </TabView>
+);
+```
+
+### Vertical linear
+
+<Example>
+    <TabView direction="column" linear>
+        <Step icon={1}>Email</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Email address" placeholder="Enter email" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={2}>Password</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField
+                    type="password"
+                    label="Password"
+                    placeholder="Password"
+                />
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={3}>Validate</Step>
+        <TabPanel>
+            <form
+                className="text-center"
+                onSubmit={event => event.preventDefault()}
+            >
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </TabPanel>
+    </TabView>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TabView, TabPanel } from 'boot-cell/source/Content/TabView';
+import { Step } from 'boot-cell/source/Navigator/Stepper';
+import { FormField } from 'boot-cell/source/Form/FormField';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <TabView direction="column" linear>
+        <Step icon={1}>Email</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField label="Email address" placeholder="Enter email" />
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={2}>Password</Step>
+        <TabPanel>
+            <form onSubmit={event => event.preventDefault()}>
+                <FormField
+                    type="password"
+                    label="Password"
+                    placeholder="Password"
+                />
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Next
+                </Button>
+            </form>
+        </TabPanel>
+        <Step icon={3}>Validate</Step>
+        <TabPanel>
+            <form
+                className="text-center"
+                onSubmit={event => event.preventDefault()}
+            >
+                <Button type="reset" color="danger" className="mr-3">
+                    Previous
+                </Button>
+                <Button type="submit" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </TabPanel>
+    </TabView>
+);
+```
+
+[1]: https://johann-s.github.io/bs-stepper/
+[2]: components/navigator/nav
+[3]: https://www.w3.org/TR/wai-aria-practices/#tabpanel

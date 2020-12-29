@@ -1,0 +1,70 @@
+---
+layout: docs
+title: Tooltip
+description: Documentation and examples for adding custom Bootstrap tooltips with CSS and JavaScript using CSS3 for animations.
+group: Components
+---
+
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { Button } from 'boot-cell/source/Form/Button';
+
+import { Fragment } from 'web-cell';
+import { Example } from '../../../../source/component/Example';
+
+## Examples
+
+Hover over the buttons below to see the four tooltips directions: `top`, `right`, `bottom` and `left`.
+
+<Example>
+    {['top', 'right', 'bottom', 'left'].map(position => (
+        <TooltipBox position={position} text="Tooltip on top">
+            <Button color="secondary">Tooltip on {position}</Button>
+        </TooltipBox>
+    ))}
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(['top', 'right', 'bottom', 'left'].map(position => (
+    <TooltipBox position={position} text="Tooltip on top">
+        <Button color="secondary">Tooltip on {position}</Button>
+    </TooltipBox>
+)));
+```
+
+And with custom HTML added:
+
+<Example>
+    <TooltipBox
+        position="left"
+        text={
+            <>
+                <em>Tooltip</em> <u>with</u> <b>HTML</b>
+            </>
+        }
+    >
+        <Button color="secondary">Tooltip on left</Button>
+    </TooltipBox>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <TooltipBox
+        position="left"
+        text={
+            <>
+                <em>Tooltip</em> <u>with</u> <b>HTML</b>
+            </>
+        }
+    >
+        <Button color="secondary">Tooltip on left</Button>
+    </TooltipBox>
+);
+```

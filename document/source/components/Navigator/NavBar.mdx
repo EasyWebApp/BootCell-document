@@ -1,0 +1,762 @@
+---
+layout: docs
+title: Nav bar
+description: Documentation and examples for BootCell’s powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse component.
+group: Components
+---
+
+import { Fragment } from 'web-cell';
+import { Image } from 'boot-cell/source/Media/Image';
+import { NavBar, BannerNavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+import { Form } from 'boot-cell/source/Form/Form';
+import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+
+import { Example } from '../../../../source/component/Example';
+
+## How it works
+
+Here’s what you need to know before getting started with the navbar:
+
+-   Navbars and their contents are fluid by default.
+-   Use our [spacing][1] and [flex][2] utility classes for controlling spacing and alignment within navbars.
+-   Navbars are responsive by default, but you can easily modify them to change that.
+-   Navbars are hidden by default when printing. Force them to be printed by adding `.d-print` to the `<NavBar />`. See the [display][3] utility class.
+
+In addition, `<NavBar />` uses [`ResizeObserver`][4] to detect **Viewport resizing**, so a polyfill may be required:
+
+```HTML
+<script
+    crossorigin
+    src="https://polyfill.app/api/polyfill?features=resize-observer"
+></script>
+```
+
+Read on for an example and list of supported sub-components.
+
+## Supported content
+
+Navbars come with built-in support for a handful of sub-components. Choose from the following as needed:
+
+-   `<Form inline />` for any form controls and actions.
+-   `.navbar-text` for adding vertically centered strings of text.
+
+Here’s an example of all the sub-components included in a responsive light-themed navbar
+that automatically collapses at the `lg` (large) breakpoint.
+
+<Example>
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Link</NavLink>
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Something else here</DropMenuItem>
+        </NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+import { Form } from 'boot-cell/source/Form/Form';
+import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <NavBar expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Link</NavLink>
+        <NavLink title="Dropdown">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem />
+            <DropMenuItem>Something else here</DropMenuItem>
+        </NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+);
+```
+
+This example uses [spacing][1] (`my-2`, `my-lg-0`, `mr-sm-0`, `my-sm-0`) utility classes.
+
+### Brand
+
+<Example>
+    <NavBar className="position-static" brand="NavBar" />
+    <NavBar
+        className="position-static"
+        brand={<span className="h1">NavBar</span>}
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <>
+        <NavBar brand="NavBar" />
+        <NavBar
+            theme="light"
+            background="light"
+            brand={<span className="h1">NavBar</span>}
+        />
+    </>
+);
+```
+
+Adding images to the `<NavBar brand={} />` will likely always require custom styles or utilities to properly size.
+Here are some examples to demonstrate.
+
+<Example>
+    <NavBar
+        className="position-static"
+        brand={
+            <Image
+                style={{ width: '30px', height: '30px' }}
+                src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            />
+        }
+    />
+    <NavBar
+        className="position-static"
+        brand={
+            <>
+                <Image
+                    className="d-inline-block align-top"
+                    style={{ width: '30px', height: '30px' }}
+                    src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+                />
+                BootCell
+            </>
+        }
+    />
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { Image } from 'boot-cell/source/Content/Image';
+
+render(
+    <>
+        <NavBar brand={
+            <Image
+                style={{ width: '30px', height: '30px' }}
+                src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            />
+        } />
+        <NavBar brand={
+            <>
+                <Image
+                    className="d-inline-block align-top"
+                    style={{ width: '30px', height: '30px' }}
+                    src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+                />
+                BootCell
+            </>
+        } />
+    </>
+);
+```
+
+### Nav
+
+Navbar navigation links build on our `<Nav />` options with their own properties.
+**Navigation in navbars will also grow to occupy as much horizontal space as possible** to keep your navbar contents securely aligned.
+
+<Example>
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Feature</NavLink>
+        <NavLink href="components/navigator/navbar">Pricing</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <NavBar expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Feature</NavLink>
+        <NavLink href="components/navigator/navbar">Pricing</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+    </NavBar>
+);
+```
+
+You may also utilize `<DropMenuItem />`s in your navbar.
+
+<Example>
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Feature</NavLink>
+        <NavLink href="components/navigator/navbar">Pricing</NavLink>
+        <NavLink title="Dropdown link">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+        </NavLink>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell, Fragment } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
+
+render(
+    <NavBar expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Feature</NavLink>
+        <NavLink href="components/navigator/navbar">Pricing</NavLink>
+        <NavLink title="Dropdown link">
+            <DropMenuItem>Action</DropMenuItem>
+            <DropMenuItem>Another action</DropMenuItem>
+            <DropMenuItem>Something else here</DropMenuItem>
+        </NavLink>
+    </NavBar>
+);
+```
+
+### Forms
+
+Place various form controls and components within a navbar with `<Form inline />`.
+
+Immediate children elements in `<NavBar />` use flex layout and will default to `justify-content: space-between`.
+Use additional [flex utilities][2] as needed to adjust this behavior.
+
+<Example>
+    <NavBar className="position-static" brand="NavBar">
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { Form } from 'boot-cell/source/Form/Form';
+import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <NavBar brand="NavBar">
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+);
+```
+
+Input groups work, too:
+
+<Example>
+    <NavBar className="position-static" brand="NavBar">
+        <Form inline className="my-2 my-lg-0">
+            <InputGroup>
+                @
+                <Field placeholder="Username" aria-label="Username" />
+            </InputGroup>
+        </Form>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { Form } from 'boot-cell/source/Form/Form';
+import { InputGroup } from 'boot-cell/source/Form/InputGroup';
+import { Field } from 'boot-cell/source/Form/Field';
+
+render(
+    <NavBar brand="NavBar">
+        <Form inline className="my-2 my-lg-0">
+            <InputGroup>
+                @
+                <Field placeholder="Username" aria-label="Username" />
+            </InputGroup>
+        </Form>
+    </NavBar>
+);
+```
+
+Various buttons are supported as part of these navbar forms, too.
+This is also a great reminder that vertical alignment utilities can be used to align different sized elements.
+
+<Example>
+    <NavBar className="position-static" brand="NavBar">
+        <Form inline className="my-2 my-lg-0">
+            <Button color="success" outline>
+                Main button
+            </Button>
+            <Button color="secondary" outline size="sm">
+                Smaller button
+            </Button>
+        </Form>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { Form } from 'boot-cell/source/Form/Form';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <NavBar brand="NavBar">
+        <Form inline className="my-2 my-lg-0">
+            <Button color="success" outline>
+                Main button
+            </Button>
+            <Button color="secondary" outline size="sm">
+                Smaller button
+            </Button>
+        </Form>
+    </NavBar>
+);
+```
+
+### Text
+
+Navbars may contain bits of text with the help of `.navbar-text`.
+This class adjusts vertical alignment and horizontal spacing for strings of text.
+
+<Example>
+    <NavBar className="position-static" brand="NavBar">
+        <span className="navbar-text">Navbar text with an inline element</span>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <NavBar brand="NavBar">
+        <span className="navbar-text">
+            Navbar text with an inline element
+        </span>
+    </NavBar>
+);
+```
+
+Mix and match with other components and utilities as needed.
+
+<Example>
+    <NavBar className="position-static" expand="lg" brand="NavBar w/ text">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Feature</NavLink>
+        <NavLink href="components/navigator/navbar">Pricing</NavLink>
+        <span className="navbar-text">Navbar text with an inline element</span>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+render(
+    <NavBar expand="lg" brand="NavBar w/ text">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Feature</NavLink>
+        <NavLink href="components/navigator/navbar">Pricing</NavLink>
+
+        <span className="navbar-text">Navbar text with an inline element</span>
+    </NavBar>
+);
+```
+
+## Color schemes
+
+Theming the navbar has never been easier thanks to the combination of theming classes and `background-color` utilities.
+Choose from `background="light"` for use with light background colors, or `background="dark"` for dark background colors.
+
+<Example>
+    {[
+        { theme: 'dark', background: 'dark' },
+        { theme: 'dark', background: 'primary' },
+        { theme: 'light', background: 'light' }
+    ].map(props => (
+        <NavBar
+            className="position-static"
+            expand="lg"
+            brand="NavBar"
+            {...props}
+        >
+            <NavLink href=".">Home</NavLink>
+            {['Feature', 'Pricing', 'About'].map(title => (
+                <NavLink href="components/navigator/navbar">{title}</NavLink>
+            ))}
+            <Form inline className="my-2 my-lg-0">
+                <Field
+                    type="search"
+                    className="mr-sm-2"
+                    placeholder="Search"
+                    aria-label="Search"
+                />
+                <Button
+                    type="submit"
+                    color="success"
+                    outline
+                    className="my-2 my-sm-0"
+                >
+                    Search
+                </Button>
+            </Form>
+        </NavBar>
+    ))}
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { Form } from 'boot-cell/source/Form/Form';
+import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render([
+    { theme: 'dark', background: 'dark' },
+    { theme: 'dark', background: 'primary' },
+    { theme: 'light', background: 'light' }
+].map(props => (
+    <NavBar expand="lg" brand="NavBar" {...props}>
+        <NavLink href=".">Home</NavLink>
+        {['Feature', 'Pricing', 'About'].map(title => (
+            <NavLink href="components/navigator/navbar">{title}</NavLink>
+        ))}
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+)));
+```
+
+## Containers
+
+When the container is within your navbar,
+its horizontal padding is removed at breakpoints lower than your specified `expand={'sm'|'md'|'lg'|'xl'}` property.
+This ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed.
+
+<Example>
+    <NavBar className="position-static" narrow brand="NavBar" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <NavBar narrow brand="NavBar" />
+);
+```
+
+## Placement
+
+Choose from fixed to the bottom or stickied to the top (scrolls with the page until it reaches the top, then stays there).
+
+Also note that **`fixed="top"` uses `position: sticky`, which [isn’t fully supported in every browser][5]**.
+
+<Example>
+    <NavBar className="position-static mb-4" brand="Sticky top" />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <NavBar brand="Sticky top" />
+);
+```
+
+<Example>
+    <NavBar
+        className="position-static mt-4"
+        brand="Fixed bottom"
+        fixed="bottom"
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <NavBar brand="Fixed bottom" fixed="bottom" />
+);
+```
+
+## Responsive behaviors
+
+For navbars that never collapse, add the `expand` property on the navbar.
+For navbars that always collapse, don’t add any `expand` property.
+
+### Toggler
+
+Navbar togglers are left-aligned by default, but should they follow a sibling element like a navbar brand,
+they’ll automatically be aligned to the far right. Reversing your markup will reverse the placement of the toggler.
+Below are examples of different toggle styles.
+
+With a brand name shown on the left and toggler on the right:
+
+<Example>
+    <NavBar className="position-static" expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { Form } from 'boot-cell/source/Form/Form';
+import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <NavBar expand="lg" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+);
+```
+
+With a toggler on the left and brand name on the right:
+
+<Example>
+    <NavBar
+        className="position-static"
+        expand="lg"
+        direction="right"
+        brand="NavBar"
+    >
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { Form } from 'boot-cell/source/Form/Form';
+import { Field } from 'boot-cell/source/Form/Field';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <NavBar expand="lg" direction="right" brand="NavBar">
+        <NavLink href=".">Home</NavLink>
+        <NavLink href="components/navigator/navbar">Link</NavLink>
+        <NavLink href="#" disabled>
+            Disabled
+        </NavLink>
+
+        <Form inline className="my-2 my-lg-0">
+            <Field
+                type="search"
+                className="mr-sm-2"
+                placeholder="Search"
+                aria-label="Search"
+            />
+            <Button
+                type="submit"
+                color="success"
+                outline
+                className="my-2 my-sm-0"
+            >
+                Search
+            </Button>
+        </Form>
+    </NavBar>
+);
+```
+
+### External content
+
+Sometimes you want to use the [`<collapse-box />`][6] to trigger hidden content elsewhere on the page.
+
+<Example>
+    <BannerNavBar className="position-static">
+        <div class="p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </BannerNavBar>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { BannerNavBar } from 'boot-cell/source/Navigator/NavBar';
+
+render(
+    <BannerNavBar>
+        <div class="p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </BannerNavBar>
+);
+```
+
+[1]: https://getbootstrap.com/docs/4.5/utilities/spacing/
+[2]: https://getbootstrap.com/docs/4.5/utilities/flex/
+[3]: https://getbootstrap.com/docs/4.5/utilities/display/
+[4]: https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+[5]: https://caniuse.com/#feat=css-sticky
+[6]: components/content/collapse

@@ -1,6 +1,6 @@
 export const headers = [
     { title: 'Home', href: '.' },
-    { title: 'Link', href: 'components/navbar' },
+    { title: 'Link', href: 'components/navigator/navbar' },
     { title: 'Disabled', href: '#', disabled: true }
 ];
 

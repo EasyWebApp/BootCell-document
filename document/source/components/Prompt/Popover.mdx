@@ -1,0 +1,71 @@
+---
+layout: docs
+title: Popover
+description: Documentation and examples for adding Bootstrap popovers, like those found in iOS, to any element on your site.
+group: Components
+---
+
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+import { Button } from 'boot-cell/source/Form/Button';
+
+import { Example } from '../../../../source/component/Example';
+
+## Example
+
+<Example>
+    <PopoverBox
+        header="Popover title"
+        body="And here's some amazing content. It's very engaging. Right?"
+    >
+        <Button color="danger" size="lg">
+            Click to toggle popover
+        </Button>
+    </PopoverBox>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <PopoverBox
+        header="Popover title"
+        body="And here's some amazing content. It's very engaging. Right?"
+    >
+        <Button color="danger" size="lg">
+            Click to toggle popover
+        </Button>
+    </PopoverBox>
+);
+```
+
+### Four directions
+
+Four options are available: `top`, `right`, `bottom`, and `left` aligned.
+
+<Example>
+    {['top', 'right', 'bottom', 'left'].map(position => (
+        <PopoverBox
+            position={position}
+            body="Web Components engine based on JSX &amp; TypeScript"
+        >
+            <Button color="secondary">Popover on {position}</Button>
+        </PopoverBox>
+    ))}
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { PopoverBox } from 'boot-cell/source/Prompt/Popover';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(['top', 'right', 'bottom', 'left'].map(position => (
+    <PopoverBox
+        position={position}
+        body="Web Components engine based on JSX &amp; TypeScript"
+    >
+        <Button color="secondary">Popover on {position}</Button>
+    </PopoverBox>
+)));
+```

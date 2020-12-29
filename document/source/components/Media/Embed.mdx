@@ -1,0 +1,53 @@
+---
+layout: docs
+title: Embed
+description: Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.
+group: Components
+---
+
+import { Embed } from 'boot-cell/source/Media/Embed';
+
+import { Example } from '../../../../source/component/Example';
+
+## About
+
+Rules are directly applied to `<iframe>`, `<embed>`, `<video>`, and `<audio>` elements.
+
+**Pro-Tip!** You don’t need to include `frameborder="0"` in your `<iframe>`s as we override that for you.
+
+## Example
+
+<Example>
+    <Embed
+        is="iframe"
+        src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+        allowfullscreen
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Embed } from 'boot-cell/source/Media/Embed';
+
+render(
+    <Embed
+        is="iframe"
+        src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
+        allowfullscreen
+    />
+);
+```
+
+## Aspect ratios
+
+Aspect ratios can be customized with `ratio` property.
+
+```TSX
+<Embed is="iframe" ratio="21/9" src="test.html" />
+
+<Embed is="iframe" ratio="16/9" src="test.html" />
+
+<Embed is="iframe" ratio="4/3" src="test.html" />
+
+<Embed is="iframe" ratio="1/1" src="test.html" />
+```

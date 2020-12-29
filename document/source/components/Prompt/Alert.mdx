@@ -1,0 +1,118 @@
+---
+layout: docs
+title: Alert
+description: Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+group: Components
+---
+
+import { Alert } from 'boot-cell/source/Prompt/Alert';
+
+import { Example } from '../../../../source/component/Example';
+
+## Examples
+
+Alerts are available for any length of text, as well as an optional dismiss button.
+
+<Example>
+    {[
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark'
+    ].map(color => (
+        <Alert color={color}>A simple {color} alert—check it out!</Alert>
+    ))}
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Alert } from 'boot-cell/source/Prompt/Alert';
+
+render([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark'
+].map(color => (
+    <Alert color={color}>A simple {color} alert—check it out!</Alert>
+)));
+```
+
+> ##### Conveying meaning to assistive technologies
+>
+> Using color to add meaning only provides a visual indication,
+> which will not be conveyed to users of assistive technologies –
+> such as screen readers.
+> Ensure that information denoted by the color is either obvious from the content itself
+> (e.g. the visible text), or is included through alternative means,
+> such as additional text hidden with the `.sr-only` class.
+
+## Additional content
+
+Alerts can also contain additional HTML elements like headings, paragraphs and dividers.
+
+<Example>
+    <Alert color="success" title="Well done!">
+        <p>
+            Aww yeah, you successfully read this important alert message. This
+            example text is going to run a bit longer so that you can see how
+            spacing within an alert works with this kind of content.
+        </p>
+        <hr />
+        <p className="mb-0">
+            Whenever you need to, be sure to use margin utilities to keep things
+            nice and tidy.
+        </p>
+    </Alert>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Alert } from 'boot-cell/source/Prompt/Alert';
+
+render(
+    <Alert color="success" title="Well done!">
+        <p>
+            Aww yeah, you successfully read this important alert message. This
+            example text is going to run a bit longer so that you can see how
+            spacing within an alert works with this kind of content.
+        </p>
+        <hr />
+        <p className="mb-0">
+            Whenever you need to, be sure to use margin utilities to keep things
+            nice and tidy.
+        </p>
+    </Alert>
+);
+```
+
+## Dismissing
+
+You can see this in action with a live demo:
+
+<Example>
+    <Alert color="warning" closable>
+        <strong>Holy guacamole!</strong> You should check in on some of those
+        fields below.
+    </Alert>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Alert } from 'boot-cell/source/Prompt/Alert';
+
+render(
+    <Alert color="warning" closable>
+        <strong>Holy guacamole!</strong> You should check in on some of those
+        fields below.
+    </Alert>
+);
+```

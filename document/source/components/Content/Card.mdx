@@ -1,0 +1,391 @@
+---
+layout: docs
+title: Card
+description: Bootstrap’s cards provide a flexible and extensible content container with multiple variants and options.
+group: Components
+---
+
+import { Card, CardHeader, CardFooter } from 'boot-cell/source/Content/Card';
+import { Button } from 'boot-cell/source/Form/Button';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+
+import { Example } from '../../../../source/component/Example';
+
+## About
+
+A **card** is a flexible and extensible content container. It includes options for headers and footers,
+a wide variety of content, contextual background colors, and powerful display options.
+If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails.
+Similar functionality to those components is available as modifier classes for cards.
+
+## Example
+
+Cards are built with as little markup and styles as possible,
+but still manage to deliver a ton of control and customization.
+
+Below is an example of a basic card with mixed content and a fixed width.
+Cards have no fixed width to start, so they’ll naturally fill the full width of its parent element.
+This is easily customized with our various [sizing options](#sizing).
+
+<Example>
+    <Card
+        style={{ width: '18rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        title="Card title"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Card
+        style={{ width: '18rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        title="Card title"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+);
+```
+
+## Content types
+
+Cards support a wide variety of content, including images, text, list groups, links, and more.
+Below are examples of what’s supported.
+
+### Body
+
+The building block of a card is the `.card-body`. Use it whenever you need a padded section within a card.
+
+<Example>
+    <Card text="This is some text within a card body." />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+
+render(
+    <Card text="This is some text within a card body." />
+);
+```
+
+### Titles, text, and links
+
+Card titles are used by adding `.card-title` to a `<h* />` tag. In the same way,
+links are added and placed next to each other by adding `.card-link` to an `<a />` tag.
+
+<Example>
+    <Card
+        style={{ width: '18rem' }}
+        title="Card title"
+        subtitle="Card subtitle"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <a className="card-link" href="javascript: void;">
+            Card link
+        </a>
+        <a className="card-link" href="javascript: void;">
+            Another link
+        </a>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+
+render(
+    <Card
+        style={{ width: '18rem' }}
+        title="Card title"
+        subtitle="Card subtitle"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    >
+        <a className="card-link" href="javascript: void;">
+            Card link
+        </a>
+        <a className="card-link" href="javascript: void;">
+            Another link
+        </a>
+    </Card>
+);
+```
+
+### Images
+
+`image` property places an image to the top of the card. With `text` property, text can be added to the card.
+
+<Example>
+    <Card
+        style={{ width: '18rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    />
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+
+render(
+    <Card
+        style={{ width: '18rem' }}
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        text="Some quick example text to build on the card title and make up the bulk of the card's content."
+    />
+);
+```
+
+### Header and footer
+
+Add an optional header and/or footer within a card.
+
+<Example>
+    <Card
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader>Featured</CardHeader>
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Card
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader>Featured</CardHeader>
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+);
+```
+
+<Example>
+    <Card>
+        <CardHeader>Quote</CardHeader>
+        <blockquote className="blockquote mb-0">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                posuere erat a ante.
+            </p>
+            <footer className="blockquote-footer">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+            </footer>
+        </blockquote>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
+
+render(
+    <Card>
+        <CardHeader>Quote</CardHeader>
+        <blockquote className="blockquote mb-0">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                posuere erat a ante.
+            </p>
+            <footer className="blockquote-footer">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+            </footer>
+        </blockquote>
+    </Card>
+);
+```
+
+<Example>
+    <Card
+        className="text-center"
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader>Featured</CardHeader>
+        <Button color="primary">Go somewhere</Button>
+        <CardFooter>2 days ago</CardFooter>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card, CardHeader, CardFooter } from 'boot-cell/source/Content/Card';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Card
+        className="text-center"
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader>Featured</CardHeader>
+        <Button color="primary">Go somewhere</Button>
+        <CardFooter>2 days ago</CardFooter>
+    </Card>
+);
+```
+
+## Navigation
+
+Add some navigation to a card’s header (or block) with BootCell’s [`<NavLink />` components][1].
+
+<Example>
+    <Card
+        className="text-center"
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader itemMode="tabs">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Card
+        className="text-center"
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader itemMode="tabs">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+);
+```
+
+<Example>
+    <Card
+        className="text-center"
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader itemMode="pills">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
+import { NavLink } from 'boot-cell/source/Navigator/Nav';
+import { Button } from 'boot-cell/source/Form/Button';
+
+render(
+    <Card
+        className="text-center"
+        title="Special title treatment"
+        text="With supporting text below as a natural lead-in to additional content."
+    >
+        <CardHeader itemMode="pills">
+            <NavLink active>Active</NavLink>
+            <NavLink>Link</NavLink>
+            <NavLink disabled>Disabled</NavLink>
+        </CardHeader>
+        <Button color="primary">Go somewhere</Button>
+    </Card>
+);
+```
+
+## Images
+
+### Image overlays
+
+Turn an image into a card background and overlay your card’s text.
+Depending on the image, you may or may not need additional styles or utilities.
+
+<Example>
+    <Card
+        className="bg-dark text-white"
+        title="Card title"
+        text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        overlay
+    >
+        <time>Last updated 3 mins ago</time>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+
+render(
+    <Card
+        className="bg-dark text-white"
+        title="Card title"
+        text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        overlay
+    >
+        <time>Last updated 3 mins ago</time>
+    </Card>
+);
+```
+
+> Note that content should not be larger than the height of the image.
+> If content is larger than the image the content will be displayed outside the image.
+
+## Horizontal
+
+Using a combination of grid and utility classes, cards can be made horizontal in a mobile-friendly and responsive way.
+Further adjustments may be needed depending on your card content.
+
+<Example>
+    <Card
+        title="Card title"
+        text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        direction="row"
+    >
+        <small className="text-muted">Last updated 3 mins ago</small>
+    </Card>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { Card } from 'boot-cell/source/Content/Card';
+
+render(
+    <Card
+        title="Card title"
+        text="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        image="https://tech-query.me/medias/featureimages/6.jpg"
+        direction="row"
+    >
+        <small className="text-muted">Last updated 3 mins ago</small>
+    </Card>
+);
+```
+
+[1]: components/navigator/nav

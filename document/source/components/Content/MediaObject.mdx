@@ -1,0 +1,263 @@
+---
+layout: docs
+title: Media object
+description: Documentation and examples for Bootstrap’s media object to construct highly repetitive components like blog comments, tweets, and the like.
+group: Components
+---
+
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { Button } from 'boot-cell/source/Form/Button';
+
+import { Example } from '../../../../source/component/Example';
+
+## Example
+
+The [media object][1] helps build complex and repetitive components where some media is positioned alongside content
+that doesn’t wrap around said media.
+
+Below is an example of a single media object.
+
+<Example>
+    <MediaObject
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="WebCell"
+    >
+        Web Components engine based on JSX &amp; TypeScript
+    </MediaObject>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <MediaObject
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="WebCell"
+    >
+        Web Components engine based on JSX &amp; TypeScript
+    </MediaObject>
+);
+```
+
+## Nesting
+
+Media objects can be infinitely nested, though we suggest you stop at some point.
+Place nested `<MediaObject />` within the `defaultSlot` of a parent media object.
+
+<Example>
+    <MediaObject
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="WebCell"
+    >
+        Web Components engine based on JSX &amp; TypeScript
+        <MediaObject
+            className="mt-3"
+            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            title="BootCell"
+        >
+            Web Components UI library based on WebCell v2 &amp; BootStrap v4
+        </MediaObject>
+    </MediaObject>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <MediaObject
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="WebCell"
+    >
+        Web Components engine based on JSX &amp; TypeScript
+        <MediaObject
+            className="mt-3"
+            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            title="BootCell"
+        >
+            Web Components UI library based on WebCell v2 &amp; BootStrap v4
+        </MediaObject>
+    </MediaObject>
+);
+```
+
+## Alignment
+
+Media in a media object can be aligned with `imageRow` property to
+the top (default), middle, or end of your content.
+
+<Example>
+    <MediaObject
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="Top-aligned media"
+    >
+        {[1, 2, 3].map(() => (
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        ))}
+    </MediaObject>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <MediaObject
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="Top-aligned media"
+    >
+        {[1, 2, 3].map(() => (
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        ))}
+    </MediaObject>
+);
+```
+
+<Example>
+    <MediaObject
+        imageRow="center"
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="Center-aligned media"
+    >
+        {[1, 2, 3].map(() => (
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        ))}
+    </MediaObject>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <MediaObject
+        imageRow="center"
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="Center-aligned media"
+    >
+        {[1, 2, 3].map(() => (
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        ))}
+    </MediaObject>
+);
+```
+
+<Example>
+    <MediaObject
+        imageRow="end"
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="Bottom-aligned media"
+    >
+        {[1, 2, 3].map(() => (
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        ))}
+    </MediaObject>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <MediaObject
+        imageRow="end"
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="Bottom-aligned media"
+    >
+        {[1, 2, 3].map(() => (
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        ))}
+    </MediaObject>
+);
+```
+
+## Order
+
+<Example>
+    <MediaObject
+        imageColumn="right"
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="WebCell"
+    >
+        Web Components engine based on JSX &amp; TypeScript
+    </MediaObject>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <MediaObject
+        imageColumn="right"
+        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        title="WebCell"
+    >
+        Web Components engine based on JSX &amp; TypeScript
+    </MediaObject>
+);
+```
+
+## Media list
+
+On your `<ul />` or `<ol />`, add the `.list-unstyled` to remove any browser default list styles,
+and then add `listItem` property to your `<MediaObject />`.
+As always, use spacing utilities wherever needed to fine tune.
+
+<Example>
+    <ul className="list-unstyled">
+        <MediaObject
+            listItem
+            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            title="WebCell"
+        >
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        </MediaObject>
+        <MediaObject
+            listItem
+            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            title="BootCell"
+        >
+            <p>
+                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+            </p>
+            <p>
+                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+            </p>
+        </MediaObject>
+    </ul>
+</Example>
+
+```TSX
+import { render, createCell } from 'web-cell';
+import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+
+render(
+    <ul className="list-unstyled">
+        <MediaObject
+            listItem
+            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            title="WebCell"
+        >
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        </MediaObject>
+        <MediaObject
+            listItem
+            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            title="BootCell"
+        >
+            <p>
+                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+            </p>
+            <p>
+                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+            </p>
+        </MediaObject>
+    </ul>
+);
+```
+
+[1]: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/

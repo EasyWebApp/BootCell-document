@@ -12,6 +12,9 @@ import documents from '../../document/dist';
 import { HomePage as ExampleHome } from './Example/Home';
 import examples from './Example';
 
+documents.sort(({ meta: { title: A } }, { meta: { title: B } }) =>
+    A.localeCompare(B)
+);
 const side_menu = groupBy(
     documents.map(({ paths: [href], meta }) => ({ ...meta, href })),
     'group'
@@ -70,6 +73,7 @@ export class PageRouter extends mixin<{}, PageRouterState>() {
                         >
                             <DocumentBox
                                 menu={side_menu}
+                                path={paths[0].replace(/^components\//, '')}
                                 header={title}
                                 description={description}
                             >
