@@ -41,7 +41,13 @@ export class PageFrame extends mixin<PageFrameProps>() {
     render({ menu, activeIndex, subMenu, defaultSlot }: PageFrameProps) {
         return (
             <>
-                <NavBar offcanvas brand="BootCell">
+                <NavBar
+                    offcanvas
+                    brand="BootCell"
+                    expand="md"
+                    background="dark"
+                    theme="dark"
+                >
                     {menu.map(({ title, ...rest }, index) => {
                         const current = index === activeIndex;
 
