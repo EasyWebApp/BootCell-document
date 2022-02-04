@@ -80,7 +80,7 @@ export class NavArticle extends mixin<WebCellProps, NavArticleState>() {
                                     fontSize: `${0.5 + (6 - level) / 10}rem`,
                                     textIndent: `${level - 1}rem`
                                 }}
-                                href={'#' + id}
+                                href={`#${id}`}
                             >
                                 {text}
                             </a>

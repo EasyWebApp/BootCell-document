@@ -134,7 +134,7 @@ For clarity in the following example, we’ve added a background color on the ic
                 <FAIcon
                     name={name}
                     fixedWidth
-                    className={'bg-' + (index % 2 ? 'info' : 'primary')}
+                    className={`bg-${index % 2 ? 'info' : 'primary'}`}
                 />{' '}
                 {title}
             </li>
@@ -159,7 +159,7 @@ render(
                 <FAIcon
                     name={name}
                     fixedWidth
-                    className={'bg-' + (index % 2 ? 'info' : 'primary')}
+                    className={`bg-${index % 2 ? 'info' : 'primary'}`}
                 />{' '}
                 {title}
             </li>

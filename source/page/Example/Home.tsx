@@ -39,7 +39,7 @@ function Section({ title, description, list }: typeof data[0]) {
                 {list.map(({ href, image, title, description }) => {
                     href =
                         href ||
-                        'example/' + title.replace(' ', '-').toLowerCase();
+                        `example/${title.replace(' ', '-').toLowerCase()}`;
 
                     return (
                         <Card

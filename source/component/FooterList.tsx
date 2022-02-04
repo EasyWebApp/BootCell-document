@@ -6,7 +6,7 @@ import classNames from 'classnames';
 export interface FooterListProps {
     colSpan: number;
     title: string;
-    menu: HTMLHyperLinkProps;
+    menu: HTMLHyperLinkProps[];
 }
 
 export function FooterList({ colSpan, title, menu }: FooterListProps) {

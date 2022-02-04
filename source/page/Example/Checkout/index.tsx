@@ -110,7 +110,7 @@ export function CheckoutPage() {
                             </div>
 
                             <div className="mb-3">
-                                <label for="username">Username</label>
+                                <label htmlFor="username">Username</label>
                                 <InputGroup invalidMessage="Your username is required.">
                                     @
                                     <Field
@@ -123,7 +123,7 @@ export function CheckoutPage() {
                             </div>
 
                             <div className="mb-3">
-                                <label for="email">
+                                <label htmlFor="email">
                                     Email{' '}
                                     <span className="text-muted">
                                         (Optional)
@@ -147,7 +147,7 @@ export function CheckoutPage() {
                                 invalidMessage="Please enter your shipping address."
                             />
                             <div className="mb-3">
-                                <label for="address2">
+                                <label htmlFor="address2">
                                     Address 2{' '}
                                     <span className="text-muted">
                                         (Optional)

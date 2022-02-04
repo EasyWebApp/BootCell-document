@@ -1,8 +1,11 @@
 import { createCell, Fragment } from 'web-cell';
 import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
 import { Button } from 'boot-cell/source/Form/Button';
+import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
+import { DropMenu, DropMenuItem } from 'boot-cell/source/Navigator';
 import { CommandLine } from 'github-web-widget/source/CommandLine';
 
+import { scaffolds } from './data';
 import routes from '../../document/dist';
 
 export interface HomePageProps {
@@ -50,14 +53,25 @@ export function HomePage({
                         </a>
                     </p>
                     <Button
-                        outline
-                        color="primary"
+                        className="mr-0 mr-sm-3 mb-3 mb-sm-0"
+                        color="success"
                         size="lg"
                         title={title}
                         href={path}
                     >
-                        Get started
+                        Read Documents
                     </Button>
+                    <TooltipBox text="GitHub login first">
+                        <DropMenu
+                            buttonColor="primary"
+                            buttonSize="lg"
+                            caption="Create a Project"
+                        >
+                            {scaffolds.map(({ title, ...rest }) => (
+                                <DropMenuItem {...rest}>{title}</DropMenuItem>
+                            ))}
+                        </DropMenu>
+                    </TooltipBox>
                 </Jumbotron>
             </div>
 

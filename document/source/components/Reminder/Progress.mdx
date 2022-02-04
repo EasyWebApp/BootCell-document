@@ -35,7 +35,7 @@ Add labels to your progress bars by setting `label` property.
 
 <Example>
     <Progress label percent={25} />
-    <Progress label={percent => percent + ' percent'} percent={25} />
+    <Progress label={percent => `${percent} percent`} percent={25} />
 </Example>
 
 ```TSX
@@ -45,7 +45,7 @@ import { Progress } from 'boot-cell/source/Reminder/Progress';
 render(
     <>
         <Progress label percent={25} />
-        <Progress label={percent => percent + ' percent'} percent={25} />
+        <Progress label={percent => `${percent} percent`} percent={25} />
     </>
 );
 ```

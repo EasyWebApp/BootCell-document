@@ -1,4 +1,3 @@
-import groupBy from 'lodash.groupby';
 import { component, createCell, mixin } from 'web-cell';
 import { CellRouter } from 'cell-router/source';
 import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
@@ -7,18 +6,11 @@ import { history } from '../model';
 import { PageFrame } from '../component/PageBox';
 import { DocumentBox } from '../component/DocumentBox';
 
+import { main_menu, side_menu } from './data';
 import { HomePage } from './Home';
 import documents from '../../document/dist';
 import { HomePage as ExampleHome } from './Example/Home';
 import examples from './Example';
-
-documents.sort(({ meta: { title: A } }, { meta: { title: B } }) =>
-    A.localeCompare(B)
-);
-const side_menu = groupBy(
-    documents.map(({ paths: [href], meta }) => ({ ...meta, href })),
-    'group'
-);
 
 interface PageRouterState {
     loading: boolean;
@@ -31,30 +23,11 @@ interface PageRouterState {
 export class PageRouter extends mixin<{}, PageRouterState>() {
     state = { loading: false };
 
-    protected menu = [
-        {
-            title: 'Documentation',
-            href: documents[0].paths[0]
-        },
-        {
-            title: 'API',
-            href: 'https://web-cell.dev/BootCell/'
-        },
-        {
-            title: 'Examples',
-            href: 'example'
-        },
-        {
-            title: 'Source code',
-            href: 'https://github.com/EasyWebApp/BootCell'
-        }
-    ];
-
     protected routes = [
         {
             paths: [''],
             component: () => (
-                <PageFrame menu={this.menu}>
+                <PageFrame menu={main_menu}>
                     <HomePage entry={documents[0]} />
                 </PageFrame>
             )
@@ -67,7 +40,7 @@ export class PageRouter extends mixin<{}, PageRouterState>() {
 
                     return () => (
                         <PageFrame
-                            menu={this.menu}
+                            menu={main_menu}
                             activeIndex={0}
                             subMenu={documents}
                         >
@@ -87,7 +60,7 @@ export class PageRouter extends mixin<{}, PageRouterState>() {
         {
             paths: ['example'],
             component: () => (
-                <PageFrame menu={this.menu} activeIndex={2}>
+                <PageFrame menu={main_menu} activeIndex={2}>
                     <ExampleHome />
                 </PageFrame>
             )

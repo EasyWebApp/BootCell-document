@@ -25,9 +25,9 @@ import { Example } from '../../../../source/component/Example';
 ```HTML
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.4/dist/dialog-polyfill.css"
+    href="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.6/dist/dialog-polyfill.css"
 />
-<script src="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.4/dist/dialog-polyfill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.6/dist/dialog-polyfill.js"></script>
 ```
 
 Keep reading for demos and usage guidelines.
@@ -432,7 +432,7 @@ Our default modal without `size` parameter constitutes the "medium" size modal.
             color="primary"
             onClick={() =>
                 openDialog(
-                    <Modal title={level + ' modal'} size={size}>
+                    <Modal title={`${level} modal`} size={size}>
                         Hello, BootCell!
                     </Modal>
                 )
@@ -457,7 +457,7 @@ render([
         color="primary"
         onClick={() =>
             openDialog(
-                <Modal title={level + ' modal'} size={size}>
+                <Modal title={`${level} modal`} size={size}>
                     Hello, BootCell!
                 </Modal>
             )

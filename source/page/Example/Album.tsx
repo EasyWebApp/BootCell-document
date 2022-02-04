@@ -13,18 +13,16 @@ const contacts = ['Follow on Twitter', 'Like on Facebook', 'Email me'];
 function Placeholder() {
     return (
         <svg
-            className="bd-placeholder-img"
-            width="100%"
-            height="225"
             xmlns="http://www.w3.org/2000/svg"
+            className="bd-placeholder-img w-100"
+            height="225"
             preserveAspectRatio="xMidYMid slice"
-            focusable="false"
             role="img"
             aria-label="Placeholder: Thumbnail"
         >
             <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c" />
-            <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+            <rect width="100%" height="100%" style={{ fill: '#55595c' }} />
+            <text x="50%" y="50%" dy=".3em" style={{ fill: '#eceeef' }}>
                 Thumbnail
             </text>
         </svg>
@@ -62,7 +60,7 @@ export function AlbumPage() {
                 narrow
                 brand={
                     <>
-                        <Icon className="mr-2" name="camera" width={20} />
+                        <Icon className="mr-2" name="camera" size={1.25} />
                         Album
                     </>
                 }

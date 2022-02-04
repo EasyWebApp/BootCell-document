@@ -2,7 +2,7 @@ import { createCell, Fragment } from 'web-cell';
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
 import { NavLink } from 'boot-cell/source/Navigator/Nav';
 import { Button } from 'boot-cell/source/Form/Button';
-import { Card } from 'boot-cell/source/Content/Card';
+import { Card, CardHeader } from 'boot-cell/source/Content/Card';
 
 import { FooterList } from '../../../component/FooterList';
 import prices from './index.json';
@@ -47,11 +47,6 @@ export function PricingPage() {
                     {prices.map(({ level, amount, details, action }, index) => (
                         <Card
                             className="mb-4 shadow-sm"
-                            header={
-                                <h4 className="my-0 font-weight-normal">
-                                    {level}
-                                </h4>
-                            }
                             title={
                                 <span style={{ fontSize: '2.5rem' }}>
                                     ${amount}{' '}
@@ -59,6 +54,8 @@ export function PricingPage() {
                                 </span>
                             }
                         >
+                            <CardHeader>{level}</CardHeader>
+
                             <ul className="list-unstyled mt-3 mb-4">
                                 {details.map(item => (
                                     <li>{item}</li>

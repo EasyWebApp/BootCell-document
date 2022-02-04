@@ -3,6 +3,7 @@ import { observer } from 'mobx-web-cell';
 import classNames from 'classnames';
 
 import { NavBar } from 'boot-cell/source/Navigator/NavBar';
+import { NavLink } from 'boot-cell/source/Navigator';
 import { Form } from 'boot-cell/source/Form/Form';
 import { Field } from 'boot-cell/source/Form/Field';
 import { Button } from 'boot-cell/source/Form/Button';
@@ -49,7 +50,10 @@ export class CarouselPage extends mixin() {
 
         return (
             <>
-                <NavBar brand="Carousel" menu={headers}>
+                <NavBar brand="Carousel">
+                    {headers.map(({ title, ...rest }) => (
+                        <NavLink {...rest}>{title}</NavLink>
+                    ))}
                     <Form inline className="my-2 my-lg-0">
                         <Field
                             type="search"

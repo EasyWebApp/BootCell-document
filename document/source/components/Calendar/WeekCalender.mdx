@@ -50,7 +50,7 @@ You can render Custom contents with `renderCell(start: Date)` function.
 
 <Example>
     <WeekCalendar
-        renderCell={start => 'Class starts at ' + formatDate(start, 'HH:mm')}
+        renderCell={start => `Class starts at ${formatDate(start, 'HH:mm')}`}
     />
 </Example>
 
@@ -61,7 +61,7 @@ import { WeekCalendar } from 'boot-cell/source/Calendar/WeekCalendar';
 
 render(
     <WeekCalendar
-        renderCell={start => 'Class starts at ' + formatDate(start, 'HH:mm')}
+        renderCell={start => `Class starts at ${formatDate(start, 'HH:mm')}`}
     />
 );
 ```
