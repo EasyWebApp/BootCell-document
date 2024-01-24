@@ -3,39 +3,41 @@
     "version": "1.0.0",
     "description": "Re-implemented Official Document site of BootStrap & FontAwesome based on WebCell, BootCell & MarkCell",
     "dependencies": {
-        "@nuintun/qrcode": "^3.1.1",
-        "boot-cell": "^1.9.5",
-        "cell-router": "~2.0.4",
-        "classnames": "^2.3.1",
-        "github-web-widget": "^3.0.0-beta.9",
-        "iterable-observer": "1.0.0-rc.0",
-        "koajax": "^0.7.1",
+        "@nuintun/qrcode": "^3.4.0",
+        "boot-cell": "^2.0.0-beta.9",
+        "cell-router": "^3.0.0-rc.5",
+        "classnames": "^2.5.1",
+        "dom-renderer": "^2.0.6",
+        "github-web-widget": "^4.0.0-rc.1",
+        "iterable-observer": "^1.0.1",
+        "koajax": "^0.9.6",
         "lodash.groupby": "^4.6.0",
         "markdown-ime": "^1.0.3",
-        "marked": "^4.0.12",
-        "mobx": "^5.15.7",
-        "mobx-web-cell": "^0.3.5",
+        "marked": "^11.1.1",
+        "mobx": "^6.12.0",
         "quill": "^1.3.7",
-        "quill-image-uploader": "^1.2.2",
-        "turndown": "^7.1.1",
+        "quill-image-uploader": "^1.3.0",
+        "turndown": "^7.1.2",
         "turndown-plugin-gfm": "^1.0.2",
-        "web-cell": "~2.3.0",
-        "web-utility": "^3.0.0"
+        "web-cell": "^3.0.0-rc.8",
+        "web-utility": "^4.1.3"
     },
     "devDependencies": {
-        "@octokit/openapi-types": "^11.2.0",
-        "@types/classnames": "^2.3.1",
-        "@types/lodash.groupby": "^4.6.6",
-        "autoprefixer": "^9.8.8",
-        "husky": "^7.0.4",
-        "less": "^4.1.2",
-        "lint-staged": "^12.3.3",
-        "mark-cell": "^0.4.9",
-        "parcel-bundler": "^1.12.5",
-        "postcss-modules": "^3.2.2",
-        "prettier": "^2.5.1",
-        "typescript": "~4.3.5",
-        "workbox-cli": "^6.4.2"
+        "@octokit/openapi-types": "^19.1.0",
+        "@parcel/config-default": "~2.11.0",
+        "@parcel/packager-raw-url": "~2.11.0",
+        "@parcel/transformer-less": "~2.11.0",
+        "@parcel/transformer-typescript-tsc": "~2.11.0",
+        "@parcel/transformer-webmanifest": "~2.11.0",
+        "@types/lodash.groupby": "^4.6.9",
+        "@types/mdx": "^2.0.10",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.2.0",
+        "parcel": "~2.11.0",
+        "parcel-transformer-mdx": "^0.3.0",
+        "prettier": "^3.2.4",
+        "typescript": "~5.3.3",
+        "workbox-cli": "^7.0.0"
     },
     "prettier": {
         "singleQuote": true,
@@ -46,19 +48,11 @@
     "lint-staged": {
         "*.{html,md,mdx,less,json,yml,ts,tsx}": "prettier --write"
     },
-    "postcss": {
-        "modules": true,
-        "plugins": {
-            "autoprefixer": {
-                "grid": true
-            }
-        }
-    },
     "scripts": {
         "test": "lint-staged",
-        "pack-mdx": "mark-cell document/source -p web-cell -f createCell",
+        "clean": "rm -rf .parcel-cache/ dist/",
         "pack-tsx": "parcel build source/index.html --public-url .",
-        "build": "rm -rf dist/ document/dist/  &&  npm run pack-mdx  &&  npm run pack-tsx  &&  workbox generateSW",
-        "start": "npm run pack-mdx  &&  parcel source/index.html --open"
+        "build": "npm run clean  &&  npm run pack-tsx  &&  workbox generateSW",
+        "start": "npm run clean  &&  parcel source/index.html --open"
     }
 }
