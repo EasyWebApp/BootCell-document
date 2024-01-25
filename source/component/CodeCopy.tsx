@@ -1,12 +1,13 @@
-import { component, mixin, on } from 'web-cell';
+import { component, observer, on } from 'web-cell';
 
-import './CodeCopy.less';
+import './CodeCopy.module.less';
 
 @component({
     tagName: 'code-copy',
-    renderTarget: 'children'
+    mode: 'open'
 })
-export class CodeCopy extends mixin() {
+@observer
+export class CodeCopy extends HTMLElement {
     @on('click', 'pre[class*="language-"]')
     autoCopy({ target }: MouseEvent) {
         self.getSelection()
@@ -14,5 +15,9 @@ export class CodeCopy extends mixin() {
             .selectNode(target as Node);
 
         document.execCommand('copy');
+    }
+
+    render() {
+        return <slot />;
     }
 }

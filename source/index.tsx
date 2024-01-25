@@ -2,7 +2,7 @@ import { documentReady, serviceWorkerUpdate } from 'web-utility';
 import { DOMRenderer } from 'dom-renderer';
 import { configure } from 'mobx';
 
-import Home from './document/index.mdx';
+import { PageRouter } from './page';
 
 configure({ enforceActions: 'never' });
 
@@ -25,4 +25,4 @@ serviceWorker?.addEventListener('controllerchange', () =>
     window.location.reload()
 );
 
-documentReady.then(() => new DOMRenderer().render(<Home />));
+documentReady.then(() => new DOMRenderer().render(<PageRouter />));

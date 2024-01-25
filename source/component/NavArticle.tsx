@@ -1,51 +1,39 @@
-import {
-    WebCellElement,
-    component,
-    mixin,
-    watch,
-    createCell,
-    Fragment,
-    WebCellProps
-} from 'web-cell';
-import { watchScroll } from 'web-utility/source/DOM';
+import { WebCell, component, observer } from 'web-cell';
+import { watchScroll } from 'web-utility';
+import { observable } from 'mobx';
 import classNames from 'classnames';
 
-import style from './NavArticle.less';
+import * as style from './NavArticle.module.less';
 
-interface NavArticleState {
-    headerList: ReturnType<typeof watchScroll>;
-}
+export interface NavArticle extends WebCell {}
 
 @component({
     tagName: 'nav-article',
-    renderTarget: 'children'
+    mode: 'open'
 })
-export class NavArticle extends mixin<WebCellProps, NavArticleState>() {
-    @watch
-    set defaultSlot(defaultSlot: WebCellElement) {
-        this.setProps({ defaultSlot }).then(this.updateHeaderNav);
-    }
-
-    state = { headerList: [] };
+@observer
+export class NavArticle extends HTMLElement implements WebCell {
+    @observable
+    accessor headerList: ReturnType<typeof watchScroll> = [];
 
     connectedCallback() {
-        this.classList.add('row', 'm-0', style.box);
-
-        self.addEventListener('resize', this.updateHeaderNav);
-
-        super.connectedCallback();
+        globalThis.addEventListener?.('resize', this.updateHeaderNav);
+        this.addEventListener('slotchange', this.updateHeaderNav);
     }
 
     disconnectedCallback() {
-        self.removeEventListener('resize', this.updateHeaderNav);
+        globalThis.removeEventListener?.('resize', this.updateHeaderNav);
+        this.removeEventListener('slotchange', this.updateHeaderNav);
     }
 
     updateHeaderNav = () => {
-        const { firstElementChild: article } = this;
+        const [article] = this.shadowRoot
+            .querySelector('slot')
+            .assignedElements();
 
         if (!article || self.innerWidth < 768) return;
 
-        const headerList = watchScroll(
+        this.headerList = watchScroll(
             article as HTMLElement,
             ({ links: [item] }) => {
                 for (const link of item?.parentElement.querySelectorAll(
@@ -57,20 +45,22 @@ export class NavArticle extends mixin<WebCellProps, NavArticleState>() {
             },
             4
         );
-        this.setState({ headerList });
     };
 
-    render({ defaultSlot }: WebCellProps, { headerList }: NavArticleState) {
+    renderContent() {
+        const { headerList } = this;
+
         return (
-            <>
+            <div className={`row m-0 ${style.box}`}>
                 <article
                     className={classNames(
                         'col-12',
                         headerList[0] && 'col-md-9'
                     )}
                 >
-                    {defaultSlot}
+                    <slot />
                 </article>
+
                 {headerList[0] && (
                     <nav className="d-none d-md-block col-3 p-4 overflow-auto">
                         {headerList.map(({ level, id, text }) => (
@@ -87,6 +77,18 @@ export class NavArticle extends mixin<WebCellProps, NavArticleState>() {
                         ))}
                     </nav>
                 )}
+            </div>
+        );
+    }
+
+    render() {
+        return (
+            <>
+                <link
+                    rel="stylesheet"
+                    href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                />
+                {this.renderContent()}
             </>
         );
     }
