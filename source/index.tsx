@@ -1,7 +1,10 @@
-import { serviceWorkerUpdate } from 'web-utility/source/event';
-import { documentReady, render, createCell } from 'web-cell';
+import { documentReady, serviceWorkerUpdate } from 'web-utility';
+import { DOMRenderer } from 'dom-renderer';
+import { configure } from 'mobx';
 
 import { PageRouter } from './page';
+
+configure({ enforceActions: 'never' });
 
 const { serviceWorker } = window.navigator;
 
@@ -22,4 +25,4 @@ serviceWorker?.addEventListener('controllerchange', () =>
     window.location.reload()
 );
 
-documentReady.then(() => render(<PageRouter />));
+documentReady.then(() => new DOMRenderer().render(<PageRouter />));

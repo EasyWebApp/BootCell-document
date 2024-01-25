@@ -1,94 +1,91 @@
+import { FC, PropsWithChildren, observer } from 'web-cell';
 import {
-    WebCellProps,
-    component,
-    mixin,
-    watch,
-    attribute,
-    createCell,
-    Fragment
-} from 'web-cell';
-import { observer } from 'mobx-web-cell';
-
-import { NavBar } from 'boot-cell/source/Navigator/NavBar';
-import { NavLinkProps, NavLink } from 'boot-cell/source/Navigator/Nav';
-import { DropMenuItem } from 'boot-cell/source/Navigator';
+    Nav,
+    OffcanvasNavbar,
+    NavDropdown,
+    NavLinkProps,
+    NavLink,
+    DropdownItem
+} from 'boot-cell';
 
 import { meta } from '../model';
-import documents from '../../document/dist';
+import documents from '../document';
 
-export interface PageFrameProps extends WebCellProps {
+export interface PageFrameProps {
     menu: NavLinkProps[];
     activeIndex?: number;
     subMenu?: typeof documents;
 }
 
-@observer
-@component({
-    tagName: 'page-frame',
-    renderTarget: 'children'
-})
-export class PageFrame extends mixin<PageFrameProps>() {
-    @watch
-    menu = [];
-
-    @attribute
-    @watch
-    activeIndex?: number;
-
-    @watch
-    subMenu = [];
-
-    render({ menu, activeIndex, subMenu, defaultSlot }: PageFrameProps) {
-        return (
-            <>
-                <NavBar
-                    offcanvas
-                    brand="BootCell"
-                    expand="md"
-                    background="dark"
-                    theme="dark"
-                >
-                    {menu.map(({ title, ...rest }, index) => {
+export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
+    ({ menu, activeIndex, subMenu, children }) => (
+        <div className="d-flex flex-column" style={{ height: '300vh' }}>
+            <OffcanvasNavbar
+                brand={
+                    <a
+                        className="text-white text-decoration-none d-flex align-items-center"
+                        href="#"
+                    >
+                        <img
+                            className="me-2"
+                            style={{ width: '2rem' }}
+                            src="https://web-cell.dev/WebCell-0.f9823b00.png"
+                        />
+                        BootCell
+                    </a>
+                }
+                expand="md"
+                variant="dark"
+                sticky="top"
+            >
+                <Nav className="justify-content-end flex-fill gap-md-3">
+                    {menu.map(({ title, target, href }, index) => {
                         const current = index === activeIndex;
 
                         return !current || meta.deviceType !== 'phone' ? (
-                            <NavLink {...rest} active={current}>
+                            <NavLink
+                                target={target}
+                                href={
+                                    href.startsWith('http') ? href : `#${href}`
+                                }
+                                active={current}
+                            >
                                 {title}
                             </NavLink>
                         ) : (
-                            <NavLink title={title} active={current}>
-                                {subMenu.map(
-                                    ({ paths: [path], meta: { title } }) => (
-                                        <DropMenuItem href={path}>
-                                            {title}
-                                        </DropMenuItem>
-                                    )
-                                )}
-                            </NavLink>
+                            <NavDropdown title={title} active={current}>
+                                {subMenu.map(({ path }) => (
+                                    <DropdownItem href={path}>
+                                        {title}
+                                    </DropdownItem>
+                                ))}
+                            </NavDropdown>
                         );
                     })}
-                </NavBar>
+                </Nav>
+            </OffcanvasNavbar>
 
-                {defaultSlot}
+            <div className="flex-fill overflow-auto scrollbar-none">
+                {children}
+            </div>
 
-                <footer className="text-center bg-light py-5">
-                    Proudly developed with{' '}
-                    <a target="_blank" href="https://web-cell.dev/">
-                        WebCell v2
-                    </a>
-                    ,{' '}
-                    <a target="_blank" href="https://web-cell.dev/BootCell/">
-                        BootCell v1
-                    </a>{' '}
-                    &amp;{' '}
-                    <a
-                        target="_blank"
-                        href="https://github.com/EasyWebApp/MarkCell"
-                    >
-                        MarkCell
-                    </a>
-                </footer>
-            </>
-        );
-    }
-}
+            <footer className="text-center bg-light py-5">
+                Proudly developed with{' '}
+                <a target="_blank" href="https://web-cell.dev/">
+                    WebCell v2
+                </a>
+                ,{' '}
+                <a target="_blank" href="https://web-cell.dev/BootCell/">
+                    BootCell v1
+                </a>{' '}
+                &amp;{' '}
+                <a
+                    target="_blank"
+                    href="https://github.com/EasyWebApp/MarkCell"
+                >
+                    MarkCell
+                </a>
+            </footer>
+        </div>
+    )
+);

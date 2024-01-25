@@ -2,7 +2,7 @@ import { observable } from 'mobx';
 
 export class MetaModel {
     @observable
-    deviceType: 'phone' | 'pad' | 'desktop';
+    accessor deviceType: 'phone' | 'pad' | 'desktop';
 
     constructor() {
         this.getDeviceType();

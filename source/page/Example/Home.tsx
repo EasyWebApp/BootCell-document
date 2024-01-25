@@ -1,64 +1,71 @@
-import { createCell, Fragment } from 'web-cell';
-import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
-import { Button } from 'boot-cell/source/Form/Button';
-import { Card } from 'boot-cell/source/Content/Card';
+import { FC } from 'web-cell';
+import {
+    Jumbotron,
+    Button,
+    Card,
+    CardBody,
+    CardTitle,
+    CardImg,
+    Container
+} from 'boot-cell';
+import { PageProps } from 'cell-router';
 
 import data from './index.json';
 
-export function HomePage() {
-    return (
-        <>
-            <Jumbotron
-                fluid
-                title="Example"
-                description="Quickly get a project started with any of our examples ranging from using parts of the framework to custom components and layouts."
+export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
+    <main className={`vw-100 ${className}`} {...props}>
+        <Jumbotron
+            fluid
+            title="Example"
+            description="Quickly get a project started with any of our examples ranging from using parts of the framework to custom components and layouts."
+        >
+            <Button
+                variant="outline-primary"
+                size="lg"
+                target="_blank"
+                href="https://github.com/EasyWebApp/BootCell-document/tree/main/source/page/Example"
             >
-                <Button
-                    outline
-                    color="primary"
-                    size="lg"
-                    target="_blank"
-                    href="https://github.com/EasyWebApp/BootCell-document/tree/master/source/page/Example"
-                >
-                    Source Code
-                </Button>
-            </Jumbotron>
+                Source Code
+            </Button>
+        </Jumbotron>
 
-            <div className="container">{data.map(Section)}</div>
-        </>
-    );
-}
+        <Container>{data.map(Section)}</Container>
+    </main>
+);
 
-function Section({ title, description, list }: typeof data[0]) {
-    return (
-        <section>
-            <h2>{title}</h2>
-            <p className="lead">{description}</p>
+const Section = ({ title, description, list }: (typeof data)[0]) => (
+    <section>
+        <h2>{title}</h2>
+        <p className="lead">{description}</p>
 
-            <div className="card-deck m-auto">
-                {list.map(({ href, image, title, description }) => {
-                    href =
-                        href ||
-                        `example/${title.replace(' ', '-').toLowerCase()}`;
+        <ul className="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            {list.map(({ href, image, title, description }) => {
+                href ||= `example/${title.replace(' ', '-').toLowerCase()}`;
 
-                    return (
-                        <Card
-                            className="mb-4"
-                            style={{
-                                minWidth: '15rem',
-                                maxWidth: '15rem'
-                            }}
-                            image={image}
-                            title={
-                                <a className="stretched-link" href={href}>
-                                    {title}
-                                </a>
-                            }
-                            text={description}
-                        />
-                    );
-                })}
-            </div>
-        </section>
-    );
-}
+                return (
+                    <li>
+                        <Card>
+                            <CardImg src={image} />
+                            <CardBody>
+                                <CardTitle>
+                                    <a
+                                        className="stretched-link"
+                                        href={
+                                            href.startsWith('http')
+                                                ? href
+                                                : `#${href}`
+                                        }
+                                    >
+                                        {title}
+                                    </a>
+                                </CardTitle>
+
+                                {description}
+                            </CardBody>
+                        </Card>
+                    </li>
+                );
+            })}
+        </ul>
+    </section>
+);

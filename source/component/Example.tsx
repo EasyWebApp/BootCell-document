@@ -1,20 +1,23 @@
-import { WebCellProps, createCell } from 'web-cell';
+import { FC, WebCellProps } from 'web-cell';
 import classNames from 'classnames';
 
-import style from './Example.less';
+import * as style from './Example.module.less';
 
-export function Example({ className, defaultSlot }: WebCellProps) {
-    return (
-        <div
-            className={classNames(
-                'border',
-                'border-light',
-                'p-4',
-                style.example,
-                className
-            )}
-        >
-            {defaultSlot}
-        </div>
-    );
-}
+export const Example: FC<WebCellProps<HTMLDivElement>> = ({
+    className,
+    children,
+    ...props
+}) => (
+    <div
+        className={classNames(
+            'border',
+            'border-light',
+            'p-4',
+            style.example,
+            className
+        )}
+        {...props}
+    >
+        {children}
+    </div>
+);

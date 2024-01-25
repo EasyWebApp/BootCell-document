@@ -1,20 +1,13 @@
-import type { HTMLHyperLinkProps } from 'web-utility';
-import groupBy from 'lodash.groupby';
+import { WebCellProps } from 'web-cell';
 
-import documents from '../../document/dist';
+import documents from '../document';
 
-documents.sort(({ meta: { title: A } }, { meta: { title: B } }) =>
-    A.localeCompare(B)
-);
-export const side_menu = groupBy(
-    documents.map(({ paths: [href], meta }) => ({ ...meta, href })),
-    'group'
-);
+documents.sort(({ path: A }, { path: B }) => A.localeCompare(B));
 
-export const main_menu: HTMLHyperLinkProps[] = [
+export const main_menu: WebCellProps<HTMLAnchorElement>[] = [
     {
         title: 'Documentation',
-        href: documents[0].paths[0]
+        href: documents[0].path
     },
     {
         title: 'API',
@@ -35,7 +28,7 @@ export const main_menu: HTMLHyperLinkProps[] = [
     }
 ];
 
-export const scaffolds: HTMLHyperLinkProps[] = Object.entries({
+export const scaffolds: WebCellProps<HTMLAnchorElement>[] = Object.entries({
     scaffold: 'Common',
     DashBoard: 'Dashboard',
     'mark-wiki': 'Static'
