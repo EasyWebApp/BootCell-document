@@ -35,7 +35,10 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
                                 <h5 className="mx-2">{group}</h5>
 
                                 {list.map(({ href, title }) => (
-                                    <a className="d-block m-2" href={href}>
+                                    <a
+                                        className="d-block m-2"
+                                        href={`#${href}`}
+                                    >
                                         {title}
                                     </a>
                                 ))}

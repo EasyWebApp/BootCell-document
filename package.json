@@ -32,6 +32,7 @@
         "@types/lodash.groupby": "^4.6.9",
         "@types/mdx": "^2.0.10",
         "@types/node": "^18.19.9",
+        "fs-match": "^1.7.1",
         "husky": "^9.0.5",
         "lint-staged": "^15.2.0",
         "parcel": "~2.11.0",
@@ -39,8 +40,10 @@
         "postcss": "^8.4.33",
         "postcss-modules": "^4.3.1",
         "prettier": "^3.2.4",
+        "tsx": "^4.7.0",
         "typescript": "~5.3.3",
-        "workbox-cli": "^7.0.0"
+        "workbox-cli": "^7.0.0",
+        "yaml": "^2.3.4"
     },
     "prettier": {
         "singleQuote": true,
@@ -52,9 +55,9 @@
         "*.{html,md,mdx,less,json,yml,ts,tsx}": "prettier --write"
     },
     "scripts": {
-        "prepare": "husky",
+        "prepare": "husky  &&  npm run clean",
         "test": "lint-staged",
-        "clean": "rm -rf .parcel-cache/ dist/",
+        "clean": "rm -rf .parcel-cache/ dist/  &&  tsx create-index source/document/",
         "pack-tsx": "parcel build source/index.html --public-url .",
         "build": "npm run clean  &&  npm run pack-tsx  &&  workbox generateSW",
         "start": "npm run clean  &&  parcel source/index.html --open"

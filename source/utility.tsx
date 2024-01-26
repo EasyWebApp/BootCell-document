@@ -1,9 +1,10 @@
-import { WebCellComponent, lazy } from 'web-cell';
+import { WebCellComponent } from 'web-cell';
 import { PageProps } from 'cell-router';
 
-import { DocumentBox } from '../component/DocumentBox';
+import { DocumentBox } from './component/DocumentBox';
+import { side_menu } from './page/data';
 
-function loadMDX<T extends () => Promise<{ default: WebCellComponent }>>(
+export function loadMDX<T extends () => Promise<{ default: WebCellComponent }>>(
     loader: T
 ) {
     return async () => {
@@ -14,6 +15,7 @@ function loadMDX<T extends () => Promise<{ default: WebCellComponent }>>(
             default: (props: PageProps) => (
                 <DocumentBox
                     {...props}
+                    menu={side_menu}
                     path=""
                     header={meta.title}
                     description={meta.description}
@@ -24,10 +26,3 @@ function loadMDX<T extends () => Promise<{ default: WebCellComponent }>>(
         };
     };
 }
-
-export default [
-    {
-        path: 'icon',
-        component: lazy(loadMDX(() => import('./Icon.mdx')))
-    }
-];

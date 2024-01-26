@@ -5,10 +5,9 @@ description: Documentation and examples for badges, our small count and labeling
 group: Components
 ---
 
-import { Badge } from 'boot-cell/source/Reminder/Badge';
-import { Button } from 'boot-cell/source/Form/Button';
+import { Badge, Button } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../component/Example';
 
 ## Example
 
@@ -19,43 +18,46 @@ Badges scale to match the size of the immediate parent element by using relative
         const Tag = `h${level}`;
         return (
             <Tag>
-                Example heading <Badge color="secondary">New</Badge>
+                Example heading <Badge bg="secondary">New</Badge>
             </Tag>
         );
     })}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Badge } from 'boot-cell/source/Reminder/Badge';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Badge } from 'boot-cell';
 
-render([1, 2, 3, 4, 5, 6].map(level => {
-    const Tag = `h${level}`;
+new DOMRenderer().render(
+    <>
+        {[1, 2, 3, 4, 5, 6].map(level => {
+            const Tag = `h${level}`;
 
-    return (
-        <Tag>
-            Example heading <Badge color="secondary">New</Badge>
-        </Tag>
-    );
-}));
+            return (
+                <Tag>
+                    Example heading <Badge bg="secondary">New</Badge>
+                </Tag>
+            );
+        })}
+    </>
+);
 ```
 
 Badges can be used as part of links or buttons to provide a counter.
 
 <Example>
-    <Button color="primary">
-        Notifications <Badge color="light">4</Badge>
+    <Button variant="primary">
+        Notifications <Badge bg="light">4</Badge>
     </Button>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Badge } from 'boot-cell/source/Reminder/Badge';
-import { Button } from 'boot-cell/source/Form/Button';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Badge, Button } from 'boot-cell';
 
-render(
-    <Button color="primary">
-        Notifications <Badge color="light">4</Badge>
+new DOMRenderer().render(
+    <Button variant="primary">
+        Notifications <Badge bg="light">4</Badge>
     </Button>
 );
 ```
@@ -70,20 +72,19 @@ Unless the context is clear (as with the “Notifications” example, where it i
 the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.
 
 <Example>
-    <Button color="primary">
-        Profile <Badge color="light">9</badge>
+    <Button variant="primary">
+        Profile <Badge bg="light">9</Badge>
         <span className="sr-only">unread messages</span>
     </Button>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Badge } from 'boot-cell/source/Reminder/Badge';
-import { Button } from 'boot-cell/source/Form/Button';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Badge, Button } from 'boot-cell';
 
-render(
-    <Button color="primary">
-        Profile <Badge color="light">9</badge>
+new DOMRenderer().render(
+    <Button variant="primary">
+        Profile <Badge bg="light">9</badge>
         <span className="sr-only">unread messages</span>
     </Button>
 );
@@ -104,30 +105,34 @@ Add any of the below mentioned `color` property values to change the appearance 
         'light',
         'dark'
     ].map(color => (
-        <Badge color={color} className="text-capitalize">
+        <Badge bg={color} className="text-capitalize">
             {color}
         </Badge>
     ))}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Badge } from 'boot-cell/source/Reminder/Badge';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Badge } from 'boot-cell';
 
-render([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark'
-].map(color => (
-    <Badge color={color} className="text-capitalize">
-        {color}
-    </Badge>
-)));
+new DOMRenderer().render(
+    <>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <Badge bg={color} className="text-capitalize">
+                {color}
+            </Badge>
+        ))}
+    </>
+);
 ```
 
 > ##### Conveying meaning to assistive technologies
@@ -152,30 +157,34 @@ Useful if you miss the badges from v3.
         'light',
         'dark'
     ].map(color => (
-        <Badge pill color={color} className="text-capitalize">
+        <Badge pill bg={color} className="text-capitalize">
             {color}
         </Badge>
     ))}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Badge } from 'boot-cell/source/Reminder/Badge';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Badge } from 'boot-cell';
 
-render([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark'
-].map(color => (
-    <Badge pill color={color} className="text-capitalize">
-        {color}
-    </Badge>
-)));
+new DOMRenderer().render(
+    <>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <Badge pill bg={color} className="text-capitalize">
+                {color}
+            </Badge>
+        ))}
+    </>
+);
 ```
 
 ## Links
@@ -193,28 +202,32 @@ Using `href` property on `<Badge />` quickly provide actionable badges with hove
         'light',
         'dark'
     ].map(color => (
-        <Badge href="." color={color} className="text-capitalize">
+        <Badge href="." bg={color} className="text-capitalize">
             {color}
         </Badge>
     ))}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Badge } from 'boot-cell/source/Reminder/Badge';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Badge } from 'boot-cell';
 
-render([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark'
-].map(color => (
-    <Badge href="." color={color} className="text-capitalize">
-        {color}
-    </Badge>
-)));
+new DOMRenderer().render(
+    <>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <Badge href="." bg={color} className="text-capitalize">
+                {color}
+            </Badge>
+        ))}
+    </>
+);
 ```
