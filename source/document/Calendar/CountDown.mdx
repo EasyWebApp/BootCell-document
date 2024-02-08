@@ -5,19 +5,19 @@ description:
 group: Components
 ---
 
-import { CountDown } from 'boot-cell/source/Calendar/CountDown';
+import { CountDown } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../component/Example';
 
 <Example>
     <CountDown endTime={new Date(new Date().getFullYear() + 1, 5, 4)} />
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { CountDown } from 'boot-cell/source/Calendar/CountDown';
+import { DOMRenderer } from 'dom-renderer';
+import { CountDown } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <CountDown endTime={new Date(new Date().getFullYear() + 1, 5, 4)} />
 );
 ```

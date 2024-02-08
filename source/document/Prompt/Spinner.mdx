@@ -5,10 +5,9 @@ description: Indicate the loading state of a component or page with BootCell spi
 group: Components
 ---
 
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
-import { Button } from 'boot-cell/source/Form/Button';
+import { Spinner, Button } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../component/Example';
 
 ## About
 
@@ -25,13 +24,11 @@ Use the border spinners for a lightweight loading indicator.
     <Spinner />
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
-    <Spinner />
-);
+new DOMRenderer().render(<Spinner />);
 ```
 
 ### Colors
@@ -51,26 +48,30 @@ You can use any of our text color utilities on the standard spinner.
         'light',
         'dark'
     ].map(color => (
-        <Spinner color={color} />
+        <Spinner variant={color} />
     ))}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark'
-].map(color => (
-    <Spinner color={color} />
-)));
+new DOMRenderer().render(
+    <>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <Spinner variant={color} />
+        ))}
+    </>
+);
 ```
 
 ## Growing spinner
@@ -79,16 +80,14 @@ If you don’t fancy a border spinner, switch to the grow spinner.
 While it doesn’t technically spin, it does repeatedly grow!
 
 <Example>
-    <Spinner type="grow" />
+    <Spinner animation="grow" />
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
-    <Spinner type="grow" />
-);
+new DOMRenderer().render(<Spinner animation="grow" />);
 ```
 
 Once again, this spinner is built with `currentColor`, so you can easily change its appearance with [text color utilities][1].
@@ -105,26 +104,30 @@ Here it is in blue, along with the supported variants.
         'light',
         'dark'
     ].map(color => (
-        <Spinner type="grow" color={color} />
+        <Spinner animation="grow" variant={color} />
     ))}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark'
-].map(color => (
-    <Spinner type="grow" color={color} />
-)));
+new DOMRenderer().render(
+    <>
+        {[
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark'
+        ].map(color => (
+            <Spinner animation="grow" variant={color} />
+        ))}
+    </>
+);
 ```
 
 ## Alignment
@@ -140,13 +143,11 @@ Use [margin utilities][2] like `.m-5` for easy spacing.
     <Spinner className="m-5" />
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
-    <Spinner className="m-5" />
-);
+new DOMRenderer().render(<Spinner className="m-5" />);
 ```
 
 ### Placement
@@ -162,11 +163,11 @@ where you need them in any situation.
     </div>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <div className="d-flex justify-content-center">
         <Spinner />
     </div>
@@ -180,14 +181,14 @@ render(
     </div>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <div className="d-flex align-items-center">
         <strong>Loading...</strong>
-        <Spinner className="ml-auto" aria-hidden="true" />
+        <Spinner className="ml-auto" ariaHidden="true" />
     </div>
 );
 ```
@@ -200,11 +201,11 @@ render(
     </div>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <div className="clearfix">
         <Spinner className="float-right" />
     </div>
@@ -219,11 +220,11 @@ render(
     </div>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <div className="text-center">
         <Spinner />
     </div>
@@ -235,18 +236,18 @@ render(
 Add `small` property to make a smaller spinner that can quickly be used within other components.
 
 <Example>
-    <Spinner small />
-    <Spinner type="grow" small />
+    <Spinner size="sm" />
+    <Spinner animation="grow" size="sm" />
 </Example>
 
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <>
-        <Spinner small />
-        <Spinner type="grow" small />
+        <Spinner size="sm" />
+        <Spinner animation="grow" size="sm" />
     </>
 );
 ```
@@ -255,17 +256,17 @@ Or, use custom CSS or inline styles to change the dimensions as needed.
 
 <Example>
     <Spinner style={{ width: '3rem', height: '3rem' }} />
-    <Spinner type="grow" style={{ width: '3rem', height: '3rem' }} />
+    <Spinner animation="grow" style={{ width: '3rem', height: '3rem' }} />
 </Example>
 
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <>
         <Spinner style={{ width: '3rem', height: '3rem' }} />
-        <Spinner type="grow" style={{ width: '3rem', height: '3rem' }} />
+        <Spinner animation="grow" style={{ width: '3rem', height: '3rem' }} />
     </>
 );
 ```
@@ -276,56 +277,54 @@ Use spinners within buttons to indicate an action is currently processing or tak
 You may also swap the text out of the spinner element and utilize button text as needed.
 
 <Example>
-    <Button color="primary" disabled>
-        <Spinner small aria-hidden="true" />{' '}
+    <Button variant="primary" disabled>
+        <Spinner size="sm" ariaHidden="true" />{' '}
         <span className="sr-only">Loading...</span>
     </Button>
-    <Button color="primary" disabled>
-        <Spinner small aria-hidden="true" /> Loading...
+    <Button variant="primary" disabled>
+        <Spinner size="sm" ariaHidden="true" /> Loading...
     </Button>
 </Example>
 
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
-import { Button } from 'boot-cell/source/Form/Button';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner, Button } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <>
-        <Button color="primary" disabled>
-            <Spinner small aria-hidden="true" />{' '}
+        <Button variant="primary" disabled>
+            <Spinner size="sm" ariaHidden="true" />{' '}
             <span className="sr-only">Loading...</span>
         </Button>
-        <Button color="primary" disabled>
-            <Spinner small aria-hidden="true" /> Loading...
+        <Button variant="primary" disabled>
+            <Spinner size="sm" ariaHidden="true" /> Loading...
         </Button>
     </>
 );
 ```
 
 <Example>
-    <Button color="primary" disabled>
-        <Spinner type="grow" small aria-hidden="true" />{' '}
+    <Button variant="primary" disabled>
+        <Spinner animation="grow" size="sm" ariaHidden="true" />{' '}
         <span className="sr-only">Loading...</span>
     </Button>
-    <Button color="primary" disabled>
-        <Spinner type="grow" small aria-hidden="true" /> Loading...
+    <Button variant="primary" disabled>
+        <Spinner animation="grow" size="sm" ariaHidden="true" /> Loading...
     </Button>
 </Example>
 
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { Spinner } from 'boot-cell/source/Prompt/Spinner';
-import { Button } from 'boot-cell/source/Form/Button';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Spinner, Button } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <>
-        <Button color="primary" disabled>
-            <Spinner type="grow" small aria-hidden="true" />{' '}
+        <Button variant="primary" disabled>
+            <Spinner animation="grow" size="sm" ariaHidden="true" />{' '}
             <span className="sr-only">Loading...</span>
         </Button>
-        <Button color="primary" disabled>
-            <Spinner type="grow" small aria-hidden="true" /> Loading...
+        <Button variant="primary" disabled>
+            <Spinner animation="grow" size="sm" ariaHidden="true" /> Loading...
         </Button>
     </>
 );

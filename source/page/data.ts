@@ -1,8 +1,14 @@
 import { WebCellProps } from 'web-cell';
+import { groupBy } from 'web-utility';
 
 import documents from '../document';
 
 documents.sort(({ path: A }, { path: B }) => A.localeCompare(B));
+
+export const side_menu = groupBy(
+    documents.map(({ path: href, component, ...meta }) => ({ ...meta, href })),
+    'group'
+);
 
 export const main_menu: WebCellProps<HTMLAnchorElement>[] = [
     {
