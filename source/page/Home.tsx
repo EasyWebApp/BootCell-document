@@ -15,9 +15,9 @@ import routes from '../document';
 
 export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
     <main className={`vw-100 ${className}`} {...props}>
-        <Container className="d-md-flex flex-row-reverse align-items-center text-center text-md-start">
+        <Container className="d-lg-flex flex-row-reverse align-items-center text-center text-md-start">
             <img
-                className="pt-5 p-md-5"
+                className="pt-5 p-lg-5"
                 style={{ width: '50vw' }}
                 src="https://web-cell.dev/WebCell-0.f9823b00.png"
             />
@@ -33,15 +33,15 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
                     </a>{' '}
                     UI library based on{' '}
                     <a target="_blank" href="https://web-cell.dev/">
-                        WebCell v2
+                        WebCell v3
                     </a>
                     ,{' '}
                     <a target="_blank" href="https://getbootstrap.com/">
-                        BootStrap v4
+                        BootStrap v5
                     </a>{' '}
                     &amp;{' '}
                     <a target="_blank" href="https://fontawesome.com/">
-                        FontAwesome v5
+                        FontAwesome v6
                     </a>
                 </p>
                 <Button

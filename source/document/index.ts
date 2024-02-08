@@ -1,4 +1,4 @@
-// This file is created by "MDX index creating" script,
+// This file is created by "MDX index creator" script,
 // please don't edit it manually!
 
 import { lazy } from 'web-cell';
@@ -6,6 +6,32 @@ import { lazy } from 'web-cell';
 import { loadMDX } from '../utility';
 
 export default [
+    {
+        path: 'calendar/countdown',
+        layout: 'docs',
+        title: 'Count down',
+        description: null,
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Calendar/CountDown.mdx')))
+    },
+    {
+        path: 'content/jumbotron',
+        layout: 'docs',
+        title: 'Jumbotron',
+        description:
+            'Lightweight, flexible component for showcasing hero unit style content.',
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Content/Jumbotron.mdx')))
+    },
+    {
+        path: 'prompt/spinner',
+        layout: 'docs',
+        title: 'Spinner',
+        description:
+            'Indicate the loading state of a component or page with BootCell spinners, built entirely with HTML, CSS, and no JavaScript.',
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Prompt/Spinner.mdx')))
+    },
     {
         path: 'reminder/badge',
         layout: 'docs',

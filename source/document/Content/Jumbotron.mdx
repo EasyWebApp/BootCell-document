@@ -5,10 +5,9 @@ description: Lightweight, flexible component for showcasing hero unit style cont
 group: Components
 ---
 
-import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
-import { Button } from 'boot-cell/source/Form/Button';
+import { Jumbotron, Button } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../component/Example';
 
 A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.
 
@@ -27,12 +26,11 @@ A lightweight, flexible component that can optionally extend the entire viewport
     </Jumbotron>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
-import { Button } from 'boot-cell/source/Form/Button';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Jumbotron, Button } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <Jumbotron
         title="Hello, world!"
         description="This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information."
@@ -58,11 +56,11 @@ To make the jumbotron full width, and without rounded corners, just add the `flu
     />
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Jumbotron } from 'boot-cell';
 
-render(
+new DOMRenderer().render(
     <Jumbotron
         fluid
         title="Fluid jumbotron"
