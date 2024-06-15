@@ -19,7 +19,7 @@ export interface PageFrameProps {
 
 export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
     ({ menu, activeIndex, subMenu, children }) => (
-        <div className="d-flex flex-column" style={{ height: '300vh' }}>
+        <>
             <OffcanvasNavbar
                 brand={
                     <a
@@ -86,6 +86,6 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                     MarkCell
                 </a>
             </footer>
-        </div>
+        </>
     )
 );

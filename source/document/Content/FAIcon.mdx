@@ -5,10 +5,9 @@ description: Wrapper component for FontAwesome v5 (CSS fonts)
 group: Components
 ---
 
-import { FAIcon, BGIcon } from 'boot-cell/source/Reminder/FAIcon';
-import { Table } from 'boot-cell/source/Content/Table';
+import { FAIcon, FABGIcon, Table } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../component/Example';
 
 ## Basic usage
 
@@ -18,7 +17,7 @@ All you need to do is include a single line of HTML:
 ```HTML
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css"
+    href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"
 />
 ```
 
@@ -64,7 +63,7 @@ All you need to do is include a single line of HTML:
                 code: '<FAIcon group="duotone" name="camera" />'
             }
         ].map(({ group, weight, code, example }) => (
-            <tr>
+            <tr key={group}>
                 <td>{group}</td>
                 <td>{weight}</td>
                 <td>
@@ -97,17 +96,19 @@ With the following properties, we can increase or decrease the size of icons rel
 
 <Example>
     {['xs', 'sm', 'lg', '2x', '3x', '5x', '7x', '10x'].map(size => (
-        <FAIcon name="camera" size={size} />
+        <FAIcon key={size} name="camera" size={size} />
     ))}
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(['xs', 'sm', 'lg', '2x', '3x', '5x', '7x', '10x'].map(size => (
-    <FAIcon name="camera" size={size} />
-)));
+new DOMRenderer.render(
+    ['xs', 'sm', 'lg', '2x', '3x', '5x', '7x', '10x'].map(size => (
+        <FAIcon key={size} name="camera" size={size} />
+    ))
+);
 ```
 
 > More Details of [Sizing Scale][2].
@@ -130,7 +131,7 @@ For clarity in the following example, we’ve added a background color on the ic
             { name: 'snowboarding', title: 'Snowboarding' },
             { name: 'snowplow', title: 'Snowplow' }
         ].map(({ name, title }, index) => (
-            <li>
+            <li key={name}>
                 <FAIcon
                     name={name}
                     fixedWidth
@@ -143,10 +144,10 @@ For clarity in the following example, we’ve added a background color on the ic
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <ul className="list-unstyled" style={{ fontSize: '2rem' }}>
         {[
             { name: 'skating', title: 'Skating' },
@@ -155,7 +156,7 @@ render(
             { name: 'snowboarding', title: 'Snowboarding' },
             { name: 'snowplow', title: 'Snowplow' }
         ].map(({ name, title }, index) => (
-            <li>
+            <li key={name}>
                 <FAIcon
                     name={name}
                     fixedWidth
@@ -177,23 +178,23 @@ Use `border` and `pull="right"` or `pull="left"` for easy pull quotes or article
 
 <Example>
     <FAIcon name="quote-left" size={2} pull="left" />
-    Gatsby believed in the green light, the orgastic future that year by year recedes
-    before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
-    stretch our arms further... And one fine morning — So we beat on, boats against
-    the current, borne back ceaselessly into the past.
+    Gatsby believed in the green light, the orgastic future that year by year
+    recedes before us. It eluded us then, but that’s no matter — tomorrow we
+    will run faster, stretch our arms further... And one fine morning — So we
+    beat on, boats against the current, borne back ceaselessly into the past.
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <>
         <FAIcon name="quote-left" size={2} pull="left" />
-        Gatsby believed in the green light, the orgastic future that year by year recedes
-        before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
-        stretch our arms further... And one fine morning — So we beat on, boats against
-        the current, borne back ceaselessly into the past.
+        Gatsby believed in the green light, the orgastic future that year by year
+        recedes before us. It eluded us then, but that’s no matter — tomorrow we
+        will run faster, stretch our arms further... And one fine morning — So we
+        beat on, boats against the current, borne back ceaselessly into the past.
     </>
 );
 ```
@@ -202,23 +203,23 @@ Use `border` in combination with pulled icon styles for more visual separation.
 
 <Example>
     <FAIcon name="arrow-right" size={2} pull="right" border />
-    Gatsby believed in the green light, the orgastic future that year by year recedes
-    before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
-    stretch our arms further... And one fine morning — So we beat on, boats against
-    the current, borne back ceaselessly into the past.
+    Gatsby believed in the green light, the orgastic future that year by year
+    recedes before us. It eluded us then, but that’s no matter — tomorrow we
+    will run faster, stretch our arms further... And one fine morning — So we
+    beat on, boats against the current, borne back ceaselessly into the past.
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <>
         <FAIcon name="arrow-right" size={2} pull="right" border />
-        Gatsby believed in the green light, the orgastic future that year by year recedes
-        before us. It eluded us then, but that’s no matter — tomorrow we will run faster,
-        stretch our arms further... And one fine morning — So we beat on, boats against
-        the current, borne back ceaselessly into the past.
+        Gatsby believed in the green light, the orgastic future that year by year
+        recedes before us. It eluded us then, but that’s no matter — tomorrow we
+        will run faster, stretch our arms further... And one fine morning — So we
+        beat on, boats against the current, borne back ceaselessly into the past.
     </>
 );
 ```
@@ -233,25 +234,25 @@ To arbitrarily rotate and flip icons, use the `rotate` and `flip` properties whe
 <Example className="fa-4x">
     <FAIcon name="snowboarding" />
     {[90, 180, 270].map(rotate => (
-        <FAIcon name="snowboarding" rotate={rotate} />
+        <FAIcon key={rotate} name="snowboarding" rotate={rotate} />
     ))}
     {['horizontal', 'vertical', 'both'].map(flip => (
-        <FAIcon name="snowboarding" flip={flip} />
+        <FAIcon key={flip} name="snowboarding" flip={flip} />
     ))}
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <div className="fa-4x">
         <FAIcon name="snowboarding" />
         {[90, 180, 270].map(rotate => (
-            <FAIcon name="snowboarding" rotate={rotate} />
+            <FAIcon key={rotate} name="snowboarding" rotate={rotate} />
         ))}
         {['horizontal', 'vertical', 'both'].map(flip => (
-            <FAIcon name="snowboarding" flip={flip} />
+            <FAIcon key={flip} name="snowboarding" flip={flip} />
         ))}
     </div>
 );
@@ -275,10 +276,10 @@ Works especially well with `name="spinner"` & everything in the [spinner icons c
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <div className="fa-3x">
         <FAIcon name="spinner" animation="spin" />
         <FAIcon name="circle-notch" animation="spin" />
@@ -317,10 +318,10 @@ Use `fa-ul` and `fa-li` to replace default bullets in unordered lists.
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { FAIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <ul className="fa-ul">
         <li>
             <FAIcon name="check-square" listItem />
@@ -348,10 +349,10 @@ Then add the `stack={1}` property for the regularly sized icon and add the `stac
 You can even throw larger icon classes on the parent to get further control of sizing.
 
 <Example>
-    <BGIcon type="square" group="brands" name="twitter" size={2} />
-    <BGIcon type="circle" name="flag" size={2} />
-    <BGIcon type="square" name="terminal" size={2} />
-    <BGIcon type="square" name="terminal" size={4} />
+    <FABGIcon type="square" group="brands" name="twitter" size={2} />
+    <FABGIcon type="circle" name="flag" size={2} />
+    <FABGIcon type="square" name="terminal" size={2} />
+    <FABGIcon type="square" name="terminal" size={4} />
     <span className="fa-stack fa-2x">
         <FAIcon name="camera" stack={1} />
         <FAIcon name="ban" stack={2} color="danger" />
@@ -359,15 +360,15 @@ You can even throw larger icon classes on the parent to get further control of s
 </Example>
 
 ```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { FAIcon, BGIcon } from 'boot-cell/source/Reminder/FAIcon';
+import { DOMRenderer } from 'dom-renderer';
+import { FAIcon, FABGIcon } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <>
-        <BGIcon type="square" group="brands" name="twitter" size={2} />
-        <BGIcon type="circle" name="flag" size={2} />
-        <BGIcon type="square" name="terminal" size={2} />
-        <BGIcon type="square" name="terminal" size={4} />
+        <FABGIcon type="square" group="brands" name="twitter" size={2} />
+        <FABGIcon type="circle" name="flag" size={2} />
+        <FABGIcon type="square" name="terminal" size={2} />
+        <FABGIcon type="square" name="terminal" size={4} />
         <span className="fa-stack fa-2x">
             <FAIcon name="camera" stack={1} />
             <FAIcon name="ban" stack={2} color="danger" />
