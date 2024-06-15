@@ -62,7 +62,7 @@ export default [
         path: 'reminder/icon',
         layout: 'docs',
         title: 'Icon',
-        description: 'Wrapper component for BootStrap Icon v1.2+ (Web font)',
+        description: 'Wrapper component for Bootstrap Icon v1.2+ (Web font)',
         group: 'Components',
         component: lazy(loadMDX(() => import('./Reminder/Icon.mdx')))
     }

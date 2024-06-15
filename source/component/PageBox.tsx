@@ -72,7 +72,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
             <footer className="text-center bg-light py-5">
                 Proudly developed with{' '}
                 <a target="_blank" href="https://web-cell.dev/">
-                    WebCell v2
+                    WebCell v3
                 </a>
                 ,{' '}
                 <a target="_blank" href="https://web-cell.dev/BootCell/">

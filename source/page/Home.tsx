@@ -37,7 +37,7 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
                     </a>
                     ,{' '}
                     <a target="_blank" href="https://getbootstrap.com/">
-                        BootStrap v5
+                        Bootstrap v5
                     </a>{' '}
                     &amp;{' '}
                     <a target="_blank" href="https://fontawesome.com/">
