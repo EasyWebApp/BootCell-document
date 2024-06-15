@@ -3,7 +3,7 @@ import { Nav, NavLink, Button } from 'boot-cell';
 import { FooterList } from '../../../component/FooterList';
 import { Case } from './Case';
 
-import style from './index.module.less';
+import * as style from './index.module.less';
 import { headers, products, footers } from './data';
 
 const logo = (

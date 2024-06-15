@@ -1,34 +1,43 @@
-import { component, mixin, createCell, Fragment } from 'web-cell';
-import { observer } from 'mobx-web-cell';
-import { NavBar } from 'boot-cell/source/Navigator/NavBar';
-import { NavLink } from 'boot-cell/source/Navigator/Nav';
-import { DropMenuItem } from 'boot-cell/source/Navigator/DropMenu';
-import { Form } from 'boot-cell/source/Form/Form';
-import { Field } from 'boot-cell/source/Form/Field';
-import { Button } from 'boot-cell/source/Form/Button';
-import { Jumbotron } from 'boot-cell/source/Content/Jumbotron';
-import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
+import { component, observer } from 'web-cell';
+import {
+    Navbar,
+    NavbarBrand,
+    Nav,
+    NavLink,
+    NavDropdown,
+    DropdownItem,
+    FormControl,
+    Button,
+    Jumbotron,
+    SpinnerBox
+} from 'boot-cell';
+import { CustomElement } from 'web-utility';
+import { GitRepository } from 'mobx-github';
 
-import repository, { Repository } from '../../model/Repository';
+import { repository } from '../../model/';
 
 @observer
 @component({
-    tagName: 'jumbotron-page',
-    renderTarget: 'children'
+    tagName: 'jumbotron-page'
 })
-export class JumbotronPage extends mixin() {
+export default class JumbotronPage
+    extends HTMLElement
+    implements CustomElement
+{
     connectedCallback() {
         repository.getList();
-
-        super.connectedCallback();
     }
 
-    renderItem = ({ name, description, html_url }: Repository) => (
+    disconnectedCallback() {
+        repository.clear();
+    }
+
+    renderItem = ({ name, description, html_url }: GitRepository) => (
         <div className="col-md-4">
             <h2>{name}</h2>
             <p>{description}</p>
             <p>
-                <Button color="secondary" href={html_url}>
+                <Button variant="secondary" href={html_url}>
                     View details »
                 </Button>
             </p>
@@ -36,53 +45,57 @@ export class JumbotronPage extends mixin() {
     );
 
     render() {
-        const { loading, list } = repository;
+        const { downloading, currentPage } = repository;
 
         return (
             <>
-                <NavBar expand="lg" brand="NavBar">
-                    <NavLink href=".">Home</NavLink>
-                    <NavLink href="components/navigator/navbar">Link</NavLink>
-                    <NavLink href="#" disabled>
-                        Disabled
-                    </NavLink>
-                    <NavLink title="Dropdown">
-                        <DropMenuItem>Action</DropMenuItem>
-                        <DropMenuItem>Another action</DropMenuItem>
-                        <DropMenuItem />
-                        <DropMenuItem>Something else here</DropMenuItem>
-                    </NavLink>
-                    <Form inline className="my-2 my-lg-0">
-                        <Field
+                <Navbar expand="lg">
+                    <NavbarBrand>NavBar</NavbarBrand>
+                    <Nav>
+                        <NavLink href=".">Home</NavLink>
+                        <NavLink href="#components/navigator/navbar">
+                            Link
+                        </NavLink>
+                        <NavLink href="#" disabled>
+                            Disabled
+                        </NavLink>
+                        <NavDropdown title="Dropdown">
+                            <DropdownItem>Action</DropdownItem>
+                            <DropdownItem>Another action</DropdownItem>
+                            <DropdownItem />
+                            <DropdownItem>Something else here</DropdownItem>
+                        </NavDropdown>
+                    </Nav>
+                    <form inline className="my-2 my-lg-0">
+                        <FormControl
                             type="search"
-                            className="mr-sm-2"
+                            className="me-sm-2"
                             placeholder="Search"
-                            aria-label="Search"
+                            ariaLabel="Search"
                         />
                         <Button
                             type="submit"
-                            color="success"
-                            outline
+                            variant="outline-success"
                             className="my-2 my-sm-0"
                         >
                             Search
                         </Button>
-                    </Form>
-                </NavBar>
+                    </form>
+                </Navbar>
 
                 <Jumbotron
                     fluid
                     title="Hello, world!"
                     description="This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique."
                 >
-                    <Button color="primary" size="lg">
+                    <Button variant="primary" size="lg">
                         Learn more »
                     </Button>
                 </Jumbotron>
 
                 <main className="container">
-                    <SpinnerBox className="row" cover={loading}>
-                        {list.slice(0, 3).map(this.renderItem)}
+                    <SpinnerBox className="row" cover={downloading > 0}>
+                        {currentPage.slice(0, 3).map(this.renderItem)}
                     </SpinnerBox>
                     <hr />
                 </main>

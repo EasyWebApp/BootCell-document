@@ -44,7 +44,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
             <h2 style={{ fontWeight: '400' }}>{name}</h2>
             <p>{description}</p>
             <p>
-                <Button color="secondary" href={html_url}>
+                <Button variant="secondary" href={html_url}>
                     View details »
                 </Button>
             </p>
@@ -74,7 +74,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                         />
                         <Button
                             type="submit"
-                            color="success"
+                            variant="success"
                             outline
                             className="my-2 my-sm-0"
                         >

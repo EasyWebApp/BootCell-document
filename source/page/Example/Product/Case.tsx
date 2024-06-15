@@ -2,7 +2,7 @@ import { FC } from 'web-cell';
 import classNames from 'classnames';
 import { BackgroundColor } from 'boot-cell';
 
-import style from './Case.module.less';
+import * as style from './Case.module.less';
 
 export type CaseProps = Partial<
     Record<'background' | 'color', BackgroundColor>

@@ -17,20 +17,20 @@ export default [
         path: 'example/product',
         component: lazy(() => import('./Product'))
     },
-    // {
-    //     paths: ['example/cover'],
-    //     component: async () => (await import('./Cover')).CoverPage
-    // },
+    {
+        path: 'example/cover',
+        component: lazy(() => import('./Cover'))
+    },
     {
         path: 'example/carousel',
         component: lazy(() => import('./Carousel'))
+    },
+    {
+        path: 'example/jumbotron',
+        component: lazy(() => import('./Jumbotron'))
+    },
+    {
+        path: 'example/offcanvas',
+        component: lazy(() => import('./Offcanvas'))
     }
-    // {
-    //     paths: ['example/jumbotron'],
-    //     component: async () => (await import('./Jumbotron')).JumbotronPage
-    // },
-    // {
-    //     paths: ['example/offcanvas'],
-    //     component: async () => (await import('./Offcanvas')).OffcanvasPage
-    // }
 ];
