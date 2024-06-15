@@ -19,7 +19,7 @@ export interface PageFrameProps {
 
 export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
     ({ menu, activeIndex, subMenu, children }) => (
-        <div className="d-flex flex-column" style={{ height: '300vh' }}>
+        <>
             <OffcanvasNavbar
                 brand={
                     <a
@@ -72,7 +72,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
             <footer className="text-center bg-light py-5">
                 Proudly developed with{' '}
                 <a target="_blank" href="https://web-cell.dev/">
-                    WebCell v2
+                    WebCell v3
                 </a>
                 ,{' '}
                 <a target="_blank" href="https://web-cell.dev/BootCell/">
@@ -86,6 +86,6 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                     MarkCell
                 </a>
             </footer>
-        </div>
+        </>
     )
 );

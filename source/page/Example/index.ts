@@ -1,34 +1,36 @@
+import { lazy } from 'web-cell';
+
 export default [
+    // {
+    //     paths: ['example/album'],
+    //     component: async () => (await import('./Album')).AlbumPage
+    // },
     {
-        paths: ['example/album'],
-        component: async () => (await import('./Album')).AlbumPage
+        path: 'example/pricing',
+        component: lazy(() => import('./Pricing'))
+    },
+    // {
+    //     paths: ['example/checkout'],
+    //     component: async () => (await import('./Checkout')).CheckoutPage
+    // },
+    {
+        path: 'example/product',
+        component: lazy(() => import('./Product'))
     },
     {
-        paths: ['example/pricing'],
-        component: async () => (await import('./Pricing')).PricingPage
+        path: 'example/cover',
+        component: lazy(() => import('./Cover'))
     },
     {
-        paths: ['example/checkout'],
-        component: async () => (await import('./Checkout')).CheckoutPage
+        path: 'example/carousel',
+        component: lazy(() => import('./Carousel'))
     },
     {
-        paths: ['example/product'],
-        component: async () => (await import('./Product')).ProductPage
+        path: 'example/jumbotron',
+        component: lazy(() => import('./Jumbotron'))
     },
     {
-        paths: ['example/cover'],
-        component: async () => (await import('./Cover')).CoverPage
-    },
-    {
-        paths: ['example/carousel'],
-        component: async () => (await import('./Carousel')).CarouselPage
-    },
-    {
-        paths: ['example/jumbotron'],
-        component: async () => (await import('./Jumbotron')).JumbotronPage
-    },
-    {
-        paths: ['example/offcanvas'],
-        component: async () => (await import('./Offcanvas')).OffcanvasPage
+        path: 'example/offcanvas',
+        component: lazy(() => import('./Offcanvas'))
     }
 ];

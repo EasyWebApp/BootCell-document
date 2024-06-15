@@ -30,11 +30,10 @@ export const features = [
         logo: 'https://github.com/webcomponents.png'
     },
     {
-        title: 'The syntax follows TypeScript 3, Decorator proposal and JSX',
+        title: 'The syntax follows TypeScript 5, Decorator proposal and JSX',
         summary:
             'Declarative component code, concise and elegant, enjoy one-click ECMAScript mature proposal syntax.',
-        logo:
-            'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png'
+        logo: 'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png'
     },
     {
         title: 'Virtual DOM engine uses SnabbDOM',

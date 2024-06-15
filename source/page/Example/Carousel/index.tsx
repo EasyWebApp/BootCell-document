@@ -1,44 +1,50 @@
-import { component, mixin, createCell, Fragment } from 'web-cell';
-import { observer } from 'mobx-web-cell';
+import { component, observer } from 'web-cell';
 import classNames from 'classnames';
-
-import { NavBar } from 'boot-cell/source/Navigator/NavBar';
-import { NavLink } from 'boot-cell/source/Navigator';
-import { Form } from 'boot-cell/source/Form/Form';
-import { Field } from 'boot-cell/source/Form/Field';
-import { Button } from 'boot-cell/source/Form/Button';
-import { CarouselView, CarouselItem } from 'boot-cell/source/Media/Carousel';
-import { SpinnerBox } from 'boot-cell/source/Prompt/Spinner';
+import { CustomElement } from 'web-utility';
+import {
+    Nav,
+    NavLink,
+    Navbar,
+    NavbarBrand,
+    FormControl,
+    Button,
+    Carousel,
+    CarouselItem,
+    SpinnerBox
+} from 'boot-cell';
+import { GitRepository } from 'mobx-github';
 
 import { Feature } from './Feature';
-import style from './index.less';
+import './index.less';
+import * as style from './index.module.less';
 
 import { headers, banners, features } from './data';
-import repository, { Repository } from '../../../model/Repository';
+import { repository } from '../../../model';
 
 @observer
 @component({
-    tagName: 'carousel-page',
-    renderTarget: 'children'
+    tagName: 'carousel-page'
 })
-export class CarouselPage extends mixin() {
+export default class CarouselPage extends HTMLElement implements CustomElement {
     connectedCallback() {
         repository.getList();
-
-        super.connectedCallback();
     }
 
-    renderItem = ({ name, description, html_url }: Repository) => (
+    disconnectedCallback() {
+        repository.clear();
+    }
+
+    renderItem = ({ name, description, html_url }: GitRepository) => (
         <div className="col-lg-4 mb-4">
             <img
                 className="rounded-circle"
                 style={{ width: '8.75rem' }}
-                src="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+                src="https://github.com/EasyWebApp.png"
             />
             <h2 style={{ fontWeight: '400' }}>{name}</h2>
             <p>{description}</p>
             <p>
-                <Button color="secondary" href={html_url}>
+                <Button variant="secondary" href={html_url}>
                     View details »
                 </Button>
             </p>
@@ -46,16 +52,21 @@ export class CarouselPage extends mixin() {
     );
 
     render() {
-        const { loading, list } = repository;
+        const { downloading, currentPage } = repository;
 
         return (
             <>
-                <NavBar brand="Carousel">
-                    {headers.map(({ title, ...rest }) => (
-                        <NavLink {...rest}>{title}</NavLink>
-                    ))}
-                    <Form inline className="my-2 my-lg-0">
-                        <Field
+                <Navbar>
+                    <NavbarBrand>Carousel</NavbarBrand>
+                    <Nav>
+                        {headers.map(({ title, ...rest }) => (
+                            <NavLink key={title} {...rest}>
+                                {title}
+                            </NavLink>
+                        ))}
+                    </Nav>
+                    <form inline className="my-2 my-lg-0">
+                        <FormControl
                             type="search"
                             className="mr-sm-2"
                             placeholder="Search"
@@ -63,24 +74,27 @@ export class CarouselPage extends mixin() {
                         />
                         <Button
                             type="submit"
-                            color="success"
+                            variant="success"
                             outline
                             className="my-2 my-sm-0"
                         >
                             Search
                         </Button>
-                    </Form>
-                </NavBar>
+                    </form>
+                </Navbar>
 
-                <CarouselView controls indicators interval={3}>
+                <Carousel controls indicators interval={3}>
                     {banners.map(item => (
-                        <CarouselItem {...item} />
+                        <CarouselItem key={item.title} {...item} />
                     ))}
-                </CarouselView>
+                </Carousel>
 
                 <div className={classNames('container', style.marketing)}>
-                    <SpinnerBox className="row text-center" cover={loading}>
-                        {list.slice(0, 3).map(this.renderItem)}
+                    <SpinnerBox
+                        className="row text-center"
+                        cover={downloading > 0}
+                    >
+                        {currentPage.slice(0, 3).map(this.renderItem)}
                     </SpinnerBox>
                     <hr className={style['featurette-divider']} />
 

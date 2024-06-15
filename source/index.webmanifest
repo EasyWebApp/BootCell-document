@@ -2,7 +2,7 @@
     "name": "BootCell",
     "short_name": "BootCell",
     "start_url": ".",
-    "description": "Web Components UI library based on WebCell v2, BootStrap v4, BootStrap Icon v1 & FontAwesome v5",
+    "description": "Web Components UI library based on WebCell v3, Bootstrap v5, Bootstrap Icon v1 & FontAwesome v5",
     "scope": "/",
     "display": "standalone",
     "orientation": "any",

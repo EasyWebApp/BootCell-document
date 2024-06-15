@@ -1,26 +1,28 @@
-import { WebCellElement, createCell } from 'web-cell';
+import { JsxChildren } from 'dom-renderer';
+import { FC } from 'web-cell';
 import classNames from 'classnames';
-import { Image } from 'boot-cell/source/Media/Image';
+import { Image } from 'boot-cell';
 
-import style from './index.less';
+import * as style from './index.module.less';
 
-export interface FeatureProps {
+export interface FeatureProps extends Record<'title' | 'summary', JsxChildren> {
     reverse?: boolean;
-    title: WebCellElement;
-    summary: WebCellElement;
     logo: string;
 }
 
-export function Feature({ reverse, title, summary, logo }: FeatureProps) {
-    return (
-        <div className="row">
-            <div className={classNames('col-md-7', reverse && 'order-md-2')}>
-                <h2 className={style['featurette-heading']}>{title}</h2>
-                <p className="lead">{summary}</p>
-            </div>
-            <div className={classNames('col-md-5', reverse && 'order-md-1')}>
-                <Image fluid style={{ width: '500px' }} src={logo} />
-            </div>
+export const Feature: FC<FeatureProps> = ({
+    reverse,
+    title,
+    summary,
+    logo
+}) => (
+    <div className="row">
+        <div className={classNames('col-md-7', reverse && 'order-md-2')}>
+            <h2 className={style['featurette-heading']}>{title}</h2>
+            <p className="lead">{summary}</p>
         </div>
-    );
-}
+        <div className={classNames('col-md-5', reverse && 'order-md-1')}>
+            <Image fluid style={{ width: '500px' }} src={logo} />
+        </div>
+    </div>
+);

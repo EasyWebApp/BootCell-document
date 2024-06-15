@@ -1,0 +1,25 @@
+/* Center align the text within the three columns below the carousel */
+.marketing {
+    :global {
+        .col-lg-4 p {
+            margin-right: 0.75rem;
+            margin-left: 0.75rem;
+        }
+    }
+}
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.05rem;
+    @media (min-width: 40em) {
+        /* Bump up size of carousel content */
+        font-size: 50px;
+    }
+    @media (min-width: 62em) {
+        margin-top: 7rem;
+    }
+}

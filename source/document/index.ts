@@ -15,6 +15,14 @@ export default [
         component: lazy(loadMDX(() => import('./Calendar/CountDown.mdx')))
     },
     {
+        path: 'content/faicon',
+        layout: 'docs',
+        title: 'FAIcon',
+        description: 'Wrapper component for FontAwesome v5 (CSS fonts)',
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Content/FAIcon.mdx')))
+    },
+    {
         path: 'content/jumbotron',
         layout: 'docs',
         title: 'Jumbotron',
@@ -22,6 +30,15 @@ export default [
             'Lightweight, flexible component for showcasing hero unit style content.',
         group: 'Components',
         component: lazy(loadMDX(() => import('./Content/Jumbotron.mdx')))
+    },
+    {
+        path: 'content/mediaobject',
+        layout: 'docs',
+        title: 'Media object',
+        description:
+            'Documentation and examples for Bootstrap’s media object to construct highly repetitive components like blog comments, tweets, and the like.',
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Content/MediaObject.mdx')))
     },
     {
         path: 'prompt/spinner',
@@ -45,7 +62,7 @@ export default [
         path: 'reminder/icon',
         layout: 'docs',
         title: 'Icon',
-        description: 'Wrapper component for BootStrap Icon v1.2+ (Web font)',
+        description: 'Wrapper component for Bootstrap Icon v1.2+ (Web font)',
         group: 'Components',
         component: lazy(loadMDX(() => import('./Reminder/Icon.mdx')))
     }

@@ -5,36 +5,29 @@ description: Documentation and examples for Bootstrap’s media object to constr
 group: Components
 ---
 
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
-import { Button } from 'boot-cell/source/Form/Button';
+import { MediaObject, Button } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../component/Example';
 
 ## Example
 
 The [media object][1] helps build complex and repetitive components where some media is positioned alongside content
-that doesn’t wrap around said media.
+that doesn't wrap around said media.
 
 Below is an example of a single media object.
 
 <Example>
-    <MediaObject
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
-        title="WebCell"
-    >
+    <MediaObject image="https://github.com/EasyWebApp.png" title="WebCell">
         Web Components engine based on JSX &amp; TypeScript
     </MediaObject>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
-    <MediaObject
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
-        title="WebCell"
-    >
+new DOMRenderer.render(
+    <MediaObject image="https://github.com/EasyWebApp.png" title="WebCell">
         Web Components engine based on JSX &amp; TypeScript
     </MediaObject>
 );
@@ -46,37 +39,31 @@ Media objects can be infinitely nested, though we suggest you stop at some point
 Place nested `<MediaObject />` within the `defaultSlot` of a parent media object.
 
 <Example>
-    <MediaObject
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
-        title="WebCell"
-    >
+    <MediaObject image="https://github.com/EasyWebApp.png" title="WebCell">
         Web Components engine based on JSX &amp; TypeScript
         <MediaObject
             className="mt-3"
-            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            image="https://github.com/EasyWebApp.png"
             title="BootCell"
         >
-            Web Components UI library based on WebCell v2 &amp; BootStrap v4
+            Web Components UI library based on WebCell v3 &amp; Bootstrap v5
         </MediaObject>
     </MediaObject>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
-    <MediaObject
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
-        title="WebCell"
-    >
+new DOMRenderer.render(
+    <MediaObject image="https://github.com/EasyWebApp.png" title="WebCell">
         Web Components engine based on JSX &amp; TypeScript
         <MediaObject
             className="mt-3"
-            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            image="https://github.com/EasyWebApp.png"
             title="BootCell"
         >
-            Web Components UI library based on WebCell v2 &amp; BootStrap v4
+            Web Components UI library based on WebCell v3 &amp; Bootstrap v5
         </MediaObject>
     </MediaObject>
 );
@@ -89,26 +76,30 @@ the top (default), middle, or end of your content.
 
 <Example>
     <MediaObject
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="Top-aligned media"
     >
-        {[1, 2, 3].map(() => (
-            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        {[1, 2, 3].map(value => (
+            <p key={value}>
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
         ))}
     </MediaObject>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <MediaObject
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="Top-aligned media"
     >
-        {[1, 2, 3].map(() => (
-            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        {[1, 2, 3].map(value => (
+            <p key={value}>
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
         ))}
     </MediaObject>
 );
@@ -117,27 +108,31 @@ render(
 <Example>
     <MediaObject
         imageRow="center"
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="Center-aligned media"
     >
-        {[1, 2, 3].map(() => (
-            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        {[1, 2, 3].map(value => (
+            <p key={value}>
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
         ))}
     </MediaObject>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <MediaObject
         imageRow="center"
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="Center-aligned media"
     >
-        {[1, 2, 3].map(() => (
-            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        {[1, 2, 3].map(value => (
+            <p key={value}>
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
         ))}
     </MediaObject>
 );
@@ -146,27 +141,31 @@ render(
 <Example>
     <MediaObject
         imageRow="end"
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="Bottom-aligned media"
     >
-        {[1, 2, 3].map(() => (
-            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        {[1, 2, 3].map(value => (
+            <p key={value}>
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
         ))}
     </MediaObject>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <MediaObject
         imageRow="end"
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="Bottom-aligned media"
     >
-        {[1, 2, 3].map(() => (
-            <p>Web Components engine based on JSX &amp; TypeScript</p>
+        {[1, 2, 3].map(value => (
+            <p key={value}>
+                Web Components engine based on JSX &amp; TypeScript
+            </p>
         ))}
     </MediaObject>
 );
@@ -177,7 +176,7 @@ render(
 <Example>
     <MediaObject
         imageColumn="right"
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="WebCell"
     >
         Web Components engine based on JSX &amp; TypeScript
@@ -185,13 +184,13 @@ render(
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <MediaObject
         imageColumn="right"
-        image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+        image="https://github.com/EasyWebApp.png"
         title="WebCell"
     >
         Web Components engine based on JSX &amp; TypeScript
@@ -209,7 +208,7 @@ As always, use spacing utilities wherever needed to fine tune.
     <ul className="list-unstyled">
         <MediaObject
             listItem
-            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            image="https://github.com/EasyWebApp.png"
             title="WebCell"
         >
             <p>Web Components engine based on JSX &amp; TypeScript</p>
@@ -217,28 +216,28 @@ As always, use spacing utilities wherever needed to fine tune.
         </MediaObject>
         <MediaObject
             listItem
-            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            image="https://github.com/EasyWebApp.png"
             title="BootCell"
         >
             <p>
-                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+                Web Components UI library based on WebCell v3 &amp; Bootstrap v5
             </p>
             <p>
-                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+                Web Components UI library based on WebCell v3 &amp; Bootstrap v5
             </p>
         </MediaObject>
     </ul>
 </Example>
 
 ```TSX
-import { render, createCell } from 'web-cell';
-import { MediaObject } from 'boot-cell/source/Content/MediaObject';
+import { DOMRenderer } from 'dom-renderer';
+import { MediaObject } from 'boot-cell';
 
-render(
+new DOMRenderer.render(
     <ul className="list-unstyled">
         <MediaObject
             listItem
-            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            image="https://github.com/EasyWebApp.png"
             title="WebCell"
         >
             <p>Web Components engine based on JSX &amp; TypeScript</p>
@@ -246,14 +245,14 @@ render(
         </MediaObject>
         <MediaObject
             listItem
-            image="https://web-cell.dev/WebCell-0.f1ffd28b.png"
+            image="https://github.com/EasyWebApp.png"
             title="BootCell"
         >
             <p>
-                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+                Web Components UI library based on WebCell v3 &amp; Bootstrap v5
             </p>
             <p>
-                Web Components UI library based on WebCell v2 &amp; BootStrap v4
+                Web Components UI library based on WebCell v3 &amp; Bootstrap v5
             </p>
         </MediaObject>
     </ul>
