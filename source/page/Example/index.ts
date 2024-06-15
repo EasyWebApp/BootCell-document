@@ -5,18 +5,18 @@ export default [
     //     paths: ['example/album'],
     //     component: async () => (await import('./Album')).AlbumPage
     // },
-    // {
-    //     paths: ['example/pricing'],
-    //     component: async () => (await import('./Pricing')).PricingPage
-    // },
+    {
+        path: 'example/pricing',
+        component: lazy(() => import('./Pricing'))
+    },
     // {
     //     paths: ['example/checkout'],
     //     component: async () => (await import('./Checkout')).CheckoutPage
     // },
-    // {
-    //     paths: ['example/product'],
-    //     component: async () => (await import('./Product')).ProductPage
-    // },
+    {
+        path: 'example/product',
+        component: lazy(() => import('./Product'))
+    },
     // {
     //     paths: ['example/cover'],
     //     component: async () => (await import('./Cover')).CoverPage
