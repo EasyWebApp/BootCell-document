@@ -32,6 +32,15 @@ export default [
         component: lazy(loadMDX(() => import('./Content/Jumbotron.mdx')))
     },
     {
+        path: 'content/listgroup',
+        layout: 'docs',
+        title: 'List group',
+        description:
+            'List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.',
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Content/ListGroup.mdx')))
+    },
+    {
         path: 'content/mediaobject',
         layout: 'docs',
         title: 'Media object',
@@ -39,6 +48,15 @@ export default [
             'Documentation and examples for Bootstrap’s media object to construct highly repetitive components like blog comments, tweets, and the like.',
         group: 'Components',
         component: lazy(loadMDX(() => import('./Content/MediaObject.mdx')))
+    },
+    {
+        path: 'form/buttongroup',
+        layout: 'docs',
+        title: 'Button group',
+        description:
+            'Group a series of buttons together on a single line or stack them in a vertical column.',
+        group: 'Components',
+        component: lazy(loadMDX(() => import('./Form/ButtonGroup.mdx')))
     },
     {
         path: 'prompt/spinner',

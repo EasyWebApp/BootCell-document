@@ -1,18 +1,18 @@
 import { lazy } from 'web-cell';
 
 export default [
-    // {
-    //     paths: ['example/album'],
-    //     component: async () => (await import('./Album')).AlbumPage
-    // },
+    {
+        path: 'example/album',
+        component: lazy(() => import('./Album'))
+    },
     {
         path: 'example/pricing',
         component: lazy(() => import('./Pricing'))
     },
-    // {
-    //     paths: ['example/checkout'],
-    //     component: async () => (await import('./Checkout')).CheckoutPage
-    // },
+    {
+        path: 'example/checkout',
+        component: lazy(() => import('./Checkout'))
+    },
     {
         path: 'example/product',
         component: lazy(() => import('./Product'))

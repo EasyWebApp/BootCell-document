@@ -17,7 +17,8 @@ console.time(title);
         const content = await promises.readFile(filePath, {
             encoding: 'utf-8'
         });
-        const [_, frontMatter] = content.match(/^---([\s\S]*?)\n---/m) || [];
+        const [_, frontMatter] =
+            content.match(/^---([\s\S]*?)[\r\n]+---/m) || [];
 
         const meta = JSON.stringify(parse(frontMatter), null, 4)
             .slice(1, -1)
