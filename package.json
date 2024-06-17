@@ -1,7 +1,7 @@
 {
     "name": "bootcell-document",
-    "version": "1.0.0",
-    "description": "Re-implemented Official Document site of Bootstrap & FontAwesome based on WebCell, BootCell & MarkCell",
+    "version": "2.0.0",
+    "description": "Re-implemented Official Document site of Bootstrap & FontAwesome based on WebCell, BootCell & Parcel",
     "dependencies": {
         "boot-cell": "^2.0.0-beta.29",
         "cell-router": "^3.0.0-rc.7",
@@ -30,7 +30,7 @@
         "postcss": "^8.4.38",
         "postcss-modules": "^4.3.1",
         "prettier": "^3.3.2",
-        "tsx": "^4.15.5",
+        "tsx": "^4.15.6",
         "typescript": "~5.4.5",
         "workbox-cli": "^7.1.0",
         "yaml": "^2.4.5"

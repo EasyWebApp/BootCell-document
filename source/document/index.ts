@@ -7,7 +7,7 @@ import { loadMDX } from '../utility';
 
 export default [
     {
-        path: 'calendar/countdown',
+        path: 'Calendar/CountDown',
         layout: 'docs',
         title: 'Count down',
         description: null,
@@ -15,7 +15,7 @@ export default [
         component: lazy(loadMDX(() => import('./Calendar/CountDown.mdx')))
     },
     {
-        path: 'content/faicon',
+        path: 'Content/FAIcon',
         layout: 'docs',
         title: 'FAIcon',
         description: 'Wrapper component for FontAwesome v5 (CSS fonts)',
@@ -23,7 +23,7 @@ export default [
         component: lazy(loadMDX(() => import('./Content/FAIcon.mdx')))
     },
     {
-        path: 'content/jumbotron',
+        path: 'Content/Jumbotron',
         layout: 'docs',
         title: 'Jumbotron',
         description:
@@ -32,7 +32,7 @@ export default [
         component: lazy(loadMDX(() => import('./Content/Jumbotron.mdx')))
     },
     {
-        path: 'content/listgroup',
+        path: 'Content/ListGroup',
         layout: 'docs',
         title: 'List group',
         description:
@@ -41,7 +41,7 @@ export default [
         component: lazy(loadMDX(() => import('./Content/ListGroup.mdx')))
     },
     {
-        path: 'content/mediaobject',
+        path: 'Content/MediaObject',
         layout: 'docs',
         title: 'Media object',
         description:
@@ -50,7 +50,7 @@ export default [
         component: lazy(loadMDX(() => import('./Content/MediaObject.mdx')))
     },
     {
-        path: 'form/buttongroup',
+        path: 'Form/ButtonGroup',
         layout: 'docs',
         title: 'Button group',
         description:
@@ -59,7 +59,7 @@ export default [
         component: lazy(loadMDX(() => import('./Form/ButtonGroup.mdx')))
     },
     {
-        path: 'prompt/spinner',
+        path: 'Prompt/Spinner',
         layout: 'docs',
         title: 'Spinner',
         description:
@@ -68,7 +68,7 @@ export default [
         component: lazy(loadMDX(() => import('./Prompt/Spinner.mdx')))
     },
     {
-        path: 'reminder/badge',
+        path: 'Reminder/Badge',
         layout: 'docs',
         title: 'Badge',
         description:
@@ -77,7 +77,7 @@ export default [
         component: lazy(loadMDX(() => import('./Reminder/Badge.mdx')))
     },
     {
-        path: 'reminder/icon',
+        path: 'Reminder/Icon',
         layout: 'docs',
         title: 'Icon',
         description: 'Wrapper component for Bootstrap Icon v1.2+ (Web font)',

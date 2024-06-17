@@ -76,14 +76,11 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                 </a>
                 ,{' '}
                 <a target="_blank" href="https://web-cell.dev/BootCell/">
-                    BootCell v1
+                    BootCell v2
                 </a>{' '}
                 &amp;{' '}
-                <a
-                    target="_blank"
-                    href="https://github.com/EasyWebApp/MarkCell"
-                >
-                    MarkCell
+                <a target="_blank" href="https://parceljs.org/">
+                    Parcel v2
                 </a>
             </footer>
         </>

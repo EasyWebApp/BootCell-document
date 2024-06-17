@@ -1,6 +1,6 @@
 import { component, observer, on } from 'web-cell';
 
-import './CodeCopy.module.less';
+import './CodeCopy.less';
 
 @component({
     tagName: 'code-copy',

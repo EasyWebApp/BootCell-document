@@ -20,13 +20,15 @@ console.time(title);
         const [_, frontMatter] =
             content.match(/^---([\s\S]*?)[\r\n]+---/m) || [];
 
+        if (!frontMatter) continue;
+
         const meta = JSON.stringify(parse(frontMatter), null, 4)
             .slice(1, -1)
             .trim();
         const path = filePath.replaceAll('\\', '/').slice(folder.length);
 
         sourceCode.push(`{
-    path: '${path.replace(MDXPattern, '').toLowerCase()}',
+    path: '${path.replace(MDXPattern, '')}',
     ${meta},
     component: lazy(loadMDX(() => import('./${path}')))
 }`);

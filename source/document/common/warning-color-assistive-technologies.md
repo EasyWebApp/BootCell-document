@@ -1,0 +1,7 @@
+**Accessibility tip:** Using color to add meaning only provides a visual indication,
+which will not be conveyed to users of assistive technologies like screen readers.
+Please ensure the meaning is obvious from the content itself
+(e.g., the visible text with a [_sufficient_ color contrast][1]) or is included through alternative means,
+such as additional text hidden with the `.visually-hidden` class.
+
+[1]: https://getbootstrap.com/docs/5.3/getting-started/accessibility/#color-contrast
