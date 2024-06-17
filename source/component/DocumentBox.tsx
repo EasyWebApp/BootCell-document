@@ -22,9 +22,9 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
         children,
         ...props
     }) => {
-        const [kind, name] = path.split('/');
+        const [_, name] = path.split('/');
         const { deviceType } = meta,
-            API = `https://web-cell.dev/BootCell/interfaces/${kind}_${name}.${name}props.html`;
+            API = `https://web-cell.dev/BootCell/interfaces/${name}Props.html`;
 
         return (
             <div className={`row vw-100 ${className}`} {...props}>

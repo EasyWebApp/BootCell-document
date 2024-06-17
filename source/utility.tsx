@@ -16,7 +16,7 @@ export function loadMDX<T extends () => Promise<{ default: WebCellComponent }>>(
                 <DocumentBox
                     {...props}
                     menu={side_menu}
-                    path=""
+                    path={props.path.split('#').at(-1)}
                     header={meta.title}
                     description={meta.description}
                 >

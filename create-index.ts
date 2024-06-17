@@ -17,7 +17,10 @@ console.time(title);
         const content = await promises.readFile(filePath, {
             encoding: 'utf-8'
         });
-        const [_, frontMatter] = content.match(/^---([\s\S]*?)\n---/m) || [];
+        const [_, frontMatter] =
+            content.match(/^---([\s\S]*?)[\r\n]+---/m) || [];
+
+        if (!frontMatter) continue;
 
         const meta = JSON.stringify(parse(frontMatter), null, 4)
             .slice(1, -1)
@@ -25,7 +28,7 @@ console.time(title);
         const path = filePath.replaceAll('\\', '/').slice(folder.length);
 
         sourceCode.push(`{
-    path: '${path.replace(MDXPattern, '').toLowerCase()}',
+    path: '${path.replace(MDXPattern, '')}',
     ${meta},
     component: lazy(loadMDX(() => import('./${path}')))
 }`);

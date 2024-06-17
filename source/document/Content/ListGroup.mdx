@@ -1,0 +1,508 @@
+---
+layout: docs
+title: List group
+description: List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.
+group: Components
+---
+
+import {
+    Theme,
+    Status,
+    Badge,
+    FormCheck,
+    ListGroup,
+    ListGroupItem
+} from 'boot-cell';
+
+import { Example } from '../../component/Example';
+import WarningColorAssistiveTechnologies from '../common/warning-color-assistive-technologies.md';
+
+## Basic example
+
+The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.
+
+<Example>
+    <ListGroup>
+        <ListGroupItem>An item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        <ListGroupItem>An item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+);
+```
+
+## Active items
+
+Add `active` to a `<ListGroupItem />` to indicate the current active selection.
+
+<Example>
+    <ListGroup>
+        <ListGroupItem active>An active item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        <ListGroupItem active>An item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+);
+```
+
+## Disabled items
+
+Add `disabled` to a `<ListGroupItem />` to make it _appear_ disabled.
+
+<Example>
+    <ListGroup>
+        <ListGroupItem disabled>A disabled item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        <ListGroupItem disabled>An item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+);
+```
+
+## Links
+
+Use `href=""`s to create _actionable_ list group items with hover, disabled, and active states.
+We separate these pseudo-classes to ensure list groups made of non-interactive elements (like `<li>`s or `<div>`s) don't provide a click or tap affordance.
+
+<Example>
+    <ListGroup>
+        <ListGroupItem href="#" active>
+            The current link item
+        </ListGroupItem>
+        <ListGroupItem href="#">A second link item</ListGroupItem>
+        <ListGroupItem href="#">A third link item</ListGroupItem>
+        <ListGroupItem href="#">A fourth link item</ListGroupItem>
+        <ListGroupItem href="#" disabled>
+            A disabled link item
+        </ListGroupItem>
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        <ListGroupItem href="#" active>
+            The current link item
+        </ListGroupItem>
+        <ListGroupItem href="#">A second link item</ListGroupItem>
+        <ListGroupItem href="#">A third link item</ListGroupItem>
+        <ListGroupItem href="#">A fourth link item</ListGroupItem>
+        <ListGroupItem href="#" disabled>
+            A disabled link item
+        </ListGroupItem>
+    </ListGroup>
+);
+```
+
+## Flush
+
+Add `flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
+
+<Example>
+    <ListGroup flush>
+        <ListGroupItem>An item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup flush>
+        <ListGroupItem>An item</ListGroupItem>
+        <ListGroupItem>A second item</ListGroupItem>
+        <ListGroupItem>A third item</ListGroupItem>
+        <ListGroupItem>A fourth item</ListGroupItem>
+        <ListGroupItem>And a fifth one</ListGroupItem>
+    </ListGroup>
+);
+```
+
+## Numbered
+
+Add the `numbered` property to opt into numbered list group items.
+Numbers are generated via CSS (as opposed to a `<ol>`s default browser styling) for better placement inside list group items and to allow for better customization.
+
+Numbers are generated by `counter-reset` on the `<ListGroup />`,
+and then styled and placed with a `::before` pseudo-element on the `<ListGroupItem />` with `counter-increment` and `content`.
+
+<Example>
+    <ListGroup numbered>
+        {[1, 2, 3].map(() => (
+            <ListGroupItem>A list item</ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        {[1, 2, 3].map(() => (
+            <ListGroupItem>A list item</ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+These work great with custom content as well.
+
+<Example>
+    <ListGroup numbered>
+        {[1, 2, 3].map(() => (
+            <ListGroupItem className="d-flex justify-content-between align-items-start">
+                <div className="ms-2 me-auto">
+                    <div className="fw-bold">Subheading</div>
+                    Content for list item
+                </div>
+                <Badge bg="primary" pill>
+                    14
+                </Badge>
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem, Badge } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup numbered>
+        {[1, 2, 3].map(() => (
+            <ListGroupItem className="d-flex justify-content-between align-items-start">
+                <div className="ms-2 me-auto">
+                    <div className="fw-bold">Subheading</div>
+                    Content for list item
+                </div>
+                <Badge bg="primary" pill>
+                    14
+                </Badge>
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+## Horizontal
+
+Add `horizontal` to change the layout of list group items from vertical to horizontal across all breakpoints.
+Alternatively, choose a responsive variant `horizontal={sm|md|lg|xl|xxl}` to make a list group horizontal starting at that breakpoint's `min-width`.
+Currently **horizontal list groups cannot be combined with flush list groups.**
+
+**ProTip:** Want equal-width list group items when horizontal? Add `.flex-fill` to each list group item.
+
+<Example>
+    {[true, 'sm', 'md', 'lg', 'xl', 'xxl'].map(value => (
+        <ListGroup key={value} horizontal={value}>
+            <ListGroupItem>An item</ListGroupItem>
+            <ListGroupItem>A second item</ListGroupItem>
+            <ListGroupItem>A third item</ListGroupItem>
+        </ListGroup>
+    ))}
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <>
+        {[true, 'sm', 'md', 'lg', 'xl', 'xxl'].map(value => (
+            <ListGroup key={value} horizontal={value}>
+                <ListGroupItem>An item</ListGroupItem>
+                <ListGroupItem>A second item</ListGroupItem>
+                <ListGroupItem>A third item</ListGroupItem>
+            </ListGroup>
+        ))}
+    </>
+);
+```
+
+## Variants
+
+Use contextual variant values to style list items with a stateful background and color.
+
+<Example>
+    <ListGroup>
+        <ListGroupItem>A simple default list group item</ListGroupItem>
+        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+            <ListGroupItem key={value} variant={value}>
+                A simple {value} list group item
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Theme, Status, ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        <ListGroupItem>A simple default list group item</ListGroupItem>
+
+        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+            <ListGroupItem key={value} variant={value}>
+                A simple {value} list group item
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+### For links
+
+Note the addition of the hover styles here not present in the previous example.
+Also supported is the `active` state; apply it to indicate an active selection on a contextual list group item.
+
+<Example>
+    <ListGroup>
+        <ListGroupItem href="#">A simple default list group item</ListGroupItem>
+        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+            <ListGroupItem key={value} variant={value} href="#">
+                A simple {value} list group item
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { Theme, Status, ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        <ListGroupItem href="#">A simple default list group item</ListGroupItem>
+
+        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+            <ListGroupItem key={value} variant={value} href="#">
+                A simple {value} list group item
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+> <WarningColorAssistiveTechnologies />
+
+## With badges
+
+Add badges to any list group item to show unread counts, activity, and more with the help of some [utilities][1].
+
+<Example>
+    <ListGroup>
+        {[
+            ['', 14],
+            ['second', 2],
+            ['third', 1]
+        ].map(([index, count]) => (
+            <ListGroupItem
+                key={index}
+                className="d-flex justify-content-between align-items-center"
+            >
+                A {index} list item
+                <Badge bg="primary" pill>
+                    {count}
+                </Badge>
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem, Badge } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        {[
+            ['', 14],
+            ['second', 2],
+            ['third', 1]
+        ].map(([index, count]) => (
+            <ListGroupItem
+                key={index}
+                className="d-flex justify-content-between align-items-center"
+            >
+                A {index} list item
+                <Badge bg="primary" pill>
+                    {count}
+                </Badge>
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+## Custom content
+
+Add nearly any HTML within, even for linked list groups like the one below, with the help of [flexbox utilities][1].
+
+<Example>
+    <ListGroup>
+        {[1, 2, 3].map((_, index) => (
+            <ListGroupItem href="#" active={!index}>
+                <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p className="mb-1">Some placeholder content in a paragraph.</p>
+                <small>And some {index ? 'muted' : ''} small print.</small>
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        {[1, 2, 3].map((_, index) => (
+            <ListGroupItem href="#" active={!index}>
+                <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p className="mb-1">Some placeholder content in a paragraph.</p>
+                <small>And some {index ? 'muted' : ''} small print.</small>
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+## Checkboxes and radios
+
+Place Bootstrap's checkboxes and radios within list group items and customize as needed.
+
+<Example>
+    <ListGroup>
+        {['First', 'Second', 'Third'].map(index => (
+            <ListGroupItem>
+                <FormCheck
+                    type="checkbox"
+                    id={`${index.toLowerCase()}Checkbox`}
+                    label={`${index} checkbox`}
+                />
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem, FormCheck } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        {['First', 'Second', 'Third'].map(index => (
+            <ListGroupItem>
+                <FormCheck
+                    type="checkbox"
+                    id={`${index.toLowerCase()}Checkbox`}
+                    label={`${index} checkbox`}
+                />
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+<Example>
+    <ListGroup>
+        {['First', 'Second', 'Third'].map((text, index) => (
+            <ListGroupItem>
+                <FormCheck
+                    type="radio"
+                    name="listGroupRadio"
+                    id={`${text.toLowerCase()}Radio`}
+                    label={`${text} radio`}
+                    value=""
+                    checked={!index}
+                />
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+</Example>
+
+```tsx
+import { DOMRenderer } from 'dom-renderer';
+import { ListGroup, ListGroupItem, FormCheck } from 'boot-cell';
+
+new DOMRenderer().render(
+    <ListGroup>
+        {['First', 'Second', 'Third'].map((text, index) => (
+            <ListGroupItem>
+                <FormCheck
+                    type="radio"
+                    name="listGroupRadio"
+                    id={`${text.toLowerCase()}Radio`}
+                    label={`${text} radio`}
+                    value=""
+                    checked={!index}
+                />
+            </ListGroupItem>
+        ))}
+    </ListGroup>
+);
+```
+
+[1]: https://getbootstrap.com/docs/5.3/utilities/flex/
