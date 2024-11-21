@@ -15,10 +15,12 @@ import { CustomElement } from 'web-utility';
 import { GitRepository } from 'mobx-github';
 
 import { repository } from '../../model/';
+import { renderMode } from '../../model/Meta';
 
 @observer
 @component({
-    tagName: 'jumbotron-page'
+    tagName: 'jumbotron-page',
+    renderMode
 })
 export default class JumbotronPage
     extends HTMLElement

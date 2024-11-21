@@ -1,4 +1,9 @@
 import { observable } from 'mobx';
+import { parseURLData } from 'web-utility';
+
+export const { renderMode = 'sync' } = parseURLData() as {
+    renderMode?: 'sync';
+};
 
 export class MetaModel {
     @observable

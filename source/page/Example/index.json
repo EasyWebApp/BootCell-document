@@ -43,7 +43,7 @@
                 "image": "https://getbootstrap.com/docs/4.5/assets/img/examples/dashboard.png",
                 "title": "Dashboard",
                 "description": "Basic admin dashboard shell with fixed sidebar and navbar.",
-                "href": "https://web-cell-dashboard.vercel.app/#admin"
+                "href": "https://web-cell.dev/WebCell-dashboard/#admin"
             },
             {
                 "image": "https://getbootstrap.com/docs/4.5/assets/img/examples/sign-in.png",
@@ -117,7 +117,7 @@
                 "image": "https://getbootstrap.com/docs/4.5/assets/img/examples/floating-labels.png",
                 "title": "Floating labels",
                 "description": "Beautifully simple forms with floating labels over your inputs.",
-                "href": "https://web-cell-dashboard.vercel.app/"
+                "href": "https://web-cell.dev/WebCell-dashboard/"
             },
             {
                 "image": "https://getbootstrap.com/docs/4.5/assets/img/examples/offcanvas.png",

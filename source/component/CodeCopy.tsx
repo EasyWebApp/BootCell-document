@@ -1,10 +1,12 @@
 import { component, observer, on } from 'web-cell';
 
+import { renderMode } from '../model/Meta';
 import './CodeCopy.less';
 
 @component({
     tagName: 'code-copy',
-    mode: 'open'
+    mode: 'open',
+    renderMode
 })
 @observer
 export class CodeCopy extends HTMLElement {

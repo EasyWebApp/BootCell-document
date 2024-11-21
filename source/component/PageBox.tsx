@@ -19,7 +19,7 @@ export interface PageFrameProps {
 
 export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
     ({ menu, activeIndex, subMenu, children }) => (
-        <>
+        <div>
             <OffcanvasNavbar
                 brand={
                     <a
@@ -83,6 +83,6 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                     Parcel v2
                 </a>
             </footer>
-        </>
+        </div>
     )
 );

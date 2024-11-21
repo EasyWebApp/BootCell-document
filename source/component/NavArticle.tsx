@@ -3,13 +3,15 @@ import { watchScroll } from 'web-utility';
 import { observable } from 'mobx';
 import classNames from 'classnames';
 
+import { renderMode } from '../model/Meta';
 import * as style from './NavArticle.module.less';
 
 export interface NavArticle extends WebCell {}
 
 @component({
     tagName: 'nav-article',
-    mode: 'open'
+    mode: 'open',
+    renderMode
 })
 @observer
 export class NavArticle extends HTMLElement implements WebCell {

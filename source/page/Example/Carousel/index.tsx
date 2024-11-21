@@ -20,10 +20,12 @@ import * as style from './index.module.less';
 
 import { headers, banners, features } from './data';
 import { repository } from '../../../model';
+import { renderMode } from '../../../model/Meta';
 
 @observer
 @component({
-    tagName: 'carousel-page'
+    tagName: 'carousel-page',
+    renderMode
 })
 export default class CarouselPage extends HTMLElement implements CustomElement {
     connectedCallback() {

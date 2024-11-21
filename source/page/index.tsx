@@ -8,7 +8,7 @@ import documents from '../document';
 import { HomePage as ExampleHome } from './Example/Home';
 import examples from './Example';
 
-const { Route } = createRouter();
+const { Route } = createRouter({ basePath: 'dist' });
 
 export const PageRouter: FC = () => (
     <PageFrame menu={main_menu}>
