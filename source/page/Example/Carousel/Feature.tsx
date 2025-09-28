@@ -1,7 +1,7 @@
 import { JsxChildren } from 'dom-renderer';
 import { FC } from 'web-cell';
 import classNames from 'classnames';
-import { Image } from 'boot-cell';
+import { Image, Row } from 'boot-cell';
 
 import * as style from './index.module.less';
 
@@ -16,13 +16,13 @@ export const Feature: FC<FeatureProps> = ({
     summary,
     logo
 }) => (
-    <div className="row">
-        <div className={classNames('col-md-7', reverse && 'order-md-2')}>
+    <Row>
+        <Col md={7} className={classNames({ 'order-md-2': reverse })}>
             <h2 className={style['featurette-heading']}>{title}</h2>
             <p className="lead">{summary}</p>
-        </div>
-        <div className={classNames('col-md-5', reverse && 'order-md-1')}>
+        </Col>
+        <Col md={5} className={classNames({ 'order-md-1': reverse })}>
             <Image fluid style={{ width: '500px' }} src={logo} />
-        </div>
-    </div>
+        </Col>
+    </Row>
 );

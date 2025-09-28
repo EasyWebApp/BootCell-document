@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, WebCellProps, observer } from 'web-cell';
-import { Button } from 'boot-cell';
+import { Button, Row } from 'boot-cell';
 
 import { meta } from '../model';
 import { CodeCopy } from './CodeCopy';
@@ -27,7 +27,7 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
             API = `https://web-cell.dev/BootCell/interfaces/${name}Props.html`;
 
         return (
-            <div className={`row vw-100 ${className}`} {...props}>
+            <Row className={`vw-100 ${className}`} {...props}>
                 {deviceType !== 'phone' && (
                     <nav className="col-3 col-md-2 p-4 overflow-auto">
                         {Object.entries(menu).map(([group, list]) => (
@@ -58,7 +58,7 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
                         <CodeCopy>{children}</CodeCopy>
                     </NavArticle>
                 </main>
-            </div>
+            </Row>
         );
     }
 );

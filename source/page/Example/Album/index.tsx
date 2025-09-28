@@ -1,5 +1,7 @@
 import {
     Container,
+    Row,
+    Col,
     Navbar,
     NavbarBrand,
     Icon,
@@ -11,14 +13,14 @@ import {
     CardBody
 } from 'boot-cell';
 
-import * as style from './Album/index.module.less';
+import * as style from './index.module.less';
 
 const contacts = ['Follow on Twitter', 'Like on Facebook', 'Email me'];
 
-const Placeholder = new URL('./Album/placeholder.svg', import.meta.url) + '';
+const Placeholder = new URL('./placeholder.svg', import.meta.url) + '';
 
 const ImageCard = () => (
-    <div className="col-md-4">
+    <Col md={4}>
         <Card className="mb-4 shadow-sm">
             <CardImg src={Placeholder} />
             <CardBody>
@@ -38,7 +40,7 @@ const ImageCard = () => (
                 </div>
             </CardBody>
         </Card>
-    </div>
+    </Col>
 );
 
 export default () => (
@@ -48,8 +50,8 @@ export default () => (
                 <Icon className="mr-2" name="camera" size={1.25} />
                 Album
             </NavbarBrand>
-            <div className="row">
-                <div className="col-sm-8 col-md-7 py-4">
+            <Row>
+                <Col sm={8} md={7} className="py-4">
                     <h4 className="text-white">About</h4>
                     <p className="text-muted">
                         Add some information about the album below, the author,
@@ -58,8 +60,8 @@ export default () => (
                         Then, link them off to some social networking sites or
                         contact information.
                     </p>
-                </div>
-                <div className="col-sm-4 offset-md-1 py-4">
+                </Col>
+                <Col sm={4} className="offset-md-1 py-4">
                     <h4 className="text-white">Contact</h4>
                     <ul className="list-unstyled">
                         {contacts.map(text => (
@@ -70,8 +72,8 @@ export default () => (
                             </li>
                         ))}
                     </ul>
-                </div>
-            </div>
+                </Col>
+            </Row>
         </Navbar>
 
         <main>

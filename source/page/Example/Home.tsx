@@ -43,7 +43,7 @@ const Section = ({ title, description, list }: (typeof data)[0]) => (
                 href ||= `example/${title.replace(' ', '-').toLowerCase()}`;
 
                 return (
-                    <li>
+                    <li key={title}>
                         <Card>
                             <CardImg src={image} />
                             <CardBody>

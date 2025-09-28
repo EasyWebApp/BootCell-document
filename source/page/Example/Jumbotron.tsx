@@ -9,7 +9,8 @@ import {
     FormControl,
     Button,
     Jumbotron,
-    SpinnerBox
+    SpinnerBox,
+    Col
 } from 'boot-cell';
 import { CustomElement } from 'web-utility';
 import { GitRepository } from 'mobx-github';
@@ -35,7 +36,7 @@ export default class JumbotronPage
     }
 
     renderItem = ({ name, description, html_url }: GitRepository) => (
-        <div className="col-md-4">
+        <Col md={4}>
             <h2>{name}</h2>
             <p>{description}</p>
             <p>
@@ -43,7 +44,7 @@ export default class JumbotronPage
                     View details »
                 </Button>
             </p>
-        </div>
+        </Col>
     );
 
     render() {
