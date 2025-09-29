@@ -19,7 +19,7 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
             <img
                 className="pt-5 p-lg-5"
                 style={{ width: '50vw' }}
-                src="https://web-cell.dev/WebCell-0.f9823b00.png"
+                src="https://web-cell.dev/WebCell-0.a6336415.png"
             />
             <Jumbotron
                 className="bg-white"

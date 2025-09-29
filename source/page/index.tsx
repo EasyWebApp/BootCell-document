@@ -8,17 +8,19 @@ import documents from '../document';
 import { HomePage as ExampleHome } from './Example/Home';
 import examples from './Example';
 
-const { Route } = createRouter({ basePath: 'dist' });
+const { Router, Route } = createRouter();
 
 export const PageRouter: FC = () => (
     <PageFrame menu={main_menu}>
-        <Route path="" component={HomePage} />
-        {documents.map(props => (
-            <Route {...props} />
-        ))}
-        <Route path="example" component={ExampleHome} />
-        {examples.map(route => (
-            <Route key={route.path} {...route} />
-        ))}
+        <Router>
+            <Route path="" component={HomePage} />
+            {documents.map(props => (
+                <Route key={props.path} {...props} />
+            ))}
+            <Route path="example" component={ExampleHome} />
+            {examples.map(route => (
+                <Route key={route.path} {...route} />
+            ))}
+        </Router>
     </PageFrame>
 );

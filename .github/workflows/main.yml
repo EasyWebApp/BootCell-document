@@ -2,19 +2,25 @@ name: CI & CD
 on:
     push:
         branches:
-            - main
+            - '**'
 jobs:
     Build-and-Deploy:
+        env:
+            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
         steps:
             - uses: actions/checkout@v4
 
             - uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: 10
             - uses: actions/setup-node@v4
               with:
-                  node-version: 20
+                  node-version: 22
                   cache: pnpm
             - name: Install & Build
               run: |
@@ -23,6 +29,7 @@ jobs:
 
             - name: Deploy to GitHub pages
               uses: peaceiris/actions-gh-pages@v4
+              if: github.ref == 'refs/heads/main'
               with:
                   publish_dir: ./dist
                   cname: bootstrap.web-cell.dev
@@ -31,10 +38,11 @@ jobs:
 
             - name: Deploy to Vercel
               uses: amondnet/vercel-action@v25
+              if: ${{ env.VERCEL_TOKEN && env.VERCEL_ORG_ID && env.VERCEL_PROJECT_ID }}
               with:
                   vercel-token: ${{ secrets.VERCEL_TOKEN }}
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
                   vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
                   working-directory: ./dist
-                  vercel-args: --prod
+                  vercel-args: ${{ github.ref == 'refs/heads/main' && '--prod' || '' }}

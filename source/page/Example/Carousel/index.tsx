@@ -1,5 +1,4 @@
 import { component, observer } from 'web-cell';
-import classNames from 'classnames';
 import { CustomElement } from 'web-utility';
 import {
     Nav,
@@ -10,7 +9,10 @@ import {
     Button,
     Carousel,
     CarouselItem,
-    SpinnerBox
+    SpinnerBox,
+    Container,
+    Col,
+    Image
 } from 'boot-cell';
 import { GitRepository } from 'mobx-github';
 
@@ -37,9 +39,9 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
     }
 
     renderItem = ({ name, description, html_url }: GitRepository) => (
-        <div className="col-lg-4 mb-4">
-            <img
-                className="rounded-circle"
+        <Col lg={4} className="mb-4">
+            <Image
+                roundedCircle
                 style={{ width: '8.75rem' }}
                 src="https://github.com/EasyWebApp.png"
             />
@@ -50,7 +52,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                     View details »
                 </Button>
             </p>
-        </div>
+        </Col>
     );
 
     render() {
@@ -91,7 +93,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                     ))}
                 </Carousel>
 
-                <div className={classNames('container', style.marketing)}>
+                <Container className={style.marketing}>
                     <SpinnerBox
                         className="row text-center"
                         cover={downloading > 0}
@@ -106,7 +108,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                             <hr className={style['featurette-divider']} />
                         </>
                     ))}
-                </div>
+                </Container>
                 <footer className="container my-5">
                     <p className="float-right">
                         <a href="#top">Back to top</a>

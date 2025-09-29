@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { Button, Nav, NavLink } from 'boot-cell';
 
-import * as style from './Cover.module.less';
+import * as style from './index.module.less';
 
 export default () => (
     <div

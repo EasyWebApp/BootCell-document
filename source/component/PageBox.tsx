@@ -29,7 +29,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                         <img
                             className="me-2"
                             style={{ width: '2rem' }}
-                            src="https://web-cell.dev/WebCell-0.f9823b00.png"
+                            src="https://web-cell.dev/WebCell-0.a6336415.png"
                         />
                         BootCell
                     </a>

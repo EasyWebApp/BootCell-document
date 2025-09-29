@@ -1,4 +1,4 @@
-import { Nav, NavLink, Button } from 'boot-cell';
+import { Nav, NavLink, Button, Row, Col } from 'boot-cell';
 
 import { FooterList } from '../../../component/FooterList';
 import { Case } from './Case';
@@ -23,7 +23,7 @@ export default () => (
             </Nav>
         </div>
         <header className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div className="col-md-5 p-lg-5 mx-auto my-5">
+            <Col md={5} className="p-lg-5 mx-auto my-5">
                 <h1 className="display-4 font-weight-normal">Punny headline</h1>
                 <p className="lead font-weight-normal">
                     And an even wittier subheading to boot. Jumpstart your
@@ -33,7 +33,7 @@ export default () => (
                 <Button variant="outline-secondary" href="#">
                     Coming soon
                 </Button>
-            </div>
+            </Col>
             <div
                 className={`${style['product-device']} shadow-sm d-none d-lg-block`}
             />
@@ -55,13 +55,13 @@ export default () => (
             ))}
         </main>
         <footer className="container py-5">
-            <div className="row">
-                <div className="col-12 col-md">
+            <Row>
+                <Col xs={12} md="auto">
                     {logo}
                     <small className="d-block mb-3 text-muted">
                         © 2019-{new Date().getFullYear()}
                     </small>
-                </div>
+                </Col>
                 {footers.map(item => (
                     <FooterList
                         key={item.title}
@@ -69,7 +69,7 @@ export default () => (
                         {...item}
                     />
                 ))}
-            </div>
+            </Row>
         </footer>
     </>
 );

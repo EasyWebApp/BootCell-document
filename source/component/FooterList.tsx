@@ -1,6 +1,6 @@
 import { FC, WebCellProps } from 'web-cell';
 import { HTMLHyperLinkProps, isXDomain } from 'web-utility';
-import classNames from 'classnames';
+import { Col } from 'boot-cell';
 
 export interface FooterListProps extends WebCellProps {
     colSpan: number;
@@ -9,7 +9,7 @@ export interface FooterListProps extends WebCellProps {
 }
 
 export const FooterList: FC<FooterListProps> = ({ colSpan, title, menu }) => (
-    <div className={classNames(`col-${colSpan}`, 'col-md')}>
+    <Col xs={colSpan} md="auto">
         <h5>{title}</h5>
         <ul className="list-unstyled text-small">
             {menu.map(({ href, title }) => (
@@ -24,5 +24,5 @@ export const FooterList: FC<FooterListProps> = ({ colSpan, title, menu }) => (
                 </li>
             ))}
         </ul>
-    </div>
+    </Col>
 );

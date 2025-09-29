@@ -1,5 +1,7 @@
 import {
     Container,
+    Row,
+    Col,
     Badge,
     ListGroup,
     ListGroupItem,
@@ -32,8 +34,8 @@ export default () => (
                 </p>
             </div>
 
-            <div className="row">
-                <div className="col-md-4 order-md-2 mb-4">
+            <Row>
+                <Col md={4} className="order-md-2 mb-4">
                     <h4 className="d-flex justify-content-between align-items-center mb-3">
                         <span className="text-muted">Your cart</span>
                         <Badge bg="secondary" pill>
@@ -81,11 +83,11 @@ export default () => (
                             </Button>
                         </InputGroup>
                     </form>
-                </div>
-                <div className="col-md-8 order-md-1">
+                </Col>
+                <Col md={8} className="order-md-1">
                     <h4 className="mb-3">Billing address</h4>
                     <form validate>
-                        <div className="row">
+                        <Row>
                             <FormField
                                 className="col-md-6 mb-3 m-0"
                                 name="firstName"
@@ -100,7 +102,7 @@ export default () => (
                                 label="Last name"
                                 invalidMessage="Valid last name is required."
                             />
-                        </div>
+                        </Row>
 
                         <div className="mb-3">
                             <label htmlFor="username">Username</label>
@@ -149,7 +151,7 @@ export default () => (
                             />
                         </div>
 
-                        <div className="row">
+                        <Row>
                             <FormField
                                 className="col-md-5 mb-3 m-0"
                                 is="select"
@@ -181,7 +183,7 @@ export default () => (
                                 label="Zip"
                                 invalidMessage="Zip code required."
                             />
-                        </div>
+                        </Row>
                         <hr className="mb-4" />
 
                         <FormCheck
@@ -223,7 +225,7 @@ export default () => (
                             />
                         </div>
 
-                        <div className="row">
+                        <Row>
                             <FormField
                                 className="col-md-6 mb-3 m-0"
                                 name="cc_name"
@@ -239,8 +241,8 @@ export default () => (
                                 label="Credit card number"
                                 invalidMessage="Credit card number is required"
                             />
-                        </div>
-                        <div className="row">
+                        </Row>
+                        <Row>
                             <FormField
                                 className="col-md-3 mb-3 m-0"
                                 name="cc_expiration"
@@ -255,7 +257,7 @@ export default () => (
                                 label="CVV"
                                 invalidMessage="Security code required"
                             />
-                        </div>
+                        </Row>
                         <hr className="mb-4" />
 
                         <Button
@@ -267,8 +269,8 @@ export default () => (
                             Continue to checkout
                         </Button>
                     </form>
-                </div>
-            </div>
+                </Col>
+            </Row>
 
             <footer className="py-5 text-muted text-center text-small">
                 <p className="mb-1">© 2017-2020 Company Name</p>

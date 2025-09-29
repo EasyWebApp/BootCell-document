@@ -30,7 +30,7 @@ console.time(title);
         sourceCode.push(`{
     path: '${path.replace(MDXPattern, '')}',
     ${meta},
-    component: lazy(loadMDX(() => import('./${path}')))
+    component: loadMDX(() => import('./${path}'))
 }`);
     }
 
@@ -38,8 +38,6 @@ console.time(title);
         targetPath,
         `// This file is created by "${title}" script,
 // please don't edit it manually!
-
-import { lazy } from 'web-cell';
 
 import { loadMDX } from '../utility';
 

@@ -7,7 +7,10 @@ import {
     Card,
     CardHeader,
     CardBody,
-    CardTitle
+    CardTitle,
+    Container,
+    Row,
+    Col
 } from 'boot-cell';
 
 import { FooterList } from '../../../component/FooterList';
@@ -41,7 +44,7 @@ export default () => (
                 Bootstrap components and utilities with little customization.
             </p>
         </div>
-        <div className="container">
+        <Container>
             <div className="d-flex flex-wrap gap-3 text-center">
                 {prices.map(({ level, amount, details, action }, index) => (
                     <Card key={level} className="shadow-sm flex-fill">
@@ -69,8 +72,8 @@ export default () => (
                 ))}
             </div>
             <footer className="pt-4 my-md-5 pt-md-5 border-top">
-                <div className="row">
-                    <div className="col-12 col-md">
+                <Row>
+                    <Col xs={12} md="auto">
                         <img
                             style={{ width: '24px' }}
                             src="https://github.com/EasyWebApp.png"
@@ -78,7 +81,7 @@ export default () => (
                         <small className="d-block mb-3 text-muted">
                             © 2017-{new Date().getFullYear()}
                         </small>
-                    </div>
+                    </Col>
                     {foot_nav.map(item => (
                         <FooterList
                             key={item.title}
@@ -86,8 +89,8 @@ export default () => (
                             {...item}
                         />
                     ))}
-                </div>
+                </Row>
             </footer>
-        </div>
+        </Container>
     </>
 );

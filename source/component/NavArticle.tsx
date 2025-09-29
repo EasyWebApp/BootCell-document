@@ -2,6 +2,7 @@ import { WebCell, component, observer } from 'web-cell';
 import { watchScroll } from 'web-utility';
 import { observable } from 'mobx';
 import classNames from 'classnames';
+import { Row } from 'boot-cell';
 
 import { renderMode } from '../model/Meta';
 import * as style from './NavArticle.module.less';
@@ -53,7 +54,7 @@ export class NavArticle extends HTMLElement implements WebCell {
         const { headerList } = this;
 
         return (
-            <div className={`row m-0 ${style.box}`}>
+            <Row className={`m-0 ${style.box}`}>
                 <article
                     className={classNames(
                         'col-12',
@@ -79,7 +80,7 @@ export class NavArticle extends HTMLElement implements WebCell {
                         ))}
                     </nav>
                 )}
-            </div>
+            </Row>
         );
     }
 
@@ -88,7 +89,7 @@ export class NavArticle extends HTMLElement implements WebCell {
             <>
                 <link
                     rel="stylesheet"
-                    href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                    href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css"
                 />
                 {this.renderContent()}
             </>
