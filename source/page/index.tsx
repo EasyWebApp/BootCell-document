@@ -15,11 +15,11 @@ export const PageRouter: FC = () => (
         <Router>
             <Route path="" component={HomePage} />
             {documents.map(props => (
-                <Route {...props} />
+                <Route key={props.path} {...props} />
             ))}
             <Route path="example" component={ExampleHome} />
             {examples.map(route => (
-                <Route {...route} />
+                <Route key={route.path} {...route} />
             ))}
         </Router>
     </PageFrame>

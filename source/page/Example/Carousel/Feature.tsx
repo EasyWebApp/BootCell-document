@@ -1,7 +1,7 @@
 import { JsxChildren } from 'dom-renderer';
 import { FC } from 'web-cell';
 import classNames from 'classnames';
-import { Image, Row } from 'boot-cell';
+import { Image, Row, Col } from 'boot-cell';
 
 import * as style from './index.module.less';
 
