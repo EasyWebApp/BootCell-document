@@ -47,7 +47,10 @@ Badges can be used as part of links or buttons to provide a counter.
 
 <Example>
     <Button variant="solid" theme="primary">
-        Notifications <Badge bg="1" text="body">4</Badge>
+        Notifications{' '}
+        <Badge bg="1" text="body">
+            4
+        </Badge>
     </Button>
 </Example>
 
@@ -57,7 +60,10 @@ import { Badge, Button } from 'boot-cell';
 
 new DOMRenderer().render(
     <Button variant="solid" theme="primary">
-        Notifications <Badge bg="1" text="body">4</Badge>
+        Notifications{' '}
+        <Badge bg="1" text="body">
+            4
+        </Badge>
     </Button>
 );
 ```
@@ -73,7 +79,10 @@ the “4” is the number of notifications), consider including additional conte
 
 <Example>
     <Button variant="solid" theme="primary">
-        Profile <Badge bg="1" text="body">9</Badge>
+        Profile{' '}
+        <Badge bg="1" text="body">
+            9
+        </Badge>
         <span className="sr-only">unread messages</span>
     </Button>
 </Example>
@@ -84,7 +93,10 @@ import { Badge, Button } from 'boot-cell';
 
 new DOMRenderer().render(
     <Button variant="solid" theme="primary">
-        Profile <Badge bg="1" text="body">9</Badge>
+        Profile{' '}
+        <Badge bg="1" text="body">
+            9
+        </Badge>
         <span className="sr-only">unread messages</span>
     </Button>
 );
@@ -92,7 +104,8 @@ new DOMRenderer().render(
 
 ## Contextual variations
 
-Add any of the below mentioned `color` property values to change the appearance of a badge.
+Use `bg` for the badge background and `text` for its foreground. `bg` values
+generate `bg-*` classes and accept `BackgroundColor` values.
 
 <Example>
     {[
@@ -154,8 +167,8 @@ Useful if you miss the badges from v3.
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        'accent',
+        'inverse'
     ].map(color => (
         <Badge pill bg={color} className="text-capitalize">
             {color}
@@ -176,8 +189,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            'accent',
+            'inverse'
         ].map(color => (
             <Badge pill bg={color} className="text-capitalize">
                 {color}
@@ -199,8 +212,8 @@ Using `href` property on `<Badge />` quickly provide actionable badges with hove
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        'accent',
+        'inverse'
     ].map(color => (
         <Badge href="." bg={color} className="text-capitalize">
             {color}
@@ -221,8 +234,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            'accent',
+            'inverse'
         ].map(color => (
             <Badge href="." bg={color} className="text-capitalize">
                 {color}

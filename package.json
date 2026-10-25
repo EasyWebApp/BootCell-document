@@ -9,13 +9,13 @@
         "boot-cell": "3.0.0-alpha.0",
         "cell-router": "^4.0.4",
         "classnames": "^2.5.1",
-        "dom-renderer": "^2.6.2",
+        "dom-renderer": "^2.6.4",
         "github-web-widget": "^4.0.0",
-        "iterable-observer": "^1.1.0",
+        "iterable-observer": "^1.1.1",
         "mobx": "^6.15.0",
         "mobx-github": "^0.5.1",
         "web-cell": "^3.2.2",
-        "web-utility": "^4.6.1"
+        "web-utility": "^4.8.1"
     },
     "devDependencies": {
         "@parcel/config-default": "~2.16.0",

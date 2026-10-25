@@ -13,26 +13,47 @@ import {
     ModalHeader,
     ModalTitle
 } from 'boot-cell';
+import { observable } from 'mobx';
+import { observer } from 'web-cell';
 
 import { Example } from '../../../component/Example';
+
+const state = observable({ show: false });
+
+const ModalExample = observer(() => (
+
+<>
+    <Button variant="solid" theme="primary" onClick={() => (state.show = true)}>
+        Open modal
+    </Button>
+    <Modal
+        show={state.show}
+        onHide={() => (state.show = false)}
+        ariaLabel="Example dialog"
+    >
+        <ModalHeader closeButton>
+            <ModalTitle>Modal title</ModalTitle>
+        </ModalHeader>
+        <ModalBody>Dialog content</ModalBody>
+        <ModalFooter>
+            <Button
+                variant="solid"
+                theme="primary"
+                onClick={() => (state.show = false)}
+            >
+                Save changes
+            </Button>
+        </ModalFooter>
+    </Modal>
+</>
+));
 
 `Modal` renders an `HTMLDialogElement`. Its header, title, body, and footer are
 direct children of the dialog; there are no `.modal-dialog` or `.modal-content`
 wrappers.
 
 <Example>
-    <Modal show backdrop="static" ariaLabel="Example dialog">
-        <ModalHeader closeButton>
-            <ModalTitle>Modal title</ModalTitle>
-        </ModalHeader>
-        <ModalBody>
-            Control visibility with the `show` property and update that state
-            when the dialog emits `hide`.
-        </ModalBody>
-        <ModalFooter>
-            <Button variant="solid" theme="primary">Save changes</Button>
-        </ModalFooter>
-    </Modal>
+    <ModalExample />
 </Example>
 
 ```tsx

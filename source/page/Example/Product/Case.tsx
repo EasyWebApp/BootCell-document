@@ -9,7 +9,7 @@ export type CaseProps = Partial<
 > &
     Record<'name' | 'description', string>;
 
-const dark_colors = ['dark', 'primary'];
+const dark_colors = ['inverse', 'primary'];
 
 export const Case: FC<CaseProps> = ({
     background,

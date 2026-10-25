@@ -69,7 +69,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                             </NavLink>
                         ))}
                     </Nav>
-                    <form inline className="my-2 my-lg-0">
+                    <form className="my-2 my-lg-0">
                         <FormControl
                             type="search"
                             className="mr-sm-2"

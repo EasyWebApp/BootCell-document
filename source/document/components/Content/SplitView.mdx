@@ -1,55 +1,38 @@
 ---
 layout: docs
 title: Split view
-description:
+description: Arrange two independently sized panes with a draggable divider.
 group: Components
 ---
 
-import { SplitView } from 'boot-cell/source/Content/SplitView';
-import { Embed } from 'boot-cell/source/Media/Embed';
+import { SplitView } from 'boot-cell';
 
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../../component/Example';
 
-This component is built on the top of [Iterator Observer][1], the dependency below should be installed:
-
-```Shell
-npm install iterable-observer
-```
+`SplitView` lays out two panes named `left` and `right`. Drag the divider to
+resize the left pane.
 
 <Example>
     <SplitView>
-        <Embed
-            is="iframe"
-            className="vh-100"
-            src="https://web-cell.dev/WebCell/"
-        />
-        <Embed
-            is="iframe"
-            className="vh-100"
-            src="https://web-cell.dev/BootCell/"
-        />
+        <div slot="left" className="p-3">
+            <h2>Navigation</h2>
+            <p>Left pane content</p>
+        </div>
+        <div slot="right" className="p-3">
+            <h2>Content</h2>
+            <p>Right pane content</p>
+        </div>
     </SplitView>
 </Example>
 
-```TSX
-import { render, createCell } from 'web-cell';
-import { SplitView } from 'boot-cell/source/Content/SplitView';
-import { Embed } from 'boot-cell/source/Content/Embed';
+```tsx
+import { SplitView } from 'boot-cell';
 
-render(
-    <SplitView>
-        <Embed
-            is="iframe"
-            className="vh-100"
-            src="https://web-cell.dev/WebCell/"
-        />
-        <Embed
-            is="iframe"
-            className="vh-100"
-            src="https://web-cell.dev/BootCell/"
-        />
-    </SplitView>
-);
+<SplitView>
+    <aside slot="left">Navigation</aside>
+    <main slot="right">Main content</main>
+</SplitView>;
 ```
 
-[1]: https://github.com/EasyWebApp/iterable-observer
+The initial left pane width is 25%. The divider uses pointer capture to support
+dragging.

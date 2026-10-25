@@ -26,7 +26,7 @@ export default () => (
                 <DropdownItem>Something else here</DropdownItem>
             </NavDropdown>
 
-            <form inline className="my-2 my-lg-0">
+            <form className="my-2 my-lg-0">
                 <FormControl
                     type="search"
                     className="mr-sm-2"
@@ -43,16 +43,11 @@ export default () => (
                 </Button>
             </form>
         </DrawerNavbar>
-        <Nav scrollable>
+        <Nav className="flex-column">
             <NavLink>Dashboard</NavLink>
             <NavLink>
                 Friends{' '}
-                <Badge
-                    pill
-                    bg="1"
-                    text="body"
-                    className="align-text-bottom"
-                >
+                <Badge pill bg="1" text="body" className="align-text-bottom">
                     27
                 </Badge>
             </NavLink>

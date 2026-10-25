@@ -97,20 +97,18 @@ export default () => (
                                 name="firstName"
                                 required
                                 label="First name"
-                                invalidMessage="Valid first name is required."
                             />
                             <FormField
                                 className="col-md-6 mb-3 m-0"
                                 name="lastName"
                                 required
                                 label="Last name"
-                                invalidMessage="Valid last name is required."
                             />
                         </Row>
 
                         <div className="mb-3">
                             <label htmlFor="username">Username</label>
-                            <InputGroup invalidMessage="Your username is required.">
+                            <InputGroup>
                                 <InputGroupText>@</InputGroupText>
                                 <FormControl
                                     id="username"
@@ -131,7 +129,6 @@ export default () => (
                                 id="email"
                                 name="email"
                                 placeholder="you@example.com"
-                                invalidMessage="Please enter a valid email address for shipping updates."
                             />
                         </div>
 
@@ -141,7 +138,6 @@ export default () => (
                             required
                             label="Address"
                             placeholder="1234 Main St"
-                            invalidMessage="Please enter your shipping address."
                         />
                         <div className="mb-3">
                             <label htmlFor="address2">
@@ -158,11 +154,10 @@ export default () => (
                         <Row>
                             <FormField
                                 className="col-md-5 mb-3 m-0"
-                                is="select"
                                 name="country"
                                 required
                                 label="Country"
-                                invalidMessage="Please select a valid country."
+                                as="select"
                             >
                                 <option value="">Choose...</option>
                                 <option>United States</option>
@@ -170,11 +165,10 @@ export default () => (
 
                             <FormField
                                 className="col-md-4 mb-3 m-0"
-                                is="select"
                                 name="state"
                                 required
                                 label="State"
-                                invalidMessage="Please provide a valid state."
+                                as="select"
                             >
                                 <option value="">Choose...</option>
                                 <option>California</option>
@@ -185,7 +179,6 @@ export default () => (
                                 name="zip"
                                 required
                                 label="Zip"
-                                invalidMessage="Zip code required."
                             />
                         </Row>
                         <hr className="mb-4" />
@@ -235,15 +228,12 @@ export default () => (
                                 name="cc_name"
                                 required
                                 label="Name on card"
-                                tips="Full name as displayed on card"
-                                invalidMessage="Name on card is required"
                             />
                             <FormField
                                 className="col-md-6 mb-3 m-0"
                                 name="cc_number"
                                 required
                                 label="Credit card number"
-                                invalidMessage="Credit card number is required"
                             />
                         </Row>
                         <Row>
@@ -252,14 +242,12 @@ export default () => (
                                 name="cc_expiration"
                                 required
                                 label="Expiration"
-                                invalidMessage="Expiration date required"
                             />
                             <FormField
                                 className="col-md-3 mb-3 m-0"
                                 name="cc_cvv"
                                 required
                                 label="CVV"
-                                invalidMessage="Security code required"
                             />
                         </Row>
                         <hr className="mb-4" />

@@ -18,10 +18,7 @@ export default () => (
     >
         <header className="masthead w-100 mx-auto mb-auto">
             <h3 className="masthead-brand mb-0 float-md-left">Cover</h3>
-            <Nav
-                className="text-white-50 float-md-right"
-                className="masthead-nav justify-content-center"
-            >
+            <Nav className="text-white-50 float-md-right masthead-nav justify-content-center">
                 <NavLink>Home</NavLink>
                 <NavLink>Features</NavLink>
                 <NavLink>Contact</NavLink>

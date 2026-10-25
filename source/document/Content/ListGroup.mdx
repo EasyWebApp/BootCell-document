@@ -5,14 +5,7 @@ description: List groups are a flexible and powerful component for displaying a 
 group: Components
 ---
 
-import {
-    Theme,
-    Status,
-    Badge,
-    FormCheck,
-    ListGroup,
-    ListGroupItem
-} from 'boot-cell';
+import { Status, Badge, FormCheck, ListGroup, ListGroupItem } from 'boot-cell';
 
 import { Example } from '../../component/Example';
 import WarningColorAssistiveTechnologies from '../common/warning-color-assistive-technologies.md';
@@ -242,13 +235,13 @@ new DOMRenderer().render(
 ## Horizontal
 
 Add `horizontal` to change the layout of list group items from vertical to horizontal across all breakpoints.
-Alternatively, choose a responsive variant `horizontal={sm|md|lg|xl|xxl}` to make a list group horizontal starting at that breakpoint's `min-width`.
+Alternatively, choose a responsive variant `horizontal={sm|md|lg|xl|2xl}` to make a list group horizontal starting at that breakpoint's `min-width`.
 Currently **horizontal list groups cannot be combined with flush list groups.**
 
 **ProTip:** Want equal-width list group items when horizontal? Add `.flex-fill` to each list group item.
 
 <Example>
-    {[true, 'sm', 'md', 'lg', 'xl', 'xxl'].map(value => (
+    {[true, 'sm', 'md', 'lg', 'xl', '2xl'].map(value => (
         <ListGroup key={value} horizontal={value}>
             <ListGroupItem>An item</ListGroupItem>
             <ListGroupItem>A second item</ListGroupItem>
@@ -263,7 +256,7 @@ import { ListGroup, ListGroupItem } from 'boot-cell';
 
 new DOMRenderer().render(
     <>
-        {[true, 'sm', 'md', 'lg', 'xl', 'xxl'].map(value => (
+        {[true, 'sm', 'md', 'lg', 'xl', '2xl'].map(value => (
             <ListGroup key={value} horizontal={value}>
                 <ListGroupItem>An item</ListGroupItem>
                 <ListGroupItem>A second item</ListGroupItem>
@@ -276,12 +269,12 @@ new DOMRenderer().render(
 
 ## Variants
 
-Use contextual variant values to style list items with a stateful background and color.
+`ListGroupItem.variant` accepts semantic theme colors and generates `theme-*` classes.
 
 <Example>
     <ListGroup>
         <ListGroupItem>A simple default list group item</ListGroupItem>
-        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+        {Object.keys(Status).map(value => (
             <ListGroupItem key={value} variant={value}>
                 A simple {value} list group item
             </ListGroupItem>
@@ -291,13 +284,13 @@ Use contextual variant values to style list items with a stateful background and
 
 ```tsx
 import { DOMRenderer } from 'dom-renderer';
-import { Theme, Status, ListGroup, ListGroupItem } from 'boot-cell';
+import { Status, ListGroup, ListGroupItem } from 'boot-cell';
 
 new DOMRenderer().render(
     <ListGroup>
         <ListGroupItem>A simple default list group item</ListGroupItem>
 
-        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+        {Object.keys(Status).map(value => (
             <ListGroupItem key={value} variant={value}>
                 A simple {value} list group item
             </ListGroupItem>
@@ -314,7 +307,7 @@ Also supported is the `active` state; apply it to indicate an active selection o
 <Example>
     <ListGroup>
         <ListGroupItem href="#">A simple default list group item</ListGroupItem>
-        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+        {Object.keys(Status).map(value => (
             <ListGroupItem key={value} variant={value} href="#">
                 A simple {value} list group item
             </ListGroupItem>
@@ -324,13 +317,13 @@ Also supported is the `active` state; apply it to indicate an active selection o
 
 ```tsx
 import { DOMRenderer } from 'dom-renderer';
-import { Theme, Status, ListGroup, ListGroupItem } from 'boot-cell';
+import { Status, ListGroup, ListGroupItem } from 'boot-cell';
 
 new DOMRenderer().render(
     <ListGroup>
         <ListGroupItem href="#">A simple default list group item</ListGroupItem>
 
-        {[...Object.keys(Theme), ...Object.keys(Status)].map(value => (
+        {Object.keys(Status).map(value => (
             <ListGroupItem key={value} variant={value} href="#">
                 A simple {value} list group item
             </ListGroupItem>

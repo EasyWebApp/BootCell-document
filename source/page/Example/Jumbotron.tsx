@@ -69,7 +69,7 @@ export default class JumbotronPage
                             <DropdownItem>Something else here</DropdownItem>
                         </NavDropdown>
                     </Nav>
-                    <form inline className="my-2 my-lg-0">
+                    <form className="my-2 my-lg-0">
                         <FormControl
                             type="search"
                             className="me-sm-2"
