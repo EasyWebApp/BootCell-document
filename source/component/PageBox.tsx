@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, observer } from 'web-cell';
 import {
     Nav,
-    OffcanvasNavbar,
+    DrawerNavbar,
     NavDropdown,
     NavLinkProps,
     NavLink,
@@ -20,7 +20,7 @@ export interface PageFrameProps {
 export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
     ({ menu, activeIndex, subMenu, children }) => (
         <div>
-            <OffcanvasNavbar
+            <DrawerNavbar
                 brand={
                     <a
                         className="text-white text-decoration-none d-flex align-items-center"
@@ -63,7 +63,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                         );
                     })}
                 </Nav>
-            </OffcanvasNavbar>
+            </DrawerNavbar>
 
             <div className="flex-fill overflow-auto scrollbar-none">
                 {children}
@@ -76,7 +76,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                 </a>
                 ,{' '}
                 <a target="_blank" href="https://web-cell.dev/BootCell/">
-                    BootCell v2
+                    BootCell v3
                 </a>{' '}
                 &amp;{' '}
                 <a target="_blank" href="https://parceljs.org/">

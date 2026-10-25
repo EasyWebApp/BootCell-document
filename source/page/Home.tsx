@@ -37,16 +37,17 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
                     </a>
                     ,{' '}
                     <a target="_blank" href="https://getbootstrap.com/">
-                        Bootstrap v5
+                        Bootstrap v6
                     </a>{' '}
                     &amp;{' '}
                     <a target="_blank" href="https://fontawesome.com/">
-                        FontAwesome v6
+                        FontAwesome v7
                     </a>
                 </p>
                 <Button
                     className="me-0 me-sm-3 mb-3 mb-sm-0"
-                    variant="success"
+                    variant="solid"
+                    theme="success"
                     size="lg"
                     href={`#${routes[0].path}`}
                 >
@@ -54,7 +55,8 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
                 </Button>
                 <TooltipBox content="GitHub login first">
                     <DropdownButton
-                        variant="primary"
+                        variant="solid"
+                        theme="primary"
                         size="lg"
                         caption="Create a Project"
                     >

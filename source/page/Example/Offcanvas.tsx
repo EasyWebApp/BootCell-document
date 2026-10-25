@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import {
-    OffcanvasNavbar,
+    DrawerNavbar,
     Nav,
     NavLink,
     NavDropdown,
@@ -15,7 +15,7 @@ import * as style from './Offcanvas.module.less';
 
 export default () => (
     <>
-        <OffcanvasNavbar brand="Offcanvas navbar">
+        <DrawerNavbar brand="Drawer navbar">
             <NavLink>Dashboard</NavLink>
             <NavLink>Notifications</NavLink>
             <NavLink>Profile</NavLink>
@@ -35,18 +35,24 @@ export default () => (
                 />
                 <Button
                     type="submit"
-                    variant="outline-success"
+                    variant="outline"
+                    theme="success"
                     className="my-2 my-sm-0"
                 >
                     Search
                 </Button>
             </form>
-        </OffcanvasNavbar>
+        </DrawerNavbar>
         <Nav scrollable>
             <NavLink>Dashboard</NavLink>
             <NavLink>
                 Friends{' '}
-                <Badge pill color="light" className="align-text-bottom">
+                <Badge
+                    pill
+                    bg="1"
+                    text="body"
+                    className="align-text-bottom"
+                >
                     27
                 </Badge>
             </NavLink>

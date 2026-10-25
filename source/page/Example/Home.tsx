@@ -20,7 +20,8 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
             description="Quickly get a project started with any of our examples ranging from using parts of the framework to custom components and layouts."
         >
             <Button
-                variant="outline-primary"
+                variant="outline"
+                theme="primary"
                 size="lg"
                 target="_blank"
                 href="https://github.com/EasyWebApp/BootCell-document/tree/main/source/page/Example"
