@@ -78,7 +78,11 @@ export default () => (
                                 required
                                 placeholder="Promo code"
                             />
-                            <Button type="submit" variant="secondary">
+                            <Button
+                                type="submit"
+                                variant="solid"
+                                theme="secondary"
+                            >
                                 Redeem
                             </Button>
                         </InputGroup>
@@ -263,7 +267,8 @@ export default () => (
                         <Button
                             type="submit"
                             className="w-100"
-                            variant="primary"
+                            variant="solid"
+                            theme="primary"
                             size="lg"
                         >
                             Continue to checkout

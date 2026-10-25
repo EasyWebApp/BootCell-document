@@ -23,7 +23,7 @@ foot_nav.splice(-2, 1);
 
 export default () => (
     <>
-        <Navbar theme="light" background="light" menuAlign="end">
+        <Navbar variant="light" bg="1">
             <NavbarBrand>Company name</NavbarBrand>
             <Nav>
                 <NavLink>Features</NavLink>
@@ -31,7 +31,9 @@ export default () => (
                 <NavLink>Support</NavLink>
                 <NavLink>Pricing</NavLink>
             </Nav>
-            <Button variant="outline-primary">Sign up</Button>
+            <Button variant="outline" theme="primary">
+                Sign up
+            </Button>
         </Navbar>
         <div
             className="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
@@ -61,8 +63,8 @@ export default () => (
                             </ul>
                             <Button
                                 className="w-100"
-                                outline={!index}
-                                variant="primary"
+                                variant={index ? 'solid' : 'outline'}
+                                theme="primary"
                                 size="lg"
                             >
                                 {action}

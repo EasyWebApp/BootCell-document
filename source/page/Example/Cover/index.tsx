@@ -20,8 +20,7 @@ export default () => (
             <h3 className="masthead-brand mb-0 float-md-left">Cover</h3>
             <Nav
                 className="text-white-50 float-md-right"
-                itemMode="masthead"
-                align="center"
+                className="masthead-nav justify-content-center"
             >
                 <NavLink>Home</NavLink>
                 <NavLink>Features</NavLink>
@@ -37,7 +36,7 @@ export default () => (
                 background photo to make it your own.
             </p>
 
-            <Button variant="secondary" size="lg" href="#">
+            <Button variant="solid" theme="secondary" size="lg" href="#">
                 Learn more
             </Button>
         </main>

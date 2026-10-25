@@ -13,7 +13,7 @@ const logo = (
 export default () => (
     <>
         <div className="bg-dark sticky-top py-1">
-            <Nav className="container" align="between">
+            <Nav className="container d-flex justify-content-between">
                 <NavLink className="text-light">{logo}</NavLink>
                 {headers.map(header => (
                     <NavLink key={header} className="text-light">
@@ -30,7 +30,7 @@ export default () => (
                     marketing efforts with this example based on Apple’s
                     marketing pages.
                 </p>
-                <Button variant="outline-secondary" href="#">
+                <Button variant="outline" theme="secondary" href="#">
                     Coming soon
                 </Button>
             </Col>

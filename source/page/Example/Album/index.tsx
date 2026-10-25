@@ -29,10 +29,10 @@ const ImageCard = () => (
                 longer.
                 <div className="d-flex justify-content-between align-items-center">
                     <ButtonGroup>
-                        <Button size="sm" variant="outline-secondary">
+                        <Button size="sm" variant="outline" theme="secondary">
                             View
                         </Button>
-                        <Button size="sm" variant="outline-secondary">
+                        <Button size="sm" variant="outline" theme="secondary">
                             Edit
                         </Button>
                     </ButtonGroup>
@@ -45,7 +45,7 @@ const ImageCard = () => (
 
 export default () => (
     <>
-        <Navbar narrow>
+        <Navbar>
             <NavbarBrand>
                 <Icon className="mr-2" name="camera" size={1.25} />
                 Album
@@ -84,10 +84,14 @@ export default () => (
                 description="Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely."
             >
                 <p className="mb-0">
-                    <Button className="my-2 mr-2" variant="primary">
+                    <Button
+                        className="my-2 mr-2"
+                        variant="solid"
+                        theme="primary"
+                    >
                         Main call to action
                     </Button>
-                    <Button className="my-2" variant="secondary">
+                    <Button className="my-2" variant="solid" theme="secondary">
                         Secondary action
                     </Button>
                 </p>

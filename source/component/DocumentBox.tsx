@@ -49,7 +49,12 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
                 <main className="col-12 col-sm-9 col-md-10 p-4 border-left">
                     <h1 className="d-flex justify-content-between align-items-center">
                         {header}
-                        <Button variant="primary" size="sm" href={API}>
+                        <Button
+                            variant="solid"
+                            theme="primary"
+                            size="sm"
+                            href={API}
+                        >
                             API
                         </Button>
                     </h1>
