@@ -6,7 +6,7 @@
         "node": ">=20"
     },
     "dependencies": {
-        "boot-cell": "^2.0.0-rc.19",
+        "boot-cell": "3.0.0-alpha.0",
         "cell-router": "^4.0.4",
         "classnames": "^2.5.1",
         "dom-renderer": "^2.6.2",
