@@ -1,70 +1,30 @@
 ---
 layout: docs
 title: Tooltip
-description: Documentation and examples for adding custom Bootstrap tooltips with CSS and JavaScript using CSS3 for animations.
+description: Show a simple CSS tooltip when a trigger is hovered.
 group: Components
 ---
 
-import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
-import { Button } from 'boot-cell/source/Form/Button';
+import { Button, TooltipBox } from 'boot-cell';
 
-import { Fragment } from 'web-cell';
-import { Example } from '../../../../source/component/Example';
+import { Example } from '../../../component/Example';
 
-## Examples
-
-Hover over the buttons below to see the four tooltips directions: `top`, `right`, `bottom` and `left`.
+`TooltipBox` displays its `content` while its child is hovered.
 
 <Example>
-    {['top', 'right', 'bottom', 'left'].map(position => (
-        <TooltipBox position={position} text="Tooltip on top">
-            <Button color="secondary">Tooltip on {position}</Button>
-        </TooltipBox>
-    ))}
-</Example>
-
-```TSX
-import { render, createCell } from 'web-cell';
-import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
-import { Button } from 'boot-cell/source/Form/Button';
-
-render(['top', 'right', 'bottom', 'left'].map(position => (
-    <TooltipBox position={position} text="Tooltip on top">
-        <Button color="secondary">Tooltip on {position}</Button>
-    </TooltipBox>
-)));
-```
-
-And with custom HTML added:
-
-<Example>
-    <TooltipBox
-        position="left"
-        text={
-            <>
-                <em>Tooltip</em> <u>with</u> <b>HTML</b>
-            </>
-        }
-    >
-        <Button color="secondary">Tooltip on left</Button>
+    <TooltipBox content="Helpful information">
+        <Button variant="solid" theme="secondary">Hover for a tooltip</Button>
     </TooltipBox>
 </Example>
 
-```TSX
-import { render, createCell, Fragment } from 'web-cell';
-import { TooltipBox } from 'boot-cell/source/Prompt/Tooltip';
-import { Button } from 'boot-cell/source/Form/Button';
+```tsx
+import { TooltipBox } from 'boot-cell';
 
-render(
-    <TooltipBox
-        position="left"
-        text={
-            <>
-                <em>Tooltip</em> <u>with</u> <b>HTML</b>
-            </>
-        }
-    >
-        <Button color="secondary">Tooltip on left</Button>
-    </TooltipBox>
-);
+<TooltipBox content="Helpful information">
+    <span>Hover for details</span>
+</TooltipBox>;
 ```
+
+The tooltip uses BootCell's Bootstrap styles inside its shadow root. It is a
+lightweight hover tooltip, not the removed Popover component or Bootstrap's
+JavaScript positioning plugin.

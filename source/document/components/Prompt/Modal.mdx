@@ -1,0 +1,51 @@
+---
+layout: docs
+title: Modal
+description: Display modal dialogs with native dialog elements.
+group: Components
+---
+
+import {
+    Button,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+    ModalTitle
+} from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`Modal` renders an `HTMLDialogElement`. Its header, title, body, and footer are
+direct children of the dialog; there are no `.modal-dialog` or `.modal-content`
+wrappers.
+
+<Example>
+    <Modal show backdrop="static" ariaLabel="Example dialog">
+        <ModalHeader closeButton>
+            <ModalTitle>Modal title</ModalTitle>
+        </ModalHeader>
+        <ModalBody>
+            Control visibility with the `show` property and update that state
+            when the dialog emits `hide`.
+        </ModalBody>
+        <ModalFooter>
+            <Button variant="solid" theme="primary">Save changes</Button>
+        </ModalFooter>
+    </Modal>
+</Example>
+
+```tsx
+import { Modal, ModalBody, ModalHeader, ModalTitle } from 'boot-cell';
+
+<Modal show={isOpen} onHide={() => setIsOpen(false)}>
+    <ModalHeader closeButton>
+        <ModalTitle>Dialog title</ModalTitle>
+    </ModalHeader>
+    <ModalBody>Dialog content</ModalBody>
+</Modal>;
+```
+
+Refs now point to the dialog itself. `show` controls opening; handle its
+`hide` event to keep application state in sync. `backdrop={false}` uses
+non-modal `show()`, while other backdrop values use `showModal()`.
