@@ -18,34 +18,37 @@ import { observer } from 'web-cell';
 
 import { Example } from '../../../component/Example';
 
-const state = observable({ show: false });
+export const state = observable({ show: false });
 
-const ModalExample = observer(() => (
-
-<>
-    <Button variant="solid" theme="primary" onClick={() => (state.show = true)}>
-        Open modal
-    </Button>
-    <Modal
-        show={state.show}
-        onHide={() => (state.show = false)}
-        ariaLabel="Example dialog"
-    >
-        <ModalHeader closeButton>
-            <ModalTitle>Modal title</ModalTitle>
-        </ModalHeader>
-        <ModalBody>Dialog content</ModalBody>
-        <ModalFooter>
-            <Button
-                variant="solid"
-                theme="primary"
-                onClick={() => (state.show = false)}
-            >
-                Save changes
-            </Button>
-        </ModalFooter>
-    </Modal>
-</>
+export const ModalExample = observer(() => (
+    <>
+        <Button
+            variant="solid"
+            theme="primary"
+            onClick={() => (state.show = true)}
+        >
+            Open modal
+        </Button>
+        <Modal
+            show={state.show}
+            onHide={() => (state.show = false)}
+            ariaLabel="Example dialog"
+        >
+            <ModalHeader closeButton>
+                <ModalTitle>Modal title</ModalTitle>
+            </ModalHeader>
+            <ModalBody>Dialog content</ModalBody>
+            <ModalFooter>
+                <Button
+                    variant="solid"
+                    theme="primary"
+                    onClick={() => (state.show = false)}
+                >
+                    Save changes
+                </Button>
+            </ModalFooter>
+        </Modal>
+    </>
 ));
 
 `Modal` renders an `HTMLDialogElement`. Its header, title, body, and footer are

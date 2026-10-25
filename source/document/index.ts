@@ -13,76 +13,6 @@ export default [
         component: loadMDX(() => import('./Calendar/CountDown.mdx'))
     },
     {
-        path: 'Content/FAIcon',
-        layout: 'docs',
-        title: 'FAIcon',
-        description: 'Render Font Awesome v7 icons with BootCell components.',
-        group: 'Components',
-        component: loadMDX(() => import('./Content/FAIcon.mdx'))
-    },
-    {
-        path: 'Content/Jumbotron',
-        layout: 'docs',
-        title: 'Jumbotron',
-        description:
-            'Lightweight, flexible component for showcasing hero unit style content.',
-        group: 'Components',
-        component: loadMDX(() => import('./Content/Jumbotron.mdx'))
-    },
-    {
-        path: 'Content/ListGroup',
-        layout: 'docs',
-        title: 'List group',
-        description:
-            'List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.',
-        group: 'Components',
-        component: loadMDX(() => import('./Content/ListGroup.mdx'))
-    },
-    {
-        path: 'Content/MediaObject',
-        layout: 'docs',
-        title: 'Media object',
-        description:
-            'Documentation and examples for Bootstrap’s media object to construct highly repetitive components like blog comments, tweets, and the like.',
-        group: 'Components',
-        component: loadMDX(() => import('./Content/MediaObject.mdx'))
-    },
-    {
-        path: 'Form/ButtonGroup',
-        layout: 'docs',
-        title: 'Button group',
-        description:
-            'Group buttons on one line or stack them in a vertical column.',
-        group: 'Components',
-        component: loadMDX(() => import('./Form/ButtonGroup.mdx'))
-    },
-    {
-        path: 'Prompt/Spinner',
-        layout: 'docs',
-        title: 'Spinner',
-        description:
-            'Indicate the loading state of a component or page with BootCell spinners, built entirely with HTML, CSS, and no JavaScript.',
-        group: 'Components',
-        component: loadMDX(() => import('./Prompt/Spinner.mdx'))
-    },
-    {
-        path: 'Reminder/Badge',
-        layout: 'docs',
-        title: 'Badge',
-        description:
-            'Documentation and examples for badges, our small count and labeling component.',
-        group: 'Components',
-        component: loadMDX(() => import('./Reminder/Badge.mdx'))
-    },
-    {
-        path: 'Reminder/Icon',
-        layout: 'docs',
-        title: 'Icon',
-        description: 'Wrapper component for Bootstrap Icons v1 (web font)',
-        group: 'Components',
-        component: loadMDX(() => import('./Reminder/Icon.mdx'))
-    },
-    {
         path: 'components/Calendar/MonthCalendar',
         layout: 'docs',
         title: 'Month calendar',
@@ -261,5 +191,75 @@ export default [
             'Show task completion with a semantic, themed progress bar.',
         group: 'Components',
         component: loadMDX(() => import('./components/Reminder/Progress.mdx'))
+    },
+    {
+        path: 'Content/FAIcon',
+        layout: 'docs',
+        title: 'FAIcon',
+        description: 'Render Font Awesome v7 icons with BootCell components.',
+        group: 'Components',
+        component: loadMDX(() => import('./Content/FAIcon.mdx'))
+    },
+    {
+        path: 'Content/Jumbotron',
+        layout: 'docs',
+        title: 'Jumbotron',
+        description:
+            'Lightweight, flexible component for showcasing hero unit style content.',
+        group: 'Components',
+        component: loadMDX(() => import('./Content/Jumbotron.mdx'))
+    },
+    {
+        path: 'Content/ListGroup',
+        layout: 'docs',
+        title: 'List group',
+        description:
+            'List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.',
+        group: 'Components',
+        component: loadMDX(() => import('./Content/ListGroup.mdx'))
+    },
+    {
+        path: 'Content/MediaObject',
+        layout: 'docs',
+        title: 'Media object',
+        description:
+            'Documentation and examples for Bootstrap’s media object to construct highly repetitive components like blog comments, tweets, and the like.',
+        group: 'Components',
+        component: loadMDX(() => import('./Content/MediaObject.mdx'))
+    },
+    {
+        path: 'Form/ButtonGroup',
+        layout: 'docs',
+        title: 'Button group',
+        description:
+            'Group buttons on one line or stack them in a vertical column.',
+        group: 'Components',
+        component: loadMDX(() => import('./Form/ButtonGroup.mdx'))
+    },
+    {
+        path: 'Prompt/Spinner',
+        layout: 'docs',
+        title: 'Spinner',
+        description:
+            'Indicate the loading state of a component or page with BootCell spinners, built entirely with HTML, CSS, and no JavaScript.',
+        group: 'Components',
+        component: loadMDX(() => import('./Prompt/Spinner.mdx'))
+    },
+    {
+        path: 'Reminder/Badge',
+        layout: 'docs',
+        title: 'Badge',
+        description:
+            'Documentation and examples for badges, our small count and labeling component.',
+        group: 'Components',
+        component: loadMDX(() => import('./Reminder/Badge.mdx'))
+    },
+    {
+        path: 'Reminder/Icon',
+        layout: 'docs',
+        title: 'Icon',
+        description: 'Wrapper component for Bootstrap Icons v1 (web font)',
+        group: 'Components',
+        component: loadMDX(() => import('./Reminder/Icon.mdx'))
     }
 ];
