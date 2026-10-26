@@ -19,21 +19,21 @@ export const Case: FC<CaseProps> = ({
 }) => (
     <section
         className={classNames(
-            'flex-md-grow-1',
-            'mr-md-3',
-            'pt-3',
-            'px-3',
-            'pt-md-5',
-            'px-md-5',
+            'md:flex-grow-1',
+            'md:me-5',
+            'pt-5',
+            'px-5',
+            'md:pt-12',
+            'md:px-12',
             'text-center',
             'position-relative',
             `bg-${background}`,
-            dark_colors.includes(background) && 'text-white'
+            dark_colors.includes(background) && 'fg-white'
         )}
     >
-        <div className="my-3 py-3">
-            <h2 className="display-5">{name}</h2>
-            <p className="lead">{description}</p>
+        <div className="my-5 py-5">
+            <h2 className="fs-4xl fw-light">{name}</h2>
+            <p className="fs-lg fw-light">{description}</p>
         </div>
         <div
             className={classNames(

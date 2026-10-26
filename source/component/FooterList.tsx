@@ -11,11 +11,11 @@ export interface FooterListProps extends WebCellProps {
 export const FooterList: FC<FooterListProps> = ({ colSpan, title, menu }) => (
     <Col xs={colSpan} md="auto">
         <h5>{title}</h5>
-        <ul className="list-unstyled text-small">
+        <ul className="list-unstyled fs-sm">
             {menu.map(({ href, title }) => (
                 <li key={title}>
                     <a
-                        className="text-muted"
+                        className="fg-3"
                         target={isXDomain(href) ? '_blank' : ''}
                         href={href}
                     >

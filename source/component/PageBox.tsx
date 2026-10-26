@@ -21,13 +21,14 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
     ({ menu, activeIndex, subMenu, children }) => (
         <div>
             <DrawerNavbar
+                className="sticky-top"
                 brand={
                     <a
-                        className="text-white text-decoration-none d-flex align-items-center"
+                        className="fg-white text-decoration-none d-flex align-items-center"
                         href="#"
                     >
                         <img
-                            className="me-2"
+                            className="me-3"
                             style={{ width: '2rem' }}
                             src="https://web-cell.dev/WebCell-0.a6336415.png"
                         />
@@ -38,7 +39,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                 variant="dark"
                 sticky="top"
             >
-                <Nav className="justify-content-end flex-fill gap-md-3">
+                <Nav className="justify-content-end flex-fill md:gap-5">
                     {menu.map(({ title, target, href }, index) => {
                         const current = index === activeIndex;
 
@@ -69,7 +70,7 @@ export const PageFrame: FC<PropsWithChildren<PageFrameProps>> = observer(
                 {children}
             </div>
 
-            <footer className="text-center bg-light py-5">
+            <footer className="text-center bg-1 py-12">
                 Proudly developed with{' '}
                 <a target="_blank" href="https://web-cell.dev/">
                     WebCell v3

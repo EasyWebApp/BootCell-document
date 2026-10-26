@@ -13,7 +13,7 @@ import { PageProps } from 'cell-router';
 import data from './index.json';
 
 export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
-    <main className={`vw-100 ${className}`} {...props}>
+    <main className={`w-100 ${className}`} {...props}>
         <Jumbotron
             fluid
             title="Example"
@@ -37,9 +37,9 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
 const Section = ({ title, description, list }: (typeof data)[0]) => (
     <section>
         <h2>{title}</h2>
-        <p className="lead">{description}</p>
+        <p className="fs-lg fw-light">{description}</p>
 
-        <ul className="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <ul className="list-unstyled row row-cols-1 sm:row-cols-2 md:row-cols-4 g-5">
             {list.map(({ href, image, title, description }) => {
                 href ||= `example/${title.replace(' ', '-').toLowerCase()}`;
 

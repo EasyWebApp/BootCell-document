@@ -1,3 +1,14 @@
+:root[data-bs-theme='light'] :where(:not([data-bs-theme])) {
+    color-scheme: inherit;
+}
+
+command-line > kbd {
+    --bs-kbd-bg: transparent;
+    --bs-kbd-color: inherit;
+    --bs-kbd-font-size: 0.875em;
+    font-weight: normal;
+}
+
 blockquote {
     border-left: 3px solid lightgray;
     padding-left: 1rem;

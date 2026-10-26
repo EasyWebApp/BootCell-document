@@ -12,20 +12,20 @@ const logo = (
 
 export default () => (
     <>
-        <div className="bg-dark sticky-top py-1">
+        <div className="bg-inverse sticky-top py-1">
             <Nav className="container d-flex justify-content-between">
-                <NavLink className="text-light">{logo}</NavLink>
+                <NavLink className="fg-white">{logo}</NavLink>
                 {headers.map(header => (
-                    <NavLink key={header} className="text-light">
+                    <NavLink key={header} className="fg-white">
                         {header}
                     </NavLink>
                 ))}
             </Nav>
         </div>
-        <header className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <Col md={5} className="p-lg-5 mx-auto my-5">
-                <h1 className="display-4 font-weight-normal">Punny headline</h1>
-                <p className="lead font-weight-normal">
+        <header className="position-relative overflow-hidden p-5 md:p-12 md:m-5 text-center bg-1">
+            <Col md={5} className="lg:p-12 mx-auto my-12">
+                <h1 className="fs-5xl fw-light fw-normal">Punny headline</h1>
+                <p className="fs-lg fw-light fw-normal">
                     And an even wittier subheading to boot. Jumpstart your
                     marketing efforts with this example based on Apple’s
                     marketing pages.
@@ -35,15 +35,15 @@ export default () => (
                 </Button>
             </Col>
             <div
-                className={`${style['product-device']} shadow-sm d-none d-lg-block`}
+                className={`${style['product-device']} shadow-sm d-none lg:d-block`}
             />
             <div
-                className={`${style['product-device']} ${style['product-device-2']} shadow-sm d-none d-lg-block`}
+                className={`${style['product-device']} ${style['product-device-2']} shadow-sm d-none lg:d-block`}
             />
         </header>
         <main>
             {products.map(row => (
-                <div className="d-md-flex w-100 my-md-3 pl-md-3">
+                <div className="md:d-flex w-100 md:my-5 md:ps-5">
                     {row.map(item => (
                         <Case
                             {...item}
@@ -54,11 +54,11 @@ export default () => (
                 </div>
             ))}
         </main>
-        <footer className="container py-5">
+        <footer className="container py-12">
             <Row>
                 <Col xs={12} md="auto">
                     {logo}
-                    <small className="d-block mb-3 text-muted">
+                    <small className="d-block mb-5 fg-3">
                         © 2019-{new Date().getFullYear()}
                     </small>
                 </Col>

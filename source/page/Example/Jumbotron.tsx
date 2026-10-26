@@ -69,10 +69,10 @@ export default class JumbotronPage
                             <DropdownItem>Something else here</DropdownItem>
                         </NavDropdown>
                     </Nav>
-                    <form className="my-2 my-lg-0">
+                    <form className="my-3 lg:my-0">
                         <FormControl
                             type="search"
-                            className="me-sm-2"
+                            className="sm:me-3"
                             placeholder="Search"
                             ariaLabel="Search"
                         />
@@ -80,7 +80,7 @@ export default class JumbotronPage
                             type="submit"
                             variant="outline"
                             theme="success"
-                            className="my-2 my-sm-0"
+                            className="my-3 sm:my-0"
                         >
                             Search
                         </Button>

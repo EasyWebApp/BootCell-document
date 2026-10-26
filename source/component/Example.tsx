@@ -9,13 +9,7 @@ export const Example: FC<WebCellProps<HTMLDivElement>> = ({
     ...props
 }) => (
     <div
-        className={classNames(
-            'border',
-            'border-light',
-            'p-4',
-            style.example,
-            className
-        )}
+        className={classNames('border', 'p-7', style.example, className)}
         {...props}
     >
         {children}

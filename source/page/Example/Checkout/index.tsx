@@ -17,16 +17,16 @@ import * as style from './index.module.less';
 import { cart_list, foot_links } from './data.json';
 
 export default () => (
-    <div className={`${style.box} bg-light`}>
+    <div className={`${style.box} bg-1`}>
         <Container>
-            <div className="py-5 text-center">
+            <div className="py-12 text-center">
                 <img
-                    className="d-block mx-auto mb-4"
+                    className="d-block mx-auto mb-7"
                     style={{ width: '4.5rem' }}
                     src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg"
                 />
                 <h2>Checkout form</h2>
-                <p className="lead">
+                <p className="fs-lg fw-light">
                     Below is an example form built entirely with Bootstrap’s
                     form controls. Each required form group has a validation
                     state that can be triggered by attempting to submit the form
@@ -35,29 +35,29 @@ export default () => (
             </div>
 
             <Row>
-                <Col md={4} className="order-md-2 mb-4">
-                    <h4 className="d-flex justify-content-between align-items-center mb-3">
-                        <span className="text-muted">Your cart</span>
+                <Col md={4} className="md:order-2 mb-7">
+                    <h4 className="d-flex justify-content-between align-items-center mb-5">
+                        <span className="fg-3">Your cart</span>
                         <Badge bg="secondary" pill>
                             {cart_list.filter(({ code }) => !code).length}
                         </Badge>
                     </h4>
-                    <ListGroup className="mb-3">
+                    <ListGroup className="mb-5">
                         {cart_list.map(
                             ({ code, title, description, price }) => (
                                 <ListGroupItem
                                     key={title}
-                                    className={`d-flex justify-content-between ${code ? 'bg-light' : 'lh-condensed'}`}
+                                    className={`d-flex justify-content-between ${code ? 'bg-1' : 'lh-condensed'}`}
                                 >
-                                    <div className={code ? 'text-success' : ''}>
+                                    <div className={code ? 'fg-success' : ''}>
                                         <h6 className="my-0">{title}</h6>
-                                        <small className="text-muted">
+                                        <small className="fg-3">
                                             {code || description}
                                         </small>
                                     </div>
                                     <span
-                                        className={`text-${
-                                            code ? 'success' : 'muted'
+                                        className={`fg-${
+                                            code ? 'success' : '3'
                                         }`}
                                     >
                                         {code ? '-' : ''}${price}
@@ -71,7 +71,7 @@ export default () => (
                         </ListGroupItem>
                     </ListGroup>
 
-                    <form className="card p-2">
+                    <form className="card p-3">
                         <InputGroup>
                             <FormControl
                                 name="promo_code"
@@ -88,25 +88,25 @@ export default () => (
                         </InputGroup>
                     </form>
                 </Col>
-                <Col md={8} className="order-md-1">
-                    <h4 className="mb-3">Billing address</h4>
+                <Col md={8} className="md:order-1">
+                    <h4 className="mb-5">Billing address</h4>
                     <form validate>
                         <Row>
                             <FormField
-                                className="col-md-6 mb-3 m-0"
+                                className="md:col-6 mb-5 m-0"
                                 name="firstName"
                                 required
                                 label="First name"
                             />
                             <FormField
-                                className="col-md-6 mb-3 m-0"
+                                className="md:col-6 mb-5 m-0"
                                 name="lastName"
                                 required
                                 label="Last name"
                             />
                         </Row>
 
-                        <div className="mb-3">
+                        <div className="mb-5">
                             <label htmlFor="username">Username</label>
                             <InputGroup>
                                 <InputGroupText>@</InputGroupText>
@@ -119,10 +119,9 @@ export default () => (
                             </InputGroup>
                         </div>
 
-                        <div className="mb-3">
+                        <div className="mb-5">
                             <label htmlFor="email">
-                                Email{' '}
-                                <span className="text-muted">(Optional)</span>
+                                Email <span className="fg-3">(Optional)</span>
                             </label>
                             <FormField
                                 type="email"
@@ -133,16 +132,16 @@ export default () => (
                         </div>
 
                         <FormField
-                            className="mb-3 m-0"
+                            className="mb-5 m-0"
                             name="address"
                             required
                             label="Address"
                             placeholder="1234 Main St"
                         />
-                        <div className="mb-3">
+                        <div className="mb-5">
                             <label htmlFor="address2">
                                 Address 2{' '}
-                                <span className="text-muted">(Optional)</span>
+                                <span className="fg-3">(Optional)</span>
                             </label>
                             <FormField
                                 id="address2"
@@ -153,7 +152,7 @@ export default () => (
 
                         <Row>
                             <FormField
-                                className="col-md-5 mb-3 m-0"
+                                className="md:col-5 mb-5 m-0"
                                 name="country"
                                 required
                                 label="Country"
@@ -164,7 +163,7 @@ export default () => (
                             </FormField>
 
                             <FormField
-                                className="col-md-4 mb-3 m-0"
+                                className="md:col-4 mb-5 m-0"
                                 name="state"
                                 required
                                 label="State"
@@ -175,13 +174,13 @@ export default () => (
                             </FormField>
 
                             <FormField
-                                className="col-md-3 mb-3 m-0"
+                                className="md:col-3 mb-5 m-0"
                                 name="zip"
                                 required
                                 label="Zip"
                             />
                         </Row>
-                        <hr className="mb-4" />
+                        <hr className="mb-7" />
 
                         <FormCheck
                             type="checkbox"
@@ -193,11 +192,11 @@ export default () => (
                             name="same_info"
                             label="Save this information for next time"
                         />
-                        <hr className="mb-4" />
+                        <hr className="mb-7" />
 
-                        <h4 className="mb-3">Payment</h4>
+                        <h4 className="mb-5">Payment</h4>
 
-                        <div className="d-block my-3">
+                        <div className="d-block my-5">
                             <FormCheck
                                 type="radio"
                                 name="paymentMethod"
@@ -224,13 +223,13 @@ export default () => (
 
                         <Row>
                             <FormField
-                                className="col-md-6 mb-3 m-0"
+                                className="md:col-6 mb-5 m-0"
                                 name="cc_name"
                                 required
                                 label="Name on card"
                             />
                             <FormField
-                                className="col-md-6 mb-3 m-0"
+                                className="md:col-6 mb-5 m-0"
                                 name="cc_number"
                                 required
                                 label="Credit card number"
@@ -238,19 +237,19 @@ export default () => (
                         </Row>
                         <Row>
                             <FormField
-                                className="col-md-3 mb-3 m-0"
+                                className="md:col-3 mb-5 m-0"
                                 name="cc_expiration"
                                 required
                                 label="Expiration"
                             />
                             <FormField
-                                className="col-md-3 mb-3 m-0"
+                                className="md:col-3 mb-5 m-0"
                                 name="cc_cvv"
                                 required
                                 label="CVV"
                             />
                         </Row>
-                        <hr className="mb-4" />
+                        <hr className="mb-7" />
 
                         <Button
                             type="submit"
@@ -265,7 +264,7 @@ export default () => (
                 </Col>
             </Row>
 
-            <footer className="py-5 text-muted text-center text-small">
+            <footer className="py-12 fg-3 text-center fs-sm">
                 <p className="mb-1">© 2017-2020 Company Name</p>
                 <ul className="list-inline m-0">
                     {foot_links.map(({ title }) => (
