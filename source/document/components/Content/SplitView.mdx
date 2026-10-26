@@ -1,0 +1,38 @@
+---
+layout: docs
+title: Split view
+description: Arrange two independently sized panes with a draggable divider.
+group: Components
+---
+
+import { SplitView } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`SplitView` lays out two panes named `left` and `right`. Drag the divider to
+resize the left pane.
+
+<Example>
+    <SplitView>
+        <div slot="left" className="p-5">
+            <h2>Navigation</h2>
+            <p>Left pane content</p>
+        </div>
+        <div slot="right" className="p-5">
+            <h2>Content</h2>
+            <p>Right pane content</p>
+        </div>
+    </SplitView>
+</Example>
+
+```tsx
+import { SplitView } from 'boot-cell';
+
+<SplitView>
+    <aside slot="left">Navigation</aside>
+    <main slot="right">Main content</main>
+</SplitView>;
+```
+
+The initial left pane width is 25%. The divider uses pointer capture to support
+dragging.

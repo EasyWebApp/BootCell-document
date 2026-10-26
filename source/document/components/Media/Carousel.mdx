@@ -1,0 +1,44 @@
+---
+layout: docs
+title: Carousel
+description: Present slides with navigable carousel controls and indicators.
+group: Components
+---
+
+import { Carousel, CarouselCaption, CarouselItem } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`Carousel` manages its `CarouselItem` children. Controls and indicators share
+an overlay container; captions use `data-carousel-caption` so their text can
+label the indicators.
+
+<Example>
+    <Carousel>
+        <CarouselItem className="ratio ratio-21x9 bg-primary">
+            <CarouselCaption>
+                <h2>First slide</h2>
+                <p>Caption for the first slide.</p>
+            </CarouselCaption>
+        </CarouselItem>
+        <CarouselItem className="ratio ratio-21x9 bg-secondary">
+            <CarouselCaption>
+                <h2>Second slide</h2>
+                <p>Caption for the second slide.</p>
+            </CarouselCaption>
+        </CarouselItem>
+    </Carousel>
+</Example>
+
+```tsx
+import { Carousel, CarouselItem } from 'boot-cell';
+
+<Carousel interval={5000}>
+    <CarouselItem>First slide</CarouselItem>
+    <CarouselItem>Second slide</CarouselItem>
+</Carousel>;
+```
+
+The `interval` property sets the automatic transition delay in milliseconds.
+Use `[data-carousel-caption]` rather than the removed `.carousel-caption`
+selector when targeting captions.

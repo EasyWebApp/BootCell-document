@@ -23,7 +23,7 @@ foot_nav.splice(-2, 1);
 
 export default () => (
     <>
-        <Navbar theme="light" background="light" menuAlign="end">
+        <Navbar variant="light" bg="1">
             <NavbarBrand>Company name</NavbarBrand>
             <Nav>
                 <NavLink>Features</NavLink>
@@ -31,38 +31,39 @@ export default () => (
                 <NavLink>Support</NavLink>
                 <NavLink>Pricing</NavLink>
             </Nav>
-            <Button variant="outline-primary">Sign up</Button>
+            <Button variant="outline" theme="primary">
+                Sign up
+            </Button>
         </Navbar>
         <div
-            className="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
+            className="px-5 py-5 md:pt-12 md:pb-7 mx-auto text-center"
             style={{ maxWidth: '43.75rem' }}
         >
-            <h1 className="display-4">Pricing</h1>
-            <p className="lead">
+            <h1 className="fs-5xl fw-light">Pricing</h1>
+            <p className="fs-lg fw-light">
                 Quickly build an effective pricing table for your potential
                 customers with this Bootstrap example. It's built with default
                 Bootstrap components and utilities with little customization.
             </p>
         </div>
         <Container>
-            <div className="d-flex flex-wrap gap-3 text-center">
+            <div className="d-flex flex-wrap gap-5 text-center">
                 {prices.map(({ level, amount, details, action }, index) => (
                     <Card key={level} className="shadow-sm flex-fill">
                         <CardHeader>{level}</CardHeader>
                         <CardBody>
                             <CardTitle style={{ fontSize: '2.5rem' }}>
-                                ${amount}{' '}
-                                <small className="text-muted">/ mo</small>
+                                ${amount} <small className="fg-3">/ mo</small>
                             </CardTitle>
-                            <ul className="list-unstyled mt-3 mb-4">
+                            <ul className="list-unstyled mt-5 mb-7">
                                 {details.map(item => (
                                     <li key={item}>{item}</li>
                                 ))}
                             </ul>
                             <Button
                                 className="w-100"
-                                outline={!index}
-                                variant="primary"
+                                variant={index ? 'solid' : 'outline'}
+                                theme="primary"
                                 size="lg"
                             >
                                 {action}
@@ -71,14 +72,14 @@ export default () => (
                     </Card>
                 ))}
             </div>
-            <footer className="pt-4 my-md-5 pt-md-5 border-top">
+            <footer className="pt-7 md:my-12 md:pt-12 border-top">
                 <Row>
                     <Col xs={12} md="auto">
                         <img
                             style={{ width: '24px' }}
                             src="https://github.com/EasyWebApp.png"
                         />
-                        <small className="d-block mb-3 text-muted">
+                        <small className="d-block mb-5 fg-3">
                             © 2017-{new Date().getFullYear()}
                         </small>
                     </Col>

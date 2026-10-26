@@ -1,0 +1,51 @@
+---
+layout: docs
+title: Card
+description: Compose flexible content containers from card primitives.
+group: Components
+---
+
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    CardImg,
+    CardTitle
+} from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+Compose a card from the exported structural components. `Card` accepts
+background, text, and border color props; content belongs in its children.
+
+<Example>
+    <Card bg="1" text="body" style={{ maxWidth: '24rem' }}>
+        <CardImg
+            variant="top"
+            src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
+            alt="Bootstrap"
+        />
+        <CardHeader>Featured</CardHeader>
+        <CardBody>
+            <CardTitle>Card title</CardTitle>
+            <p>Supporting text for this card.</p>
+        </CardBody>
+        <CardFooter>Updated recently</CardFooter>
+    </Card>
+</Example>
+
+```tsx
+import { Card, CardBody, CardTitle } from 'boot-cell';
+
+<Card bg="subtle-primary" text="body">
+    <CardBody>
+        <CardTitle>Card title</CardTitle>
+        <p>Card content</p>
+    </CardBody>
+</Card>;
+```
+
+`bg` generates `bg-*` classes and accepts `BackgroundColor` values. `text` and
+`border` accept `TextColor` values. Use current color tokens instead of legacy
+aliases such as `light`, `dark`, or `muted`.

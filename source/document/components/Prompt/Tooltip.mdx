@@ -1,0 +1,32 @@
+---
+layout: docs
+title: Tooltip
+description: Show a simple CSS tooltip when a trigger is hovered.
+group: Components
+---
+
+import { Button, TooltipBox } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`TooltipBox` displays its `content` while its child is hovered.
+
+<Example>
+    <TooltipBox content="Helpful information">
+        <Button variant="solid" theme="secondary">
+            Hover for a tooltip
+        </Button>
+    </TooltipBox>
+</Example>
+
+```tsx
+import { TooltipBox } from 'boot-cell';
+
+<TooltipBox content="Helpful information">
+    <span>Hover for details</span>
+</TooltipBox>;
+```
+
+The tooltip uses BootCell's Bootstrap styles inside its shadow root. It is a
+lightweight hover tooltip, not the removed Popover component or Bootstrap's
+JavaScript positioning plugin.

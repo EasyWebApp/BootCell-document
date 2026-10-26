@@ -1,0 +1,36 @@
+---
+layout: docs
+title: Navbar
+description: Add responsive navigation with a navbar or drawer-backed navbar.
+group: Components
+---
+
+import { DrawerNavbar, Nav, Navbar, NavbarBrand, NavLink } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`Navbar` renders Bootstrap navigation without a built-in collapsing menu.
+`DrawerNavbar` provides a responsive drawer menu for narrow screens.
+
+<Example>
+    <Navbar expand="lg" variant="dark" bg="primary">
+        <NavbarBrand href="#">Brand</NavbarBrand>
+        <Nav>
+            <NavLink href="#home">Home</NavLink>
+            <NavLink href="#docs">Documentation</NavLink>
+        </Nav>
+    </Navbar>
+</Example>
+
+```tsx
+import { DrawerNavbar, NavLink } from 'boot-cell';
+
+<DrawerNavbar brand="Brand" title="Site navigation" expand="lg">
+    <NavLink href="#home">Home</NavLink>
+    <NavLink href="#docs">Documentation</NavLink>
+</DrawerNavbar>;
+```
+
+The old `OffcanvasNavbar` and `<offcanvas-navbar>` names have been removed.
+Use `DrawerNavbar` and `<drawer-navbar>` instead; its generated identifier is
+`drawerId`, not `offcanvasId`. Responsive sizes use `2xl`, not `xxl`.

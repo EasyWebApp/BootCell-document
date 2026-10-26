@@ -46,8 +46,11 @@ new DOMRenderer().render(
 Badges can be used as part of links or buttons to provide a counter.
 
 <Example>
-    <Button variant="primary">
-        Notifications <Badge bg="light">4</Badge>
+    <Button variant="solid" theme="primary">
+        Notifications{' '}
+        <Badge bg="1" text="body">
+            4
+        </Badge>
     </Button>
 </Example>
 
@@ -56,8 +59,11 @@ import { DOMRenderer } from 'dom-renderer';
 import { Badge, Button } from 'boot-cell';
 
 new DOMRenderer().render(
-    <Button variant="primary">
-        Notifications <Badge bg="light">4</Badge>
+    <Button variant="solid" theme="primary">
+        Notifications{' '}
+        <Badge bg="1" text="body">
+            4
+        </Badge>
     </Button>
 );
 ```
@@ -72,9 +78,12 @@ Unless the context is clear (as with the “Notifications” example, where it i
 the “4” is the number of notifications), consider including additional context with a visually hidden piece of additional text.
 
 <Example>
-    <Button variant="primary">
-        Profile <Badge bg="light">9</Badge>
-        <span className="sr-only">unread messages</span>
+    <Button variant="solid" theme="primary">
+        Profile{' '}
+        <Badge bg="1" text="body">
+            9
+        </Badge>
+        <span className="visually-hidden">unread messages</span>
     </Button>
 </Example>
 
@@ -83,16 +92,20 @@ import { DOMRenderer } from 'dom-renderer';
 import { Badge, Button } from 'boot-cell';
 
 new DOMRenderer().render(
-    <Button variant="primary">
-        Profile <Badge bg="light">9</badge>
-        <span className="sr-only">unread messages</span>
+    <Button variant="solid" theme="primary">
+        Profile{' '}
+        <Badge bg="1" text="body">
+            9
+        </Badge>
+        <span className="visually-hidden">unread messages</span>
     </Button>
 );
 ```
 
 ## Contextual variations
 
-Add any of the below mentioned `color` property values to change the appearance of a badge.
+Use `bg` for the badge background and `text` for its foreground. `bg` values
+generate `bg-*` classes and accept `BackgroundColor` values.
 
 <Example>
     {[
@@ -102,8 +115,8 @@ Add any of the below mentioned `color` property values to change the appearance 
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        '1',
+        '2'
     ].map(color => (
         <Badge bg={color} className="text-capitalize">
             {color}
@@ -124,8 +137,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            '1',
+            '2'
         ].map(color => (
             <Badge bg={color} className="text-capitalize">
                 {color}
@@ -154,8 +167,8 @@ Useful if you miss the badges from v3.
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        'accent',
+        'inverse'
     ].map(color => (
         <Badge pill bg={color} className="text-capitalize">
             {color}
@@ -176,8 +189,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            'accent',
+            'inverse'
         ].map(color => (
             <Badge pill bg={color} className="text-capitalize">
                 {color}
@@ -199,8 +212,8 @@ Using `href` property on `<Badge />` quickly provide actionable badges with hove
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        'accent',
+        'inverse'
     ].map(color => (
         <Badge href="." bg={color} className="text-capitalize">
             {color}
@@ -221,8 +234,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            'accent',
+            'inverse'
         ].map(color => (
             <Badge href="." bg={color} className="text-capitalize">
                 {color}

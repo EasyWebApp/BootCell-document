@@ -1,0 +1,42 @@
+---
+layout: docs
+title: Month calendar
+description: Display a monthly calendar with selectable date entries.
+group: Components
+---
+
+import { MonthCalendar } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+Pass an array of date entries with `value`. Use `onSelect` to handle a linked
+badge selection and `onChange` to observe month navigation.
+
+<Example>
+    <MonthCalendar
+        value={[
+            {
+                date: new Date(),
+                content: 'Today',
+                link: '#today'
+            }
+        ]}
+        onSelect={({ detail }) => console.log(detail)}
+        variant="outline"
+        theme="primary"
+    />
+</Example>
+
+```tsx
+import { MonthCalendar } from 'boot-cell';
+
+<MonthCalendar
+    locale="en"
+    value={[{ date: new Date(), content: 'Event', link: '#event' }]}
+    onChange={({ detail }) => console.log(detail)}
+/>;
+```
+
+The navigation buttons use the `variant` and `theme` properties. Weekday
+headings use the selected theme. Responsive sizes elsewhere in BootCell use
+`2xl` rather than `xxl`.

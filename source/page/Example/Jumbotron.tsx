@@ -40,7 +40,7 @@ export default class JumbotronPage
             <h2>{name}</h2>
             <p>{description}</p>
             <p>
-                <Button variant="secondary" href={html_url}>
+                <Button variant="solid" theme="secondary" href={html_url}>
                     View details »
                 </Button>
             </p>
@@ -69,17 +69,18 @@ export default class JumbotronPage
                             <DropdownItem>Something else here</DropdownItem>
                         </NavDropdown>
                     </Nav>
-                    <form inline className="my-2 my-lg-0">
+                    <form className="my-3 lg:my-0">
                         <FormControl
                             type="search"
-                            className="me-sm-2"
+                            className="sm:me-3"
                             placeholder="Search"
                             ariaLabel="Search"
                         />
                         <Button
                             type="submit"
-                            variant="outline-success"
-                            className="my-2 my-sm-0"
+                            variant="outline"
+                            theme="success"
+                            className="my-3 sm:my-0"
                         >
                             Search
                         </Button>
@@ -91,7 +92,7 @@ export default class JumbotronPage
                     title="Hello, world!"
                     description="This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique."
                 >
-                    <Button variant="primary" size="lg">
+                    <Button variant="solid" theme="primary" size="lg">
                         Learn more »
                     </Button>
                 </Jumbotron>

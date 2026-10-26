@@ -1,0 +1,33 @@
+---
+layout: docs
+title: Tabs
+description: Switch between content panels with accessible tab navigation.
+group: Components
+---
+
+import { Tab, Tabs } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+Use `Tab` elements with a `caption` inside `Tabs`. The `currentIndex` property
+selects the initially active panel.
+
+<Example>
+    <Tabs>
+        <Tab caption="First">Content for the first tab.</Tab>
+        <Tab caption="Second">Content for the second tab.</Tab>
+        <Tab caption="Third">Content for the third tab.</Tab>
+    </Tabs>
+</Example>
+
+```tsx
+import { Tab, Tabs } from 'boot-cell';
+
+<Tabs currentIndex={1}>
+    <Tab caption="Profile">Profile content</Tab>
+    <Tab caption="Settings">Settings content</Tab>
+</Tabs>;
+```
+
+`Tabs` renders the navigation and tab panel structure. `Tab` replaces the
+removed `TabPanel` API; set each panel's label with `caption`.

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import {
-    OffcanvasNavbar,
+    DrawerNavbar,
     Nav,
     NavLink,
     NavDropdown,
@@ -15,7 +15,7 @@ import * as style from './Offcanvas.module.less';
 
 export default () => (
     <>
-        <OffcanvasNavbar brand="Offcanvas navbar">
+        <DrawerNavbar brand="Drawer navbar">
             <NavLink>Dashboard</NavLink>
             <NavLink>Notifications</NavLink>
             <NavLink>Profile</NavLink>
@@ -26,27 +26,28 @@ export default () => (
                 <DropdownItem>Something else here</DropdownItem>
             </NavDropdown>
 
-            <form inline className="my-2 my-lg-0">
+            <form className="my-3 lg:my-0">
                 <FormControl
                     type="search"
-                    className="mr-sm-2"
+                    className="sm:me-3"
                     placeholder="Search"
                     ariaLabel="Search"
                 />
                 <Button
                     type="submit"
-                    variant="outline-success"
-                    className="my-2 my-sm-0"
+                    variant="outline"
+                    theme="success"
+                    className="my-3 sm:my-0"
                 >
                     Search
                 </Button>
             </form>
-        </OffcanvasNavbar>
-        <Nav scrollable>
+        </DrawerNavbar>
+        <Nav className="flex-column">
             <NavLink>Dashboard</NavLink>
             <NavLink>
                 Friends{' '}
-                <Badge pill color="light" className="align-text-bottom">
+                <Badge pill bg="1" text="body" className="align-text-bottom">
                     27
                 </Badge>
             </NavLink>
@@ -61,23 +62,23 @@ export default () => (
                 className={classNames(
                     'd-flex',
                     'align-items-center',
-                    'p-3',
-                    'my-3',
-                    'text-white-50',
+                    'p-5',
+                    'my-5',
+                    'fg-3',
                     style['bg-purple'],
                     'rounded',
                     'shadow-sm'
                 )}
             >
                 <img
-                    className={classNames('mr-3', style.logo)}
+                    className={classNames('me-5', style.logo)}
                     src="https://github.com/EasyWebApp.png"
                 />
                 <div className={style['lh-100']}>
                     <h6
                         className={classNames(
                             'mb-0',
-                            'text-white',
+                            'fg-white',
                             style['lh-100']
                         )}
                     >
@@ -86,19 +87,17 @@ export default () => (
                     <small>Since 2019</small>
                 </div>
             </div>
-            <div className="my-3 p-3 bg-white rounded shadow-sm">
-                <h6 className="border-bottom border-gray pb-2 mb-0">
-                    Recent updates
-                </h6>
+            <div className="my-5 p-5 bg-white rounded shadow-sm">
+                <h6 className="border-bottom pb-3 mb-0">Recent updates</h6>
                 {Array.from(new Array(3), () => (
                     <MediaObject
-                        className="text-muted pt-3"
+                        className="fg-3 pt-5"
                         image="https://github.com/EasyWebApp.png"
                         title="WebCell"
                     >
                         <p
                             className={classNames(
-                                'pb-3',
+                                'pb-5',
                                 'mb-0',
                                 'small',
                                 style['lh-125'],
@@ -110,23 +109,21 @@ export default () => (
                         </p>
                     </MediaObject>
                 ))}
-                <small className="d-block text-right mt-3">
+                <small className="d-block text-end mt-5">
                     <a href="#">All updates</a>
                 </small>
             </div>
-            <div className="my-3 p-3 bg-white rounded shadow-sm">
-                <h6 className="border-bottom border-gray pb-2 mb-0">
-                    Suggestions
-                </h6>
+            <div className="my-5 p-5 bg-white rounded shadow-sm">
+                <h6 className="border-bottom pb-3 mb-0">Suggestions</h6>
                 {Array.from(new Array(3), () => (
                     <MediaObject
-                        className="text-muted pt-3"
+                        className="fg-3 pt-5"
                         image="https://github.com/EasyWebApp.png"
                         title=""
                     >
                         <div
                             className={classNames(
-                                'pb-3',
+                                'pb-5',
                                 'mb-0',
                                 'small',
                                 style['lh-125'],
@@ -141,7 +138,7 @@ export default () => (
                         </div>
                     </MediaObject>
                 ))}
-                <small className="d-block text-right mt-3">
+                <small className="d-block text-end mt-5">
                     <a href="#">All suggestions</a>
                 </small>
             </div>

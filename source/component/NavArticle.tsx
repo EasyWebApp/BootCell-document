@@ -2,7 +2,7 @@ import { WebCell, component, observer } from 'web-cell';
 import { watchScroll } from 'web-utility';
 import { observable } from 'mobx';
 import classNames from 'classnames';
-import { Row } from 'boot-cell';
+import { BootstrapStyles, Row } from 'boot-cell';
 
 import { renderMode } from '../model/Meta';
 import * as style from './NavArticle.module.less';
@@ -58,17 +58,17 @@ export class NavArticle extends HTMLElement implements WebCell {
                 <article
                     className={classNames(
                         'col-12',
-                        headerList[0] && 'col-md-9'
+                        headerList[0] && 'md:col-9'
                     )}
                 >
                     <slot />
                 </article>
 
                 {headerList[0] && (
-                    <nav className="d-none d-md-block col-3 p-4 overflow-auto">
+                    <nav className="d-none md:d-block col-3 p-7 overflow-auto">
                         {headerList.map(({ level, id, text }) => (
                             <a
-                                className="d-block pl-2 text-nowrap"
+                                className="d-block ps-3 text-nowrap"
                                 style={{
                                     fontSize: `${0.5 + (6 - level) / 10}rem`,
                                     textIndent: `${level - 1}rem`
@@ -87,10 +87,8 @@ export class NavArticle extends HTMLElement implements WebCell {
     render() {
         return (
             <>
-                <link
-                    rel="stylesheet"
-                    href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css"
-                />
+                <BootstrapStyles />
+
                 {this.renderContent()}
             </>
         );

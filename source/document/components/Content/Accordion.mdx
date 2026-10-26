@@ -1,0 +1,54 @@
+---
+layout: docs
+title: Accordion
+description: Build expandable sections with native details and summary elements.
+group: Components
+---
+
+import {
+    Accordion,
+    AccordionBody,
+    AccordionHeader,
+    AccordionItem
+} from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`AccordionItem` renders a native `<details>` element, and `AccordionHeader`
+renders its `<summary>`. Native details interaction controls expansion; use the
+`open` attribute to show an item initially.
+
+<Example>
+    <Accordion>
+        <AccordionItem open>
+            <AccordionHeader>First section</AccordionHeader>
+            <AccordionBody>
+                The first section is initially open and can be toggled natively.
+            </AccordionBody>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeader>Second section</AccordionHeader>
+            <AccordionBody>Another section of content.</AccordionBody>
+        </AccordionItem>
+    </Accordion>
+</Example>
+
+```tsx
+import {
+    Accordion,
+    AccordionBody,
+    AccordionHeader,
+    AccordionItem
+} from 'boot-cell';
+
+<Accordion alwaysOpen>
+    <AccordionItem>
+        <AccordionHeader>Section title</AccordionHeader>
+        <AccordionBody>Section content</AccordionBody>
+    </AccordionItem>
+</Accordion>;
+```
+
+`alwaysOpen` lets multiple items stay open. Without it, opening an item closes
+any other open item in the same accordion. `AccordionBody` is a plain `<div>`,
+not a collapse component.

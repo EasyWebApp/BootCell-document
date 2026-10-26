@@ -1,0 +1,75 @@
+---
+layout: docs
+title: Modal
+description: Display modal dialogs with native dialog elements.
+group: Components
+---
+
+import {
+    Button,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+    ModalTitle
+} from 'boot-cell';
+import { observable } from 'mobx';
+import { observer } from 'web-cell';
+
+import { Example } from '../../../component/Example';
+
+export const state = observable({ show: false });
+
+export const ModalExample = observer(() => (
+    <>
+        <Button
+            variant="solid"
+            theme="primary"
+            onClick={() => (state.show = true)}
+        >
+            Open modal
+        </Button>
+        <Modal
+            show={state.show}
+            onHide={() => (state.show = false)}
+            ariaLabel="Example dialog"
+        >
+            <ModalHeader closeButton>
+                <ModalTitle>Modal title</ModalTitle>
+            </ModalHeader>
+            <ModalBody>Dialog content</ModalBody>
+            <ModalFooter>
+                <Button
+                    variant="solid"
+                    theme="primary"
+                    onClick={() => (state.show = false)}
+                >
+                    Save changes
+                </Button>
+            </ModalFooter>
+        </Modal>
+    </>
+));
+
+`Modal` renders an `HTMLDialogElement`. Its header, title, body, and footer are
+direct children of the dialog; there are no `.modal-dialog` or `.modal-content`
+wrappers.
+
+<Example>
+    <ModalExample />
+</Example>
+
+```tsx
+import { Modal, ModalBody, ModalHeader, ModalTitle } from 'boot-cell';
+
+<Modal show={isOpen} onHide={() => setIsOpen(false)}>
+    <ModalHeader closeButton>
+        <ModalTitle>Dialog title</ModalTitle>
+    </ModalHeader>
+    <ModalBody>Dialog content</ModalBody>
+</Modal>;
+```
+
+Refs now point to the dialog itself. `show` controls opening; handle its
+`hide` event to keep application state in sync. `backdrop={false}` uses
+non-modal `show()`, while other backdrop values use `showModal()`.

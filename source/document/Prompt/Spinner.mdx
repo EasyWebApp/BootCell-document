@@ -45,8 +45,8 @@ You can use any of our text color utilities on the standard spinner.
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        'body',
+        'white'
     ].map(color => (
         <Spinner variant={color} />
     ))}
@@ -65,8 +65,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            'body',
+            'white'
         ].map(color => (
             <Spinner variant={color} />
         ))}
@@ -101,8 +101,8 @@ Here it is in blue, along with the supported variants.
         'danger',
         'warning',
         'info',
-        'light',
-        'dark'
+        'body',
+        'white'
     ].map(color => (
         <Spinner animation="grow" variant={color} />
     ))}
@@ -121,8 +121,8 @@ new DOMRenderer().render(
             'danger',
             'warning',
             'info',
-            'light',
-            'dark'
+            'body',
+            'white'
         ].map(color => (
             <Spinner animation="grow" variant={color} />
         ))}
@@ -137,17 +137,17 @@ This means they can easily be resized, recolored, and quickly aligned.
 
 ### Margin
 
-Use [margin utilities][2] like `.m-5` for easy spacing.
+Use [margin utilities][2] like `.m-12` for easy spacing.
 
 <Example>
-    <Spinner className="m-5" />
+    <Spinner className="m-12" />
 </Example>
 
 ```tsx
 import { DOMRenderer } from 'dom-renderer';
 import { Spinner } from 'boot-cell';
 
-new DOMRenderer().render(<Spinner className="m-5" />);
+new DOMRenderer().render(<Spinner className="m-12" />);
 ```
 
 ### Placement
@@ -177,7 +177,7 @@ new DOMRenderer().render(
 <Example>
     <div className="d-flex align-items-center">
         <strong>Loading...</strong>
-        <Spinner className="ml-auto" aria-hidden="true" />
+        <Spinner className="ms-auto" aria-hidden="true" />
     </div>
 </Example>
 
@@ -188,7 +188,7 @@ import { Spinner } from 'boot-cell';
 new DOMRenderer().render(
     <div className="d-flex align-items-center">
         <strong>Loading...</strong>
-        <Spinner className="ml-auto" ariaHidden="true" />
+        <Spinner className="ms-auto" ariaHidden="true" />
     </div>
 );
 ```
@@ -197,7 +197,7 @@ new DOMRenderer().render(
 
 <Example>
     <div className="clearfix">
-        <Spinner className="float-right" />
+        <Spinner className="float-end" />
     </div>
 </Example>
 
@@ -207,7 +207,7 @@ import { Spinner } from 'boot-cell';
 
 new DOMRenderer().render(
     <div className="clearfix">
-        <Spinner className="float-right" />
+        <Spinner className="float-end" />
     </div>
 );
 ```
@@ -277,11 +277,11 @@ Use spinners within buttons to indicate an action is currently processing or tak
 You may also swap the text out of the spinner element and utilize button text as needed.
 
 <Example>
-    <Button variant="primary" disabled>
+    <Button variant="solid" theme="primary" disabled>
         <Spinner size="sm" ariaHidden="true" />{' '}
-        <span className="sr-only">Loading...</span>
+        <span className="visually-hidden">Loading...</span>
     </Button>
-    <Button variant="primary" disabled>
+    <Button variant="solid" theme="primary" disabled>
         <Spinner size="sm" ariaHidden="true" /> Loading...
     </Button>
 </Example>
@@ -292,11 +292,11 @@ import { Spinner, Button } from 'boot-cell';
 
 new DOMRenderer().render(
     <>
-        <Button variant="primary" disabled>
+        <Button variant="solid" theme="primary" disabled>
             <Spinner size="sm" ariaHidden="true" />{' '}
-            <span className="sr-only">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
         </Button>
-        <Button variant="primary" disabled>
+        <Button variant="solid" theme="primary" disabled>
             <Spinner size="sm" ariaHidden="true" /> Loading...
         </Button>
     </>
@@ -304,11 +304,11 @@ new DOMRenderer().render(
 ```
 
 <Example>
-    <Button variant="primary" disabled>
+    <Button variant="solid" theme="primary" disabled>
         <Spinner animation="grow" size="sm" ariaHidden="true" />{' '}
-        <span className="sr-only">Loading...</span>
+        <span className="visually-hidden">Loading...</span>
     </Button>
-    <Button variant="primary" disabled>
+    <Button variant="solid" theme="primary" disabled>
         <Spinner animation="grow" size="sm" ariaHidden="true" /> Loading...
     </Button>
 </Example>
@@ -319,11 +319,11 @@ import { Spinner, Button } from 'boot-cell';
 
 new DOMRenderer().render(
     <>
-        <Button variant="primary" disabled>
+        <Button variant="solid" theme="primary" disabled>
             <Spinner animation="grow" size="sm" ariaHidden="true" />{' '}
-            <span className="sr-only">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
         </Button>
-        <Button variant="primary" disabled>
+        <Button variant="solid" theme="primary" disabled>
             <Spinner animation="grow" size="sm" ariaHidden="true" /> Loading...
         </Button>
     </>

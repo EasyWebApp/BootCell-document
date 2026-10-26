@@ -1,0 +1,39 @@
+---
+layout: docs
+title: Form fields
+description: Compose labels, controls, and input checks for forms.
+group: Components
+---
+
+import { FormCheck, FormControl, FormField } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`FormField` combines a label with a native input, select, or textarea. Use
+`FormControl` when you need to compose the control yourself.
+
+<Example>
+    <FormField
+        label="Email address"
+        type="email"
+        placeholder="name@example.com"
+    />
+    <FormField as="select" label="Country">
+        <option>Choose a country</option>
+        <option>Canada</option>
+    </FormField>
+    <FormCheck type="checkbox" label="Remember me" />
+    <FormCheck type="switch" label="Enable notifications" />
+</Example>
+
+```tsx
+import { FormCheck, FormControl, FormField } from 'boot-cell';
+
+<FormField label="Email" type="email" required />;
+<FormControl as="textarea" placeholder="Message" />;
+<FormCheck type="radio" name="plan" label="Standard" />;
+```
+
+`FormCheck` renders a `.form-field` wrapper. Checkbox and radio classes are on
+the input; a switch wraps its input in `.switch`. Review custom selectors and
+the `inline` and `reverse` layouts when migrating older forms.

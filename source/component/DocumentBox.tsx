@@ -27,16 +27,16 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
             API = `https://web-cell.dev/BootCell/interfaces/${name}Props.html`;
 
         return (
-            <Row className={`vw-100 ${className}`} {...props}>
+            <Row className={`w-100 ${className}`} {...props}>
                 {deviceType !== 'phone' && (
-                    <nav className="col-3 col-md-2 p-4 overflow-auto">
+                    <nav className="col-3 md:col-2 p-7 overflow-auto">
                         {Object.entries(menu).map(([group, list]) => (
                             <>
-                                <h5 className="mx-2">{group}</h5>
+                                <h5 className="mx-3">{group}</h5>
 
                                 {list.map(({ href, title }) => (
                                     <a
-                                        className="d-block m-2"
+                                        className="d-block m-3"
                                         href={`#${href}`}
                                     >
                                         {title}
@@ -46,14 +46,19 @@ export const DocumentBox: FC<PropsWithChildren<DocumentBoxProps>> = observer(
                         ))}
                     </nav>
                 )}
-                <main className="col-12 col-sm-9 col-md-10 p-4 border-left">
+                <main className="col-12 sm:col-9 md:col-10 p-7 border-start">
                     <h1 className="d-flex justify-content-between align-items-center">
                         {header}
-                        <Button variant="primary" size="sm" href={API}>
+                        <Button
+                            variant="solid"
+                            theme="primary"
+                            size="sm"
+                            href={API}
+                        >
                             API
                         </Button>
                     </h1>
-                    <p className="lead">{description}</p>
+                    <p className="fs-lg fw-light">{description}</p>
                     <NavArticle>
                         <CodeCopy>{children}</CodeCopy>
                     </NavArticle>

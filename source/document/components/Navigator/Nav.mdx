@@ -1,0 +1,41 @@
+---
+layout: docs
+title: Nav
+description: Build flexible navigation with links, tabs, and dropdowns.
+group: Components
+---
+
+import { Nav, NavDropdown, NavLink, DropdownItem } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`Nav` supports the `pills`, `underline`, and `tabs` variants, as well as
+`fill` and `justify` layouts. Use `NavLink` for items and `NavDropdown` for a
+menu.
+
+<Example>
+    <Nav variant="tabs">
+        <NavLink href="#overview" active>
+            Overview
+        </NavLink>
+        <NavLink href="#details">Details</NavLink>
+        <NavDropdown title="More">
+            <DropdownItem href="#help">Help</DropdownItem>
+        </NavDropdown>
+    </Nav>
+</Example>
+
+```tsx
+import { Nav, NavLink } from 'boot-cell';
+
+<Nav variant="pills" justify>
+    <NavLink href="#first" active>
+        First
+    </NavLink>
+    <NavLink href="#second">Second</NavLink>
+</Nav>;
+```
+
+`Nav` uses flexbox; set alignment and spacing with its `className`. When placed
+inside a navbar or drawer navbar, its responsive layout follows the navbar's
+`expand` breakpoint.

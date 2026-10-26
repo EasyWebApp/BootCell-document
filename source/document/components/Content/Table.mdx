@@ -1,0 +1,50 @@
+---
+layout: docs
+title: Table
+description: Render responsive, themed tables with standard table markup.
+group: Components
+---
+
+import { Table } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`Table` accepts standard table content and Bootstrap table options. The
+`variant` property uses semantic theme colors.
+
+<Example>
+    <Table variant="primary" striped hover responsive>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>First</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Second</td>
+            </tr>
+        </tbody>
+    </Table>
+</Example>
+
+```tsx
+import { Table } from 'boot-cell';
+
+<Table variant="accent" responsive="2xl" bordered>
+    <tbody>
+        <tr>
+            <th scope="row">A</th>
+            <td>Example</td>
+        </tr>
+    </tbody>
+</Table>;
+```
+
+Responsive sizes use `2xl`, not `xxl`. BootCell prefixes responsive classes
+with their breakpoint, for example `2xl:table-responsive`.

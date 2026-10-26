@@ -1,0 +1,35 @@
+---
+layout: docs
+title: Alert
+description: Show contextual feedback with semantic theme colors.
+group: Components
+---
+
+import { Alert, AlertLink } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`Alert` uses a semantic `variant` such as `success`, `warning`, `accent`, or
+`inverse`. Its rendered color class uses the `theme-*` namespace.
+
+<Example>
+    <Alert variant="success" title="Well done!">
+        Your changes have been saved.{' '}
+        <AlertLink href="#details">View details</AlertLink>
+    </Alert>
+    <Alert variant="warning" dismissible>
+        Check the information before continuing.
+    </Alert>
+</Example>
+
+```tsx
+import { Alert } from 'boot-cell';
+
+<Alert variant="danger" title="Unable to save">
+    Try again in a moment.
+</Alert>;
+```
+
+Use `dismissible` with `onClose` to provide dismissal behavior. The `show`
+property controls whether the alert is visible. Choose an explicit replacement
+for legacy `light` or `dark` alert variants; those are not `ThemeColor` values.

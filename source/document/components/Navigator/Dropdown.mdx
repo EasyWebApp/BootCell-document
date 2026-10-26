@@ -1,0 +1,31 @@
+---
+layout: docs
+title: Dropdown
+description: Toggle a menu of links from a button or navigation item.
+group: Components
+---
+
+import { DropdownButton, DropdownItem, NavDropdown } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+Use `DropdownButton` for a standalone menu. Its `caption` labels the toggle and
+its children are rendered as menu items.
+
+<Example>
+    <DropdownButton caption="Actions" variant="outline">
+        <DropdownItem href="#edit">Edit</DropdownItem>
+        <DropdownItem href="#duplicate">Duplicate</DropdownItem>
+    </DropdownButton>
+</Example>
+
+```tsx
+import { DropdownButton, DropdownItem } from 'boot-cell';
+
+<DropdownButton caption="Actions" variant="solid">
+    <DropdownItem href="#edit">Edit</DropdownItem>
+</DropdownButton>;
+```
+
+Inside a `Nav`, use `NavDropdown` to render a navigation-style toggle. The
+former `DropMenu` module and `DropMenuItem` names are not compatibility aliases.

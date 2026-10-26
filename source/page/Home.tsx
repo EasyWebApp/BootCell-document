@@ -14,15 +14,15 @@ import { scaffolds } from './data';
 import routes from '../document';
 
 export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
-    <main className={`vw-100 ${className}`} {...props}>
-        <Container className="d-lg-flex flex-row-reverse align-items-center text-center text-md-start">
+    <main className={`w-100 ${className}`} {...props}>
+        <Container className="lg:d-flex flex-row-reverse align-items-center text-center md:text-start">
             <img
-                className="pt-5 p-lg-5"
+                className="pt-12 lg:p-12"
                 style={{ width: '50vw' }}
                 src="https://web-cell.dev/WebCell-0.a6336415.png"
             />
             <Jumbotron
-                className="bg-white"
+                className=""
                 title="BootCell"
                 description="Build responsive, mobile-first projects on the web with the world’s most popular front-end component library."
             >
@@ -37,16 +37,17 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
                     </a>
                     ,{' '}
                     <a target="_blank" href="https://getbootstrap.com/">
-                        Bootstrap v5
+                        Bootstrap v6
                     </a>{' '}
                     &amp;{' '}
                     <a target="_blank" href="https://fontawesome.com/">
-                        FontAwesome v6
+                        FontAwesome v7
                     </a>
                 </p>
                 <Button
-                    className="me-0 me-sm-3 mb-3 mb-sm-0"
-                    variant="success"
+                    className="me-0 sm:me-5 mb-5 sm:mb-0"
+                    variant="solid"
+                    theme="success"
                     size="lg"
                     href={`#${routes[0].path}`}
                 >
@@ -54,7 +55,8 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
                 </Button>
                 <TooltipBox content="GitHub login first">
                     <DropdownButton
-                        variant="primary"
+                        variant="solid"
+                        theme="primary"
                         size="lg"
                         caption="Create a Project"
                     >
@@ -67,7 +69,7 @@ export const HomePage: FC<PageProps> = ({ className = '', ...props }) => (
         </Container>
 
         <CommandLine
-            className="d-block mx-auto mb-5"
+            className="d-block mx-auto mb-12 p-5 bg-inverse fg-white"
             style={{ maxWidth: '27rem' }}
             text="npm install boot-cell"
         />

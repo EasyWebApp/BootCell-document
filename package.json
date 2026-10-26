@@ -6,47 +6,38 @@
         "node": ">=20"
     },
     "dependencies": {
-        "boot-cell": "^2.0.0-rc.19",
+        "boot-cell": "^3.0.0-alpha.0",
         "cell-router": "^4.0.4",
         "classnames": "^2.5.1",
-        "dom-renderer": "^2.6.2",
+        "dom-renderer": "^2.6.4",
         "github-web-widget": "^4.0.0",
-        "iterable-observer": "^1.1.0",
-        "mobx": "^6.15.0",
-        "mobx-github": "^0.5.1",
+        "iterable-observer": "^1.1.1",
+        "mobx": "^6.16.1",
+        "mobx-github": "^0.7.1",
         "web-cell": "^3.2.2",
-        "web-utility": "^4.6.1"
+        "web-utility": "^4.8.1"
     },
     "devDependencies": {
-        "@parcel/config-default": "~2.16.0",
-        "@parcel/packager-raw-url": "~2.16.0",
-        "@parcel/transformer-less": "~2.16.0",
-        "@parcel/transformer-typescript-tsc": "~2.16.0",
-        "@parcel/transformer-webmanifest": "~2.16.0",
-        "@types/mdx": "^2.0.13",
-        "@types/node": "^22.18.6",
-        "fs-match": "^1.7.3",
+        "@parcel/config-default": "~2.16.4",
+        "@parcel/packager-raw-url": "~2.16.4",
+        "@parcel/transformer-less": "~2.16.4",
+        "@parcel/transformer-typescript-tsc": "~2.16.4",
+        "@parcel/transformer-webmanifest": "~2.16.4",
+        "@types/mdx": "^2.0.14",
+        "@types/node": "^26.6.5",
+        "fs-match": "^2.0.1",
         "husky": "^9.1.7",
-        "lint-staged": "^16.2.1",
-        "parcel": "~2.16.0",
+        "lint-staged": "^17.6.0",
+        "parcel": "~2.16.4",
         "parcel-transformer-mdx": "^0.4.2",
-        "postcss": "^8.5.6",
+        "postcss": "^8.5.31",
         "postcss-modules": "^6.0.1",
-        "prettier": "^3.6.2",
-        "svgo": "^3.3.2",
-        "tsx": "^4.20.6",
-        "typescript": "~5.9.2",
-        "workbox-cli": "^7.3.0",
-        "yaml": "^2.8.1"
-    },
-    "pnpm": {
-        "onlyBuiltDependencies": [
-            "@parcel/watcher",
-            "@swc/core",
-            "esbuild",
-            "lmdb",
-            "msgpackr-extract"
-        ]
+        "prettier": "^3.9.10",
+        "rimraf": "^6.1.3",
+        "tsx": "^4.23.15",
+        "typescript": "~5.9.3",
+        "workbox-cli": "^7.4.1",
+        "yaml": "^2.9.1"
     },
     "prettier": {
         "singleQuote": true,
@@ -61,7 +52,7 @@
     "scripts": {
         "prepare": "husky  &&  npm run clean",
         "test": "lint-staged",
-        "clean": "rm -rf .parcel-cache/ dist/  &&  tsx create-index source/document/",
+        "clean": "rimraf .parcel-cache/ dist/  &&  tsx create-index source/document/",
         "pack-tsx": "parcel build source/index.html --public-url .",
         "build": "npm run clean  &&  npm run pack-tsx  &&  workbox generateSW",
         "start": "npm run clean  &&  parcel source/index.html --open"

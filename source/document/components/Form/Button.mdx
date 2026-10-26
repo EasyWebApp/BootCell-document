@@ -1,0 +1,59 @@
+---
+layout: docs
+title: Button
+description: Create actions with independent appearance and theme properties.
+group: Components
+---
+
+import { Button, IconButton, ToggleButton } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+`variant` controls a button's appearance, while `theme` sets its color. The
+available appearances are `solid`, `outline`, `subtle`, `text`, and `link`.
+
+<Example>
+    <Button variant="solid" theme="primary">
+        Primary
+    </Button>
+    <Button variant="outline" theme="success">
+        Outline
+    </Button>
+    <Button variant="subtle" theme="accent">
+        Subtle
+    </Button>
+    <Button variant="text" theme="danger">
+        Text
+    </Button>
+    <Button variant="link">Link</Button>
+</Example>
+
+```tsx
+import { Button } from 'boot-cell';
+
+<Button variant="outline" theme="primary">
+    Save
+</Button>;
+```
+
+Use `ToggleButton` for a checkbox- or radio-backed button. Its input is nested
+inside the label, so do not rely on the input and label being adjacent siblings.
+
+<Example>
+    <ToggleButton type="checkbox" name="notifications" checked>
+        Notifications
+    </ToggleButton>
+    <IconButton name="star" variant="solid" theme="warning" ariaLabel="Star" />
+</Example>
+
+```tsx
+import { IconButton, ToggleButton } from 'boot-cell';
+
+<ToggleButton type="radio" name="view" value="grid">
+    Grid view
+</ToggleButton>;
+<IconButton name="star" variant="outline" theme="warning" ariaLabel="Star" />;
+```
+
+`Button` leaves `variant` and `theme` unset by default. `ToggleButton` defaults
+to `variant="solid"` and `theme="primary"`.

@@ -39,7 +39,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
     }
 
     renderItem = ({ name, description, html_url }: GitRepository) => (
-        <Col lg={4} className="mb-4">
+        <Col lg={4} className="mb-7">
             <Image
                 roundedCircle
                 style={{ width: '8.75rem' }}
@@ -48,7 +48,7 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
             <h2 style={{ fontWeight: '400' }}>{name}</h2>
             <p>{description}</p>
             <p>
-                <Button variant="secondary" href={html_url}>
+                <Button variant="solid" theme="secondary" href={html_url}>
                     View details »
                 </Button>
             </p>
@@ -69,18 +69,18 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                             </NavLink>
                         ))}
                     </Nav>
-                    <form inline className="my-2 my-lg-0">
+                    <form className="my-3 lg:my-0">
                         <FormControl
                             type="search"
-                            className="mr-sm-2"
+                            className="sm:me-3"
                             placeholder="Search"
                             aria-label="Search"
                         />
                         <Button
                             type="submit"
-                            variant="success"
-                            outline
-                            className="my-2 my-sm-0"
+                            variant="outline"
+                            theme="success"
+                            className="my-3 sm:my-0"
                         >
                             Search
                         </Button>
@@ -109,8 +109,8 @@ export default class CarouselPage extends HTMLElement implements CustomElement {
                         </>
                     ))}
                 </Container>
-                <footer className="container my-5">
-                    <p className="float-right">
+                <footer className="container my-12">
+                    <p className="float-end">
                         <a href="#top">Back to top</a>
                     </p>
                     <p>

@@ -13,20 +13,20 @@ export const headers = [
 
 export const products: Pick<CaseProps, 'background' | 'color'>[][] = [
     [
-        { background: 'dark', color: 'light' },
-        { background: 'light', color: 'dark' }
+        { background: 'inverse', color: 'white' },
+        { background: '1', color: 'body' }
     ],
     [
-        { background: 'light', color: 'dark' },
-        { background: 'primary', color: 'light' }
+        { background: '1', color: 'body' },
+        { background: 'primary', color: 'white' }
     ],
     [
-        { background: 'light', color: 'white' },
-        { background: 'light', color: 'white' }
+        { background: '1', color: 'white' },
+        { background: '1', color: 'white' }
     ],
     [
-        { background: 'light', color: 'white' },
-        { background: 'light', color: 'white' }
+        { background: '1', color: 'white' },
+        { background: '1', color: 'white' }
     ]
 ];
 

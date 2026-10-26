@@ -1,0 +1,41 @@
+---
+layout: docs
+title: Input groups
+description: Extend form controls with text, buttons, or button groups.
+group: Components
+---
+
+import { Button, FormControl, InputGroup, InputGroupText } from 'boot-cell';
+
+import { Example } from '../../../component/Example';
+
+Place `InputGroupText` or a button beside a `FormControl` inside an
+`InputGroup`.
+
+<Example>
+    <InputGroup>
+        <InputGroupText>@</InputGroupText>
+        <FormControl placeholder="Username" ariaLabel="Username" />
+    </InputGroup>
+    <InputGroup className="mt-5">
+        <FormControl placeholder="Search" ariaLabel="Search" />
+        <Button variant="solid" theme="secondary">
+            Search
+        </Button>
+    </InputGroup>
+</Example>
+
+```tsx
+import { Button, FormControl, InputGroup, InputGroupText } from 'boot-cell';
+
+<InputGroup>
+    <InputGroupText>$</InputGroupText>
+    <FormControl type="number" ariaLabel="Amount" />
+    <Button variant="outline" theme="primary">
+        Submit
+    </Button>
+</InputGroup>;
+```
+
+`InputGroup` supports `size="sm"` and `size="lg"`. Use the current exported
+`FormControl` API instead of the removed `Field` component.
